@@ -1,0 +1,2820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details | Bila Badi</title>
+  <meta name="description"
+    content="View verified property details, floor plans, pricing, amenities, and owner contact for Ashray Vihar Phase 2 in Patia, Bhubaneswar.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-green: #0d5435;
+      --primary-green-hover: #083e26;
+      --primary-green-light: #eaf7f0;
+      --primary-green-border: #bbf7d0;
+      --accent-green: #1b804e;
+      --accent-green-bright: #10b981;
+      --footer-bg: #083822;
+      --footer-text-muted: rgba(255, 255, 255, 0.65);
+
+      --text-dark: #111827;
+      --text-heading: #0c2c1e;
+      --text-body: #4b5563;
+      --text-muted: #6b7280;
+      --text-light: #9ca3af;
+
+      --bg-page: #f8faf8;
+      --bg-card: #ffffff;
+      --bg-soft: #f3f6f3;
+      --border-color: #e5e7eb;
+      --border-light: #f0f3f1;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 12px 30px rgba(13, 84, 53, 0.08);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Base & Reset */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: var(--bg-page);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: var(--transition);
+    }
+
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ==========================================================================
+       Site Header (Exact match to index.html)
+       ========================================================================== */
+    .site-header {
+      background-color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .brand-icon-svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .brand-text-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.4px;
+      line-height: 1.1;
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
+    }
+
+    .brand-tld {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary-green);
+      letter-spacing: normal;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-body);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-green);
+    }
+
+    .nav-link.active {
+      color: var(--primary-green);
+      font-weight: 700;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background-color: var(--primary-green);
+      border-radius: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .action-btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: var(--text-body);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .action-btn-icon:hover {
+      color: var(--primary-green);
+      background-color: var(--primary-green-light);
+    }
+
+    .action-btn-icon.active svg {
+      fill: #ef4444;
+      stroke: #ef4444;
+    }
+
+    .fav-count-badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: var(--primary-green);
+      color: #ffffff;
+      font-size: 9.5px;
+      font-weight: 800;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid #ffffff;
+    }
+
+    .login-link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .login-link:hover {
+      color: var(--primary-green);
+    }
+
+    .btn-add-property {
+      background-color: var(--primary-green);
+      color: #ffffff;
+      padding: 9px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 13.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 4px 10px rgba(13, 84, 53, 0.15);
+    }
+
+    .btn-add-property:hover {
+      background-color: var(--primary-green-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(13, 84, 53, 0.25);
+    }
+
+    .mobile-nav-toggle {
+      display: none;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+      border-radius: var(--radius-sm);
+    }
+
+    /* Mobile Drawer Menu */
+    .mobile-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100%;
+      background-color: #ffffff;
+      z-index: 1000;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .mobile-drawer.open {
+      right: 0;
+    }
+
+    .mobile-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .drawer-close-btn {
+      font-size: 24px;
+      color: var(--text-dark);
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .mobile-nav-links a {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 6px 0;
+    }
+
+    .mobile-nav-links a.active {
+      color: var(--primary-green);
+    }
+
+    .mobile-drawer-footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* ==========================================================================
+       Breadcrumb & Action Bar
+       ========================================================================== */
+    .details-subnav-bar {
+      padding: 16px 0 10px;
+    }
+
+    .details-subnav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .back-listings-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--primary-green);
+      transition: var(--transition);
+    }
+
+    .back-listings-link:hover {
+      color: var(--primary-green-hover);
+      transform: translateX(-3px);
+    }
+
+    .top-action-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-circle-action {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      color: var(--text-body);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-circle-action:hover {
+      color: var(--primary-green);
+      border-color: var(--primary-green-border);
+      background: var(--primary-green-light);
+    }
+
+    .btn-circle-action.active svg {
+      fill: #ef4444;
+      stroke: #ef4444;
+    }
+
+    /* ==========================================================================
+       Property Header (Badges, Title, Location, Owner Tag)
+       ========================================================================== */
+    .prop-main-header {
+      margin-bottom: 20px;
+    }
+
+    .prop-badges-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .prop-pill-badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .prop-pill-badge.sale {
+      background: var(--primary-green-light);
+      color: var(--primary-green);
+      border: 1px solid var(--primary-green-border);
+    }
+
+    .prop-pill-badge.status {
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
+
+    .prop-pill-badge.verified {
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+    }
+
+    .prop-pill-badge.rera {
+      background: #fffbeb;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+
+    .prop-pill-badge.rating {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fcd34d;
+    }
+
+    .prop-header-flex-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .prop-title-area h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.4px;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .prop-loc-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .prop-loc-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .prop-loc-item svg {
+      color: var(--accent-green);
+      flex-shrink: 0;
+    }
+
+    .prop-header-right-tags {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    .owner-badge-tag {
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .owner-badge-tag.builder {
+      background: var(--primary-green);
+    }
+
+    .rera-id-text {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       Photo Gallery Grid (Matches Mockup)
+       ========================================================================== */
+    .gallery-section {
+      margin-bottom: 28px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2.2fr 1fr;
+      gap: 12px;
+      height: 420px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .gallery-hero-box {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-hero-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-hero-box:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-posted-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(13, 84, 53, 0.88);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      backdrop-filter: blur(4px);
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-btn-tour {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--text-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .gallery-btn-tour:hover {
+      background: var(--primary-green);
+      color: #ffffff;
+    }
+
+    .gallery-thumbs-col {
+      display: grid;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      height: 100%;
+      min-height: 0;
+    }
+
+    .gallery-thumb-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      height: 100%;
+      min-height: 0;
+    }
+
+    .gallery-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-thumb-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-more-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 56, 34, 0.65);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      transition: background 0.2s ease;
+    }
+
+    .gallery-thumb-item:hover .gallery-more-overlay {
+      background: rgba(8, 56, 34, 0.75);
+    }
+
+    /* ==========================================================================
+       Main 2-Column Details Layout
+       ========================================================================== */
+    .details-main-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 50px;
+    }
+
+    .details-left-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 0;
+    }
+
+    /* Standard Card Component */
+    .detail-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .detail-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .card-heading-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-heading);
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 18px;
+    }
+
+    .card-heading-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--primary-green-light);
+      color: var(--primary-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Key-Value Info Grid */
+    .info-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 16px;
+      column-gap: 36px;
+    }
+
+    .info-spec-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13.5px;
+    }
+
+    .spec-label {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .spec-val {
+      color: var(--text-dark);
+      font-weight: 700;
+      text-align: right;
+    }
+
+    /* Highlight Cards inside Utilities */
+    .utilities-banners-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .utility-highlight-box {
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .utility-highlight-box.water {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .utility-highlight-box.power {
+      background: #fefce8;
+      border: 1px solid #fef08a;
+    }
+
+    .util-icon-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .utility-highlight-box.water .util-icon-circle {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .utility-highlight-box.power .util-icon-circle {
+      background: #fef9c3;
+      color: #ca8a04;
+    }
+
+    .util-text-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .util-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .util-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    /* Amenities Pills Grid */
+    .amenities-chips-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .amenity-chip {
+      background: var(--bg-soft);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-body);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .amenity-chip svg {
+      color: var(--primary-green);
+      flex-shrink: 0;
+    }
+
+    .amenity-chip:hover {
+      background: var(--primary-green-light);
+      border-color: var(--primary-green-border);
+      color: var(--primary-green);
+    }
+
+    /* Review / Verified Box */
+    .rating-summary-banner {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1px solid #fde68a;
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .rating-left-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .rating-star-badge {
+      background: #f59e0b;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .rating-title-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: #78350f;
+    }
+
+    .verified-inspect-tag {
+      font-size: 12px;
+      color: #92400e;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       Right Column: Sticky Booking & Pricing Card
+       ========================================================================== */
+    .details-sidebar-col {
+      position: sticky;
+      top: 84px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .price-booking-card {
+      background: #ffffff;
+      border: 1.5px solid var(--primary-green-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .price-header-row {
+      margin-bottom: 8px;
+    }
+
+    .price-tag-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .price-large-amount {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--primary-green);
+      line-height: 1.1;
+      letter-spacing: -0.6px;
+      margin-top: 2px;
+    }
+
+    .price-note-box {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 11.5px;
+      color: #92400e;
+      margin: 12px 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-schedule-call {
+      width: 100%;
+      background: var(--primary-green);
+      color: #ffffff;
+      font-size: 14.5px;
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(13, 84, 53, 0.28);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-schedule-call:hover {
+      background: var(--primary-green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(13, 84, 53, 0.38);
+    }
+
+    .btn-whatsapp-chat {
+      width: 100%;
+      background: #ffffff;
+      color: #15803d;
+      border: 1.5px solid #86efac;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 10px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-whatsapp-chat:hover {
+      background: #f0fdf4;
+      border-color: #22c55e;
+    }
+
+    /* Seller Info Card */
+    .seller-contact-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .seller-profile-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .seller-avatar-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary-green-light);
+    }
+
+    .seller-info-meta {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .seller-name {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .seller-sub-label {
+      font-size: 11.5px;
+      color: var(--accent-green);
+      font-weight: 700;
+    }
+
+    .seller-response-row {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    /* Quick Inquiry Form Inside Sidebar */
+    .sidebar-inquiry-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sidebar-inquiry-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-input-field {
+      width: 100%;
+      background: #fcfdfc;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 12.5px;
+      color: var(--text-dark);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-input-field:focus {
+      border-color: var(--primary-green);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(13, 84, 53, 0.1);
+    }
+
+    .btn-submit-inquiry {
+      background: var(--primary-green);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 4px;
+    }
+
+    .btn-submit-inquiry:hover {
+      background: var(--primary-green-hover);
+    }
+
+    /* ==========================================================================
+       CTA Banner: "Find Your Next Home" (Matches Mockup with Bila Badi Palette)
+       ========================================================================== */
+    .next-home-cta-section {
+      background: linear-gradient(135deg, #f0fdf4 0%, #eaf7f0 100%);
+      border: 1px solid var(--primary-green-border);
+      border-radius: 20px;
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: 0 6px 20px rgba(13, 84, 53, 0.05);
+      margin-bottom: 50px;
+    }
+
+    .cta-text-left h3 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.4px;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .cta-text-left h3 .cta-green-word {
+      color: var(--primary-green);
+    }
+
+    .cta-text-left p {
+      font-size: 13.5px;
+      color: var(--text-body);
+      max-width: 580px;
+      line-height: 1.5;
+    }
+
+    .cta-buttons-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .btn-reseller-outline {
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--primary-green);
+      background: #ffffff;
+      color: var(--primary-green);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-reseller-outline:hover {
+      background: var(--primary-green-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-get-started-fill {
+      padding: 10px 24px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--primary-green);
+      background: var(--primary-green);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(13, 84, 53, 0.25);
+    }
+
+    .btn-get-started-fill:hover {
+      background: var(--primary-green-hover);
+      border-color: var(--primary-green-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(13, 84, 53, 0.35);
+    }
+
+    /* ==========================================================================
+       Site Footer (Exact Match to index.html)
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--footer-bg);
+      color: #ffffff;
+      padding: 60px 0 28px;
+    }
+
+    .footer-main-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.85fr 0.9fr 0.9fr 1.7fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer-logo .brand-icon-svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .footer-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-name {
+      font-size: 21px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+
+    .footer-brand-tld {
+      color: #86efac;
+    }
+
+    .footer-tagline {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 3px;
+      font-weight: 500;
+      letter-spacing: 0.1px;
+    }
+
+    .footer-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.72);
+      margin: 18px 0 22px;
+      max-width: 310px;
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .social-icon-btn:hover {
+      background-color: var(--accent-green-bright);
+      border-color: var(--accent-green-bright);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-col-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      letter-spacing: -0.2px;
+    }
+
+    .footer-col-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col-links li a {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 13.5px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .footer-col-links li a:hover {
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+
+    .footer-newsletter-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .newsletter-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.72);
+      margin-bottom: 18px;
+      max-width: 340px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 9999px;
+      padding: 4px 5px 4px 18px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .newsletter-input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 13.5px;
+      color: #111827;
+      flex: 1;
+      padding: 8px 0;
+      min-width: 0;
+    }
+
+    .newsletter-input::placeholder {
+      color: #9ca3af;
+    }
+
+    .newsletter-btn {
+      background: var(--accent-green-bright);
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .newsletter-btn:hover {
+      background: #059669;
+      transform: scale(1.02);
+    }
+
+    .footer-bottom-row {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.65);
+      margin: 0;
+    }
+
+    .footer-bottom-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-legal-links a {
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-legal-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-legal-links .sep {
+      opacity: 0.4;
+      font-size: 11px;
+    }
+
+    .btn-scroll-top {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent-green-bright);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-scroll-top:hover {
+      background: #059669;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    /* ==========================================================================
+       Photo Lightbox Modal
+       ========================================================================== */
+    .lightbox-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 1200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    .lightbox-backdrop.open {
+      display: flex;
+    }
+
+    .lightbox-modal {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-img-box {
+      width: 100%;
+      max-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .lightbox-img-box img {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: -46px;
+      right: 0;
+      color: #ffffff;
+      font-size: 32px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .lightbox-close-btn:hover {
+      transform: scale(1.15);
+      color: #86efac;
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: var(--transition);
+    }
+
+    .lightbox-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .lightbox-prev {
+      left: -60px;
+    }
+
+    .lightbox-next {
+      right: -60px;
+    }
+
+    .lightbox-counter-pill {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* Toast Notification */
+    .toast-popup {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0d5435;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 13.5px;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      z-index: 1500;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      animation: toastFadeIn 0.3s ease;
+    }
+
+    @keyframes toastFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==========================================================================
+       Responsive Styles
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .details-main-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .details-sidebar-col {
+        position: static;
+      }
+
+      .gallery-grid {
+        height: 360px;
+      }
+
+      .footer-main-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .footer-newsletter-col {
+        grid-column: span 3;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 14px;
+      }
+
+      .desktop-nav,
+      .login-link,
+      .btn-add-property {
+        display: none;
+      }
+
+      .mobile-nav-toggle {
+        display: flex;
+      }
+
+      .prop-title-area h1 {
+        font-size: 21px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .gallery-hero-box {
+        height: 220px;
+      }
+
+      .gallery-thumbs-col {
+        display: none;
+      }
+
+      .info-specs-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .utilities-banners-row {
+        grid-template-columns: 1fr;
+      }
+
+      .lightbox-prev {
+        left: 10px;
+      }
+
+      .lightbox-next {
+        right: 10px;
+      }
+
+      .next-home-cta-section {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 18px;
+      }
+
+      .cta-buttons-right {
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .btn-reseller-outline,
+      .btn-get-started-fill {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* Footer: 2-2 in a row on mobile */
+      .site-footer {
+        padding: 40px 0 24px;
+      }
+
+      .footer-main-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 32px 18px !important;
+      }
+
+      .footer-brand {
+        grid-column: span 2 !important;
+        margin-bottom: 6px;
+      }
+
+      .footer-col {
+        min-width: 0;
+      }
+
+      .footer-col-title {
+        font-size: 15px !important;
+        margin-bottom: 14px !important;
+      }
+
+      .footer-col-links {
+        gap: 10px !important;
+      }
+
+      .footer-col-links li a {
+        font-size: 13px !important;
+      }
+
+      .footer-newsletter-col {
+        grid-column: span 1 !important;
+        min-width: 0;
+      }
+
+      .newsletter-desc {
+        font-size: 12.5px !important;
+        line-height: 1.45 !important;
+        margin-bottom: 12px !important;
+      }
+
+      .newsletter-form {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        background: transparent !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+      }
+
+      .newsletter-input {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        background: #ffffff !important;
+        border-radius: 9999px !important;
+        padding: 9px 14px !important;
+        font-size: 12.5px !important;
+        color: #111827 !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      }
+
+      .newsletter-input::placeholder {
+        font-size: 11.5px !important;
+        color: #9ca3af !important;
+      }
+
+      .newsletter-btn {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        border-radius: 9999px !important;
+        padding: 9px 14px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        background: #10b981 !important;
+        color: #ffffff !important;
+        text-align: center !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25) !important;
+      }
+
+      .footer-bottom-row {
+        margin-top: 32px;
+        padding-top: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .footer-bottom-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       Site Header (Matches index.html)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Bila Badi Home">
+        <svg class="brand-icon-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 3.5L3 16.5H7.5V31.5H28.5V16.5H33L18 3.5Z" fill="#0d5435" />
+          <path
+            d="M18 13C15.8 13 14 14.8 14 17C14 18.8 15.2 20.3 16.8 20.8V26H19.2V20.8C20.8 20.3 22 18.8 22 17C22 14.8 20.2 13 18 13Z"
+            fill="#ffffff" />
+          <path d="M13.5 22C14.8 23.5 16.3 24 18 24C19.7 24 21.2 23.5 22.5 22" stroke="#ffffff" stroke-width="1.8"
+            stroke-linecap="round" />
+        </svg>
+        <div class="brand-text-wrap">
+          <span class="brand-name">
+            Bila Badi<span class="brand-tld">.com</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="product-details.html" class="nav-link active">Properties</a>
+        <a href="index.html#about" class="nav-link">About Us</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#blog" class="nav-link">Blog</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <button type="button" class="action-btn-icon" id="navWishlistBtn" aria-label="Wishlist" title="Saved Properties">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+            </path>
+          </svg>
+          <span class="fav-count-badge" id="favCountBadge" style="display: none;">0</span>
+        </button>
+
+        <!-- Login / Register -->
+        <a href="login.html" class="login-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Login / Register</span>
+        </a>
+
+        <!-- Add Property Button -->
+        <a href="#add-property" class="btn-add-property">
+          <span>+</span> Add Property
+        </a>
+
+        <!-- Mobile Nav Toggle Button -->
+        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="brand-name">Bila Badi<span class="brand-tld">.com</span></div>
+      <button class="drawer-close-btn" id="drawerClose" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="product-details.html" class="active">Properties</a>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="login-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span>Login / Register</span>
+      </a>
+      <a href="#add-property" class="btn-add-property" style="justify-content: center;">
+        + Add Property
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       Main Property Content
+       ========================================================================== -->
+  <main class="container">
+
+    <!-- Subnav / Back to Listings & Actions -->
+    <div class="details-subnav-bar">
+      <div class="details-subnav-inner">
+        <a href="product-details.html" class="back-listings-link" id="backListingsLink">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Listings
+        </a>
+
+        <div class="top-action-buttons">
+          <button type="button" class="btn-circle-action" id="btnShareProp" aria-label="Share property" title="Share property link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+          </button>
+          <button type="button" class="btn-circle-action" id="btnSaveProp" aria-label="Save to favorites" title="Save to favorites">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+              </path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property Header Info -->
+    <section class="prop-main-header">
+      <div class="prop-badges-row">
+        <span class="prop-pill-badge sale">For Sale</span>
+        <span class="prop-pill-badge status" id="propBadgeStatus">Under Construction</span>
+        <span class="prop-pill-badge verified">★ Verified</span>
+        <span class="prop-pill-badge rera">RERA Reg.</span>
+        <span class="prop-pill-badge rating">★ 4.8</span>
+      </div>
+
+      <div class="prop-header-flex-row">
+        <div class="prop-title-area">
+          <h1 id="propTitleText">Ashray Vihar Phase 2</h1>
+          <div class="prop-loc-meta">
+            <span class="prop-loc-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span id="propLocationText">Patia, Bhubaneswar, Odisha</span>
+            </span>
+            <span class="prop-loc-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Posted on 17 Jul 2024</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="prop-header-right-tags">
+          <span class="owner-badge-tag" id="propPostedBadge">Posted by Owner</span>
+          <span class="rera-id-text">RERA ID: PR/OD/KHORDHA/2024/00189</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Gallery Grid (3 Photos Layout Matching Mockup) -->
+    <section class="gallery-section">
+      <div class="gallery-grid">
+        <!-- Hero Big Image (Left) -->
+        <div class="gallery-hero-box" id="galleryHeroBox" title="Click to view photos in full screen">
+          <span class="gallery-posted-tag">Posted on 17 Jul 2024</span>
+          <img id="mainHeroImg" src="assets/gallery_main.jpg" alt="Ashray Vihar Phase 2 Exterior View"
+            onerror="this.src='assets/cat_residential.webp'">
+          <button type="button" class="gallery-btn-tour" id="btnViewAllPhotos">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+              <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+            View All 8 Photos
+          </button>
+        </div>
+
+        <!-- 2 Side Thumbnails (Right) -->
+        <div class="gallery-thumbs-col">
+          <div class="gallery-thumb-item" data-index="1" title="Click to view photo">
+            <img src="assets/gallery_thumb1.jpg" alt="Building Courtyard View"
+              onerror="this.src='assets/cat_commercial.webp'">
+          </div>
+          <div class="gallery-thumb-item" data-index="2" title="Click to view photo">
+            <img src="assets/gallery_thumb2.jpg" alt="Evening Perspective View"
+              onerror="this.src='assets/banner_land_sale.webp'">
+            <div class="gallery-more-overlay">
+              <div>+3 More</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content: Left Details + Right Sticky Booking Sidebar -->
+    <div class="details-main-layout">
+
+      <!-- Left Column: 6 Information Cards -->
+      <div class="details-left-col">
+
+        <!-- Card 1: Property Features -->
+        <article class="detail-card">
+          <div class="card-heading-row">
+            <div class="card-heading-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7.01" y2="7"></line>
+              </svg>
+            </div>
+            <h2>Property Features</h2>
+          </div>
+
+          <div class="info-specs-grid">
+            <div class="info-spec-item">
+              <span class="spec-label">Furnishing</span>
+              <span class="spec-val" id="specFurnish">Unfurnished</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Personal Washroom</span>
+              <span class="spec-val">Yes</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Total Floors</span>
+              <span class="spec-val">4 Floors</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Corner Property</span>
+              <span class="spec-val">No</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Main Road Facing</span>
+              <span class="spec-val">Yes</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Building Type</span>
+              <span class="spec-val" id="specType">Flat / Apartment</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Boundary Wall</span>
+              <span class="spec-val">Yes</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Gated Community</span>
+              <span class="spec-val">Yes</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Overlooking Main Road</span>
+              <span class="spec-val">Yes</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Security Guards</span>
+              <span class="spec-val">24/7 Available</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Residential Details -->
+        <article class="detail-card">
+          <div class="card-heading-row">
+            <div class="card-heading-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h2>Residential Details</h2>
+          </div>
+
+          <div class="info-specs-grid">
+            <div class="info-spec-item">
+              <span class="spec-label">Bedrooms</span>
+              <span class="spec-val" id="specBedrooms">3 BHK</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Bathrooms</span>
+              <span class="spec-val">3 Bathrooms</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Balconies</span>
+              <span class="spec-val">2 Balconies</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Facing Direction</span>
+              <span class="spec-val">North-East (Vaastu)</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Floor Number</span>
+              <span class="spec-val">2nd of 4 Floors</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Kitchen</span>
+              <span class="spec-val">Modular with Chimney</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Area & Possession -->
+        <article class="detail-card">
+          <div class="card-heading-row">
+            <div class="card-heading-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+              </svg>
+            </div>
+            <h2>Area &amp; Possession</h2>
+          </div>
+
+          <div class="info-specs-grid">
+            <div class="info-spec-item">
+              <span class="spec-label">Super Built-up Area</span>
+              <span class="spec-val" id="specSuperArea">1,560 sq ft</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Possession Status</span>
+              <span class="spec-val" id="specPossession">Under Construction</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Carpet Area</span>
+              <span class="spec-val">1,250 sq ft</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Transaction Type</span>
+              <span class="spec-val">New Property</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Expected Handover</span>
+              <span class="spec-val">December 2025</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Price per sq ft</span>
+              <span class="spec-val">&#8377;9,807 / sq ft</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Building & Utilities -->
+        <article class="detail-card">
+          <div class="card-heading-row">
+            <div class="card-heading-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                <line x1="9" y1="22" x2="9" y2="22.01"></line>
+                <line x1="15" y1="22" x2="15" y2="22.01"></line>
+                <line x1="9" y1="6" x2="9" y2="6.01"></line>
+                <line x1="15" y1="6" x2="15" y2="6.01"></line>
+                <line x1="9" y1="10" x2="9" y2="10.01"></line>
+                <line x1="15" y1="10" x2="15" y2="10.01"></line>
+              </svg>
+            </div>
+            <h2>Building &amp; Utilities</h2>
+          </div>
+
+          <!-- Highlight Utility Cards (Matches Mockup) -->
+          <div class="utilities-banners-row">
+            <div class="utility-highlight-box water">
+              <div class="util-icon-circle">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                </svg>
+              </div>
+              <div class="util-text-wrap">
+                <span class="util-label">Water Supply</span>
+                <span class="util-title">24 Hours Regular Supply</span>
+              </div>
+            </div>
+
+            <div class="utility-highlight-box power">
+              <div class="util-icon-circle">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <div class="util-text-wrap">
+                <span class="util-label">Electricity</span>
+                <span class="util-title">24 Hours - No Power Cut</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-specs-grid" style="margin-bottom: 22px;">
+            <div class="info-spec-item">
+              <span class="spec-label">Car Parking</span>
+              <span class="spec-val">Covered Reserved</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Visitor Parking</span>
+              <span class="spec-val">Available (20+ Bays)</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Power Backup</span>
+              <span class="spec-val">Full DG Backup</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Fire Extinguishers Installed</span>
+              <span class="spec-val">Yes</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Sewage Treatment</span>
+              <span class="spec-val">Operational STP</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Elevators</span>
+              <span class="spec-val">2 High-Speed Automatic</span>
+            </div>
+          </div>
+
+          <!-- Amenities Chips -->
+          <div>
+            <div style="font-size: 13.5px; font-weight: 800; color: var(--text-heading); margin-bottom: 8px;">
+              Featured Amenities
+            </div>
+            <div class="amenities-chips-wrap">
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Lift / Elevators
+              </span>
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Power Backup
+              </span>
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Landscaped Park
+              </span>
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                24/7 CCTV &amp; Security
+              </span>
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                AC Waiting Lounge
+              </span>
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Clubhouse
+              </span>
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Fitness Gymnasium
+              </span>
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Swimming Pool
+              </span>
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Children Play Area
+              </span>
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Food Court
+              </span>
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Banquet Hall
+              </span>
+              <span class="amenity-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Jogging Track
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Ownership & Legal -->
+        <article class="detail-card">
+          <div class="card-heading-row">
+            <div class="card-heading-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h2>Ownership &amp; Legal</h2>
+          </div>
+
+          <div class="info-specs-grid">
+            <div class="info-spec-item">
+              <span class="spec-label">Ownership Status</span>
+              <span class="spec-val">Freehold</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Approval Authority</span>
+              <span class="spec-val">BDA Approved</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Property Age</span>
+              <span class="spec-val">Under Construction (New)</span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Home Loans Pre-Approved</span>
+              <span class="spec-val">SBI, HDFC, ICICI, Axis</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6: Description & Reviews -->
+        <article class="detail-card">
+          <div class="card-heading-row">
+            <div class="card-heading-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h2>Description &amp; Reviews</h2>
+          </div>
+
+          <p style="font-size: 13.5px; color: var(--text-body); line-height: 1.7; margin-bottom: 12px;">
+            Ashray Vihar Phase 2 offers luxury homes that are truly one of a kind. Carefully crafted for urban families seeking unmatched comfort, peaceful green surroundings, and prime connectivity in Bhubaneswar. The residence features expansive living and dining spaces, large sunlit balconies, vaastu-compliant layout, Italian vitrified flooring, and high ceilings.
+          </p>
+          <p style="font-size: 13.5px; color: var(--text-body); line-height: 1.7;">
+            Conveniently situated near leading IT Hubs (Infocity, TCS, Infosys), top educational institutions (KIIT, Silicon), multi-specialty hospitals, and popular shopping destinations.
+          </p>
+
+          <!-- Rating & Verified Badge Banner -->
+          <div class="rating-summary-banner">
+            <div class="rating-left-meta">
+              <span class="rating-star-badge">4.8 ★</span>
+              <span class="rating-title-text">Excellent Property Rating (24 Reviews)</span>
+            </div>
+            <span class="verified-inspect-tag">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              Inspected &amp; Verified by Bila Badi Experts
+            </span>
+          </div>
+        </article>
+
+      </div><!-- /details-left-col -->
+
+      <!-- Right Column: Sticky Booking / Price Sidebar -->
+      <aside class="details-sidebar-col" aria-label="Booking Sidebar">
+
+        <!-- Price & Action Card -->
+        <div class="price-booking-card">
+          <div class="price-header-row">
+            <span class="price-tag-label">All-Inclusive Price</span>
+            <div class="price-large-amount" id="propPriceText">&#8377; 1.53 Cr</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+              &#8377;9,807 / sq ft &bull; Negotiable
+            </div>
+          </div>
+
+          <div class="price-note-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span>Govt. Stamp Duty &amp; Registration Charges excluded</span>
+          </div>
+
+          <button type="button" class="btn-schedule-call" id="btnScheduleCall">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            Schedule a Call
+          </button>
+
+          <button type="button" class="btn-whatsapp-chat" id="btnWhatsappChat">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            Chat on WhatsApp
+          </button>
+        </div>
+
+        <!-- Seller Profile Card -->
+        <div class="seller-contact-card">
+          <div class="seller-profile-row">
+            <img src="assets/avatar_amit.jpg" alt="Seller Avatar" class="seller-avatar-img"
+              onerror="this.src='assets/avatar_rohit.jpg'">
+            <div class="seller-info-meta">
+              <span class="seller-name" id="sellerNameText">Biswajit Pattanaik</span>
+              <span class="seller-sub-label">★ Verified Property Owner</span>
+            </div>
+          </div>
+          <div class="seller-response-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Typically responds within <strong>15 minutes</strong></span>
+          </div>
+        </div>
+
+        <!-- Quick Inquiry Form -->
+        <div class="sidebar-inquiry-box">
+          <div class="sidebar-inquiry-title">Inquire Directly with Seller</div>
+          <form class="sidebar-form-group" id="quickInquiryForm">
+            <input type="text" class="form-input-field" placeholder="Your Full Name" required>
+            <input type="tel" class="form-input-field" placeholder="Mobile Number (+91)" required>
+            <input type="email" class="form-input-field" placeholder="Email Address">
+            <textarea class="form-input-field" rows="3" style="resize: none;"
+              placeholder="I am interested in this property. Please share full brochure and schedule site visit."></textarea>
+            <button type="submit" class="btn-submit-inquiry">Send Inquiry &rarr;</button>
+          </form>
+        </div>
+
+      </aside><!-- /details-sidebar-col -->
+
+    </div><!-- /details-main-layout -->
+
+    <!-- ========================================================================
+         CTA Banner Card: "Find Your Next Home" (Matches Mockup with Bila Badi Palette)
+         ======================================================================== -->
+    <section class="next-home-cta-section" aria-label="Next Home Banner">
+      <div class="cta-text-left">
+        <h3>Find Your <span class="cta-green-word">Next Home</span></h3>
+        <p>
+          Browse verified new apartments, luxury plots, furnished rentals and commercial spaces across India — start your real estate journey with zero brokerage.
+        </p>
+      </div>
+      <div class="cta-buttons-right">
+        <a href="product-details.html" class="btn-reseller-outline">Browse Listings &rarr;</a>
+        <a href="product-details.html" class="btn-get-started-fill">Get Started &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       Site Footer (Exact Match to index.html)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Main Footer 5-Column Grid -->
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand, Tagline, Description, Social Icons -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <svg class="brand-icon-svg" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path d="M18 3.5L3 16.5H7.5V31.5H28.5V16.5H33L18 3.5Z" fill="#ffffff" />
+              <path
+                d="M18 13C15.8 13 14 14.8 14 17C14 18.8 15.2 20.3 16.8 20.8V26H19.2V20.8C20.8 20.3 22 18.8 22 17C22 14.8 20.2 13 18 13Z"
+                fill="#083822" />
+              <path d="M13.5 22C14.8 23.5 16.3 24 18 24C19.7 24 21.2 23.5 22.5 22" stroke="#083822" stroke-width="1.8"
+                stroke-linecap="round" />
+            </svg>
+            <div class="footer-brand-text">
+              <span class="footer-brand-name">
+                BilaBadi<span class="footer-brand-tld">.com</span>
+              </span>
+              <span class="footer-tagline">Find Your Place. Build Your Future.</span>
+            </div>
+          </a>
+          <p class="footer-description">
+            We are a leading real estate platform, helping you find the perfect property for your dream life.
+          </p>
+          <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="YouTube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                </path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#083822"></polygon>
+              </svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Twitter">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-col-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product-details.html">Properties</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Property Types -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Property Types</h4>
+          <ul class="footer-col-links">
+            <li><a href="product-details.html?type=apartment">Houses &amp; Apartments</a></li>
+            <li><a href="product-details.html?type=plot">Residential Plots</a></li>
+            <li><a href="product-details.html?type=agricultural">Agricultural Land</a></li>
+            <li><a href="product-details.html?type=commercial">Commercial Spaces</a></li>
+            <li><a href="product-details.html?type=villa">Villas &amp; Farmhouses</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Support -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Support</h4>
+          <ul class="footer-col-links">
+            <li><a href="#help">Help Center</a></li>
+            <li><a href="#terms">Terms &amp; Conditions</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Subscribe to Our Newsletter -->
+        <div class="footer-col footer-newsletter-col">
+          <h4 class="footer-col-title">Subscribe to Our Newsletter</h4>
+          <p class="newsletter-desc">Get the latest properties, news and updates straight to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Bila Badi updates!');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address" required
+              aria-label="Email address" />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom-row">
+        <p class="footer-copy">&copy; 2025 BilaBadi.com. All rights reserved.</p>
+        <div class="footer-bottom-right">
+          <div class="footer-legal-links">
+            <a href="#privacy">Privacy Policy</a>
+            <span class="sep">|</span>
+            <a href="#terms">Terms &amp; Conditions</a>
+            <span class="sep">|</span>
+            <a href="#sitemap">Sitemap</a>
+          </div>
+          <button type="button" id="scrollToTopBtn" class="btn-scroll-top" aria-label="Scroll to top">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       Photo Lightbox Modal
+       ========================================================================== -->
+  <div class="lightbox-backdrop" id="photoLightbox" role="dialog" aria-modal="true" aria-label="Photo Gallery">
+    <div class="lightbox-modal">
+      <button type="button" class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close dialog">&times;</button>
+      <div class="lightbox-img-box">
+        <img id="lightboxActiveImg" src="assets/gallery_main.jpg" alt="Property Full View">
+      </div>
+      <button type="button" class="lightbox-nav-btn lightbox-prev" id="lightboxPrevBtn" aria-label="Previous photo">&lsaquo;</button>
+      <button type="button" class="lightbox-nav-btn lightbox-next" id="lightboxNextBtn" aria-label="Next photo">&rsaquo;</button>
+      <div class="lightbox-counter-pill" id="lightboxCounter">Photo 1 of 3</div>
+    </div>
+  </div>
+
+  <!-- Toast Alert -->
+  <div class="toast-popup" id="toastNotification">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toastMsgText">Link copied to clipboard!</span>
+  </div>
+
+  <!-- ==========================================================================
+       JavaScript Logic
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Mobile Drawer Navigation Toggle
+      const mobileToggle = document.getElementById('mobileNavToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const drawerOverlay = document.getElementById('drawerOverlay');
+      const drawerClose = document.getElementById('drawerClose');
+
+      function openDrawer() {
+        mobileDrawer?.classList.add('open');
+        drawerOverlay?.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        mobileDrawer?.classList.remove('open');
+        drawerOverlay?.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      mobileToggle?.addEventListener('click', openDrawer);
+      drawerClose?.addEventListener('click', closeDrawer);
+      drawerOverlay?.addEventListener('click', closeDrawer);
+
+      // 2. Share Property Button (Clipboard copy)
+      const btnShare = document.getElementById('btnShareProp');
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMsgText');
+
+      function showToast(msg) {
+        if (!toast) return;
+        if (toastMsg) toastMsg.textContent = msg;
+        toast.style.display = 'flex';
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, 3200);
+      }
+
+      btnShare?.addEventListener('click', async () => {
+        const url = window.location.href;
+        if (navigator.clipboard) {
+          try {
+            await navigator.clipboard.writeText(url);
+            showToast('Property link copied to clipboard!');
+          } catch {
+            showToast('Share link ready: ' + window.location.pathname);
+          }
+        } else {
+          showToast('Share link: ' + window.location.pathname);
+        }
+      });
+
+      // 3. Save / Favorite Property Button
+      const btnSave = document.getElementById('btnSaveProp');
+      const navWishlistBtn = document.getElementById('navWishlistBtn');
+      const favBadge = document.getElementById('favCountBadge');
+      let isSaved = false;
+
+      function toggleSave() {
+        isSaved = !isSaved;
+        btnSave?.classList.toggle('active', isSaved);
+        navWishlistBtn?.classList.toggle('active', isSaved);
+        if (favBadge) {
+          favBadge.textContent = isSaved ? '1' : '0';
+          favBadge.style.display = isSaved ? 'flex' : 'none';
+        }
+        showToast(isSaved ? 'Property saved to your Wishlist!' : 'Property removed from Wishlist');
+      }
+
+      btnSave?.addEventListener('click', toggleSave);
+      navWishlistBtn?.addEventListener('click', toggleSave);
+
+      // 4. Photo Lightbox Gallery
+      const galleryImages = [
+        'assets/gallery_main.jpg',
+        'assets/gallery_thumb1.jpg',
+        'assets/gallery_thumb2.jpg',
+        'assets/cat_residential.webp',
+        'assets/cat_commercial.webp'
+      ];
+      let currentImgIdx = 0;
+
+      const lightbox = document.getElementById('photoLightbox');
+      const lightboxImg = document.getElementById('lightboxActiveImg');
+      const lightboxCounter = document.getElementById('lightboxCounter');
+      const lightboxClose = document.getElementById('lightboxCloseBtn');
+      const lightboxPrev = document.getElementById('lightboxPrevBtn');
+      const lightboxNext = document.getElementById('lightboxNextBtn');
+
+      function updateLightbox() {
+        if (lightboxImg) lightboxImg.src = galleryImages[currentImgIdx];
+        if (lightboxCounter) {
+          lightboxCounter.textContent = `Photo ${currentImgIdx + 1} of ${galleryImages.length}`;
+        }
+      }
+
+      function openLightbox(idx = 0) {
+        currentImgIdx = idx;
+        updateLightbox();
+        lightbox?.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox?.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('galleryHeroBox')?.addEventListener('click', () => openLightbox(0));
+      document.getElementById('btnViewAllPhotos')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(0);
+      });
+
+      document.querySelectorAll('.gallery-thumb-item').forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          const idx = parseInt(thumb.dataset.index) || 0;
+          openLightbox(idx);
+        });
+      });
+
+      lightboxClose?.addEventListener('click', closeLightbox);
+      lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      lightboxPrev?.addEventListener('click', () => {
+        currentImgIdx = (currentImgIdx - 1 + galleryImages.length) % galleryImages.length;
+        updateLightbox();
+      });
+
+      lightboxNext?.addEventListener('click', () => {
+        currentImgIdx = (currentImgIdx + 1) % galleryImages.length;
+        updateLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox?.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') lightboxPrev?.click();
+        if (e.key === 'ArrowRight') lightboxNext?.click();
+      });
+
+      // 5. Booking & Schedule Call Action
+      const btnScheduleCall = document.getElementById('btnScheduleCall');
+      btnScheduleCall?.addEventListener('click', () => {
+        const phone = prompt('Schedule a Direct Call with Owner:\nPlease enter your mobile number (+91):');
+        if (phone && phone.trim()) {
+          alert(`Thank you! The property owner will call you shortly on ${phone.trim()}.`);
+        }
+      });
+
+      // 6. WhatsApp Action
+      const btnWhatsapp = document.getElementById('btnWhatsappChat');
+      btnWhatsapp?.addEventListener('click', () => {
+        const title = document.getElementById('propTitleText')?.textContent || 'Ashray Vihar Phase 2';
+        const msg = encodeURIComponent(`Hello, I am interested in "${title}" listed on Bila Badi. Please share more details.`);
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      });
+
+      // 7. Quick Inquiry Form Submission
+      const inquiryForm = document.getElementById('quickInquiryForm');
+      inquiryForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you! Your inquiry has been sent to the property owner. You will receive an instant callback.');
+        inquiryForm.reset();
+      });
+
+      // 8. Dynamic URL Query Parameters (Supports loading any listing from product-details)
+      const params = new URLSearchParams(window.location.search);
+      const paramTitle = params.get('title');
+      const paramPrice = params.get('price');
+      const paramLoc = params.get('loc');
+      const paramBhk = params.get('bhk');
+      const paramArea = params.get('area');
+      const paramFurnish = params.get('furnish');
+      const paramStatus = params.get('status');
+      const paramPosted = params.get('posted');
+
+      if (paramTitle) {
+        document.title = `${paramTitle} - Property Details | Bila Badi`;
+        const titleEl = document.getElementById('propTitleText');
+        if (titleEl) titleEl.textContent = paramTitle;
+      }
+      if (paramPrice) {
+        const priceEl = document.getElementById('propPriceText');
+        const cleanPrice = paramPrice.trim();
+        if (priceEl) priceEl.textContent = cleanPrice.startsWith('₹') ? cleanPrice : `₹ ${cleanPrice}`;
+      }
+      if (paramLoc) {
+        const locEl = document.getElementById('propLocationText');
+        if (locEl) locEl.textContent = paramLoc;
+      }
+      if (paramBhk) {
+        const bhkEl = document.getElementById('specBedrooms');
+        if (bhkEl) bhkEl.textContent = paramBhk.toLowerCase().includes('bhk') || paramBhk.toLowerCase().includes('plot') || paramBhk.toLowerCase().includes('zone') ? paramBhk : `${paramBhk} BHK`;
+      }
+      if (paramArea) {
+        const areaEl = document.getElementById('specSuperArea');
+        if (areaEl) areaEl.textContent = paramArea.toLowerCase().includes('sq') || paramArea.toLowerCase().includes('acre') ? paramArea : `${paramArea} sq ft`;
+      }
+      if (paramFurnish) {
+        const furnishEl = document.getElementById('specFurnish');
+        if (furnishEl) furnishEl.textContent = paramFurnish.charAt(0).toUpperCase() + paramFurnish.slice(1);
+      }
+      if (paramStatus) {
+        const statusEl = document.getElementById('specPossession');
+        const badgeStatusEl = document.getElementById('propBadgeStatus');
+        const formatted = paramStatus.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+        if (statusEl) statusEl.textContent = formatted;
+        if (badgeStatusEl) badgeStatusEl.textContent = formatted;
+      }
+      if (paramPosted) {
+        const postedEl = document.getElementById('propPostedBadge');
+        if (postedEl) postedEl.textContent = `Posted by ${paramPosted.charAt(0).toUpperCase() + paramPosted.slice(1)}`;
+      }
+
+      // 9. Scroll to Top
+      const scrollTopBtn = document.getElementById('scrollToTopBtn');
+      scrollTopBtn?.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // 10. Smart Back to Listings (Preserves full state or falls back to product-details.html)
+      document.getElementById('backListingsLink')?.addEventListener('click', (e) => {
+        if (window.history.length > 1 && document.referrer && document.referrer.includes('product-details.html')) {
+          e.preventDefault();
+          window.history.back();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -61,6 +61,7 @@
     html {
       scroll-behavior: smooth;
       font-size: 16px;
+      overflow-x: clip;
     }
 
     body {
@@ -70,7 +71,7 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
+      overflow-x: clip;
     }
 
     img {
@@ -349,8 +350,7 @@
 
     .hero-title .hero-title-green {
       color: #1b804e;
-      display: inline-block;
-      white-space: nowrap;
+      display: inline;
     }
 
     .hero-description {
@@ -1573,7 +1573,7 @@
       position: relative;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      background-image: url('assets/banner_land_sale.jpg');
+      background-image: url('assets/banner_land_sale.webp');
       background-position: center right;
       background-size: cover;
       background-repeat: no-repeat;
@@ -1651,6 +1651,108 @@
     .btn-post-property:hover {
       background-color: var(--primary-green-hover);
       transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+   Top Cities Section: Explore Real Estate in Popular Indian Cities
+   ========================================================================== */
+    .top-cities-section {
+      padding: 44px 0 40px;
+      background-color: #ffffff;
+      border-top: 1px solid #f3f4f6;
+    }
+
+    .top-cities-header {
+      margin-bottom: 26px;
+    }
+
+    .top-cities-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      color: #6b7280;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .top-cities-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.4px;
+      line-height: 1.25;
+    }
+
+    .top-cities-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 24px;
+      row-gap: 22px;
+    }
+
+    .city-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      padding: 6px 8px;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+
+    .city-card:hover {
+      background-color: #f8faf8;
+      transform: translateY(-2px);
+    }
+
+    .city-card:hover .city-name {
+      color: var(--primary-green);
+    }
+
+    .city-card:hover .city-img-box img {
+      transform: scale(1.06);
+    }
+
+    .city-img-box {
+      width: 76px;
+      height: 76px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background-color: var(--bg-soft);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .city-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .city-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .city-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.25;
+      margin-bottom: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .city-count {
+      font-size: 13px;
+      color: #6b7280;
+      font-weight: 500;
+      line-height: 1.3;
     }
 
     /* ==========================================================================
@@ -1917,7 +2019,7 @@
       top: 0;
       bottom: 0;
       width: 260px;
-      background: url('assets/cat_residential.jpg') center/cover no-repeat;
+      background: url('assets/cat_residential.webp') center/cover no-repeat;
       opacity: 0.18;
       mask-image: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
       -webkit-mask-image: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
@@ -2341,7 +2443,7 @@
     .mobile-drawer {
       position: fixed;
       top: 0;
-      right: -300px;
+      right: 0;
       width: 280px;
       height: 100%;
       background-color: #ffffff;
@@ -2349,12 +2451,13 @@
       padding: 24px;
       display: flex;
       flex-direction: column;
-      transition: right 0.3s ease;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
       box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
     }
 
     .mobile-drawer.open {
-      right: 0;
+      transform: translateX(0);
     }
 
     .mobile-drawer-overlay.open {
@@ -2423,7 +2526,8 @@
       }
 
       .categories-grid,
-      .listings-grid {
+      .listings-grid,
+      .top-cities-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -2625,16 +2729,16 @@
         margin-top: 4px;
       }
 
-      /* Trust Badges - 4 In One Horizontal Row */
+      /* Trust Badges - 2-2 in a Row on Mobile */
       .trust-badges-section {
-        padding: 16px 0 14px;
+        padding: 22px 0 20px;
         background: #ffffff;
         border-bottom: 1px solid #f3f4f6;
       }
 
       .badges-grid {
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 4px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px 14px !important;
       }
 
       .badge-item {
@@ -2642,40 +2746,40 @@
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
-        padding: 0 2px !important;
+        padding: 6px 4px !important;
         gap: 0 !important;
       }
 
       .badge-icon-box {
-        width: 38px !important;
-        height: 38px !important;
+        width: 48px !important;
+        height: 48px !important;
         border-radius: 50% !important;
         background: #eaf7f0 !important;
         color: #0d5435 !important;
-        margin-bottom: 5px !important;
+        margin-bottom: 8px !important;
         box-shadow: none !important;
       }
 
       .badge-icon-box svg {
-        width: 18px !important;
-        height: 18px !important;
+        width: 24px !important;
+        height: 24px !important;
         stroke: #0d5435 !important;
       }
 
       .badge-info h4 {
-        font-size: 10px !important;
+        font-size: 14.5px !important;
         font-weight: 700 !important;
         color: #111827 !important;
-        margin-bottom: 2px !important;
-        line-height: 1.2 !important;
+        margin-bottom: 3px !important;
+        line-height: 1.25 !important;
         text-align: center !important;
-        white-space: nowrap !important;
+        white-space: normal !important;
       }
 
       .badge-info p {
-        font-size: 8.5px !important;
+        font-size: 12px !important;
         color: #6b7280 !important;
-        line-height: 1.2 !important;
+        line-height: 1.35 !important;
         text-align: center !important;
       }
 
@@ -2684,14 +2788,14 @@
         padding: 22px 0 16px;
       }
 
-      .mobile-cat-header {
-        display: flex !important;
-        align-items: flex-end !important;
-        justify-content: space-between !important;
-        margin-bottom: 14px !important;
+      .categories-section .section-header-row {
+        margin-bottom: 14px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
       }
 
-      .mobile-cat-header .section-eyebrow {
+      .categories-section .section-eyebrow {
         font-size: 11.5px;
         font-weight: 700;
         color: #1b804e;
@@ -2701,7 +2805,7 @@
         margin-bottom: 3px;
       }
 
-      .mobile-cat-header .section-title {
+      .categories-section .section-title {
         font-size: 16px;
         font-weight: 800;
         color: #111827;
@@ -2709,81 +2813,24 @@
         letter-spacing: -0.3px;
       }
 
-      .mobile-cat-header .section-view-all {
+      .categories-section .section-subtext {
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 2px;
+      }
+
+      .categories-section .section-view-all {
         font-size: 11.5px;
         font-weight: 700;
         color: #0d5435;
         white-space: nowrap;
       }
 
-      .mobile-categories-strip {
-        display: flex !important;
-        gap: 10px;
-        overflow-x: auto;
-        padding-bottom: 6px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-
-      .mobile-categories-strip::-webkit-scrollbar {
-        display: none;
-      }
-
-      .mobile-cat-card {
-        flex: 0 0 112px;
-        width: 112px;
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-radius: 10px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .mobile-cat-img-box {
-        width: 100%;
-        height: 70px;
-        overflow: hidden;
-        background: #f3f4f6;
-      }
-
-      .mobile-cat-img-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .mobile-cat-body {
-        padding: 7px 8px 8px;
-      }
-
-      .mobile-cat-title {
-        font-size: 11px;
-        font-weight: 700;
-        color: #111827;
-        line-height: 1.25;
-        margin-bottom: 2px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .mobile-cat-sub {
-        font-size: 9.5px;
-        color: #6b7280;
-        display: flex;
-        align-items: center;
-        gap: 3px;
-      }
-
-      .mobile-cat-sub svg {
-        width: 10px;
-        height: 10px;
-        color: #e11d48;
-        flex-shrink: 0;
+      /* Show categories-grid as single column on mobile */
+      .categories-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
       }
 
       /* Listings Grid - Stacked on Mobile */
@@ -2963,7 +3010,7 @@
 
       .sell-cta-banner {
         min-height: 95px !important;
-        background-image: url('assets/banner_land_sale.jpg') !important;
+        background-image: url('assets/banner_land_sale.webp') !important;
         background-position: right 8% center !important;
         background-size: cover !important;
         border-radius: 14px !important;
@@ -3013,9 +3060,61 @@
         font-weight: 700 !important;
       }
 
+      /* Top Cities Section on Mobile */
+      .top-cities-section {
+        padding: 24px 0 20px !important;
+      }
+
+      .top-cities-header {
+        margin-bottom: 16px !important;
+      }
+
+      .top-cities-eyebrow {
+        font-size: 11px !important;
+        margin-bottom: 3px !important;
+      }
+
+      .top-cities-title {
+        font-size: 17.5px !important;
+        font-weight: 800 !important;
+        line-height: 1.25 !important;
+      }
+
+      .top-cities-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        column-gap: 12px !important;
+        row-gap: 14px !important;
+      }
+
+      .city-card {
+        gap: 10px !important;
+        padding: 2px !important;
+      }
+
+      .city-img-box {
+        width: 58px !important;
+        height: 58px !important;
+        border-radius: 10px !important;
+      }
+
+      .city-name {
+        font-size: 13.5px !important;
+        margin-bottom: 2px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+
+      .city-count {
+        font-size: 11px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+
       /* Testimonials Section */
       .testimonials-section {
-        padding: 10px 0 35px !important;
+        padding: 16px 0 35px !important;
       }
 
       .mobile-testimonials-header {
@@ -3023,33 +3122,41 @@
         align-items: center !important;
         justify-content: space-between !important;
         width: 100% !important;
-        margin-bottom: 12px !important;
+        margin-bottom: 14px !important;
+        padding: 0 2px !important;
       }
 
       .mobile-section-title {
-        font-size: 16px !important;
+        font-size: 19px !important;
         font-weight: 800 !important;
-        color: #111827 !important;
+        color: #0c2c1e !important;
+        letter-spacing: -0.3px !important;
+        line-height: 1.25 !important;
       }
 
       .mobile-header-dots {
         display: flex !important;
         align-items: center !important;
-        gap: 5px !important;
+        gap: 6px !important;
       }
 
       .mobile-header-dots .slider-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background-color: #d1d5db;
-        display: inline-block;
+        width: 6px !important;
+        height: 6px !important;
+        border-radius: 50% !important;
+        background-color: #cbd5e1 !important;
+        display: inline-block !important;
+        border: none !important;
+        padding: 0 !important;
+        cursor: pointer !important;
+        transition: all 0.25s ease !important;
       }
 
       .mobile-header-dots .slider-dot.active {
-        width: 14px;
-        border-radius: 4px;
-        background-color: #0d5435;
+        width: 22px !important;
+        height: 6px !important;
+        border-radius: 9999px !important;
+        background-color: #0d5435 !important;
       }
 
       .testimonial-nav-mobile {
@@ -3059,55 +3166,79 @@
       .mobile-testimonial-card {
         display: flex !important;
         align-items: center !important;
-        gap: 12px !important;
-        padding: 12px 14px !important;
+        gap: 16px !important;
+        padding: 18px 18px !important;
         background: #ffffff !important;
-        border: 1px solid #e5e7eb !important;
-        border-radius: 12px !important;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+        border: 1.5px solid #e2e8f0 !important;
+        border-radius: 18px !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+        position: relative !important;
+        overflow: hidden !important;
+        user-select: none !important;
       }
 
       .mobile-testimonial-card .testimonial-avatar {
-        width: 44px !important;
-        height: 44px !important;
+        width: 58px !important;
+        height: 58px !important;
         border-radius: 50% !important;
         object-fit: cover !important;
         flex-shrink: 0 !important;
-        border: 2px solid #eaf7f0 !important;
+        border: 2px solid #bbf7d0 !important;
+        box-shadow: 0 2px 8px rgba(13, 84, 53, 0.12) !important;
+        transition: opacity 0.2s ease, transform 0.2s ease !important;
       }
 
       .mobile-testimonial-card .testimonial-content {
         flex: 1 !important;
         min-width: 0 !important;
+        transition: opacity 0.2s ease !important;
       }
 
       .mobile-testimonial-card .testimonial-quote {
-        font-size: 11px !important;
-        color: #4b5563 !important;
-        line-height: 1.4 !important;
-        margin-bottom: 4px !important;
+        font-size: 13.5px !important;
+        color: #374151 !important;
+        line-height: 1.45 !important;
+        margin-bottom: 7px !important;
+        font-weight: 500 !important;
       }
 
       .mobile-testimonial-card .testimonial-author {
-        font-size: 12px !important;
-        font-weight: 700 !important;
+        font-size: 14.5px !important;
+        font-weight: 800 !important;
         color: #111827 !important;
+        line-height: 1.2 !important;
       }
 
       .mobile-testimonial-card .testimonial-role {
-        font-size: 10px !important;
+        font-size: 12px !important;
         color: #6b7280 !important;
+        margin-top: 2px !important;
+        font-weight: 500 !important;
       }
 
       .mobile-testimonial-arrow {
-        background: none;
-        border: none;
-        font-size: 16px;
-        font-weight: 700;
-        color: #0d5435;
-        padding: 4px;
-        flex-shrink: 0;
-        cursor: pointer;
+        background: none !important;
+        border: none !important;
+        width: 36px !important;
+        height: 36px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        cursor: pointer !important;
+        color: #0d5435 !important;
+        border-radius: 50% !important;
+        padding: 0 !important;
+        transition: transform 0.2s ease, background-color 0.2s ease !important;
+      }
+
+      .mobile-testimonial-arrow:hover {
+        background-color: #f0fdf4 !important;
+        transform: translateX(2px) !important;
+      }
+
+      .mobile-testimonial-arrow:active {
+        transform: scale(0.9) !important;
       }
 
       /* Sections hidden on mobile matching mockup */
@@ -3117,22 +3248,91 @@
         display: none !important;
       }
 
-      /* Footer */
+      /* Footer: 2-2 in a row on mobile */
       .site-footer {
-        padding: 45px 0 24px;
+        padding: 40px 0 24px;
       }
 
       .footer-main-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 32px 18px !important;
+      }
+
+      .footer-brand {
+        grid-column: span 2 !important;
+        margin-bottom: 6px;
+      }
+
+      .footer-col {
+        min-width: 0;
+      }
+
+      .footer-col-title {
+        font-size: 15px !important;
+        margin-bottom: 14px !important;
+      }
+
+      .footer-col-links {
+        gap: 10px !important;
+      }
+
+      .footer-col-links li a {
+        font-size: 13px !important;
       }
 
       .footer-newsletter-col {
-        grid-column: span 1;
+        grid-column: span 1 !important;
+        min-width: 0;
+      }
+
+      .newsletter-desc {
+        font-size: 12.5px !important;
+        line-height: 1.45 !important;
+        margin-bottom: 12px !important;
       }
 
       .newsletter-form {
-        max-width: 100%;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        background: transparent !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+      }
+
+      .newsletter-input {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        background: #ffffff !important;
+        border-radius: 9999px !important;
+        padding: 9px 14px !important;
+        font-size: 12.5px !important;
+        color: #111827 !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      }
+
+      .newsletter-input::placeholder {
+        font-size: 11.5px !important;
+        color: #9ca3af !important;
+      }
+
+      .newsletter-btn {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        border-radius: 9999px !important;
+        padding: 9px 14px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        background: #10b981 !important;
+        color: #ffffff !important;
+        text-align: center !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25) !important;
       }
 
       .footer-bottom-row {
@@ -3181,7 +3381,7 @@
       <!-- Desktop Navigation Menu -->
       <nav class="desktop-nav" aria-label="Primary Navigation">
         <a href="#home" class="nav-link active">Home</a>
-        <a href="#properties" class="nav-link">Properties</a>
+        <a href="product-details.html" class="nav-link">Properties</a>
         <a href="#about" class="nav-link">About Us</a>
         <a href="#services" class="nav-link">Services</a>
         <a href="#blog" class="nav-link">Blog</a>
@@ -3201,7 +3401,7 @@
         </button>
 
         <!-- Login / Register -->
-        <a href="#login" class="login-link">
+        <a href="./login.html" class="login-link">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -3237,7 +3437,7 @@
     </div>
     <div class="mobile-nav-links">
       <a href="#home" class="active">Home</a>
-      <a href="#properties">Properties</a>
+      <a href="product-details.html">Properties</a>
       <a href="#about">About Us</a>
       <a href="#services">Services</a>
       <a href="#blog">Blog</a>
@@ -3269,7 +3469,7 @@
           <div class="hero-badge">Your Land. Your Future.</div>
           <h1 class="hero-title">
             Buy, Sell or Rent<br>
-            <span class="hero-title-green">Land &amp; Commercial Spaces</span>
+            <span class="hero-title-green" id="typewriterText">Land &amp; Commercial Spaces</span>
           </h1>
           <p class="hero-description">
             Explore verified plots, agricultural land, commercial land and<br>
@@ -3278,7 +3478,7 @@
         </div>
 
         <!-- Floating Search Box Widget -->
-        <form class="search-widget-card" id="searchWidgetForm">
+        <form class="search-widget-card" id="searchWidgetForm" action="product-details.html">
           <div class="search-field-group">
             <!-- Field 1: Location with States & Districts Dropdown -->
             <div class="search-field location-search-field" id="locationSearchField">
@@ -3293,23 +3493,28 @@
                   <span class="location-badge-hint" id="locationDataStatus">States &amp; Districts</span>
                 </div>
                 <div class="location-input-container">
-                  <input type="text" id="searchLocation" class="field-input" placeholder="Select state or search district..."
-                    autocomplete="off" aria-expanded="false" aria-haspopup="true">
-                  <button type="button" class="loc-clear-btn" id="locClearBtn" aria-label="Clear location input" title="Clear location">&times;</button>
+                  <input type="text" id="searchLocation" class="field-input"
+                    placeholder="Select state or search district..." autocomplete="off" aria-expanded="false"
+                    aria-haspopup="true">
+                  <button type="button" class="loc-clear-btn" id="locClearBtn" aria-label="Clear location input"
+                    title="Clear location">&times;</button>
                   <svg class="loc-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </div>
 
                 <!-- States and Districts Popover -->
-                <div class="location-states-popover" id="locationStatesPopover" role="dialog" aria-label="India States and Districts Selector">
+                <div class="location-states-popover" id="locationStatesPopover" role="dialog"
+                  aria-label="India States and Districts Selector">
                   <div class="loc-popover-header">
                     <div class="loc-search-box">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2">
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                       </svg>
-                      <input type="text" id="locQuickSearch" placeholder="Type to filter states or districts..." autocomplete="off">
+                      <input type="text" id="locQuickSearch" placeholder="Type to filter states or districts..."
+                        autocomplete="off">
                     </div>
                     <span class="loc-states-count-badge" id="locStatesCountBadge">Loading states...</span>
                   </div>
@@ -3325,9 +3530,11 @@
                       <div class="loc-districts-header">
                         <div class="loc-districts-title-wrap">
                           <h4 class="loc-current-state-name" id="locCurrentStateName">Select a State</h4>
-                          <span class="loc-districts-count" id="locDistrictsCount">Hover over a state on the left to see districts</span>
+                          <span class="loc-districts-count" id="locDistrictsCount">Hover over a state on the left to see
+                            districts</span>
                         </div>
-                        <button type="button" class="btn-select-all-state" id="btnSelectEntireState" style="display:none;">
+                        <button type="button" class="btn-select-all-state" id="btnSelectEntireState"
+                          style="display:none;">
                           Select State
                         </button>
                       </div>
@@ -3344,7 +3551,12 @@
 
                   <div class="loc-popover-footer">
                     <span class="loc-footer-tip">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                      </svg>
                       Hover over any state to browse its districts. Click to select.
                     </span>
                   </div>
@@ -3568,27 +3780,18 @@
 
   <section class="categories-section" id="properties">
     <div class="container">
-      <!-- Desktop Header -->
-      <div class="section-header-row desktop-only">
+      <!-- Section Header -->
+      <div class="section-header-row">
         <div>
           <span class="section-eyebrow">Featured Properties</span>
           <h2 class="section-title">Explore Our Best Properties</h2>
           <p class="section-subtext">Discover handpicked properties that match your needs and budget.</p>
         </div>
-        <a href="#all-categories" class="section-view-all">View All Properties &rarr;</a>
+        <a href="product-details.html" class="section-view-all">View All Properties &rarr;</a>
       </div>
 
-      <!-- Mobile Header (Matches Mockup) -->
-      <div class="section-header-row mobile-only-flex mobile-cat-header">
-        <div>
-          <span class="section-eyebrow">&mdash; Explore Properties</span>
-          <h2 class="section-title">Find the Right Land for Your Needs</h2>
-        </div>
-        <a href="#all-categories" class="section-view-all">View All &rarr;</a>
-      </div>
-
-      <!-- Desktop Grid -->
-      <div class="categories-grid desktop-only">
+      <!-- Property Cards Grid -->
+      <div class="categories-grid">
         <!-- Property 1: Luxury Villa -->
         <article class="prop-card">
           <div class="prop-img-wrap">
@@ -3600,7 +3803,7 @@
                 </path>
               </svg>
             </button>
-            <img src="assets/cat_residential.jpg" alt="Residential Plot" loading="lazy">
+            <img src="assets/cat_residential.webp" alt="Residential Plot" loading="lazy">
           </div>
           <div class="prop-body">
             <div class="prop-price">&#8377; 85,00,000</div>
@@ -3613,7 +3816,7 @@
             </div>
 
             <div class="prop-title">Residential Plot</div>
-            <a href="#" class="btn-view-details">View Details &rarr;</a>
+            <a href="view-details.html?title=Residential+Plot&price=%E2%82%B9+85%2C00%2C000&loc=Bangalore%2C+Karnataka&bhk=Plot&area=1%2C800+sq+ft&status=Ready+to+Construct&posted=Owner" class="btn-view-details">View Details &rarr;</a>
           </div>
         </article>
 
@@ -3628,7 +3831,7 @@
                 </path>
               </svg>
             </button>
-            <img src="assets/cat_commercial.jpg" alt="Agricultural Land" loading="lazy">
+            <img src="assets/cat_commercial.webp" alt="Agricultural Land" loading="lazy">
           </div>
           <div class="prop-body">
             <div class="prop-price">&#8377; 25,000 <span>/month</span></div>
@@ -3641,7 +3844,7 @@
             </div>
 
             <div class="prop-title">Agricultural Land</div>
-            <a href="#" class="btn-view-details">View Details &rarr;</a>
+            <a href="view-details.html?title=Agricultural+Land&price=%E2%82%B9+25%2C000+%2Fmonth&loc=Pune%2C+Maharashtra&bhk=Agri+Zone&area=2+Acres&status=Available+Now&posted=Farmer%2FOwner" class="btn-view-details">View Details &rarr;</a>
           </div>
         </article>
 
@@ -3656,7 +3859,7 @@
                 </path>
               </svg>
             </button>
-            <img src="assets/cat_agricultural.jpg" alt="Commercial Land" loading="lazy">
+            <img src="assets/cat_agricultural.webp" alt="Commercial Land" loading="lazy">
           </div>
           <div class="prop-body">
             <div class="prop-price">&#8377; 2,50,00,000</div>
@@ -3669,7 +3872,7 @@
             </div>
 
             <div class="prop-title">Commercial Land</div>
-            <a href="#" class="btn-view-details">View Details &rarr;</a>
+            <a href="view-details.html?title=Commercial+Land&price=%E2%82%B9+2%2C50%2C00%2C000&loc=Goa%2C+Goa&bhk=Commercial+Zone&area=4%2C500+sq+ft&status=Ready+for+Development&posted=Owner" class="btn-view-details">View Details &rarr;</a>
           </div>
         </article>
 
@@ -3684,7 +3887,7 @@
                 </path>
               </svg>
             </button>
-            <img src="assets/cat_industrial.jpg" alt="Industrial Land" loading="lazy">
+            <img src="assets/cat_industrial.webp" alt="Industrial Land" loading="lazy">
           </div>
           <div class="prop-body">
             <div class="prop-price">&#8377; 45,000 <span>/month</span></div>
@@ -3697,22 +3900,25 @@
             </div>
 
             <div class="prop-title">Industrial Land</div>
-            <a href="#" class="btn-view-details">View Details &rarr;</a>
+            <a href="view-details.html?title=Industrial+Land&price=%E2%82%B9+45%2C000+%2Fmonth&loc=Mumbai%2C+Maharashtra&bhk=Industrial+Zone&area=6%2C000+sq+ft&status=Ready+to+Move&posted=Agent" class="btn-view-details">View Details &rarr;</a>
           </div>
         </article>
       </div>
 
-      <!-- Mobile Horizontal Scroll Categories Strip (Matches Mockup) -->
-      <div class="mobile-categories-strip mobile-only-flex">
+      <!-- Mobile Horizontal Scroll Categories Strip (hidden – full grid shown instead) -->
+      <div class="mobile-categories-strip" style="display:none !important;">
         <!-- Card 1: Residential Plots -->
         <a href="#residential" class="mobile-cat-card">
           <div class="mobile-cat-img-box">
-            <img src="assets/cat_residential.jpg" alt="Residential Plots" loading="lazy">
+            <img src="assets/cat_residential.webp" alt="Residential Plots" loading="lazy">
           </div>
           <div class="mobile-cat-body">
             <div class="mobile-cat-title">Residential Plots</div>
             <div class="mobile-cat-sub">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
               <span>12 Plots</span>
             </div>
           </div>
@@ -3721,12 +3927,15 @@
         <!-- Card 2: Agricultural Land -->
         <a href="#agricultural" class="mobile-cat-card">
           <div class="mobile-cat-img-box">
-            <img src="assets/cat_agricultural.jpg" alt="Agricultural Land" loading="lazy">
+            <img src="assets/cat_agricultural.webp" alt="Agricultural Land" loading="lazy">
           </div>
           <div class="mobile-cat-body">
             <div class="mobile-cat-title">Agricultural Land</div>
             <div class="mobile-cat-sub">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
               <span>8 Plots</span>
             </div>
           </div>
@@ -3735,12 +3944,15 @@
         <!-- Card 3: Commercial Land -->
         <a href="#commercial" class="mobile-cat-card">
           <div class="mobile-cat-img-box">
-            <img src="assets/cat_commercial.jpg" alt="Commercial Land" loading="lazy">
+            <img src="assets/cat_commercial.webp" alt="Commercial Land" loading="lazy">
           </div>
           <div class="mobile-cat-body">
             <div class="mobile-cat-title">Commercial Land</div>
             <div class="mobile-cat-sub">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
               <span>5 Plots</span>
             </div>
           </div>
@@ -3749,12 +3961,15 @@
         <!-- Card 4: Industrial Land -->
         <a href="#industrial" class="mobile-cat-card">
           <div class="mobile-cat-img-box">
-            <img src="assets/cat_industrial.jpg" alt="Industrial Land" loading="lazy">
+            <img src="assets/cat_industrial.webp" alt="Industrial Land" loading="lazy">
           </div>
           <div class="mobile-cat-body">
             <div class="mobile-cat-title">Industrial Land</div>
             <div class="mobile-cat-sub">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
               <span>4 Plots</span>
             </div>
           </div>
@@ -3773,7 +3988,7 @@
           <span class="section-eyebrow">Featured Listings</span>
           <h2 class="section-title">Latest Land &amp; Plot Listings</h2>
         </div>
-        <a href="#all-listings" class="section-view-all">View All &rarr;</a>
+        <a href="product-details.html" class="section-view-all">View All &rarr;</a>
       </div>
 
       <div class="listings-grid">
@@ -3788,14 +4003,17 @@
                 </path>
               </svg>
             </button>
-            <img src="assets/cat_residential.jpg" alt="Residential Plot in Bhubaneswar, Odisha" loading="lazy">
+            <img src="assets/cat_residential.webp" alt="Residential Plot in Bhubaneswar, Odisha" loading="lazy">
           </div>
           <div class="listing-info">
             <div>
               <div class="listing-top-row">
                 <h3 class="listing-title">Residential Plot</h3>
-                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
                 </svg>
               </div>
               <div class="listing-location">
@@ -3836,14 +4054,17 @@
                 </path>
               </svg>
             </button>
-            <img src="assets/cat_agricultural.jpg" alt="Agricultural Land in Navi Mumbai, Maharashtra" loading="lazy">
+            <img src="assets/cat_agricultural.webp" alt="Agricultural Land in Navi Mumbai, Maharashtra" loading="lazy">
           </div>
           <div class="listing-info">
             <div>
               <div class="listing-top-row">
                 <h3 class="listing-title">Agricultural Land</h3>
-                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
                 </svg>
               </div>
               <div class="listing-location">
@@ -3884,14 +4105,17 @@
                 </path>
               </svg>
             </button>
-            <img src="assets/cat_commercial.jpg" alt="Commercial Land in Pune, Maharashtra" loading="lazy">
+            <img src="assets/cat_commercial.webp" alt="Commercial Land in Pune, Maharashtra" loading="lazy">
           </div>
           <div class="listing-info">
             <div>
               <div class="listing-top-row">
                 <h3 class="listing-title">Commercial Land</h3>
-                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
                 </svg>
               </div>
               <div class="listing-location">
@@ -3932,14 +4156,17 @@
                 </path>
               </svg>
             </button>
-            <img src="assets/cat_industrial.jpg" alt="Industrial Land in Coimbatore, Tamil Nadu" loading="lazy">
+            <img src="assets/cat_industrial.webp" alt="Industrial Land in Coimbatore, Tamil Nadu" loading="lazy">
           </div>
           <div class="listing-info">
             <div>
               <div class="listing-top-row">
                 <h3 class="listing-title">Industrial Land</h3>
-                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
                 </svg>
               </div>
               <div class="listing-location">
@@ -3982,7 +4209,7 @@
 
         <!-- Left: Image + Badge -->
         <div class="why-choose-media">
-          <img src="assets/cat_residential.jpg" alt="A beautiful property found on BilaBadi" class="why-choose-img"
+          <img src="assets/cat_residential.webp" alt="A beautiful property found on BilaBadi" class="why-choose-img"
             loading="lazy">
           <div class="why-choose-badge">
             <div class="why-choose-badge-icon">
@@ -4061,6 +4288,108 @@
   </section>
 
   <!-- ==========================================================================
+       Top Cities Section: Explore Real Estate in Popular Indian Cities
+       ========================================================================== -->
+  <section class="top-cities-section" id="topCitiesSection" aria-label="Explore Real Estate in Popular Indian Cities">
+    <div class="container">
+      <div class="top-cities-header">
+        <span class="top-cities-eyebrow">TOP CITIES</span>
+        <h2 class="top-cities-title">Explore Real Estate in Popular Indian Cities</h2>
+      </div>
+
+      <div class="top-cities-grid">
+        <!-- City 1: Delhi / NCR -->
+        <a href="product-details.html?city=Delhi" class="city-card">
+          <div class="city-img-box">
+            <img src="assets/city_delhi.jpg" alt="Real Estate in Delhi / NCR" loading="lazy">
+          </div>
+          <div class="city-info">
+            <h3 class="city-name">Delhi / NCR</h3>
+            <p class="city-count">171,000+ Properties</p>
+          </div>
+        </a>
+
+        <!-- City 2: Bangalore -->
+        <a href="product-details.html?city=Bangalore" class="city-card">
+          <div class="city-img-box">
+            <img src="assets/city_bangalore.jpg" alt="Real Estate in Bangalore" loading="lazy">
+          </div>
+          <div class="city-info">
+            <h3 class="city-name">Bangalore</h3>
+            <p class="city-count">56,000+ Properties</p>
+          </div>
+        </a>
+
+        <!-- City 3: Pune -->
+        <a href="product-details.html?city=Pune" class="city-card">
+          <div class="city-img-box">
+            <img src="assets/city_pune.jpg" alt="Real Estate in Pune" loading="lazy">
+          </div>
+          <div class="city-info">
+            <h3 class="city-name">Pune</h3>
+            <p class="city-count">40,000+ Properties</p>
+          </div>
+        </a>
+
+        <!-- City 4: Chennai -->
+        <a href="product-details.html?city=Chennai" class="city-card">
+          <div class="city-img-box">
+            <img src="assets/city_chennai.jpg" alt="Real Estate in Chennai" loading="lazy">
+          </div>
+          <div class="city-info">
+            <h3 class="city-name">Chennai</h3>
+            <p class="city-count">38,000+ Properties</p>
+          </div>
+        </a>
+
+        <!-- City 5: Mumbai -->
+        <a href="product-details.html?city=Mumbai" class="city-card">
+          <div class="city-img-box">
+            <img src="assets/city_mumbai.jpg" alt="Real Estate in Mumbai" loading="lazy">
+          </div>
+          <div class="city-info">
+            <h3 class="city-name">Mumbai</h3>
+            <p class="city-count">42,000+ Properties</p>
+          </div>
+        </a>
+
+        <!-- City 6: Hyderabad -->
+        <a href="product-details.html?city=Hyderabad" class="city-card">
+          <div class="city-img-box">
+            <img src="assets/city_hyderabad.jpg" alt="Real Estate in Hyderabad" loading="lazy">
+          </div>
+          <div class="city-info">
+            <h3 class="city-name">Hyderabad</h3>
+            <p class="city-count">29,000+ Properties</p>
+          </div>
+        </a>
+
+        <!-- City 7: Kolkata -->
+        <a href="product-details.html?city=Kolkata" class="city-card">
+          <div class="city-img-box">
+            <img src="assets/city_kolkata.jpg" alt="Real Estate in Kolkata" loading="lazy">
+          </div>
+          <div class="city-info">
+            <h3 class="city-name">Kolkata</h3>
+            <p class="city-count">31,000+ Properties</p>
+          </div>
+        </a>
+
+        <!-- City 8: Ahmedabad -->
+        <a href="product-details.html?city=Ahmedabad" class="city-card">
+          <div class="city-img-box">
+            <img src="assets/city_ahmedabad.webp" alt="Real Estate in Ahmedabad" loading="lazy">
+          </div>
+          <div class="city-info">
+            <h3 class="city-name">Ahmedabad</h3>
+            <p class="city-count">22,000+ Properties</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
        Customer Testimonials Section
        ========================================================================== -->
   <section class="testimonials-section" aria-label="Customer Testimonials">
@@ -4078,10 +4407,10 @@
       <!-- Mobile Header (Matches Mockup) -->
       <div class="mobile-testimonials-header mobile-only-flex">
         <h2 class="mobile-section-title">What Our Customers Say</h2>
-        <div class="mobile-header-dots">
-          <span class="slider-dot active"></span>
-          <span class="slider-dot"></span>
-          <span class="slider-dot"></span>
+        <div class="mobile-header-dots" aria-label="Testimonial Navigation">
+          <button type="button" class="slider-dot active" aria-label="Slide 1"></button>
+          <button type="button" class="slider-dot" aria-label="Slide 2"></button>
+          <button type="button" class="slider-dot" aria-label="Slide 3"></button>
         </div>
       </div>
 
@@ -4137,27 +4466,21 @@
       </div>
 
       <!-- Mobile Testimonial Card (Matches Mockup) -->
-      <article class="mobile-testimonial-card mobile-only-flex">
+      <article class="mobile-testimonial-card mobile-only-flex" id="mobileTestimonialCard">
         <img src="assets/avatar_rohit.jpg" alt="Rohit Sharma" class="testimonial-avatar" loading="lazy">
         <div class="testimonial-content">
           <p class="testimonial-quote">
             &ldquo;BilaBadi made it so easy to find the right plot. The process was smooth and transparent.&rdquo;
           </p>
           <div class="testimonial-author">Rohit Sharma</div>
-          <div class="testimonial-role">Land Buyer, Pune</div>
+          <div class="testimonial-role">Plot Buyer, Pune</div>
         </div>
-        <button type="button" class="mobile-testimonial-arrow" aria-label="Next testimonial">&gt;</button>
+        <button type="button" class="mobile-testimonial-arrow" id="mobileTestimonialNextBtn" aria-label="Next testimonial">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </article>
-
-      <!-- Mobile slider pagination dots and next arrow -->
-      <div class="testimonial-nav-mobile">
-        <div class="slider-dots">
-          <span class="slider-dot active"></span>
-          <span class="slider-dot"></span>
-          <span class="slider-dot"></span>
-        </div>
-        <button class="slider-arrow-btn" id="testimonialNextBtn" aria-label="Next review">&gt;</button>
-      </div>
     </div>
   </section>
 
@@ -4205,7 +4528,7 @@
         <!-- Blog 1 -->
         <article class="blog-card">
           <div class="blog-card-img-wrap">
-            <img src="assets/cat_residential.jpg" alt="Top 10 Tips for Buying Your First Home" class="blog-card-img"
+            <img src="assets/cat_residential.webp" alt="Top 10 Tips for Buying Your First Home" class="blog-card-img"
               loading="lazy">
           </div>
           <div class="blog-card-body">
@@ -4218,7 +4541,7 @@
         <!-- Blog 2 -->
         <article class="blog-card">
           <div class="blog-card-img-wrap">
-            <img src="assets/cat_commercial.jpg" alt="Real Estate Investment Trends in 2025" class="blog-card-img"
+            <img src="assets/cat_commercial.webp" alt="Real Estate Investment Trends in 2025" class="blog-card-img"
               loading="lazy">
           </div>
           <div class="blog-card-body">
@@ -4231,7 +4554,7 @@
         <!-- Blog 3 -->
         <article class="blog-card">
           <div class="blog-card-img-wrap">
-            <img src="assets/cat_agricultural.jpg" alt="How to Choose the Right Location for Your Home"
+            <img src="assets/cat_agricultural.webp" alt="How to Choose the Right Location for Your Home"
               class="blog-card-img" loading="lazy">
           </div>
           <div class="blog-card-body">
@@ -4244,7 +4567,7 @@
         <!-- Blog 4 -->
         <article class="blog-card">
           <div class="blog-card-img-wrap">
-            <img src="assets/cat_industrial.jpg" alt="Benefits of Living in a Gated Community" class="blog-card-img"
+            <img src="assets/cat_industrial.webp" alt="Benefits of Living in a Gated Community" class="blog-card-img"
               loading="lazy">
           </div>
           <div class="blog-card-body">
@@ -4435,6 +4758,54 @@
       drawerClose?.addEventListener('click', closeDrawer);
       drawerOverlay?.addEventListener('click', closeDrawer);
 
+      // Typewriter Effect for "Land & Commercial Spaces": Write -> Remove -> Write -> Remove loop
+      const typewriterEl = document.getElementById('typewriterText');
+      if (typewriterEl) {
+        const phrases = [
+          "Land & Commercial Spaces"
+        ];
+        let phraseIdx = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        // Initialize with non-breaking space to guarantee zero height jump
+        typewriterEl.innerHTML = '&nbsp;';
+
+        function typeLoop() {
+          const currentPhrase = phrases[phraseIdx];
+
+          if (!isDeleting) {
+            // Write (typing characters)
+            charIndex++;
+            typewriterEl.textContent = currentPhrase.substring(0, charIndex);
+
+            if (charIndex >= currentPhrase.length) {
+              // Full text written: pause 2.2s so it can be read, then remove
+              isDeleting = true;
+              setTimeout(typeLoop, 2200);
+              return;
+            }
+            setTimeout(typeLoop, 85); // typing speed
+          } else {
+            // Remove (erasing characters)
+            charIndex--;
+            typewriterEl.textContent = currentPhrase.substring(0, charIndex) || '\u00A0';
+
+            if (charIndex <= 0) {
+              // Completely removed: pause 0.5s, then write again
+              isDeleting = false;
+              phraseIdx = (phraseIdx + 1) % phrases.length;
+              setTimeout(typeLoop, 500);
+              return;
+            }
+            setTimeout(typeLoop, 40); // erasing speed
+          }
+        }
+
+        // Start typing immediately
+        typeLoop();
+      }
+
       // Favorite Heart Buttons Toggle
       const favButtons = document.querySelectorAll('.listing-fav-btn, #navWishlistBtn');
       favButtons.forEach(btn => {
@@ -4455,58 +4826,60 @@
         },
         {
           avatar: 'assets/avatar_priya.jpg',
-          quote: '“Great platform with genuine listings. I sold my land within 2 weeks!”',
+          quote: '“Great platform with genuine listings. I sold my property within 2 weeks with complete ease.”',
           author: 'Priya Nair',
           role: 'Land Seller, Kochi'
         },
         {
           avatar: 'assets/avatar_amit.jpg',
-          quote: '“Very professional service and helpful support team. Highly recommended!”',
+          quote: '“Very professional service and reliable verification. Found my dream plot without any hassle!”',
           author: 'Amit Verma',
-          role: 'Land Buyer, Lucknow'
+          role: 'Plot Buyer, Lucknow'
         }
       ];
 
       let currentTestimonialIdx = 0;
-      const dots = document.querySelectorAll('.slider-dot');
-      const nextBtn = document.getElementById('testimonialNextBtn');
-      const testimonialCards = document.querySelectorAll('.testimonial-card');
-      const mobileCard = document.querySelector('.mobile-testimonial-card');
-      const mobileArrow = document.querySelector('.mobile-testimonial-arrow');
+      const dots = document.querySelectorAll('.mobile-header-dots .slider-dot');
+      const mobileCard = document.getElementById('mobileTestimonialCard') || document.querySelector('.mobile-testimonial-card');
+      const mobileArrow = document.getElementById('mobileTestimonialNextBtn') || document.querySelector('.mobile-testimonial-arrow');
 
       function updateMobileTestimonial(idx) {
         currentTestimonialIdx = idx;
-        dots.forEach((d, i) => d.classList.toggle('active', i % 3 === idx % 3));
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
 
         const data = testimonials[idx];
         if (mobileCard && data) {
+          const content = mobileCard.querySelector('.testimonial-content');
           const img = mobileCard.querySelector('.testimonial-avatar');
-          const quote = mobileCard.querySelector('.testimonial-quote');
-          const author = mobileCard.querySelector('.testimonial-author');
-          const role = mobileCard.querySelector('.testimonial-role');
 
-          if (img) img.src = data.avatar;
-          if (quote) quote.textContent = data.quote;
-          if (author) author.textContent = data.author;
-          if (role) role.textContent = data.role;
-        }
+          if (content && img) {
+            content.style.opacity = '0';
+            img.style.opacity = '0';
+            img.style.transform = 'scale(0.94)';
 
-        if (testimonialCards.length > 0 && data) {
-          const card = testimonialCards[0];
-          const img = card.querySelector('.testimonial-avatar');
-          const quote = card.querySelector('.testimonial-quote');
-          const author = card.querySelector('.testimonial-author');
-          const role = card.querySelector('.testimonial-role');
+            setTimeout(() => {
+              const quote = mobileCard.querySelector('.testimonial-quote');
+              const author = mobileCard.querySelector('.testimonial-author');
+              const role = mobileCard.querySelector('.testimonial-role');
 
-          if (img) img.src = data.avatar;
-          if (quote) quote.textContent = data.quote;
-          if (author) author.textContent = data.author;
-          if (role) role.textContent = data.role;
+              if (img) {
+                img.src = data.avatar;
+                img.alt = data.author;
+              }
+              if (quote) quote.textContent = data.quote;
+              if (author) author.textContent = data.author;
+              if (role) role.textContent = data.role;
+
+              content.style.opacity = '1';
+              img.style.opacity = '1';
+              img.style.transform = 'scale(1)';
+            }, 140);
+          }
         }
       }
 
       dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => updateMobileTestimonial(index % 3));
+        dot.addEventListener('click', () => updateMobileTestimonial(index));
       });
 
       mobileArrow?.addEventListener('click', () => {
@@ -4514,10 +4887,24 @@
         updateMobileTestimonial(nextIdx);
       });
 
-      nextBtn?.addEventListener('click', () => {
-        const nextIdx = (currentTestimonialIdx + 1) % testimonials.length;
-        updateMobileTestimonial(nextIdx);
-      });
+      // Swipe support for touch devices
+      let touchStartX = 0;
+      let touchEndX = 0;
+      mobileCard?.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      mobileCard?.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (diff > 40) {
+          const nextIdx = (currentTestimonialIdx + 1) % testimonials.length;
+          updateMobileTestimonial(nextIdx);
+        } else if (diff < -40) {
+          const prevIdx = (currentTestimonialIdx - 1 + testimonials.length) % testimonials.length;
+          updateMobileTestimonial(prevIdx);
+        }
+      }, { passive: true });
 
       // ==========================================================================
       // Location Search with States & Districts API
@@ -4896,22 +5283,6 @@
       }
 
       initLocationApi();
-
-      // Search button interaction
-      const searchBtn = document.getElementById('heroSearchBtn');
-      searchBtn?.addEventListener('click', (e) => {
-        e.preventDefault();
-        const locInput = document.getElementById('searchLocation')?.value || 'all locations';
-        const typeSelect = document.getElementById('searchType')?.value || 'All Types';
-        const priceSelect = document.getElementById('searchPrice')?.value || 'Any Price';
-
-        closeLocationPopover();
-        filterListingsByLocation(locInput);
-
-        // Smooth scroll to listings section
-        const listingsSec = document.getElementById('listingsSection');
-        listingsSec?.scrollIntoView({ behavior: 'smooth' });
-      });
 
       // Custom Select Dropdowns (Property Type & Price Range)
       const customDropdowns = document.querySelectorAll('.custom-select-dropdown');
