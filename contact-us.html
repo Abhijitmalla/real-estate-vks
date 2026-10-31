@@ -1,0 +1,2470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Let's Start a Conversation | BilaBadi.com</title>
+  <meta name="description"
+    content="Need help with homes for sale, rental properties, studio apartments or duplex housing? Connect with trusted Bila Badi property agents for clear guidance.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-green: #0d5435;
+      --primary-green-hover: #083e26;
+      --primary-green-light: #eaf7f0;
+      --primary-green-border: #bbf7d0;
+      --accent-green: #1b804e;
+      --accent-green-bright: #10b981;
+      --accent-lime: #a3e635;
+      --accent-yellow: #fde047;
+      --footer-bg: #083822;
+      --footer-darker: #052617;
+      --footer-text-muted: rgba(255, 255, 255, 0.68);
+
+      --text-dark: #111827;
+      --text-heading: #0c2c1e;
+      --text-body: #4b5563;
+      --text-muted: #6b7280;
+      --text-light: #9ca3af;
+
+      --bg-page: #f8faf8;
+      --bg-card: #ffffff;
+      --bg-soft: #f4fbf7;
+      --border-color: #e5e7eb;
+      --border-light: #eef2ef;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 12px 32px -4px rgba(13, 84, 53, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      --radius-pill: 9999px;
+
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Base & Reset */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: var(--transition);
+    }
+
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       Header & Navigation (Exact Match to index.html with Contact Underline)
+       ========================================================================== */
+    .site-header {
+      background-color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    /* Brand Logo */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .brand-icon-svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .brand-text-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.4px;
+      line-height: 1.1;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 2px;
+      white-space: nowrap;
+    }
+
+    .brand-tld {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-green);
+    }
+
+    /* Desktop Navigation Links */
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-link {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #374151;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-green);
+    }
+
+    .nav-link.active {
+      color: var(--primary-green);
+      font-weight: 700;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background-color: var(--primary-green);
+      border-radius: 2px;
+    }
+
+    /* Header Right Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .action-btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: #374151;
+      transition: var(--transition);
+    }
+
+    .action-btn-icon:hover {
+      color: var(--primary-green);
+      background-color: var(--primary-green-light);
+    }
+
+    .login-link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    .login-link:hover {
+      color: var(--primary-green);
+    }
+
+    .btn-add-property {
+      background-color: var(--primary-green);
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 13.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(13, 84, 53, 0.22);
+    }
+
+    .btn-add-property:hover {
+      background-color: var(--primary-green-hover);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .mobile-nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      color: var(--text-dark);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .mobile-drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      max-width: 85vw;
+      background-color: #ffffff;
+      z-index: 2000;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .mobile-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 20px;
+    }
+
+    .drawer-close-btn {
+      font-size: 26px;
+      line-height: 1;
+      color: var(--text-muted);
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .mobile-nav-links a {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .mobile-nav-links a.active {
+      color: var(--primary-green);
+    }
+
+    .mobile-drawer-footer {
+      margin-top: auto;
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* ==========================================================================
+       Hero Section: Let's Start a Conversation (Matches Mockup)
+       ========================================================================== */
+    .contact-hero-section {
+      background-color: #ffffff;
+      padding: 36px 0 10px;
+      position: relative;
+    }
+
+    .hero-layout-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text-content {
+      max-width: 580px;
+    }
+
+    .hero-badge-pill {
+      display: inline-block;
+      padding: 5px 14px;
+      background-color: #eaf7f0;
+      color: #065f46;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+    }
+
+    .hero-main-title {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .hero-main-subtitle {
+      font-size: 14.5px;
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .hero-features-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .hero-feature-item svg {
+      width: 18px;
+      height: 18px;
+      color: var(--primary-green);
+      flex-shrink: 0;
+    }
+
+    /* Hero Right Visual: Green Farmland with Location Pin */
+    .hero-visual-col {
+      position: relative;
+    }
+
+    .hero-farmland-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+      border: 3px solid #ffffff;
+      background-color: #e5e7eb;
+    }
+
+    .hero-farmland-img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Red Location Pin on Farmland */
+    .hero-location-pin {
+      position: absolute;
+      top: 32%;
+      right: 28%;
+      z-index: 5;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+      animation: pinBounce 2.4s infinite ease-in-out;
+    }
+
+    @keyframes pinBounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    .hero-location-pin svg {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+
+    /* ==========================================================================
+       Main Contact Section: Form & Info Cards
+       ========================================================================== */
+    .contact-main-section {
+      padding: 10px 0 45px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* Left Card: Send us a Message */
+    .contact-form-card {
+      background-color: #ffffff;
+      border-radius: 24px;
+      padding: 36px 38px;
+      border: 1px solid #eef2ef;
+      border-top: 3.5px solid #bbf7d0;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-header-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .form-header-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background-color: #eaf7f0;
+      color: var(--primary-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .form-header-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .form-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.3px;
+      margin-bottom: 2px;
+    }
+
+    .form-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .form-fields-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-row-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 7px;
+    }
+
+    .input-icon-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-field-icon {
+      position: absolute;
+      left: 14px;
+      width: 16px;
+      height: 16px;
+      color: #9ca3af;
+      pointer-events: none;
+      transition: color 0.2s ease;
+    }
+
+    .form-control {
+      width: 100%;
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 12px 14px 12px 40px;
+      font-size: 13.5px;
+      color: var(--text-dark);
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-control::placeholder {
+      color: #9ca3af;
+      font-size: 13px;
+    }
+
+    .form-control:focus {
+      background-color: #ffffff;
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 3px rgba(13, 84, 53, 0.12);
+    }
+
+    .form-control:focus + .input-field-icon,
+    .input-icon-wrap:focus-within .input-field-icon {
+      color: var(--primary-green);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 110px;
+      padding-top: 12px;
+    }
+
+    .textarea-icon-wrap .input-field-icon {
+      top: 14px;
+    }
+
+    .btn-send-message {
+      width: 100%;
+      background: #0d5435;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 24px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(13, 84, 53, 0.2);
+      transition: var(--transition);
+      margin-top: 6px;
+    }
+
+    .btn-send-message:hover {
+      background: #083e26;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(13, 84, 53, 0.28);
+    }
+
+    .btn-send-message svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Right Column: Information Cards */
+    .contact-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .info-card {
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 24px 26px;
+      border: 1px solid #eef2ef;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    }
+
+    /* Operating Hours Card */
+    .operating-hours-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .operating-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--primary-green);
+    }
+
+    .operating-hours-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .hours-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hours-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13.5px;
+    }
+
+    .hours-day-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .hours-day-wrap svg {
+      width: 16px;
+      height: 16px;
+      color: var(--primary-green);
+    }
+
+    .hours-time {
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .hours-closed-badge {
+      background-color: #fee2e2;
+      color: #dc2626;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: var(--radius-pill);
+    }
+
+    .operating-divider {
+      height: 1px;
+      background-color: #f3f4f6;
+      margin: 16px 0 14px;
+    }
+
+    .urgent-help-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .urgent-headset-icon {
+      width: 22px;
+      height: 22px;
+      color: var(--primary-green);
+      flex-shrink: 0;
+    }
+
+    .urgent-help-label {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 2px;
+    }
+
+    .urgent-help-email {
+      color: var(--primary-green);
+      font-size: 14.5px;
+      font-weight: 800;
+      display: block;
+    }
+
+    .urgent-help-email:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Label for Locations */
+    .locations-label-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin: 4px 0 -4px;
+    }
+
+    .locations-label-row svg {
+      width: 18px;
+      height: 18px;
+      color: var(--primary-green);
+    }
+
+    /* Location Cards with Building Photos */
+    .location-card-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .location-left-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .location-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background-color: #eaf7f0;
+      color: var(--primary-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .location-icon-box svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .location-info-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .location-title {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    .location-city {
+      font-size: 12.5px;
+      color: #6b7280;
+      margin-top: 2px;
+      margin-bottom: 6px;
+    }
+
+    .location-address {
+      font-size: 12px;
+      color: #4b5563;
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    .location-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--primary-green);
+    }
+
+    .location-phone:hover {
+      text-decoration: underline;
+    }
+
+    .location-phone svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .location-building-img {
+      width: 86px;
+      height: 68px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border: 1px solid #eef2ef;
+    }
+
+    /* ==========================================================================
+       Interactive Map Section with Floating Info Card
+       ========================================================================== */
+    .contact-map-section {
+      padding: 10px 0 32px;
+    }
+
+    .map-container-box {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background-color: #e5e7eb;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid #eef2ef;
+      height: 390px;
+    }
+
+    /* Floating Card inside Map */
+    .map-floating-card {
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      z-index: 10;
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
+      max-width: 320px;
+      width: calc(100% - 40px);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .map-toggle-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .map-tab-btn {
+      font-size: 12px;
+      font-weight: 700;
+      color: #4b5563;
+      background-color: #f3f4f6;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .map-tab-btn.active {
+      background-color: var(--primary-green);
+      color: #ffffff;
+    }
+
+    .map-address-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12.5px;
+      color: #374151;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .map-address-row svg {
+      width: 16px;
+      height: 16px;
+      color: var(--primary-green);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .map-rating-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .map-rating-star {
+      color: #f59e0b;
+    }
+
+    .map-rating-count {
+      color: #6b7280;
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .btn-open-maps {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--primary-green);
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .btn-open-maps:hover {
+      background-color: var(--primary-green-hover);
+    }
+
+    .btn-open-maps svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .map-iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* ==========================================================================
+       Four Features / Trust Badges Bar (Below Map)
+       ========================================================================== */
+    .trust-features-bar-section {
+      padding: 0 0 35px;
+    }
+
+    .trust-features-bar {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 22px 28px;
+      border: 1px solid #eef2ef;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      align-items: center;
+    }
+
+    .trust-feature-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .trust-feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #eaf7f0;
+      color: var(--primary-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .trust-feature-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .trust-feature-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+
+    .trust-feature-sub {
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.35;
+    }
+
+    /* ==========================================================================
+       CTA Banner: Find Your Next Home (Emerald Green with Lime & Yellow Buttons)
+       ========================================================================== */
+    .find-home-cta-section {
+      padding: 0 0 65px;
+    }
+
+    .find-home-cta-card {
+      background: linear-gradient(135deg, #073420 0%, #0d5435 55%, #052617 100%);
+      border-radius: 20px;
+      padding: 38px 46px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      box-shadow: 0 10px 30px rgba(13, 84, 53, 0.2);
+    }
+
+    .find-home-cta-card::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 320px;
+      background: radial-gradient(circle at 100% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-text-content {
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+    }
+
+    .cta-highlight {
+      color: var(--accent-lime);
+    }
+
+    .cta-desc {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.55;
+    }
+
+    .cta-actions-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn-reseller-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 14px;
+      font-weight: 700;
+      color: #111827;
+      background-color: #ffffff;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-reseller-white:hover {
+      background-color: #f3f4f6;
+      transform: translateY(-1px);
+    }
+
+    .btn-get-started-yellow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: var(--radius-pill);
+      font-size: 14px;
+      font-weight: 700;
+      color: #111827;
+      background-color: var(--accent-yellow);
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(253, 224, 71, 0.35);
+    }
+
+    .btn-get-started-yellow:hover {
+      background-color: #fde68a;
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       Site Footer (Exact Match to index.html with Dark Forest Green)
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--footer-bg);
+      color: #ffffff;
+      padding: 60px 0 28px;
+      position: relative;
+    }
+
+    .footer-main-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.85fr 0.9fr 0.9fr 1.7fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    /* Column 1: Brand & Socials */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer-logo .brand-icon-svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .footer-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-name {
+      font-size: 21px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+
+    .footer-brand-tld {
+      color: #86efac;
+    }
+
+    .footer-tagline {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 3px;
+      font-weight: 500;
+      letter-spacing: 0.1px;
+    }
+
+    .footer-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.72);
+      margin: 18px 0 22px;
+      max-width: 310px;
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .social-icon-btn:hover {
+      background-color: #10b981;
+      border-color: #10b981;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Columns 2, 3, 4: Link Groups */
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-col-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      letter-spacing: -0.2px;
+    }
+
+    .footer-col-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col-links li a {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 13.5px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .footer-col-links li a:hover {
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+
+    /* Column 5: Newsletter */
+    .footer-newsletter-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .newsletter-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.72);
+      margin-bottom: 18px;
+      max-width: 340px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 9999px;
+      padding: 4px 5px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .newsletter-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      padding-left: 12px;
+    }
+
+    .newsletter-input-wrap svg {
+      width: 16px;
+      height: 16px;
+      color: #9ca3af;
+    }
+
+    .newsletter-input {
+      border: none;
+      background: transparent;
+      padding: 9px 8px;
+      font-size: 13.5px;
+      color: var(--text-dark);
+      flex: 1;
+      outline: none;
+    }
+
+    .newsletter-input::placeholder {
+      color: #9ca3af;
+    }
+
+    .newsletter-btn {
+      background-color: var(--primary-green);
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 9px 20px;
+      border-radius: 9999px;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .newsletter-btn:hover {
+      background-color: var(--primary-green-hover);
+    }
+
+    /* Footer Bottom Row */
+    .footer-bottom-row {
+      margin-top: 50px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-bottom-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-legal-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-legal-links .sep {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-scroll-top {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .btn-scroll-top:hover {
+      background-color: #10b981;
+      border-color: #10b981;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       Notification Toast
+       ========================================================================== */
+    .toast-notification {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #0c2c1e;
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 9999;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .toast-notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      width: 22px;
+      height: 22px;
+      background-color: #10b981;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       Responsive Media Queries
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .hero-farmland-card {
+        max-width: 580px;
+        margin: 0 auto;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-features-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-main-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .footer-newsletter-col {
+        grid-column: span 3;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav,
+      .login-link,
+      .btn-add-property {
+        display: none;
+      }
+
+      .mobile-nav-toggle {
+        display: flex;
+      }
+
+      .contact-hero-section {
+        padding: 24px 0 10px;
+      }
+
+      .contact-main-section {
+        padding: 10px 0 35px;
+      }
+
+      .hero-main-title {
+        font-size: 32px;
+      }
+
+      .hero-features-row {
+        gap: 14px;
+      }
+
+      .hero-farmland-img {
+        height: 220px;
+      }
+
+      .contact-form-card {
+        padding: 24px 20px;
+      }
+
+      .form-row-2col {
+        grid-template-columns: 1fr;
+      }
+
+      .info-card {
+        padding: 20px;
+      }
+
+      .location-card-flex {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .location-building-img {
+        width: 100%;
+        height: 120px;
+      }
+
+      .map-container-box {
+        height: 320px;
+      }
+
+      .map-floating-card {
+        top: 12px;
+        left: 12px;
+        padding: 12px 14px;
+        max-width: 290px;
+      }
+
+      .trust-features-bar {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 18px 20px;
+      }
+
+      .find-home-cta-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 24px;
+      }
+
+      .cta-actions-group {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .btn-reseller-white,
+      .btn-get-started-yellow {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* Footer mobile layout matches index.html */
+      .site-footer {
+        padding: 40px 0 24px;
+      }
+
+      .footer-main-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 32px 18px !important;
+      }
+
+      .footer-brand {
+        grid-column: span 2 !important;
+        margin-bottom: 6px;
+      }
+
+      .footer-col {
+        min-width: 0;
+      }
+
+      .footer-col-title {
+        font-size: 15px !important;
+        margin-bottom: 14px !important;
+      }
+
+      .footer-col-links {
+        gap: 10px !important;
+      }
+
+      .footer-col-links li a {
+        font-size: 13px !important;
+      }
+
+      .footer-newsletter-col {
+        grid-column: span 1 !important;
+        min-width: 0;
+      }
+
+      .newsletter-desc {
+        font-size: 12.5px !important;
+        line-height: 1.45 !important;
+        margin-bottom: 12px !important;
+      }
+
+      .newsletter-form {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        background: transparent !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+      }
+
+      .newsletter-input-wrap {
+        width: 100%;
+        box-sizing: border-box;
+        background: #ffffff;
+        border-radius: 9999px;
+        padding: 9px 14px;
+      }
+
+      .newsletter-input-wrap svg {
+        display: none;
+      }
+
+      .newsletter-input {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        background: transparent !important;
+        border-radius: 9999px !important;
+        padding: 0 !important;
+        font-size: 12.5px !important;
+        color: #111827 !important;
+        border: 0 !important;
+      }
+
+      .newsletter-input::placeholder {
+        font-size: 11.5px !important;
+        color: #9ca3af !important;
+      }
+
+      .newsletter-btn {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        border-radius: 9999px !important;
+        padding: 9px 14px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        background: #10b981 !important;
+        color: #ffffff !important;
+        text-align: center !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25) !important;
+      }
+
+      .footer-bottom-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-top: 36px;
+      }
+
+      .footer-bottom-right {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       Header & Navigation (Exact Match to index.html with Contact Underline)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="BilaBadi Home">
+        <svg class="brand-icon-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- House Peak Roof -->
+          <path d="M18 3.5L3 16.5H7.5V31.5H28.5V16.5H33L18 3.5Z" fill="#0d5435" />
+          <!-- Tree Inside House Silhouette -->
+          <path
+            d="M18 13C15.8 13 14 14.8 14 17C14 18.8 15.2 20.3 16.8 20.8V26H19.2V20.8C20.8 20.3 22 18.8 22 17C22 14.8 20.2 13 18 13Z"
+            fill="#ffffff" />
+          <path d="M13.5 22C14.8 23.5 16.3 24 18 24C19.7 24 21.2 23.5 22.5 22" stroke="#ffffff" stroke-width="1.8"
+            stroke-linecap="round" />
+        </svg>
+        <div class="brand-text-wrap">
+          <span class="brand-name">
+            BilaBadi<span class="brand-tld">.com</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Buy</a>
+        <a href="product-details.html" class="nav-link">Sell</a>
+        <a href="index.html#about" class="nav-link">Rent</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about-us.html" class="nav-link">About Us</a>
+        <a href="contact-us.html" class="nav-link active">Contact</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <button type="button" class="action-btn-icon" id="navWishlistBtn" aria-label="Wishlist">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+            </path>
+          </svg>
+        </button>
+
+        <!-- Login / Register -->
+        <a href="login.html" class="login-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Login / Register</span>
+        </a>
+
+        <!-- Add Property Button -->
+        <a href="product-details.html" class="btn-add-property">
+          <span>+</span> Add Property
+        </a>
+
+        <!-- Mobile Nav Toggle Button -->
+        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="brand-name">BilaBadi<span class="brand-tld">.com</span></div>
+      <button class="drawer-close-btn" id="drawerClose" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Buy</a>
+      <a href="product-details.html">Sell</a>
+      <a href="index.html#about">Rent</a>
+      <a href="services.html">Services</a>
+      <a href="about-us.html">About Us</a>
+      <a href="contact-us.html" class="active">Contact</a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="login-link" style="display: flex;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span>Login / Register</span>
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================================================
+         Hero Section: Let's Start a Conversation (Matches Mockup)
+         ========================================================================== -->
+    <section class="contact-hero-section" aria-label="Contact Hero">
+      <div class="container">
+        <div class="hero-layout-grid">
+
+          <!-- Left Text Content -->
+          <div class="hero-text-content">
+            <span class="hero-badge-pill">CONTACT US</span>
+            <h1 class="hero-main-title">Let's Start a Conversation</h1>
+            <p class="hero-main-subtitle">
+              Need help with homes for sale, rental properties, studio apartments or duplex housing? Connect with trusted property agents for clear guidance.
+            </p>
+
+            <!-- 3 Benefit Features -->
+            <div class="hero-features-row">
+              <div class="hero-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                  <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                </svg>
+                <span>Expert Support</span>
+              </div>
+              <div class="hero-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+                <span>Verified Assistance</span>
+              </div>
+              <div class="hero-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span>Quick Response</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Visual: Farmland with Location Pin -->
+          <div class="hero-visual-col">
+            <div class="hero-farmland-card">
+              <img src="assets/cat_agricultural.webp" alt="Lush Green Farmland Plots - BilaBadi" class="hero-farmland-img"
+                onerror="this.onerror=null; this.src='assets/banner_land_sale.webp';">
+              <!-- Animated Red Location Pin Marker -->
+              <div class="hero-location-pin" title="Verified Land Location">
+                <svg viewBox="0 0 24 24" fill="#ef4444" stroke="#b91c1c" stroke-width="1.2">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Main Contact Section: Form & Info Cards
+         ========================================================================== -->
+    <section class="contact-main-section" aria-label="Send us a message and locations">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Left Card: Send us a Message -->
+          <div class="contact-form-card">
+            <div class="form-header-row">
+              <div class="form-header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h2 class="form-title">Send us a Message</h2>
+                <p class="form-subtitle">We typically reply within 2 hours.</p>
+              </div>
+            </div>
+
+            <form id="contactForm" onsubmit="handleContactSubmit(event)">
+              <div class="form-fields-stack">
+                <!-- First Name & Last Name (2 columns) -->
+                <div class="form-row-2col">
+                  <div class="form-group">
+                    <label for="firstName" class="form-label">First Name *</label>
+                    <div class="input-icon-wrap">
+                      <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                      </svg>
+                      <input type="text" id="firstName" name="firstName" class="form-control"
+                        placeholder="Enter First Name" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName" class="form-label">Last Name *</label>
+                    <div class="input-icon-wrap">
+                      <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                      </svg>
+                      <input type="text" id="lastName" name="lastName" class="form-control"
+                        placeholder="Enter Last Name" required>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group">
+                  <label for="emailAddress" class="form-label">Email Address *</label>
+                  <div class="input-icon-wrap">
+                    <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <input type="email" id="emailAddress" name="email" class="form-control"
+                      placeholder="support@bilabadi.com" required>
+                  </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                  <label for="phoneNumber" class="form-label">Phone Number</label>
+                  <div class="input-icon-wrap">
+                    <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <input type="tel" id="phoneNumber" name="phone" class="form-control"
+                      placeholder="+91 99108 77219">
+                  </div>
+                </div>
+
+                <!-- Your Message -->
+                <div class="form-group">
+                  <label for="messageText" class="form-label">Your Message *</label>
+                  <div class="input-icon-wrap textarea-icon-wrap">
+                    <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 20h9"></path>
+                      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                    <textarea id="messageText" name="message" class="form-control"
+                      placeholder="How can we help you today?" rows="4" required></textarea>
+                  </div>
+                </div>
+
+                <!-- Send Message Button -->
+                <button type="submit" class="btn-send-message">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                  <span>Send Message</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right Column: Information Cards -->
+          <div class="contact-info-col">
+
+            <!-- Card 1: Operating Hours -->
+            <div class="info-card">
+              <div class="operating-hours-header">
+                <svg class="operating-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <h3 class="operating-hours-title">Operating Hours</h3>
+              </div>
+
+              <div class="hours-list">
+                <div class="hours-row">
+                  <div class="hours-day-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>Monday – Saturday</span>
+                  </div>
+                  <span class="hours-time">9:00 AM – 6:00 PM</span>
+                </div>
+                <div class="hours-row">
+                  <div class="hours-day-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>Sunday</span>
+                  </div>
+                  <span class="hours-closed-badge">Closed</span>
+                </div>
+              </div>
+
+              <div class="operating-divider"></div>
+
+              <div class="urgent-help-row">
+                <svg class="urgent-headset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                  <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                </svg>
+                <div>
+                  <div class="urgent-help-label">Need urgent help?</div>
+                  <a href="mailto:support@bilabadi.com" class="urgent-help-email">support@bilabadi.com</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section Label: Our Locations -->
+            <div class="locations-label-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Our Locations</span>
+            </div>
+
+            <!-- Card 2: Head Office -->
+            <div class="info-card">
+              <div class="location-card-flex">
+                <div class="location-left-wrap">
+                  <div class="location-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                      <line x1="9" y1="22" x2="9" y2="22.01"></line>
+                      <line x1="15" y1="22" x2="15" y2="22.01"></line>
+                      <line x1="9" y1="6" x2="9" y2="6.01"></line>
+                      <line x1="15" y1="6" x2="15" y2="6.01"></line>
+                      <line x1="9" y1="10" x2="9" y2="10.01"></line>
+                      <line x1="15" y1="10" x2="15" y2="10.01"></line>
+                      <line x1="9" y1="14" x2="9" y2="14.01"></line>
+                      <line x1="15" y1="14" x2="15" y2="14.01"></line>
+                    </svg>
+                  </div>
+                  <div class="location-info-body">
+                    <h4 class="location-title">Head Office</h4>
+                    <div class="location-city">Gurgaon, Haryana</div>
+                    <p class="location-address">
+                      Office No-14, Ground Floor, Centrum Plaza, Golf Course Road, Sector-53, Gurgaon, Haryana, India, Pin-122011
+                    </p>
+                    <a href="tel:+919910877219" class="location-phone">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>+91 99108 77219</span>
+                    </a>
+                  </div>
+                </div>
+                <!-- Street / City Thumbnail Photo -->
+                <img src="assets/city_delhi.jpg" alt="Centrum Plaza Head Office Gurgaon" class="location-building-img"
+                  onerror="this.onerror=null; this.src='assets/cat_commercial.webp';">
+              </div>
+            </div>
+
+            <!-- Card 3: Branch Office -->
+            <div class="info-card">
+              <div class="location-card-flex">
+                <div class="location-left-wrap">
+                  <div class="location-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                      <line x1="9" y1="22" x2="9" y2="22.01"></line>
+                      <line x1="15" y1="22" x2="15" y2="22.01"></line>
+                      <line x1="9" y1="6" x2="9" y2="6.01"></line>
+                      <line x1="15" y1="6" x2="15" y2="6.01"></line>
+                      <line x1="9" y1="10" x2="9" y2="10.01"></line>
+                      <line x1="15" y1="10" x2="15" y2="10.01"></line>
+                      <line x1="9" y1="14" x2="9" y2="14.01"></line>
+                      <line x1="15" y1="14" x2="15" y2="14.01"></line>
+                    </svg>
+                  </div>
+                  <div class="location-info-body">
+                    <h4 class="location-title">Branch Office</h4>
+                    <div class="location-city">Bhubaneswar, Odisha</div>
+                    <p class="location-address">
+                      BMC Panchadeep Market Complex, Bhoumya Nagar, Unit-4, Bhubaneswar, India 751001
+                    </p>
+                    <a href="tel:+919910877219" class="location-phone">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>+91 99108 77219</span>
+                    </a>
+                  </div>
+                </div>
+                <!-- Landscape / Park Thumbnail Photo -->
+                <img src="assets/banner_land_sale.webp" alt="Branch Office Bhubaneswar" class="location-building-img"
+                  onerror="this.onerror=null; this.src='assets/city_pune.jpg';">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Interactive Google Map Section (With Floating Interactive Card)
+         ========================================================================== -->
+    <section class="contact-map-section" aria-label="Interactive Map Location">
+      <div class="container">
+        <div class="map-container-box">
+
+          <!-- Floating Info Card inside Map -->
+          <div class="map-floating-card">
+            <!-- Location Switcher Tabs -->
+            <div class="map-toggle-tabs">
+              <button type="button" class="map-tab-btn active" id="mapTabGurgaon" onclick="switchMapLocation('gurgaon')">
+                Head Office
+              </button>
+              <button type="button" class="map-tab-btn" id="mapTabBhubaneswar" onclick="switchMapLocation('bhubaneswar')">
+                Branch Office
+              </button>
+            </div>
+
+            <!-- Address text -->
+            <div class="map-address-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span id="mapFloatingAddress">Centrum Plaza, Sector 53, Gurugram, Haryana 122011, India</span>
+            </div>
+
+            <!-- Star Rating -->
+            <div class="map-rating-row">
+              <span>4.0</span>
+              <span class="map-rating-star">★</span>
+              <span class="map-rating-count">(2,084)</span>
+            </div>
+
+            <!-- Open in Maps Button -->
+            <a href="https://maps.google.com/?q=Centrum+Plaza,+Golf+Course+Road,+Sector+53,+Gurgaon" target="_blank"
+              rel="noopener noreferrer" class="btn-open-maps" id="btnOpenMaps">
+              <span>Open in Maps</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Embedded Map -->
+          <iframe id="mapIframe" class="map-iframe"
+            src="https://maps.google.com/maps?q=Centrum+Plaza,+Golf+Course+Road,+Sector+53,+Gurgaon,+Haryana+122011&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"
+            title="BilaBadi Office Location Map">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Four Features / Trust Badges Bar (Below Map)
+         ========================================================================== -->
+    <section class="trust-features-bar-section" aria-label="Key Service Benefits">
+      <div class="container">
+        <div class="trust-features-bar">
+          <!-- Item 1: Quick Response -->
+          <div class="trust-feature-box">
+            <div class="trust-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="trust-feature-title">Quick Response</h4>
+              <p class="trust-feature-sub">We reply within 2 hours</p>
+            </div>
+          </div>
+
+          <!-- Item 2: Trusted Support -->
+          <div class="trust-feature-box">
+            <div class="trust-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="trust-feature-title">Trusted Support</h4>
+              <p class="trust-feature-sub">Get reliable assistance</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Property Guidance -->
+          <div class="trust-feature-box">
+            <div class="trust-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <div>
+              <h4 class="trust-feature-title">Property Guidance</h4>
+              <p class="trust-feature-sub">Buy, sell or rent with ease</p>
+            </div>
+          </div>
+
+          <!-- Item 4: Dedicated Team -->
+          <div class="trust-feature-box">
+            <div class="trust-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="trust-feature-title">Dedicated Team</h4>
+              <p class="trust-feature-sub">Real estate experts for you</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CTA Banner: Find Your Next Home (Emerald Green with Lime & Yellow Buttons)
+         ========================================================================== -->
+    <section class="find-home-cta-section" aria-label="Find Your Next Home">
+      <div class="container">
+        <div class="find-home-cta-card">
+          <div class="cta-text-content">
+            <h2 class="cta-title">Find Your <span class="cta-highlight">Next</span> Home</h2>
+            <p class="cta-desc">
+              Browse new apartments, luxury houses, furnished apartments for rent, and flats
+              for sale across India Homes - start your real estate journey with no brokerage.
+            </p>
+          </div>
+          <div class="cta-actions-group">
+            <a href="register.html" class="btn-reseller-white">
+              <span>Become a Reseller</span>
+              <span>&rarr;</span>
+            </a>
+            <a href="product-details.html" class="btn-get-started-yellow">
+              <span>Get Started</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Site Footer (Exact Match to index.html with Dark Forest Green)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Main Footer 5-Column Grid -->
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand, Tagline, Description, Social Icons -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <svg class="brand-icon-svg" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path d="M18 3.5L3 16.5H7.5V31.5H28.5V16.5H33L18 3.5Z" fill="#ffffff" />
+              <path
+                d="M18 13C15.8 13 14 14.8 14 17C14 18.8 15.2 20.3 16.8 20.8V26H19.2V20.8C20.8 20.3 22 18.8 22 17C22 14.8 20.2 13 18 13Z"
+                fill="#083822" />
+              <path d="M13.5 22C14.8 23.5 16.3 24 18 24C19.7 24 21.2 23.5 22.5 22" stroke="#083822" stroke-width="1.8"
+                stroke-linecap="round" />
+            </svg>
+            <div class="footer-brand-text">
+              <span class="footer-brand-name">
+                BilaBadi<span class="footer-brand-tld">.com</span>
+              </span>
+              <span class="footer-tagline">Find Your Place. Build Your Future.</span>
+            </div>
+          </a>
+          <p class="footer-description">
+            We are a leading real estate platform, helping you find the perfect property for your dream life.
+          </p>
+          <div class="footer-socials">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="YouTube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                </path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#083822"></polygon>
+              </svg>
+            </a>
+            <!-- Twitter / X -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Twitter">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-col-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#properties">Properties</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Property Types -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Property Types</h4>
+          <ul class="footer-col-links">
+            <li><a href="product-details.html">Houses</a></li>
+            <li><a href="product-details.html">Apartments</a></li>
+            <li><a href="product-details.html">Villas</a></li>
+            <li><a href="product-details.html">Commercial</a></li>
+            <li><a href="product-details.html">Land</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Support -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Support</h4>
+          <ul class="footer-col-links">
+            <li><a href="#help">Help Center</a></li>
+            <li><a href="#terms">Terms &amp; Conditions</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Subscribe to Our Newsletter -->
+        <div class="footer-col footer-newsletter-col">
+          <h4 class="footer-col-title">Subscribe to Our Newsletter</h4>
+          <p class="newsletter-desc">Get the latest properties, news and updates straight to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing to BilaBadi newsletter!');">
+            <div class="newsletter-input-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input type="email" class="newsletter-input" placeholder="Enter your email address" required
+                aria-label="Email address" />
+            </div>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom-row">
+        <p class="footer-copy">&copy; 2025 BilaBadi.com. All rights reserved.</p>
+        <div class="footer-bottom-right">
+          <div class="footer-legal-links">
+            <a href="#privacy">Privacy Policy</a>
+            <span class="sep">|</span>
+            <a href="#terms">Terms &amp; Conditions</a>
+            <span class="sep">|</span>
+            <a href="#sitemap">Sitemap</a>
+          </div>
+          <button type="button" id="scrollToTopBtn" class="btn-scroll-top" aria-label="Scroll to top">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Toast Notification -->
+  <div id="toastNotification" class="toast-notification" role="status" aria-live="polite">
+    <div class="toast-icon">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <span id="toastMessage">Thank you! Your message has been sent successfully.</span>
+  </div>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Toast notification function
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      if (toast && toastMsg) {
+        toastMsg.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 4000);
+      }
+    }
+
+    // Contact form submit handler
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const firstName = document.getElementById('firstName')?.value || '';
+      showToast(`Thank you, ${firstName || 'valued customer'}! Your message has been sent. Our team will contact you within 2 hours.`);
+      e.target.reset();
+    }
+
+    // Map switcher: Gurgaon Head Office vs Bhubaneswar Branch Office
+    function switchMapLocation(locationKey) {
+      const iframe = document.getElementById('mapIframe');
+      const tabGurgaon = document.getElementById('mapTabGurgaon');
+      const tabBhubaneswar = document.getElementById('mapTabBhubaneswar');
+      const floatingAddress = document.getElementById('mapFloatingAddress');
+      const btnOpenMaps = document.getElementById('btnOpenMaps');
+
+      if (locationKey === 'gurgaon') {
+        iframe.src = 'https://maps.google.com/maps?q=Centrum+Plaza,+Golf+Course+Road,+Sector+53,+Gurgaon,+Haryana+122011&t=&z=15&ie=UTF8&iwloc=&output=embed';
+        tabGurgaon?.classList.add('active');
+        tabBhubaneswar?.classList.remove('active');
+        if (floatingAddress) {
+          floatingAddress.textContent = 'Centrum Plaza, Sector 53, Gurugram, Haryana 122011, India';
+        }
+        if (btnOpenMaps) {
+          btnOpenMaps.href = 'https://maps.google.com/?q=Centrum+Plaza,+Golf+Course+Road,+Sector+53,+Gurgaon';
+        }
+      } else if (locationKey === 'bhubaneswar') {
+        iframe.src = 'https://maps.google.com/maps?q=BMC+Panchadeep+Market+Complex,+Bhoumya+Nagar,+Unit+4,+Bhubaneswar,+Odisha+751001&t=&z=15&ie=UTF8&iwloc=&output=embed';
+        tabBhubaneswar?.classList.add('active');
+        tabGurgaon?.classList.remove('active');
+        if (floatingAddress) {
+          floatingAddress.textContent = 'BMC Panchadeep Market Complex, Unit-4, Bhubaneswar, Odisha 751001';
+        }
+        if (btnOpenMaps) {
+          btnOpenMaps.href = 'https://maps.google.com/?q=BMC+Panchadeep+Market+Complex,+Bhoumya+Nagar,+Unit+4,+Bhubaneswar';
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Drawer Toggle
+      const mobileToggle = document.getElementById('mobileNavToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const drawerOverlay = document.getElementById('drawerOverlay');
+      const drawerClose = document.getElementById('drawerClose');
+
+      function openDrawer() {
+        mobileDrawer?.classList.add('open');
+        drawerOverlay?.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        mobileDrawer?.classList.remove('open');
+        drawerOverlay?.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      mobileToggle?.addEventListener('click', openDrawer);
+      drawerClose?.addEventListener('click', closeDrawer);
+      drawerOverlay?.addEventListener('click', closeDrawer);
+
+      // Scroll to Top Button
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      scrollToTopBtn?.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

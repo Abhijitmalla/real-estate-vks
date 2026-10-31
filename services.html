@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Bila Badi</title>
+  <meta name="description"
+    content="Comprehensive real estate solutions to help you buy, sell, rent and invest with confidence on Bila Badi. Explore our full suite of property services.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-green: #0d5435;
+      --primary-green-hover: #083e26;
+      --primary-green-light: #eaf7f0;
+      --primary-green-border: #bbf7d0;
+      --accent-green: #1b804e;
+      --accent-green-bright: #10b981;
+      --footer-bg: #083822;
+      --footer-text-muted: rgba(255, 255, 255, 0.65);
+
+      --text-dark: #111827;
+      --text-heading: #0c2c1e;
+      --text-body: #4b5563;
+      --text-muted: #6b7280;
+      --text-light: #9ca3af;
+
+      --bg-page: #ffffff;
+      --bg-card: #ffffff;
+      --bg-soft: #fbfdfb;
+      --bg-feature-banner: #f1f6f2;
+      --border-color: #e5e7eb;
+      --border-light: #eef2ef;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 14px 34px -4px rgba(13, 84, 53, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04);
+      --shadow-card-hover: 0 14px 28px rgba(13, 84, 53, 0.09);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      --radius-pill: 9999px;
+
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Base & Reset */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      outline: none;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* ==========================================================================
+       Navigation Bar (Matches index.html)
+       ========================================================================== */
+    .site-header {
+      background-color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    /* Brand Logo */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .brand-icon-svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .brand-text-wrap {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.4px;
+      line-height: 1.1;
+      display: inline-flex;
+      align-items: baseline;
+      white-space: nowrap;
+    }
+
+    .brand-tld {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-green);
+      letter-spacing: normal;
+    }
+
+    /* Desktop Navigation Links */
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-link {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text-body);
+      position: relative;
+      padding: 8px 0;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-green);
+    }
+
+    .nav-link.active {
+      color: var(--primary-green);
+      font-weight: 700;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background-color: var(--primary-green);
+      border-radius: 2px;
+    }
+
+    /* Header Right Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .action-btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: var(--text-body);
+      transition: var(--transition);
+    }
+
+    .action-btn-icon:hover,
+    .action-btn-icon.active {
+      color: #ef4444;
+      background-color: #fee2e2;
+    }
+
+    .login-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .login-link:hover {
+      color: var(--primary-green);
+      background-color: var(--primary-green-light);
+    }
+
+    .btn-add-property {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--primary-green);
+      color: #ffffff !important;
+      padding: 9px 18px;
+      font-size: 13.5px;
+      font-weight: 600;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 12px rgba(13, 84, 53, 0.15);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-add-property:hover {
+      background-color: var(--primary-green-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(13, 84, 53, 0.25);
+    }
+
+    /* Mobile Nav Toggle Button */
+    .mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 6px;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 290px;
+      height: 100%;
+      background: #ffffff;
+      z-index: 999;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+    }
+
+    .mobile-drawer.open {
+      right: 0;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .drawer-close-btn {
+      font-size: 26px;
+      line-height: 1;
+      color: var(--text-muted);
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-nav-links a {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mobile-nav-links a.active {
+      color: var(--primary-green);
+    }
+
+    .mobile-drawer-footer {
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* ==========================================================================
+       Hero Banner Section (with assets/service-page-header.png)
+       ========================================================================== */
+    .services-hero-banner {
+      position: relative;
+      min-height: 290px;
+      background-image: url('assets/service-page-header.png');
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* White color ONLY before/behind the text block (Our Services & subtitle), NOT the total left side */
+    .services-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 480px;
+      padding: 24px 28px;
+      border-radius: 20px;
+      margin: 30px 0;
+    }
+
+    .services-hero-content::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -22px;
+      right: -22px;
+      bottom: -10px;
+      background: radial-gradient(ellipse at center,
+          rgba(255, 255, 255, 0.96) 0%,
+          rgba(255, 255, 255, 0.90) 45%,
+          rgba(255, 255, 255, 0.65) 72%,
+          rgba(255, 255, 255, 0) 100%);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 24px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-breadcrumbs {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #4b5563;
+      margin-bottom: 12px;
+    }
+
+    .hero-breadcrumbs a {
+      color: #374151;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .hero-breadcrumbs a:hover {
+      color: var(--primary-green);
+    }
+
+    .breadcrumb-icon {
+      color: var(--primary-green);
+      display: inline-flex;
+    }
+
+    .breadcrumb-divider {
+      color: #9ca3af;
+      font-size: 12px;
+    }
+
+    .breadcrumb-current {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .hero-main-title {
+      font-size: 44px;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+    }
+
+    .hero-main-title .highlight-green {
+      color: #0d5435;
+    }
+
+    .hero-lead-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #4b5563;
+      max-width: 440px;
+    }
+
+    /* ==========================================================================
+       Section: What We Offer (Our Services 8 Cards)
+       ========================================================================== */
+    .services-offer-section {
+      padding: 64px 0 54px;
+      background-color: var(--bg-page);
+    }
+
+    .section-header-center {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 46px;
+    }
+
+    .section-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-green);
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.6px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .services-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: #bbf7d0;
+    }
+
+    .service-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background-color: var(--primary-green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-green);
+      margin-bottom: 18px;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-icon-box {
+      background-color: var(--primary-green);
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    .service-icon-box svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .service-card-title {
+      font-size: 17.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .service-card-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .service-learn-more {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--primary-green);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      margin-top: auto;
+    }
+
+    .service-learn-more:hover {
+      color: var(--accent-green-bright);
+      transform: translateX(4px);
+    }
+
+    /* ==========================================================================
+       Section: Why Choose Our Services (Banner with assets/service-page2.png)
+       ========================================================================== */
+    .why-choose-section {
+      padding: 16px 0 54px;
+    }
+
+    .why-choose-banner-card {
+      background: linear-gradient(135deg, #f4f8f5 0%, #eef5f0 100%);
+      border: 1px solid #e1ebe3;
+      border-radius: var(--radius-xl);
+      padding: 34px 44px 34px 36px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.25fr;
+      align-items: center;
+      gap: 36px;
+      box-shadow: 0 4px 20px rgba(13, 84, 53, 0.04);
+      overflow: hidden;
+    }
+
+    .why-choose-img-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-choose-img-wrap img {
+      max-height: 280px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 24px rgba(13, 84, 53, 0.12));
+      transition: transform 0.4s ease;
+    }
+
+    .why-choose-banner-card:hover .why-choose-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .why-choose-content-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .why-choose-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-green);
+      letter-spacing: 0.6px;
+      margin-bottom: 8px;
+    }
+
+    .why-choose-headline {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      margin-bottom: 28px;
+    }
+
+    .why-choose-headline .highlight-green {
+      color: #0d5435;
+    }
+
+    .why-choose-features-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .why-feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 8px;
+      position: relative;
+    }
+
+    .why-feature-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -8px;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background-color: #d6e4d9;
+    }
+
+    .why-feature-icon {
+      color: var(--primary-green);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-feature-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke-width: 2.2;
+    }
+
+    .why-feature-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.35;
+    }
+
+    /* ==========================================================================
+       Section: How It Works (Simple and Seamless Process)
+       ========================================================================== */
+    .how-it-works-section {
+      padding: 44px 0 54px;
+      background-color: var(--bg-page);
+    }
+
+    .process-steps-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      padding-top: 10px;
+    }
+
+    .process-step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      max-width: 240px;
+    }
+
+    .process-step-circle-box {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background-color: #eaf7f0;
+      border: 2px solid #bbf7d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 18px;
+      color: var(--primary-green);
+      transition: var(--transition);
+    }
+
+    .process-step-item:hover .process-step-circle-box {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(13, 84, 53, 0.15);
+      border-color: var(--primary-green);
+    }
+
+    .process-step-circle-box svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .process-step-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-color: var(--primary-green);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(13, 84, 53, 0.2);
+    }
+
+    .process-step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .process-step-desc {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      max-width: 195px;
+    }
+
+    .process-arrow-divider {
+      color: #0d5435;
+      opacity: 0.55;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      flex-shrink: 0;
+    }
+
+    .process-arrow-divider svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ==========================================================================
+       Section: CTA Banner (Ready to Use Our Services?)
+       ========================================================================== */
+    .services-cta-section {
+      padding: 10px 0 64px;
+    }
+
+    .cta-banner-box {
+      background: linear-gradient(135deg, #0d5435 0%, #094028 100%);
+      border-radius: var(--radius-xl);
+      padding: 26px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: 0 12px 30px rgba(13, 84, 53, 0.2);
+    }
+
+    .cta-left-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .cta-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .cta-icon-box svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .cta-title-wrap h3 {
+      font-size: 21px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+      letter-spacing: -0.3px;
+    }
+
+    .cta-title-wrap p {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .btn-cta-browse {
+      background: #ffffff;
+      color: #0d5435 !important;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 26px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .btn-cta-browse:hover {
+      background: #f8faf8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    }
+
+    /* ==========================================================================
+       Site Footer (Exact Match to index.html)
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--footer-bg);
+      color: #ffffff;
+      padding: 54px 0 24px;
+      position: relative;
+    }
+
+    .footer-main-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr 1.4fr;
+      gap: 36px;
+      margin-bottom: 44px;
+    }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      text-decoration: none;
+    }
+
+    .footer-brand-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+
+    .footer-brand-tld {
+      font-size: 11px;
+      font-weight: 700;
+      color: #10b981;
+    }
+
+    .footer-tagline {
+      display: block;
+      font-size: 10.5px;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.2px;
+      margin-top: 1px;
+    }
+
+    .footer-description {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--footer-text-muted);
+      margin-bottom: 18px;
+      max-width: 320px;
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-icon-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      transition: var(--transition);
+    }
+
+    .social-icon-btn:hover {
+      background: #10b981;
+      border-color: #10b981;
+      transform: translateY(-2px);
+    }
+
+    .footer-col-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 18px;
+      letter-spacing: -0.2px;
+    }
+
+    .footer-col-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col-links a {
+      font-size: 13.5px;
+      color: var(--footer-text-muted);
+      transition: var(--transition);
+    }
+
+    .footer-col-links a:hover {
+      color: #ffffff;
+      padding-left: 3px;
+    }
+
+    .footer-newsletter-col .newsletter-desc {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--footer-text-muted);
+      margin-bottom: 14px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      background: #ffffff;
+      border-radius: var(--radius-pill);
+      padding: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .newsletter-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 8px 14px;
+      font-size: 13px;
+      color: var(--text-dark);
+      outline: none;
+      font-family: inherit;
+    }
+
+    .newsletter-input::placeholder {
+      color: #9ca3af;
+    }
+
+    .newsletter-btn {
+      background: #10b981;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .newsletter-btn:hover {
+      background: #059669;
+    }
+
+    .footer-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .footer-bottom-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .footer-legal-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-legal-links .sep {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-scroll-top {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #10b981;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-scroll-top:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       Responsive Media Queries
+       ========================================================================== */
+    @media (max-width: 1080px) {
+      .services-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .why-choose-banner-card {
+        grid-template-columns: 1fr;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .why-choose-img-wrap img {
+        max-height: 220px;
+      }
+
+      .why-choose-content-wrap {
+        align-items: center;
+      }
+
+      .why-choose-features-row {
+        width: 100%;
+      }
+
+      .footer-main-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 20px;
+      }
+
+      .footer-brand {
+        grid-column: span 2;
+      }
+
+      .footer-newsletter-col {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .mobile-nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background-color: #f8faf8;
+        border: 1px solid #eef2ef;
+      }
+
+      .process-steps-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 28px 20px;
+      }
+
+      .process-arrow-divider {
+        display: none;
+      }
+
+      .process-step-item {
+        max-width: 45%;
+        flex: 1 1 40%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .services-hero-banner {
+        min-height: 240px;
+      }
+
+      .services-hero-content {
+        padding: 30px 0;
+      }
+
+      .hero-main-title {
+        font-size: 32px;
+      }
+
+      .hero-lead-text {
+        font-size: 14px;
+      }
+
+      .hero-lead-text br {
+        display: none;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+
+      .services-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .why-choose-headline {
+        font-size: 24px;
+        margin-bottom: 22px;
+      }
+
+      .why-choose-features-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 12px;
+      }
+
+      .why-feature-item::after {
+        display: none !important;
+      }
+
+      .process-step-item {
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+
+      .cta-banner-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px;
+      }
+
+      .cta-left-content {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .btn-cta-browse {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .footer-bottom-row {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+      }
+
+      .footer-bottom-right {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .header-actions .login-link span {
+        display: none;
+      }
+
+      .header-actions .login-link {
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #f8faf8;
+        border: 1px solid #eef2ef;
+      }
+
+      .btn-add-property {
+        padding: 8px 14px;
+        font-size: 12.5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       Header & Navigation (Exact match to index.html)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Bila Badi Home">
+        <svg class="brand-icon-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- House Peak Roof -->
+          <path d="M18 3.5L3 16.5H7.5V31.5H28.5V16.5H33L18 3.5Z" fill="#0d5435" />
+          <!-- Tree Inside House Silhouette -->
+          <path
+            d="M18 13C15.8 13 14 14.8 14 17C14 18.8 15.2 20.3 16.8 20.8V26H19.2V20.8C20.8 20.3 22 18.8 22 17C22 14.8 20.2 13 18 13Z"
+            fill="#ffffff" />
+          <path d="M13.5 22C14.8 23.5 16.3 24 18 24C19.7 24 21.2 23.5 22.5 22" stroke="#ffffff" stroke-width="1.8"
+            stroke-linecap="round" />
+        </svg>
+        <div class="brand-text-wrap">
+          <span class="brand-name">
+            BilaBadi<span class="brand-tld">.com</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Buy</a>
+        <a href="product-details.html" class="nav-link">Sell</a>
+        <a href="index.html#about" class="nav-link">Rent</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <button type="button" class="action-btn-icon" id="navWishlistBtn" aria-label="Wishlist">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+            </path>
+          </svg>
+        </button>
+
+        <!-- Login / Register -->
+        <a href="login.html" class="login-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Login/Register</span>
+        </a>
+
+        <!-- Add Property Button -->
+        <a href="#add-property" class="btn-add-property">
+          <span>+</span> Add Property
+        </a>
+
+        <!-- Mobile Nav Toggle Button -->
+        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="brand-name">BilaBadi<span class="brand-tld">.com</span></div>
+      <button class="drawer-close-btn" id="drawerClose" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Buy</a>
+      <a href="product-details.html">Sell</a>
+      <a href="index.html#about">Rent</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="about-us.html">About Us</a>
+      <a href="blog.html">Blog</a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="login-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span>Login/Register</span>
+      </a>
+      <a href="#add-property" class="btn-add-property" style="justify-content: center;">
+        + Add Property
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================================================
+         Hero Header Banner Section
+         Image: assets/service-page-header.png
+         ========================================================================== -->
+    <section class="services-hero-banner">
+      <div class="container">
+        <div class="services-hero-content">
+          <!-- Breadcrumbs -->
+          <div class="hero-breadcrumbs">
+            <a href="index.html">
+              <span class="breadcrumb-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </span>
+              Home
+            </a>
+            <span class="breadcrumb-divider">&gt;</span>
+            <span class="breadcrumb-current">Services</span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="hero-main-title">
+            Our <span class="highlight-green">Services</span>
+          </h1>
+
+          <!-- Lead Subtitle -->
+          <p class="hero-lead-text">
+            Comprehensive real estate solutions to help you<br>
+            buy, sell, rent and invest with confidence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section: What We Offer (8 Service Cards)
+         ========================================================================== -->
+    <section class="services-offer-section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header-center">
+          <span class="section-eyebrow">&mdash; Our Services &mdash;</span>
+          <h2 class="section-title">What We Offer</h2>
+          <p class="section-subtitle">
+            A complete range of real estate services designed to make your property journey simple, secure, and
+            successful.
+          </p>
+        </div>
+
+        <!-- 8 Cards Grid -->
+        <div class="services-cards-grid">
+          <!-- Card 1: Buy Property -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Buy Property</h3>
+            <p class="service-card-desc">
+              Discover verified residential, commercial and land properties that fit your needs.
+            </p>
+            <a href="product-details.html" class="service-learn-more">
+              Learn More &rarr;
+            </a>
+          </div>
+
+          <!-- Card 2: Sell Property -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
+                </path>
+                <line x1="7" y1="7" x2="7.01" y2="7"></line>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Sell Property</h3>
+            <p class="service-card-desc">
+              List your property with us and reach genuine buyers quickly and easily.
+            </p>
+            <a href="product-details.html" class="service-learn-more">
+              Learn More &rarr;
+            </a>
+          </div>
+
+          <!-- Card 3: Rent Property -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M21 2l-2 2m-1.5 1.5L14 9l-1.5-1.5L11 9l-1.5-1.5L8 9l-1.5-1.5L5 9 3 7l-1 1 5 5 1.5-1.5L10 13l1.5-1.5L13 13l1.5-1.5L16 13l1.5-1.5 5 5 1-1-2-2z" />
+                <circle cx="7.5" cy="15.5" r="4.5" />
+              </svg>
+            </div>
+            <h3 class="service-card-title">Rent Property</h3>
+            <p class="service-card-desc">
+              Find the right property to rent or list your property for rent with verified users.
+            </p>
+            <a href="index.html#about" class="service-learn-more">
+              Learn More &rarr;
+            </a>
+          </div>
+
+          <!-- Card 4: Land & Plot Deals -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Land &amp; Plot Deals</h3>
+            <p class="service-card-desc">
+              Explore residential plots, agricultural land and commercial land in prime locations.
+            </p>
+            <a href="product-details.html" class="service-learn-more">
+              Learn More &rarr;
+            </a>
+          </div>
+
+          <!-- Card 5: Property Consultation -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                <path d="M11 15h2"></path>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Property Consultation</h3>
+            <p class="service-card-desc">
+              Get expert guidance on buying, selling, investing and legal formalities.
+            </p>
+            <a href="about-us.html" class="service-learn-more">
+              Learn More &rarr;
+            </a>
+          </div>
+
+          <!-- Card 6: Property Verification -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <path d="M9 15l2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Property Verification</h3>
+            <p class="service-card-desc">
+              Verified listings with ownership and document checks for a hassle-free experience.
+            </p>
+            <a href="blog-details.html" class="service-learn-more">
+              Learn More &rarr;
+            </a>
+          </div>
+
+          <!-- Card 7: Investment Advisory -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+                <polyline points="6 8 12 2 18 8"></polyline>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Investment Advisory</h3>
+            <p class="service-card-desc">
+              Make smarter real estate investments with market insights and expert support.
+            </p>
+            <a href="blog.html" class="service-learn-more">
+              Learn More &rarr;
+            </a>
+          </div>
+
+          <!-- Card 8: After-Sales Support -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path
+                  d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+                </path>
+              </svg>
+            </div>
+            <h3 class="service-card-title">After-Sales Support</h3>
+            <p class="service-card-desc">
+              We stay with you even after the deal, for any property-related assistance.
+            </p>
+            <a href="about-us.html" class="service-learn-more">
+              Learn More &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section: Why Choose Our Services?
+         Image: assets/service-page2.png (Hand holding house)
+         ========================================================================== -->
+    <section class="why-choose-section">
+      <div class="container">
+        <div class="why-choose-banner-card">
+          <!-- Left: Image (Hand holding house) -->
+          <div class="why-choose-img-wrap">
+            <img src="assets/service-page2.png" alt="Reliable Real Estate Services - Bila Badi" loading="lazy">
+          </div>
+
+          <!-- Right: Content -->
+          <div class="why-choose-content-wrap">
+            <span class="why-choose-eyebrow">&mdash; Why Choose Our Services? &mdash;</span>
+            <h2 class="why-choose-headline">
+              Reliable, Transparent &amp; <span class="highlight-green">Customer-Focused</span>
+            </h2>
+
+            <!-- 4 Features Row -->
+            <div class="why-choose-features-row">
+              <!-- Feature 1: Trusted Platform -->
+              <div class="why-feature-item">
+                <div class="why-feature-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                </div>
+                <div class="why-feature-label">Trusted Platform</div>
+              </div>
+
+              <!-- Feature 2: Verified Properties -->
+              <div class="why-feature-item">
+                <div class="why-feature-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div class="why-feature-label">Verified Properties</div>
+              </div>
+
+              <!-- Feature 3: Expert Guidance -->
+              <div class="why-feature-item">
+                <div class="why-feature-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="6"></circle>
+                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                  </svg>
+                </div>
+                <div class="why-feature-label">Expert Guidance</div>
+              </div>
+
+              <!-- Feature 4: Quick & Easy Process -->
+              <div class="why-feature-item">
+                <div class="why-feature-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                </div>
+                <div class="why-feature-label">Quick &amp; Easy Process</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section: How It Works (Simple and Seamless Process)
+         ========================================================================== -->
+    <section class="how-it-works-section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header-center">
+          <span class="section-eyebrow">&mdash; How It Works &mdash;</span>
+          <h2 class="section-title">A Simple and Seamless Process</h2>
+          <p class="section-subtitle">
+            Get your desired property or list your own in just a few easy steps.
+          </p>
+        </div>
+
+        <!-- 4 Steps Flow with Arrow Dividers -->
+        <div class="process-steps-row">
+          <!-- Step 1 -->
+          <div class="process-step-item">
+            <div class="process-step-circle-box">
+              <span class="process-step-badge">1</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <line x1="20" y1="8" x2="20" y2="14"></line>
+                <line x1="23" y1="11" x2="17" y2="11"></line>
+              </svg>
+            </div>
+            <h4 class="process-step-title">Create an Account</h4>
+            <p class="process-step-desc">Sign up and set up your profile in minutes.</p>
+          </div>
+
+          <!-- Arrow 1 -->
+          <div class="process-arrow-divider" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+              <polyline points="15 18 21 12 15 6"></polyline>
+            </svg>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-step-item">
+            <div class="process-step-circle-box">
+              <span class="process-step-badge">2</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+            <h4 class="process-step-title">Choose a Service</h4>
+            <p class="process-step-desc">Buy, sell, rent or get property consultation.</p>
+          </div>
+
+          <!-- Arrow 2 -->
+          <div class="process-arrow-divider" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+              <polyline points="15 18 21 12 15 6"></polyline>
+            </svg>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-step-item">
+            <div class="process-step-circle-box">
+              <span class="process-step-badge">3</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h4 class="process-step-title">Explore &amp; Connect</h4>
+            <p class="process-step-desc">Browse verified listings and connect with genuine users.</p>
+          </div>
+
+          <!-- Arrow 3 -->
+          <div class="process-arrow-divider" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+              <polyline points="15 18 21 12 15 6"></polyline>
+            </svg>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-step-item">
+            <div class="process-step-circle-box">
+              <span class="process-step-badge">4</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.77.78L12 20.66l7.65-7.65.77-.78a5.4 5.4 0 0 0 0-7.65z"
+                  style="display:none;"></path>
+                <path d="M11 15h2"></path>
+                <path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"></path>
+              </svg>
+            </div>
+            <h4 class="process-step-title">Complete the Deal</h4>
+            <p class="process-step-desc">Finalize your property deal with our support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section: CTA Banner (Ready to Use Our Services?)
+         ========================================================================== -->
+    <section class="services-cta-section">
+      <div class="container">
+        <div class="cta-banner-box">
+          <div class="cta-left-content">
+            <div class="cta-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <div class="cta-title-wrap">
+              <h3>Ready to Use Our Services?</h3>
+              <p>Explore properties, list your own, or get expert real estate guidance today.</p>
+            </div>
+          </div>
+          <a href="product-details.html" class="btn-cta-browse">
+            Browse Properties &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Site Footer (Exact Match to index.html)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Main Footer 5-Column Grid -->
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand, Tagline, Description, Social Icons -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <svg class="brand-icon-svg" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path d="M18 3.5L3 16.5H7.5V31.5H28.5V16.5H33L18 3.5Z" fill="#ffffff" />
+              <path
+                d="M18 13C15.8 13 14 14.8 14 17C14 18.8 15.2 20.3 16.8 20.8V26H19.2V20.8C20.8 20.3 22 18.8 22 17C22 14.8 20.2 13 18 13Z"
+                fill="#083822" />
+              <path d="M13.5 22C14.8 23.5 16.3 24 18 24C19.7 24 21.2 23.5 22.5 22" stroke="#083822" stroke-width="1.8"
+                stroke-linecap="round" />
+            </svg>
+            <div class="footer-brand-text">
+              <span class="footer-brand-name">
+                BilaBadi<span class="footer-brand-tld">.com</span>
+              </span>
+              <span class="footer-tagline">Find Your Place. Build Your Future.</span>
+            </div>
+          </a>
+          <p class="footer-description">
+            We are a leading real estate platform, helping you find the perfect property for your dream life.
+          </p>
+          <div class="footer-socials">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="YouTube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                </path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#083822"></polygon>
+              </svg>
+            </a>
+            <!-- Twitter / X -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Twitter">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-col-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product-details.html">Properties</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Property Types -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Property Types</h4>
+          <ul class="footer-col-links">
+            <li><a href="product-details.html">Houses</a></li>
+            <li><a href="product-details.html">Apartments</a></li>
+            <li><a href="product-details.html">Villas</a></li>
+            <li><a href="product-details.html">Commercial</a></li>
+            <li><a href="product-details.html">Land</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Support -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Support</h4>
+          <ul class="footer-col-links">
+            <li><a href="#help">Help Center</a></li>
+            <li><a href="#terms">Terms &amp; Conditions</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Subscribe to Our Newsletter -->
+        <div class="footer-col footer-newsletter-col">
+          <h4 class="footer-col-title">Subscribe to Our Newsletter</h4>
+          <p class="newsletter-desc">Get the latest properties, news and updates straight to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address" required
+              aria-label="Email address" />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom-row">
+        <p class="footer-copy">&copy; 2025 BilaBadi.com. All rights reserved.</p>
+        <div class="footer-bottom-right">
+          <div class="footer-legal-links">
+            <a href="#privacy">Privacy Policy</a>
+            <span class="sep">|</span>
+            <a href="#terms">Terms &amp; Conditions</a>
+            <span class="sep">|</span>
+            <a href="#sitemap">Sitemap</a>
+          </div>
+          <button type="button" id="scrollToTopBtn" class="btn-scroll-top" aria-label="Scroll to top">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Drawer Toggle
+      const mobileToggle = document.getElementById('mobileNavToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const drawerOverlay = document.getElementById('drawerOverlay');
+      const drawerClose = document.getElementById('drawerClose');
+
+      function openDrawer() {
+        mobileDrawer?.classList.add('open');
+        drawerOverlay?.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        mobileDrawer?.classList.remove('open');
+        drawerOverlay?.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      mobileToggle?.addEventListener('click', openDrawer);
+      drawerClose?.addEventListener('click', closeDrawer);
+      drawerOverlay?.addEventListener('click', closeDrawer);
+
+      // Wishlist Heart Toggle
+      const wishlistBtn = document.getElementById('navWishlistBtn');
+      wishlistBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        wishlistBtn.classList.toggle('active');
+      });
+
+      // Scroll to Top Button
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      scrollToTopBtn?.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

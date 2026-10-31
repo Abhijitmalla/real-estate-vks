@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Bila Badi | Real Estate Listing Platform India</title>
+  <meta name="description"
+    content="Bilabadi is India's trusted property listing platform designed to simplify real estate decisions across residential, commercial, plot and PG living options.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-green: #0d5435;
+      --primary-green-hover: #083e26;
+      --primary-green-light: #eaf7f0;
+      --primary-green-border: #bbf7d0;
+      --accent-green: #1b804e;
+      --accent-green-bright: #10b981;
+      --footer-bg: #083822;
+      --footer-text-muted: rgba(255, 255, 255, 0.65);
+
+      --text-dark: #111827;
+      --text-heading: #0c2c1e;
+      --text-body: #4b5563;
+      --text-muted: #6b7280;
+      --text-light: #9ca3af;
+
+      --bg-page: #fbfdfb;
+      --bg-card: #ffffff;
+      --bg-soft: #f4f7f4;
+      --border-color: #e5e7eb;
+      --border-light: #f0f3f1;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 14px 34px -4px rgba(13, 84, 53, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 16px 30px rgba(13, 84, 53, 0.12);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --radius-pill: 9999px;
+
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Base & Reset */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: clip;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: var(--bg-page);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: clip;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: var(--transition);
+    }
+
+    input,
+    select {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       Navigation Bar (Exact Match to index.html)
+       ========================================================================== */
+    .site-header {
+      background-color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    /* Brand Logo */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      user-select: none;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+
+    .brand-icon-svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .brand-text-wrap {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.4px;
+      line-height: 1.1;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 3px;
+      white-space: nowrap;
+    }
+
+    .brand-tld {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary-green);
+      letter-spacing: normal;
+    }
+
+    /* Desktop Navigation Links */
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-body);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-green);
+    }
+
+    .nav-link.active {
+      color: var(--primary-green);
+      font-weight: 600;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background-color: var(--primary-green);
+      border-radius: 2px;
+    }
+
+    /* Header Right Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .action-btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: var(--text-body);
+      transition: var(--transition);
+    }
+
+    .action-btn-icon:hover {
+      color: var(--primary-green);
+      background-color: var(--primary-green-light);
+    }
+
+    .login-link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .login-link:hover {
+      color: var(--primary-green);
+    }
+
+    .btn-add-property {
+      background-color: var(--primary-green);
+      color: #ffffff;
+      padding: 9px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 13.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 4px 10px rgba(13, 84, 53, 0.15);
+    }
+
+    .btn-add-property:hover {
+      background-color: var(--primary-green-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(13, 84, 53, 0.25);
+    }
+
+    /* Mobile Toggle */
+    .mobile-nav-toggle {
+      display: none;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+      border-radius: var(--radius-sm);
+    }
+
+    /* Mobile Drawer Menu */
+    .mobile-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 280px;
+      height: 100%;
+      background-color: #ffffff;
+      z-index: 1000;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .mobile-drawer.open {
+      transform: translateX(0);
+    }
+
+    .mobile-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .drawer-close-btn {
+      font-size: 26px;
+      color: var(--text-dark);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .mobile-nav-links a {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 6px 0;
+    }
+
+    .mobile-nav-links a.active {
+      color: var(--primary-green);
+    }
+
+    .mobile-drawer-footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .mobile-drawer-footer .login-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-color);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      background: var(--bg-soft);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .mobile-drawer-footer .login-link:hover {
+      background: var(--primary-green-light);
+      border-color: var(--primary-green-border);
+      color: var(--primary-green);
+    }
+
+    /* ==========================================================================
+       About Us - Hero Header Section
+       ========================================================================== */
+    .about-hero-section {
+      padding: 64px 0 42px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, rgba(13, 84, 53, 0.05) 0%, transparent 65%);
+    }
+
+    .who-we-are-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 18px;
+      background-color: var(--primary-green-light);
+      color: var(--primary-green);
+      border: 1px solid var(--primary-green-border);
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 6px rgba(13, 84, 53, 0.06);
+    }
+
+    .who-we-are-badge svg {
+      width: 14px;
+      height: 14px;
+      color: var(--accent-green-bright);
+    }
+
+    .about-hero-title {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -1px;
+      line-height: 1.22;
+      max-width: 900px;
+      margin: 0 auto 24px;
+    }
+
+    .about-hero-lead {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #4b5563;
+      max-width: 860px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       About Us - Company Story (2 Columns with Image & Checklist)
+       ========================================================================== */
+    .about-story-section {
+      padding: 30px 0 80px;
+    }
+
+    .about-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    /* Image Wrapper with decorative backing */
+    .about-image-card-wrap {
+      position: relative;
+    }
+
+    .about-image-card-wrap::before {
+      content: '';
+      position: absolute;
+      bottom: -14px;
+      left: -14px;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #eaf7f0 0%, #d1fae5 100%);
+      border-radius: 26px;
+      z-index: 0;
+      transition: var(--transition);
+    }
+
+    .about-image-card {
+      position: relative;
+      z-index: 1;
+      border-radius: 22px;
+      overflow: hidden;
+      background-color: #083822;
+      border: 1px solid rgba(13, 84, 53, 0.1);
+      box-shadow: 0 16px 36px rgba(13, 84, 53, 0.12);
+      aspect-ratio: 16 / 11;
+    }
+
+    .about-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .about-image-card-wrap:hover .about-image-card img {
+      transform: scale(1.03);
+    }
+
+    /* Floating Powered-by Badge Overlay on Image */
+    .image-powered-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(8, 56, 34, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(187, 247, 208, 0.25);
+      border-radius: 12px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      z-index: 2;
+      max-width: 320px;
+    }
+
+    .powered-icon-box {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #86efac;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .powered-icon-box svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .powered-text-wrap {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .powered-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .powered-company {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .powered-cin {
+      font-size: 9.5px;
+      color: rgba(255, 255, 255, 0.65);
+      margin-top: 2px;
+      letter-spacing: 0.2px;
+    }
+
+    /* Right Column Content */
+    .about-story-text {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .about-story-text p {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: #4b5563;
+    }
+
+    /* Key Trust Highlights (2x2 Grid) */
+    .trust-highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 28px;
+      margin-top: 10px;
+      padding-top: 10px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .trust-check-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: var(--primary-green-light);
+      color: var(--accent-green-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--primary-green-border);
+    }
+
+    .trust-check-icon svg {
+      width: 13px;
+      height: 13px;
+      stroke-width: 3;
+    }
+
+    /* ==========================================================================
+       Why Choose Bilabadi Section
+       ========================================================================== */
+    .why-choose-section-about {
+      padding: 70px 0 80px;
+      background: linear-gradient(180deg, #fbfdfb 0%, #f4f8f5 100%);
+      border-top: 1px solid #f0f3f1;
+    }
+
+    .section-header-centered {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 52px;
+    }
+
+    .section-main-title {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.6px;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .title-highlight-green {
+      color: var(--primary-green);
+    }
+
+    .section-sub-lead {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #4b5563;
+    }
+
+    .features-three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .feature-card-clean {
+      background: #ffffff;
+      border: 1px solid #eef2ef;
+      border-radius: var(--radius-lg);
+      padding: 34px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      position: relative;
+    }
+
+    .feature-card-clean:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 32px rgba(13, 84, 53, 0.1);
+      border-color: var(--primary-green-border);
+    }
+
+    .feature-card-icon-wrap {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background-color: var(--primary-green-light);
+      border: 1px solid var(--primary-green-border);
+      color: var(--primary-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .feature-card-clean:hover .feature-card-icon-wrap {
+      background-color: var(--primary-green);
+      border-color: var(--primary-green);
+      color: #ffffff;
+    }
+
+    .feature-card-icon-wrap svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .feature-card-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: -0.2px;
+    }
+
+    .feature-card-desc {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #64748b;
+    }
+
+    /* ==========================================================================
+       CTA Banner Card: Find Your Next Home
+       ========================================================================== */
+    .cta-banner-wrapper {
+      padding: 20px 0 80px;
+    }
+
+    .about-cta-card {
+      background: #ffffff;
+      border: 1px solid var(--primary-green-border);
+      border-radius: 24px;
+      padding: 36px 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      box-shadow: 0 10px 30px rgba(13, 84, 53, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-cta-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 240px;
+      height: 100%;
+      background: radial-gradient(circle at right, rgba(13, 84, 53, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-left-content {
+      max-width: 640px;
+    }
+
+    .cta-left-content h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .cta-left-content h3 .cta-word-accent {
+      color: var(--primary-green);
+    }
+
+    .cta-left-content p {
+      font-size: 14px;
+      color: #4b5563;
+      line-height: 1.55;
+    }
+
+    .cta-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .btn-cta-reseller {
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--primary-green);
+      background: #ffffff;
+      color: var(--primary-green);
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .btn-cta-reseller:hover {
+      background: var(--primary-green-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-cta-get-started {
+      padding: 12px 28px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--primary-green);
+      background: var(--primary-green);
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 14px rgba(13, 84, 53, 0.25);
+      transition: var(--transition);
+    }
+
+    .btn-cta-get-started:hover {
+      background: var(--primary-green-hover);
+      border-color: var(--primary-green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(13, 84, 53, 0.35);
+    }
+
+    /* ==========================================================================
+       Site Footer (Exact Match to index.html)
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--footer-bg);
+      color: #ffffff;
+      padding: 60px 0 28px;
+    }
+
+    .footer-main-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.85fr 0.9fr 0.9fr 1.7fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    /* Column 1: Brand & Socials */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer-logo .brand-icon-svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .footer-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-name {
+      font-size: 21px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+
+    .footer-brand-tld {
+      color: #86efac;
+    }
+
+    .footer-tagline {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 3px;
+      font-weight: 500;
+      letter-spacing: 0.1px;
+    }
+
+    .footer-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.72);
+      margin: 18px 0 22px;
+      max-width: 310px;
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .social-icon-btn:hover {
+      background-color: #10b981;
+      border-color: #10b981;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Columns 2, 3, 4: Link Groups */
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-col-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      letter-spacing: -0.2px;
+    }
+
+    .footer-col-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col-links li a {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 13.5px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .footer-col-links li a:hover {
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+
+    /* Column 5: Newsletter */
+    .footer-newsletter-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .newsletter-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.72);
+      margin-bottom: 18px;
+      max-width: 340px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 9999px;
+      padding: 4px 5px 4px 18px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .newsletter-input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 13.5px;
+      color: #111827;
+      flex: 1;
+      padding: 8px 0;
+      min-width: 0;
+    }
+
+    .newsletter-input::placeholder {
+      color: #9ca3af;
+    }
+
+    .newsletter-btn {
+      background: #10b981;
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .newsletter-btn:hover {
+      background: #059669;
+      transform: scale(1.02);
+    }
+
+    /* Footer Bottom Row */
+    .footer-bottom-row {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-bottom-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-legal-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-legal-links .sep {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-scroll-top {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-scroll-top:hover {
+      background: #10b981;
+      border-color: #10b981;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       Responsive Media Queries
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .mobile-nav-toggle {
+        display: flex;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background-color: #f8faf8;
+        border: 1px solid #eef2ef;
+        color: var(--text-dark);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-nav-toggle:hover {
+        background-color: var(--primary-green-light);
+        border-color: var(--primary-green-border);
+        color: var(--primary-green);
+      }
+
+      .site-header {
+        height: 58px;
+        border-bottom: 1px solid #f0f3f1;
+      }
+
+      .nav-container {
+        height: 58px;
+        padding: 0 16px;
+      }
+
+      .brand-icon-svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      .brand-name {
+        font-size: 19px;
+        color: var(--primary-green);
+        white-space: nowrap;
+      }
+
+      .header-actions {
+        gap: 10px;
+      }
+
+      .header-actions .btn-add-property {
+        display: none;
+      }
+
+      .action-btn-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background-color: #f8faf8;
+        border: 1px solid #eef2ef;
+        color: var(--text-dark);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .action-btn-icon:hover {
+        background-color: var(--primary-green-light);
+        border-color: var(--primary-green-border);
+        color: var(--primary-green);
+      }
+
+      /* Make Login link an icon-only circular button on mobile so it NEVER wraps or breaks */
+      .header-actions .login-link {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background-color: #f8faf8;
+        border: 1px solid #eef2ef;
+        color: var(--text-dark);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        gap: 0;
+      }
+
+      .header-actions .login-link:hover {
+        background-color: var(--primary-green-light);
+        border-color: var(--primary-green-border);
+        color: var(--primary-green);
+      }
+
+      .header-actions .login-link span {
+        display: none;
+      }
+
+      .about-story-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .about-story-section {
+        padding: 24px 0 36px;
+      }
+
+      .why-choose-section-about {
+        padding: 40px 0 32px;
+      }
+
+      .section-header-centered {
+        margin: 0 auto 28px;
+      }
+
+      .features-three-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .cta-banner-wrapper {
+        padding: 12px 0 36px;
+      }
+
+      .about-cta-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 24px;
+      }
+
+      .cta-right-actions {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .footer-main-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 32px 18px !important;
+      }
+
+      .footer-brand {
+        grid-column: span 2 !important;
+        margin-bottom: 6px;
+      }
+
+      .footer-newsletter-col {
+        grid-column: span 2 !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        height: 54px;
+      }
+
+      .nav-container {
+        height: 54px;
+        padding: 0 14px;
+      }
+
+      .brand-logo {
+        gap: 8px;
+      }
+
+      .brand-icon-svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+        white-space: nowrap;
+      }
+
+      .brand-tld {
+        font-size: 10.5px;
+      }
+
+      .header-actions {
+        gap: 8px;
+      }
+
+      .action-btn-icon,
+      .header-actions .login-link,
+      .mobile-nav-toggle {
+        width: 36px;
+        height: 36px;
+      }
+
+      /* Hero Section: tight, clean mobile gaps */
+      .about-hero-section {
+        padding: 24px 0 14px;
+      }
+
+      .who-we-are-badge {
+        font-size: 10px;
+        padding: 4px 12px;
+        margin-bottom: 10px;
+      }
+
+      .about-hero-title {
+        font-size: 23px;
+        line-height: 1.25;
+        letter-spacing: -0.4px;
+        margin-bottom: 10px;
+      }
+
+      .about-hero-lead {
+        font-size: 13.5px;
+        line-height: 1.6;
+        padding: 0;
+      }
+
+      /* Story Section */
+      .about-story-section {
+        padding: 12px 0 20px;
+      }
+
+      .about-story-grid {
+        gap: 18px;
+      }
+
+      .about-image-card-wrap::before {
+        bottom: -5px;
+        left: -5px;
+        border-radius: 16px;
+      }
+
+      .about-image-card {
+        border-radius: 14px;
+      }
+
+      .about-story-text {
+        gap: 12px;
+      }
+
+      .about-story-text p {
+        font-size: 13.5px;
+        line-height: 1.6;
+      }
+
+      .trust-highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 4px;
+        padding-top: 4px;
+      }
+
+      .trust-item {
+        font-size: 13.5px;
+      }
+
+      /* Why Choose Section: eliminates Gap 1 */
+      .why-choose-section-about {
+        padding: 24px 0 14px;
+      }
+
+      .section-header-centered {
+        margin: 0 auto 14px;
+      }
+
+      .section-main-title {
+        font-size: 23px;
+        margin-bottom: 6px;
+      }
+
+      .section-sub-lead {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .features-three-grid {
+        gap: 12px;
+      }
+
+      .feature-card-clean {
+        padding: 18px 16px;
+        gap: 10px;
+        border-radius: 14px;
+      }
+
+      .feature-card-icon-wrap {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+      }
+
+      .feature-card-icon-wrap svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .feature-card-title {
+        font-size: 17px;
+      }
+
+      .feature-card-desc {
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      /* CTA Banner Card: eliminates Gap 2 and Gap 3 */
+      .cta-banner-wrapper {
+        padding: 6px 0 16px;
+      }
+
+      .about-cta-card {
+        padding: 20px 16px;
+        gap: 14px;
+        border-radius: 16px;
+      }
+
+      .cta-left-content h3 {
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+
+      .cta-left-content p {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .cta-right-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .btn-cta-reseller,
+      .btn-cta-get-started {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 18px;
+        font-size: 13px;
+      }
+
+      /* Footer: eliminate excess gap above footer */
+      .site-footer {
+        padding: 26px 0 18px;
+      }
+
+      .footer-main-grid {
+        gap: 20px 14px !important;
+      }
+
+      .footer-bottom-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        margin-top: 20px;
+        padding-top: 14px;
+      }
+
+      .footer-bottom-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        gap: 8px;
+      }
+
+      .newsletter-input {
+        background: #ffffff;
+        border-radius: var(--radius-pill);
+        padding: 9px 14px;
+        width: 100%;
+        font-size: 13px;
+      }
+
+      .newsletter-btn {
+        width: 100%;
+        padding: 9px 16px;
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .nav-container {
+        padding: 0 10px;
+      }
+
+      .brand-name {
+        font-size: 16.5px;
+      }
+
+      .brand-icon-svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      .header-actions {
+        gap: 6px;
+      }
+
+      /* On ultra-compact screens, hide login icon in header since it's in the drawer */
+      .header-actions .login-link {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       Header & Navigation (Matches index.html)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Bila Badi Home">
+        <svg class="brand-icon-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- House Peak Roof -->
+          <path d="M18 3.5L3 16.5H7.5V31.5H28.5V16.5H33L18 3.5Z" fill="#0d5435" />
+          <!-- Tree Inside House Silhouette -->
+          <path
+            d="M18 13C15.8 13 14 14.8 14 17C14 18.8 15.2 20.3 16.8 20.8V26H19.2V20.8C20.8 20.3 22 18.8 22 17C22 14.8 20.2 13 18 13Z"
+            fill="#ffffff" />
+          <path d="M13.5 22C14.8 23.5 16.3 24 18 24C19.7 24 21.2 23.5 22.5 22" stroke="#ffffff" stroke-width="1.8"
+            stroke-linecap="round" />
+        </svg>
+        <div class="brand-text-wrap">
+          <span class="brand-name">
+            Bila Badi<span class="brand-tld">.com</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Buy</a>
+        <a href="product-details.html" class="nav-link">Sell</a>
+        <a href="index.html#about" class="nav-link">Rent</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <button type="button" class="action-btn-icon" id="navWishlistBtn" aria-label="Wishlist">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+            </path>
+          </svg>
+        </button>
+
+        <!-- Login / Register -->
+        <a href="login.html" class="login-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Login / Register</span>
+        </a>
+
+        <!-- Add Property Button -->
+        <a href="#add-property" class="btn-add-property">
+          <span>+</span> Add Property
+        </a>
+
+        <!-- Mobile Nav Toggle Button -->
+        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="brand-name">Bila Badi<span class="brand-tld">.com</span></div>
+      <button class="drawer-close-btn" id="drawerClose" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Buy</a>
+      <a href="product-details.html">Sell</a>
+      <a href="about-us.html" class="active">Rent</a>
+      
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="login-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span>Login / Register</span>
+      </a>
+      <a href="#add-property" class="btn-add-property" style="justify-content: center;">
+        + Add Property
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================================================
+         Hero Section: Who We Are & Intro
+         ========================================================================== -->
+    <section class="about-hero-section">
+      <div class="container">
+        <!-- Who We Are Pill Badge -->
+        <div class="who-we-are-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          WHO WE ARE
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="about-hero-title">
+          Simplify Your Home<br>
+          Buying, Selling &amp; Renting Journey
+        </h1>
+
+        <!-- Subheading Paragraph -->
+        <p class="about-hero-lead">
+          Bilabadi is a modern property listing platform designed to simplify real estate decisions across residential,
+          commercial, Plot and PG living options in India. With the help of our interactive map and trusted local insights,
+          users can easily discover suitable flats, apartments, land, and commercial spaces across multiple locations.
+          Whether you are looking for rental homes, houses for sale, studio apartments, shared living spaces, land
+          investment opportunities, or newly developed projects, Bilabadi brings verified and reliable options together
+          in one place
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Story & Highlights Section (2 Columns)
+         ========================================================================== -->
+    <section class="about-story-section">
+      <div class="container">
+        <div class="about-story-grid">
+          <!-- Left Column: Featured Image with Badge -->
+          <div class="about-image-card-wrap">
+            <div class="about-image-card">
+              <img src="assets/about-us.png" alt="Bilabadi modern real estate property preview" loading="lazy">
+              <!-- Powered by Badge Overlay -->
+            
+            </div>
+          </div>
+
+          <!-- Right Column: Description & Highlights -->
+          <div class="about-story-text">
+            <p>
+              From furnished rental homes and shared stays to plots, premium residences, duplex homes, and commercial
+              establishments, Bilabadi supports every stage of property search and transaction. Our platform helps users
+              buy, sell, rent, lease, or invest in property while maintaining clarity and trust throughout the process.
+              Users can explore rental homes, residential properties, student and working professional stays, business
+              spaces, and land opportunities with complete transparency and confidence
+            </p>
+
+            <p>
+              Based in Gurugram, Bilabadi is part of Cloudsat Pvt. Ltd (CIN: U72900HR2022PTC105173) and operates as an
+              Indian real estate property site trusted across the country. We bring buyers, sellers, and verified real
+              estate agents together through a unified system - offering more than listings with real post-transaction
+              support
+            </p>
+
+            <!-- 2x2 Trust Points Grid -->
+            <div class="trust-highlights-grid">
+              <div class="trust-item">
+                <span class="trust-check-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
+                <span>Direct Owner Access</span>
+              </div>
+
+              <div class="trust-item">
+                <span class="trust-check-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
+                <span>Verified Listings</span>
+              </div>
+
+              <div class="trust-item">
+                <span class="trust-check-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
+                <span>Reduced Middlemen</span>
+              </div>
+
+              <div class="trust-item">
+                <span class="trust-check-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
+                <span>End-to-End Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Why Choose Bilabadi Section
+         ========================================================================== -->
+    <section class="why-choose-section-about">
+      <div class="container">
+        <div class="section-header-centered">
+          <h2 class="section-main-title">
+            Why Choose <span class="title-highlight-green">Bilabadi?</span>
+          </h2>
+          <p class="section-sub-lead">
+            We deliver a trusted real estate India experience with accurate property in India listings for modern India
+            homes - simple, transparent, and always with no brokerage
+          </p>
+        </div>
+
+        <div class="features-three-grid">
+          <!-- Card 1: Verified & Authentic -->
+          <div class="feature-card-clean">
+            <div class="feature-card-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Verified &amp; Authentic</h3>
+            <p class="feature-card-desc">
+              Every flat, apartment, and home for sale entry is reviewed to confirm genuine owners, approved real estate
+              agents, and verified providers. This reduces property brokers and keeps only reliable properties for rent
+              and flats for sale
+            </p>
+          </div>
+
+          <!-- Card 2: Smart Shortlisting -->
+          <div class="feature-card-clean">
+            <div class="feature-card-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Smart Shortlisting</h3>
+            <p class="feature-card-desc">
+              View complete details for apartments for rent, 1 bhk for rent, furnished apartments for rent, studio
+              apartments for rent, and new apartments for sale. Shortlist flat houses, luxury apartments, and duplex flats
+              from your home before visiting
+            </p>
+          </div>
+
+          <!-- Card 3: Transparent Connect -->
+          <div class="feature-card-clean">
+            <div class="feature-card-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Transparent Connect</h3>
+            <p class="feature-card-desc">
+              Our property website connects buyers, sellers, and trusted property agents. Track listings on the map and
+              work with verified rental agencies or apartment rental agents - with no hidden layers or delays
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CTA Banner Section: Find Your Next Home
+         ========================================================================== -->
+    <section class="cta-banner-wrapper">
+      <div class="container">
+        <div class="about-cta-card">
+          <div class="cta-left-content">
+            <h3>Find Your <span class="cta-word-accent">Next Home</span></h3>
+            <p>
+              Browse new apartments, luxury houses, furnished apartments for rent, and flats for sale across India Homes
+              - start your real estate journey with no brokerage.
+            </p>
+          </div>
+          <div class="cta-right-actions">
+            <a href="#become-reseller" class="btn-cta-reseller">
+              Become a Reseller &rarr;
+            </a>
+            <a href="product-details.html" class="btn-cta-get-started">
+              Get Started &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Footer (Exact Match to index.html)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Main Footer 5-Column Grid -->
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand, Tagline, Description, Social Icons -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <svg class="brand-icon-svg" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path d="M18 3.5L3 16.5H7.5V31.5H28.5V16.5H33L18 3.5Z" fill="#ffffff" />
+              <path
+                d="M18 13C15.8 13 14 14.8 14 17C14 18.8 15.2 20.3 16.8 20.8V26H19.2V20.8C20.8 20.3 22 18.8 22 17C22 14.8 20.2 13 18 13Z"
+                fill="#083822" />
+              <path d="M13.5 22C14.8 23.5 16.3 24 18 24C19.7 24 21.2 23.5 22.5 22" stroke="#083822" stroke-width="1.8"
+                stroke-linecap="round" />
+            </svg>
+            <div class="footer-brand-text">
+              <span class="footer-brand-name">
+                BilaBadi<span class="footer-brand-tld">.com</span>
+              </span>
+              <span class="footer-tagline">Find Your Place. Build Your Future.</span>
+            </div>
+          </a>
+          <p class="footer-description">
+            We are a leading real estate platform, helping you find the perfect property for your dream life.
+          </p>
+          <div class="footer-socials">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="YouTube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                </path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#083822"></polygon>
+              </svg>
+            </a>
+            <!-- Twitter / X -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Twitter">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-col-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product-details.html">Properties</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Property Types -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Property Types</h4>
+          <ul class="footer-col-links">
+            <li><a href="product-details.html">Houses</a></li>
+            <li><a href="product-details.html">Apartments</a></li>
+            <li><a href="product-details.html">Villas</a></li>
+            <li><a href="product-details.html">Commercial</a></li>
+            <li><a href="product-details.html">Land</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Support -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Support</h4>
+          <ul class="footer-col-links">
+            <li><a href="#help">Help Center</a></li>
+            <li><a href="#terms">Terms &amp; Conditions</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Subscribe to Our Newsletter -->
+        <div class="footer-col footer-newsletter-col">
+          <h4 class="footer-col-title">Subscribe to Our Newsletter</h4>
+          <p class="newsletter-desc">Get the latest properties, news and updates straight to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address" required
+              aria-label="Email address" />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom-row">
+        <p class="footer-copy">&copy; 2025 BilaBadi.com. All rights reserved.</p>
+        <div class="footer-bottom-right">
+          <div class="footer-legal-links">
+            <a href="#privacy">Privacy Policy</a>
+            <span class="sep">|</span>
+            <a href="#terms">Terms &amp; Conditions</a>
+            <span class="sep">|</span>
+            <a href="#sitemap">Sitemap</a>
+          </div>
+          <button type="button" id="scrollToTopBtn" class="btn-scroll-top" aria-label="Scroll to top">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Drawer Toggle
+      const mobileToggle = document.getElementById('mobileNavToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const drawerOverlay = document.getElementById('drawerOverlay');
+      const drawerClose = document.getElementById('drawerClose');
+
+      function openDrawer() {
+        mobileDrawer?.classList.add('open');
+        drawerOverlay?.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        mobileDrawer?.classList.remove('open');
+        drawerOverlay?.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      mobileToggle?.addEventListener('click', openDrawer);
+      drawerClose?.addEventListener('click', closeDrawer);
+      drawerOverlay?.addEventListener('click', closeDrawer);
+
+      // Scroll to Top Button
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      scrollToTopBtn?.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

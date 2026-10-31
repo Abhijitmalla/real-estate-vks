@@ -1,0 +1,2088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News, Tips & Market Trends - Bila Badi Blog</title>
+  <meta name="description"
+    content="Expert advice, real estate market trends, property tax guides, and investment insights for buyers, sellers, and investors in India.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-green: #0d5435;
+      --primary-green-hover: #083e26;
+      --primary-green-light: #eaf7f0;
+      --primary-green-border: #bbf7d0;
+      --accent-green: #1b804e;
+      --accent-green-bright: #10b981;
+      --footer-bg: #083822;
+      --footer-text-muted: rgba(255, 255, 255, 0.65);
+
+      --text-dark: #111827;
+      --text-heading: #0c2c1e;
+      --text-body: #4b5563;
+      --text-muted: #6b7280;
+      --text-light: #9ca3af;
+
+      --bg-page: #fbfdfb;
+      --bg-card: #ffffff;
+      --bg-soft: #f4f7f4;
+      --border-color: #e5e7eb;
+      --border-light: #f0f3f1;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 14px 34px -4px rgba(13, 84, 53, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 16px 30px rgba(13, 84, 53, 0.12);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --radius-pill: 9999px;
+
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Base & Reset */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: clip;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: var(--bg-page);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: clip;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: var(--transition);
+    }
+
+    input,
+    select {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       Navigation Bar (Matches index.html)
+       ========================================================================== */
+    .site-header {
+      background-color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    /* Brand Logo */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      user-select: none;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+
+    .brand-icon-svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .brand-text-wrap {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.4px;
+      line-height: 1.1;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 3px;
+      white-space: nowrap;
+    }
+
+    .brand-tld {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary-green);
+      letter-spacing: normal;
+    }
+
+    /* Desktop Navigation Links */
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-body);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-green);
+    }
+
+    .nav-link.active {
+      color: var(--primary-green);
+      font-weight: 600;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background-color: var(--primary-green);
+      border-radius: 2px;
+    }
+
+    /* Header Right Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .action-btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: var(--text-body);
+      transition: var(--transition);
+    }
+
+    .action-btn-icon:hover {
+      color: var(--primary-green);
+      background-color: var(--primary-green-light);
+    }
+
+    .login-link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .login-link:hover {
+      color: var(--primary-green);
+    }
+
+    .btn-add-property {
+      background-color: var(--primary-green);
+      color: #ffffff;
+      padding: 9px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 13.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 4px 10px rgba(13, 84, 53, 0.15);
+    }
+
+    .btn-add-property:hover {
+      background-color: var(--primary-green-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(13, 84, 53, 0.25);
+    }
+
+    /* Mobile Toggle */
+    .mobile-nav-toggle {
+      display: none;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+      border-radius: var(--radius-sm);
+    }
+
+    /* Mobile Drawer Menu */
+    .mobile-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 290px;
+      height: 100%;
+      background-color: #ffffff;
+      z-index: 1000;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .mobile-drawer.open {
+      transform: translateX(0);
+    }
+
+    .mobile-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .drawer-close-btn {
+      font-size: 26px;
+      color: var(--text-dark);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .mobile-nav-links a {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 6px 0;
+    }
+
+    .mobile-nav-links a.active {
+      color: var(--primary-green);
+    }
+
+    .mobile-drawer-footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .mobile-drawer-footer .login-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-color);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      background: var(--bg-soft);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .mobile-drawer-footer .login-link:hover {
+      background: var(--primary-green-light);
+      border-color: var(--primary-green-border);
+      color: var(--primary-green);
+    }
+
+    /* ==========================================================================
+       Blog - Header Section
+       ========================================================================== */
+    .blog-header-section {
+      padding: 48px 0 24px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, rgba(13, 84, 53, 0.05) 0%, transparent 65%);
+    }
+
+    .insights-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      background-color: var(--primary-green-light);
+      color: var(--primary-green);
+      border: 1px solid var(--primary-green-border);
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 6px rgba(13, 84, 53, 0.06);
+    }
+
+    .insights-pill-badge svg {
+      width: 14px;
+      height: 14px;
+      color: var(--accent-green-bright);
+    }
+
+    .blog-main-heading {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.8px;
+      line-height: 1.22;
+      margin-bottom: 12px;
+    }
+
+    .blog-sub-lead {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #64748b;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       Featured Article Hero Banner Card
+       ========================================================================== */
+    .featured-hero-wrap {
+      padding: 16px 0 32px;
+    }
+
+    .featured-article-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      min-height: 440px;
+      display: flex;
+      align-items: flex-end;
+      box-shadow: 0 16px 36px rgba(13, 84, 53, 0.12);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .featured-article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 42px rgba(13, 84, 53, 0.18);
+    }
+
+    .featured-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .featured-article-card:hover .featured-bg-img {
+      transform: scale(1.03);
+    }
+
+    .featured-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(8, 56, 34, 0.15) 0%, rgba(8, 44, 28, 0.65) 50%, rgba(8, 32, 20, 0.94) 100%);
+      z-index: 1;
+    }
+
+    .featured-content {
+      position: relative;
+      z-index: 2;
+      padding: 40px;
+      width: 100%;
+      max-width: 900px;
+      color: #ffffff;
+    }
+
+    .featured-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      font-size: 12.5px;
+      flex-wrap: wrap;
+    }
+
+    .badge-category-tag {
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      background: var(--primary-green);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 2px 8px rgba(13, 84, 53, 0.25);
+    }
+
+    .meta-date,
+    .meta-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+    }
+
+    .meta-date svg,
+    .meta-time svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.9;
+    }
+
+    .featured-title {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.6px;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .featured-excerpt {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.82);
+      margin-bottom: 20px;
+      max-width: 760px;
+    }
+
+    .featured-author-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .author-avatar-circle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .author-details {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .author-name-text {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .author-role-sub {
+      font-size: 10px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       Filter Tabs & Search Toolbar Row
+       ========================================================================== */
+    .blog-toolbar-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .category-pills-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+
+    .cat-pill-btn {
+      padding: 7px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      color: #475569;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .cat-pill-btn:hover {
+      background: var(--primary-green-light);
+      border-color: var(--primary-green-border);
+      color: var(--primary-green);
+    }
+
+    .cat-pill-btn.active {
+      background: var(--primary-green);
+      border-color: var(--primary-green);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(13, 84, 53, 0.25);
+    }
+
+    .blog-search-box {
+      position: relative;
+      min-width: 260px;
+      max-width: 300px;
+    }
+
+    .blog-search-box svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: #94a3b8;
+      pointer-events: none;
+    }
+
+    .blog-search-input {
+      width: 100%;
+      padding: 9px 16px 9px 40px;
+      border-radius: var(--radius-pill);
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      font-size: 13.5px;
+      color: var(--text-dark);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .blog-search-input:focus {
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 3px rgba(13, 84, 53, 0.12);
+    }
+
+    .blog-search-input::placeholder {
+      color: #94a3b8;
+      font-size: 13px;
+    }
+
+    /* ==========================================================================
+       Articles 3-Column Grid
+       ========================================================================== */
+    .articles-grid-section {
+      padding-bottom: 70px;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .article-card {
+      background: #ffffff;
+      border: 1px solid #edf1ee;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 32px rgba(13, 84, 53, 0.09);
+      border-color: var(--primary-green-border);
+    }
+
+    .card-thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #e2e8f0;
+    }
+
+    .card-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .article-card:hover .card-thumb-img {
+      transform: scale(1.04);
+    }
+
+    .card-category-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(6px);
+      color: var(--primary-green);
+      border: 1px solid var(--primary-green-border);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 2px 8px rgba(13, 84, 53, 0.08);
+      z-index: 2;
+    }
+
+    .card-category-badge svg {
+      width: 11px;
+      height: 11px;
+      color: var(--primary-green);
+    }
+
+    .card-body-content {
+      padding: 22px 22px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-meta-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11.5px;
+      color: #64748b;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .card-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-meta-item svg {
+      width: 13px;
+      height: 13px;
+      color: #94a3b8;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text-heading);
+      letter-spacing: -0.2px;
+      margin-bottom: 10px;
+      transition: color 0.2s ease;
+    }
+
+    .article-card:hover .card-title {
+      color: var(--primary-green);
+    }
+
+    .card-excerpt {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #64748b;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .card-footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid #f1f5f3;
+      font-size: 12.5px;
+    }
+
+    .card-author-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #475569;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .card-author-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+    }
+
+    .card-author-icon svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .card-read-more-btn {
+      color: var(--primary-green);
+      font-weight: 700;
+      font-size: 12.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .article-card:hover .card-read-more-btn {
+      color: var(--accent-green-bright);
+      transform: translateX(3px);
+    }
+
+    /* No search results feedback */
+    .no-results-msg {
+      display: none;
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: #64748b;
+      font-size: 16px;
+    }
+
+    /* ==========================================================================
+       Site Footer (Exact Match to index.html)
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--footer-bg);
+      color: #ffffff;
+      padding: 60px 0 28px;
+    }
+
+    .footer-main-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.85fr 0.9fr 0.9fr 1.7fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    /* Column 1: Brand & Socials */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer-logo .brand-icon-svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .footer-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-name {
+      font-size: 21px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+
+    .footer-brand-tld {
+      color: #86efac;
+    }
+
+    .footer-tagline {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 3px;
+      font-weight: 500;
+      letter-spacing: 0.1px;
+    }
+
+    .footer-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.72);
+      margin: 18px 0 22px;
+      max-width: 310px;
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .social-icon-btn:hover {
+      background-color: #10b981;
+      border-color: #10b981;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Columns 2, 3, 4: Link Groups */
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-col-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      letter-spacing: -0.2px;
+    }
+
+    .footer-col-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col-links li a {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 13.5px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .footer-col-links li a:hover {
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+
+    /* Column 5: Newsletter */
+    .footer-newsletter-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .newsletter-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.72);
+      margin-bottom: 18px;
+      max-width: 340px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 9999px;
+      padding: 4px 5px 4px 18px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .newsletter-input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 13.5px;
+      color: #111827;
+      flex: 1;
+      padding: 8px 0;
+      min-width: 0;
+    }
+
+    .newsletter-input::placeholder {
+      color: #9ca3af;
+    }
+
+    .newsletter-btn {
+      background: #10b981;
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .newsletter-btn:hover {
+      background: #059669;
+      transform: scale(1.02);
+    }
+
+    /* Footer Bottom Row */
+    .footer-bottom-row {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-bottom-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-legal-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-legal-links .sep {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-scroll-top {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-scroll-top:hover {
+      background: #10b981;
+      border-color: #10b981;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       Responsive Media Queries (Tuned for Mobile without Gaps)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .mobile-nav-toggle {
+        display: flex;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background-color: #f8faf8;
+        border: 1px solid #eef2ef;
+        color: var(--text-dark);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-nav-toggle:hover {
+        background-color: var(--primary-green-light);
+        border-color: var(--primary-green-border);
+        color: var(--primary-green);
+      }
+
+      .site-header {
+        height: 58px;
+        border-bottom: 1px solid #f0f3f1;
+      }
+
+      .nav-container {
+        height: 58px;
+        padding: 0 16px;
+      }
+
+      .brand-icon-svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      .brand-name {
+        font-size: 19px;
+        color: var(--primary-green);
+        white-space: nowrap;
+      }
+
+      .header-actions {
+        gap: 10px;
+      }
+
+      .header-actions .btn-add-property {
+        display: none;
+      }
+
+      .action-btn-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background-color: #f8faf8;
+        border: 1px solid #eef2ef;
+        color: var(--text-dark);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header-actions .login-link {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background-color: #f8faf8;
+        border: 1px solid #eef2ef;
+        color: var(--text-dark);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        gap: 0;
+      }
+
+      .header-actions .login-link span {
+        display: none;
+      }
+
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .featured-title {
+        font-size: 26px;
+      }
+
+      .footer-main-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 32px 18px !important;
+      }
+
+      .footer-brand {
+        grid-column: span 2 !important;
+        margin-bottom: 6px;
+      }
+
+      .footer-newsletter-col {
+        grid-column: span 2 !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        height: 54px;
+      }
+
+      .nav-container {
+        height: 54px;
+        padding: 0 14px;
+      }
+
+      .brand-logo {
+        gap: 8px;
+      }
+
+      .brand-icon-svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+        white-space: nowrap;
+      }
+
+      .brand-tld {
+        font-size: 10.5px;
+      }
+
+      .header-actions {
+        gap: 8px;
+      }
+
+      .action-btn-icon,
+      .header-actions .login-link,
+      .mobile-nav-toggle {
+        width: 36px;
+        height: 36px;
+      }
+
+      .blog-header-section {
+        padding: 24px 0 16px;
+      }
+
+      .insights-pill-badge {
+        font-size: 10px;
+        padding: 4px 12px;
+        margin-bottom: 10px;
+      }
+
+      .blog-main-heading {
+        font-size: 25px;
+        line-height: 1.25;
+        letter-spacing: -0.4px;
+        margin-bottom: 8px;
+      }
+
+      .blog-sub-lead {
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+
+      .featured-hero-wrap {
+        padding: 8px 0 20px;
+      }
+
+      .featured-article-card {
+        min-height: 360px;
+        border-radius: 18px;
+      }
+
+      .featured-content {
+        padding: 20px 16px;
+      }
+
+      .featured-title {
+        font-size: 20px;
+        line-height: 1.3;
+        margin-bottom: 8px;
+      }
+
+      .featured-excerpt {
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 14px;
+      }
+
+      .blog-toolbar-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        margin-bottom: 22px;
+      }
+
+      .category-pills-wrap {
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .category-pills-wrap::-webkit-scrollbar {
+        height: 3px;
+      }
+
+      .category-pills-wrap::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 9999px;
+      }
+
+      .blog-search-box {
+        max-width: 100%;
+        min-width: 100%;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .articles-grid-section {
+        padding-bottom: 36px;
+      }
+
+      .card-body-content {
+        padding: 16px;
+      }
+
+      .card-title {
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .card-excerpt {
+        font-size: 12.5px;
+        margin-bottom: 14px;
+      }
+
+      .site-footer {
+        padding: 26px 0 18px;
+      }
+
+      .footer-main-grid {
+        gap: 20px 14px !important;
+      }
+
+      .footer-bottom-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        margin-top: 20px;
+        padding-top: 14px;
+      }
+
+      .footer-bottom-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        gap: 8px;
+      }
+
+      .newsletter-input {
+        background: #ffffff;
+        border-radius: var(--radius-pill);
+        padding: 9px 14px;
+        width: 100%;
+        font-size: 13px;
+      }
+
+      .newsletter-btn {
+        width: 100%;
+        padding: 9px 16px;
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .nav-container {
+        padding: 0 10px;
+      }
+
+      .brand-name {
+        font-size: 16.5px;
+      }
+
+      .brand-icon-svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      .header-actions {
+        gap: 6px;
+      }
+
+      .header-actions .login-link {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       Header & Navigation (Matches index.html)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Bila Badi Home">
+        <svg class="brand-icon-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- House Peak Roof -->
+          <path d="M18 3.5L3 16.5H7.5V31.5H28.5V16.5H33L18 3.5Z" fill="#0d5435" />
+          <!-- Tree Inside House Silhouette -->
+          <path
+            d="M18 13C15.8 13 14 14.8 14 17C14 18.8 15.2 20.3 16.8 20.8V26H19.2V20.8C20.8 20.3 22 18.8 22 17C22 14.8 20.2 13 18 13Z"
+            fill="#ffffff" />
+          <path d="M13.5 22C14.8 23.5 16.3 24 18 24C19.7 24 21.2 23.5 22.5 22" stroke="#ffffff" stroke-width="1.8"
+            stroke-linecap="round" />
+        </svg>
+        <div class="brand-text-wrap">
+          <span class="brand-name">
+            Bila Badi<span class="brand-tld">.com</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Buy</a>
+        <a href="product-details.html" class="nav-link">Sell</a>
+        <a href="index.html#about" class="nav-link">Rent</a>
+
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <button type="button" class="action-btn-icon" id="navWishlistBtn" aria-label="Wishlist">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+            </path>
+          </svg>
+        </button>
+
+        <!-- Login / Register -->
+        <a href="login.html" class="login-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Login / Register</span>
+        </a>
+
+        <!-- Add Property Button -->
+        <a href="#add-property" class="btn-add-property">
+          <span>+</span> Add Property
+        </a>
+
+        <!-- Mobile Nav Toggle Button -->
+        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="brand-name">Bila Badi<span class="brand-tld">.com</span></div>
+      <button class="drawer-close-btn" id="drawerClose" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Buy</a>
+      <a href="product-details.html">Sell</a>
+      <a href="index.html#about">Rent</a>
+      <a href="about-us.html">About Us</a>
+      <a href="blog.html" class="active">Blog</a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="login-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span>Login / Register</span>
+      </a>
+      <a href="#add-property" class="btn-add-property" style="justify-content: center;">
+        + Add Property
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================================================
+         Page Header
+         ========================================================================== -->
+    <section class="blog-header-section">
+      <div class="container">
+        <!-- Badge -->
+        <div class="insights-pill-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z">
+            </path>
+          </svg>
+          BILABADI INSIGHTS
+        </div>
+
+        <h1 class="blog-main-heading">News, Tips &amp; Market Trends</h1>
+        <p class="blog-sub-lead">Expert advice for buyers, sellers, and investors to navigate the real estate journey.</p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Featured Hero Article Banner
+         ========================================================================== -->
+    <section class="featured-hero-wrap">
+      <div class="container">
+        <article class="featured-article-card" onclick="window.location.href='blog-details.html'" title="Read featured article">
+          <img src="assets/blog_hero_tiruppur.jpg" alt="Tiruppur Real Estate Investment" class="featured-bg-img" loading="eager">
+          <div class="featured-overlay"></div>
+          <div class="featured-content">
+            <div class="featured-meta-row">
+              <span class="badge-category-tag">Business</span>
+              <span class="meta-date">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                27 Oct 2026
+              </span>
+              <span class="meta-time">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                5 min read
+              </span>
+            </div>
+
+            <h2 class="featured-title">Tiruppur Real Estate Investment: Property Rates, Best Areas and Future Growth</h2>
+            <p class="featured-excerpt">IntroductionChoosing the right location is important when investing in real estate. A growing i...</p>
+
+            <div class="featured-author-row">
+              <div class="author-avatar-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="author-details">
+                <span class="author-name-text">BilaBadi Team</span>
+                <span class="author-role-sub">AUTHOR</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Filter Toolbar & Search Row
+         ========================================================================== -->
+    <section class="container">
+      <div class="blog-toolbar-row">
+        <!-- Categories Filter Pills -->
+        <div class="category-pills-wrap" id="categoryFilterGroup">
+          <button type="button" class="cat-pill-btn active" data-category="all">All</button>
+          <button type="button" class="cat-pill-btn" data-category="technology">Technology</button>
+          <button type="button" class="cat-pill-btn" data-category="lifestyle">Lifestyle</button>
+          <button type="button" class="cat-pill-btn" data-category="business">Business</button>
+          <button type="button" class="cat-pill-btn" data-category="health">Health &amp; Wellness</button>
+          <button type="button" class="cat-pill-btn" data-category="education">Education</button>
+          <button type="button" class="cat-pill-btn" data-category="entertainment">Entertainment</button>
+          <button type="button" class="cat-pill-btn" data-category="travel">Travel</button>
+          <button type="button" class="cat-pill-btn" data-category="food">Food &amp; Cooking</button>
+          <button type="button" class="cat-pill-btn" data-category="sports">Sports</button>
+          <button type="button" class="cat-pill-btn" data-category="science">Science</button>
+        </div>
+
+        <!-- Search Box -->
+        <div class="blog-search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="blogSearchInput" class="blog-search-input" placeholder="Search articles..." aria-label="Search articles">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Articles 3-Column Grid
+         ========================================================================== -->
+    <section class="articles-grid-section">
+      <div class="container">
+        <div class="articles-grid" id="articlesGrid">
+
+          <!-- Card 1: Online Property Tax in Andhra Pradesh -->
+          <article class="article-card" data-category="business" data-title="Online Property Tax in Andhra Pradesh: How to Pay Swarna Panchayat House Tax">
+            <div class="card-thumb-wrap">
+              <span class="card-category-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                BUSINESS
+              </span>
+              <img src="assets/blog_property_tax.jpg" alt="Online Property Tax in Andhra Pradesh" class="card-thumb-img" loading="lazy">
+            </div>
+            <div class="card-body-content">
+              <div class="card-meta-line">
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  24 Oct 2026
+                </span>
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  5 min read
+                </span>
+              </div>
+              <h3 class="card-title">Online Property Tax in Andhra Pradesh: How to Pay Swarna Panchayat House Tax</h3>
+              <p class="card-excerpt">Paying house tax is an important responsibility for property owner</p>
+              <div class="card-footer-row">
+                <div class="card-author-info">
+                  <span class="card-author-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </span>
+                  <span>BilaBadi Team</span>
+                </div>
+                <a href="blog-details.html" class="card-read-more-btn">Read More &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Goa Housing Board -->
+          <article class="article-card" data-category="business" data-title="Goa Housing Board: A Complete Guide to Housing Schemes and Property Allotment">
+            <div class="card-thumb-wrap">
+              <span class="card-category-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                BUSINESS
+              </span>
+              <img src="assets/blog_goa_housing.jpg" alt="Goa Housing Board Complete Guide" class="card-thumb-img" loading="lazy">
+            </div>
+            <div class="card-body-content">
+              <div class="card-meta-line">
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  23 Oct 2026
+                </span>
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  5 min read
+                </span>
+              </div>
+              <h3 class="card-title">Goa Housing Board: A Complete Guide to Housing Schemes and Property Allotment</h3>
+              <p class="card-excerpt">Buying a home or residential plot in Goa is a major financial decisi</p>
+              <div class="card-footer-row">
+                <div class="card-author-info">
+                  <span class="card-author-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </span>
+                  <span>BilaBadi Team</span>
+                </div>
+                <a href="blog-details.html" class="card-read-more-btn">Read More &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Retail Shop vs Office Space Investment -->
+          <article class="article-card" data-category="business" data-title="Retail Shop vs Office Space Investment in India: Which Is Better?">
+            <div class="card-thumb-wrap">
+              <span class="card-category-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                BUSINESS
+              </span>
+              <img src="assets/blog_retail_vs_office.jpg" alt="Retail Shop vs Office Space Investment" class="card-thumb-img" loading="lazy">
+            </div>
+            <div class="card-body-content">
+              <div class="card-meta-line">
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  17 Oct 2026
+                </span>
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  5 min read
+                </span>
+              </div>
+              <h3 class="card-title">Retail Shop vs Office Space Investment in India: Which Is Better?</h3>
+              <p class="card-excerpt">IntroductionInvesting in commercial real estate can help you earn</p>
+              <div class="card-footer-row">
+                <div class="card-author-info">
+                  <span class="card-author-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </span>
+                  <span>BilaBadi Team</span>
+                </div>
+                <a href="blog-details.html" class="card-read-more-btn">Read More &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: How to Build a Container Home in India -->
+          <article class="article-card" data-category="business" data-title="How to Build a Container Home in India: Cost and Key Considerations">
+            <div class="card-thumb-wrap">
+              <span class="card-category-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                BUSINESS
+              </span>
+              <img src="assets/blog_container_home.jpg" alt="How to Build a Container Home in India" class="card-thumb-img" loading="lazy">
+            </div>
+            <div class="card-body-content">
+              <div class="card-meta-line">
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  16 Oct 2026
+                </span>
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  5 min read
+                </span>
+              </div>
+              <h3 class="card-title">How to Build a Container Home in India: Cost and Key Considerations</h3>
+              <p class="card-excerpt">IntroductionA container house is a home made by changing a ship</p>
+              <div class="card-footer-row">
+                <div class="card-author-info">
+                  <span class="card-author-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </span>
+                  <span>BilaBadi Team</span>
+                </div>
+                <a href="blog-details.html" class="card-read-more-btn">Read More &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: How to Sell Inherited Property in India as an NRI -->
+          <article class="article-card" data-category="business" data-title="How to Sell Inherited Property in India as an NRI: Documents, Process, and Taxes">
+            <div class="card-thumb-wrap">
+              <span class="card-category-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                BUSINESS
+              </span>
+              <img src="assets/blog_nri_property.jpg" alt="How to Sell Inherited Property in India as an NRI" class="card-thumb-img" loading="lazy">
+            </div>
+            <div class="card-body-content">
+              <div class="card-meta-line">
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  10 Oct 2026
+                </span>
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  5 min read
+                </span>
+              </div>
+              <h3 class="card-title">How to Sell Inherited Property in India as an NRI: Documents, Process, and Taxes</h3>
+              <p class="card-excerpt">For NRIs, managing an inherited property in India can be difficult,</p>
+              <div class="card-footer-row">
+                <div class="card-author-info">
+                  <span class="card-author-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </span>
+                  <span>BilaBadi Team</span>
+                </div>
+                <a href="blog-details.html" class="card-read-more-btn">Read More &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6: What Housing Schemes Does Assam State Housing Board Offer? -->
+          <article class="article-card" data-category="business" data-title="What Housing Schemes Does the Assam State Housing Board Offer?">
+            <div class="card-thumb-wrap">
+              <span class="card-category-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                BUSINESS
+              </span>
+              <img src="assets/blog_assam_housing.jpg" alt="Assam State Housing Board Schemes" class="card-thumb-img" loading="lazy">
+            </div>
+            <div class="card-body-content">
+              <div class="card-meta-line">
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  6 Oct 2026
+                </span>
+                <span class="card-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  5 min read
+                </span>
+              </div>
+              <h3 class="card-title">What Housing Schemes Does the Assam State Housing Board Offer?</h3>
+              <p class="card-excerpt">Buying or building a home can be difficult when land and constru</p>
+              <div class="card-footer-row">
+                <div class="card-author-info">
+                  <span class="card-author-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </span>
+                  <span>BilaBadi Team</span>
+                </div>
+                <a href="blog-details.html" class="card-read-more-btn">Read More &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- No results placeholder -->
+          <div class="no-results-msg" id="noResultsMsg">
+            <p>No articles found matching your criteria. Try adjusting your search or category filter.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Footer (Exact Match to index.html)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Main Footer 5-Column Grid -->
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand, Tagline, Description, Social Icons -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <svg class="brand-icon-svg" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path d="M18 3.5L3 16.5H7.5V31.5H28.5V16.5H33L18 3.5Z" fill="#ffffff" />
+              <path
+                d="M18 13C15.8 13 14 14.8 14 17C14 18.8 15.2 20.3 16.8 20.8V26H19.2V20.8C20.8 20.3 22 18.8 22 17C22 14.8 20.2 13 18 13Z"
+                fill="#083822" />
+              <path d="M13.5 22C14.8 23.5 16.3 24 18 24C19.7 24 21.2 23.5 22.5 22" stroke="#083822" stroke-width="1.8"
+                stroke-linecap="round" />
+            </svg>
+            <div class="footer-brand-text">
+              <span class="footer-brand-name">
+                BilaBadi<span class="footer-brand-tld">.com</span>
+              </span>
+              <span class="footer-tagline">Find Your Place. Build Your Future.</span>
+            </div>
+          </a>
+          <p class="footer-description">
+            We are a leading real estate platform, helping you find the perfect property for your dream life.
+          </p>
+          <div class="footer-socials">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="YouTube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                </path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#083822"></polygon>
+              </svg>
+            </a>
+            <!-- Twitter / X -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+              aria-label="Twitter">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-col-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product-details.html">Properties</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Property Types -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Property Types</h4>
+          <ul class="footer-col-links">
+            <li><a href="product-details.html">Houses</a></li>
+            <li><a href="product-details.html">Apartments</a></li>
+            <li><a href="product-details.html">Villas</a></li>
+            <li><a href="product-details.html">Commercial</a></li>
+            <li><a href="product-details.html">Land</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Support -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Support</h4>
+          <ul class="footer-col-links">
+            <li><a href="#help">Help Center</a></li>
+            <li><a href="#terms">Terms &amp; Conditions</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Subscribe to Our Newsletter -->
+        <div class="footer-col footer-newsletter-col">
+          <h4 class="footer-col-title">Subscribe to Our Newsletter</h4>
+          <p class="newsletter-desc">Get the latest properties, news and updates straight to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address" required
+              aria-label="Email address" />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom-row">
+        <p class="footer-copy">&copy; 2025 BilaBadi.com. All rights reserved.</p>
+        <div class="footer-bottom-right">
+          <div class="footer-legal-links">
+            <a href="#privacy">Privacy Policy</a>
+            <span class="sep">|</span>
+            <a href="#terms">Terms &amp; Conditions</a>
+            <span class="sep">|</span>
+            <a href="#sitemap">Sitemap</a>
+          </div>
+          <button type="button" id="scrollToTopBtn" class="btn-scroll-top" aria-label="Scroll to top">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Drawer Toggle
+      const mobileToggle = document.getElementById('mobileNavToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const drawerOverlay = document.getElementById('drawerOverlay');
+      const drawerClose = document.getElementById('drawerClose');
+
+      function openDrawer() {
+        mobileDrawer?.classList.add('open');
+        drawerOverlay?.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        mobileDrawer?.classList.remove('open');
+        drawerOverlay?.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      mobileToggle?.addEventListener('click', openDrawer);
+      drawerClose?.addEventListener('click', closeDrawer);
+      drawerOverlay?.addEventListener('click', closeDrawer);
+
+      // Scroll to Top Button
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      scrollToTopBtn?.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Interactive Category Filtering & Search
+      const categoryButtons = document.querySelectorAll('.cat-pill-btn');
+      const searchInput = document.getElementById('blogSearchInput');
+      const cards = document.querySelectorAll('.article-card');
+      const noResultsMsg = document.getElementById('noResultsMsg');
+
+      let currentCategory = 'all';
+      let searchQuery = '';
+
+      function filterArticles() {
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category')?.toLowerCase() || '';
+          const cardTitle = card.getAttribute('data-title')?.toLowerCase() || '';
+          const cardExcerpt = card.querySelector('.card-excerpt')?.textContent.toLowerCase() || '';
+
+          const matchesCategory = (currentCategory === 'all') || (cardCategory === currentCategory);
+          const matchesSearch = !searchQuery || cardTitle.includes(searchQuery) || cardExcerpt.includes(searchQuery);
+
+          if (matchesCategory && matchesSearch) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (noResultsMsg) {
+          noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      categoryButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          categoryButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentCategory = btn.getAttribute('data-category')?.toLowerCase() || 'all';
+          filterArticles();
+        });
+      });
+
+      searchInput?.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim().toLowerCase();
+        filterArticles();
+      });
+    });
+  </script>
+</body>
+
+</html>
