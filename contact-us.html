@@ -241,6 +241,53 @@
       color: var(--primary-green);
     }
 
+    .btn-about-us {
+      background-color: transparent;
+      color: var(--primary-green, #0d5435);
+      border: 1.5px solid var(--primary-green, #0d5435);
+      padding: 8px 18px;
+      border-radius: var(--radius-pill, 9999px);
+      font-size: 13.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: var(--transition, all 0.25s ease);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-about-us:hover {
+      background-color: var(--primary-green-light, #eaf7f0);
+      color: var(--primary-green-hover, #083e26);
+      border-color: var(--primary-green-hover, #083e26);
+      transform: translateY(-1px);
+    }
+
+    .btn-contact-us {
+      background-color: var(--primary-green, #0d5435);
+      color: #ffffff;
+      padding: 9px 20px;
+      border-radius: var(--radius-pill, 9999px);
+      font-size: 13.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 0 4px 10px rgba(13, 84, 53, 0.15);
+      transition: var(--transition, all 0.25s ease);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-contact-us:hover {
+      background-color: var(--primary-green-hover, #083e26);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(13, 84, 53, 0.25);
+    }
+
     .btn-add-property {
       background-color: var(--primary-green);
       color: #ffffff;
@@ -454,9 +501,12 @@
     }
 
     @keyframes pinBounce {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-6px);
       }
@@ -480,6 +530,245 @@
       grid-template-columns: 1.18fr 1fr;
       gap: 32px;
       align-items: start;
+    }
+
+    /* How Can We Help You Section (Replaces Send us a Message) */
+    .help-section-card {
+      background-color: #ffffff;
+      border-radius: 24px;
+      padding: 34px 30px;
+      border: 1px solid #eef2ef;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .help-section-header {
+      margin-bottom: 22px;
+    }
+
+    .help-section-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.6px;
+      line-height: 1.2;
+    }
+
+    .help-title-underline {
+      width: 48px;
+      height: 3.5px;
+      background-color: var(--primary-green, #15803d);
+      border-radius: 2px;
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    .help-section-subtitle {
+      font-size: 13.5px;
+      color: #64748b;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .help-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .help-card {
+      background: #ffffff;
+      border: 1.5px solid #e8ece9;
+      border-radius: 20px;
+      padding: 22px 18px 18px 18px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 228px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .help-card:hover {
+      border-color: #86efac;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.08);
+    }
+
+    .help-card-watermark {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 56px;
+      height: 56px;
+      color: #cbd5e1;
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .help-card-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: #dcfce7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #15803d;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .help-card-icon-box svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .help-card-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .help-card-title {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+      margin-bottom: 4px;
+    }
+
+    .help-card-desc {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .help-card-info-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0f172a;
+      text-decoration: none;
+      margin-bottom: 14px;
+      transition: color 0.15s ease;
+    }
+
+    .help-card-info-link svg {
+      width: 14px;
+      height: 14px;
+      color: #15803d;
+      flex-shrink: 0;
+    }
+
+    .help-card-info-link.email-color {
+      color: #0d5435;
+      word-break: break-all;
+    }
+
+    .help-card-info-link.loc-color {
+      color: #0d5435;
+    }
+
+    .help-card-info-link:hover {
+      color: #15803d;
+    }
+
+    .help-card-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #084d31;
+      color: #ffffff;
+      padding: 7px 18px;
+      border-radius: 9999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      width: fit-content;
+      position: relative;
+      z-index: 2;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(8, 77, 49, 0.2);
+    }
+
+    .help-card-action-btn svg {
+      width: 13px;
+      height: 13px;
+      transition: transform 0.2s ease;
+    }
+
+    .help-card-action-btn:hover {
+      background-color: #064028;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(8, 77, 49, 0.3);
+    }
+
+    .help-card-action-btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    .help-hours-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+
+    .help-hours-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .help-hours-line svg {
+      width: 14px;
+      height: 14px;
+      color: #15803d;
+      flex-shrink: 0;
+    }
+
+    .help-closed-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fee2e2;
+      color: #dc2626;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 15px;
+      border-radius: 9999px;
+      width: fit-content;
+      position: relative;
+      z-index: 2;
+      margin-top: auto;
+    }
+
+    @media (max-width: 640px) {
+      .help-cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .help-section-card {
+        padding: 24px 18px;
+      }
+
+      .help-section-title {
+        font-size: 24px;
+      }
     }
 
     /* Left Card: Send us a Message */
@@ -594,7 +883,7 @@
       box-shadow: 0 0 0 3px rgba(13, 84, 53, 0.12);
     }
 
-    .form-control:focus + .input-field-icon,
+    .form-control:focus+.input-field-icon,
     .input-icon-wrap:focus-within .input-field-icon {
       color: var(--primary-green);
     }
@@ -1454,9 +1743,12 @@
     }
 
     @media (max-width: 768px) {
+
       .desktop-nav,
       .login-link,
-      .btn-add-property {
+      .btn-add-property,
+      .header-actions .btn-about-us,
+      .header-actions .btn-contact-us {
         display: none;
       }
 
@@ -1684,39 +1976,22 @@
 
       <!-- Desktop Navigation Menu -->
       <nav class="desktop-nav" aria-label="Primary Navigation">
-        <a href="index.html" class="nav-link">Buy</a>
-        <a href="product-details.html" class="nav-link">Sell</a>
-        <a href="index.html#about" class="nav-link">Rent</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="about-us.html" class="nav-link">About Us</a>
-        <a href="contact-us.html" class="nav-link active">Contact</a>
+        <a href="index.html" class="nav-link">Properties</a>
+        <a href="product-details.html" class="nav-link">Services</a>
+        <a href="index.html#about" class="nav-link">Blog</a>
       </nav>
 
       <!-- Right Actions -->
       <div class="header-actions">
-        <!-- Wishlist Button -->
-        <button type="button" class="action-btn-icon" id="navWishlistBtn" aria-label="Wishlist">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-            </path>
-          </svg>
-        </button>
+      
+        
 
-        <!-- Login / Register -->
-        <a href="login.html" class="login-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-          <span>Login / Register</span>
+        <!-- About Us & Contact Us Buttons -->
+        <a href="about-us.html" class="btn-about-us">
+          About Us
         </a>
-
-        <!-- Add Property Button -->
-        <a href="product-details.html" class="btn-add-property">
-          <span>+</span> Add Property
+        <a href="contact-us.html" class="btn-contact-us">
+          Contact Us
         </a>
 
         <!-- Mobile Nav Toggle Button -->
@@ -1748,13 +2023,19 @@
       <a href="contact-us.html" class="active">Contact</a>
     </div>
     <div class="mobile-drawer-footer">
-      <a href="login.html" class="login-link" style="display: flex;">
+      <a href="login.html" class="login-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
         <span>Login / Register</span>
+      </a>
+      <a href="about-us.html" class="btn-about-us" style="justify-content: center;">
+        About Us
+      </a>
+      <a href="contact-us.html" class="btn-contact-us" style="justify-content: center;">
+        Contact Us
       </a>
     </div>
   </aside>
@@ -1772,27 +2053,33 @@
             <span class="hero-badge-pill">CONTACT US</span>
             <h1 class="hero-main-title">Let's Start a Conversation</h1>
             <p class="hero-main-subtitle">
-              Need help with homes for sale, rental properties, studio apartments or duplex housing? Connect with trusted property agents for clear guidance.
+              Need help with homes for sale, rental properties, studio apartments or duplex housing? Connect with
+              trusted property agents for clear guidance.
             </p>
 
             <!-- 3 Benefit Features -->
             <div class="hero-features-row">
               <div class="hero-feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                  <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                  <path
+                    d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+                  </path>
                 </svg>
                 <span>Expert Support</span>
               </div>
               <div class="hero-feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                   <path d="m9 12 2 2 4-4"></path>
                 </svg>
                 <span>Verified Assistance</span>
               </div>
               <div class="hero-feature-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                 </svg>
                 <span>Quick Response</span>
@@ -1803,12 +2090,13 @@
           <!-- Right Visual: Farmland with Location Pin -->
           <div class="hero-visual-col">
             <div class="hero-farmland-card">
-              <img src="assets/cat_agricultural.webp" alt="Lush Green Farmland Plots - BilaBadi" class="hero-farmland-img"
-                onerror="this.onerror=null; this.src='assets/banner_land_sale.webp';">
+              <img src="assets/cat_agricultural.webp" alt="Lush Green Farmland Plots - BilaBadi"
+                class="hero-farmland-img" onerror="this.onerror=null; this.src='assets/banner_land_sale.webp';">
               <!-- Animated Red Location Pin Marker -->
               <div class="hero-location-pin" title="Verified Land Location">
                 <svg viewBox="0 0 24 24" fill="#ef4444" stroke="#b91c1c" stroke-width="1.2">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z" />
                 </svg>
               </div>
             </div>
@@ -1825,97 +2113,200 @@
       <div class="container">
         <div class="contact-grid">
 
-          <!-- Left Card: Send us a Message -->
-          <div class="contact-form-card">
-            <div class="form-header-row">
-              <div class="form-header-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Left Column: How Can We Help You (Replaced Send us a Message) -->
+          <div class="help-section-card">
+            <div class="help-section-header">
+              <h2 class="help-section-title">How Can We Help You?</h2>
+              <div class="help-title-underline"></div>
+              <p class="help-section-subtitle">Our team is here to help you with buying, selling, renting and
+                property-related queries.</p>
+            </div>
+
+            <!-- 2x2 Action Cards Grid -->
+            <div class="help-cards-grid">
+
+              <!-- Card 1: Call Our Team -->
+              <div class="help-card">
+                <!-- Watermark House Outline -->
+                <svg class="help-card-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+
+                <div class="help-card-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                    </path>
+                  </svg>
+                </div>
+
+                <div class="help-card-content">
+                  <h3 class="help-card-title">Call Our Team</h3>
+                  <p class="help-card-desc">Speak directly with our property experts.</p>
+
+                  <a href="tel:+919910877219" class="help-card-info-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                      </path>
+                    </svg>
+                    <span>+91 99108 77219</span>
+                  </a>
+                </div>
+
+                <a href="tel:+919910877219" class="help-card-action-btn">
+                  <span>Call Now</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Card 2: Email Support -->
+              <div class="help-card">
+                <!-- Watermark Mail Outline -->
+                <svg class="help-card-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-              </div>
-              <div>
-                <h2 class="form-title">Send us a Message</h2>
-                <p class="form-subtitle">We typically reply within 2 hours.</p>
-              </div>
-            </div>
 
-            <form id="contactForm" onsubmit="handleContactSubmit(event)">
-              <div class="form-fields-stack">
-                <!-- First Name & Last Name (2 columns) -->
-                <div class="form-row-2col">
-                  <div class="form-group">
-                    <label for="firstName" class="form-label">First Name *</label>
-                    <div class="input-icon-wrap">
-                      <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                      </svg>
-                      <input type="text" id="firstName" name="firstName" class="form-control"
-                        placeholder="Enter First Name" required>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="lastName" class="form-label">Last Name *</label>
-                    <div class="input-icon-wrap">
-                      <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                      </svg>
-                      <input type="text" id="lastName" name="lastName" class="form-control"
-                        placeholder="Enter Last Name" required>
-                    </div>
-                  </div>
+                <div class="help-card-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
                 </div>
 
-                <!-- Email Address -->
-                <div class="form-group">
-                  <label for="emailAddress" class="form-label">Email Address *</label>
-                  <div class="input-icon-wrap">
-                    <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="help-card-content">
+                  <h3 class="help-card-title">Email Support</h3>
+                  <p class="help-card-desc">Send your questions to our support team.</p>
+
+                  <a href="mailto:support@bilabadi.com" class="help-card-info-link email-color">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                       <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
-                    <input type="email" id="emailAddress" name="email" class="form-control"
-                      placeholder="support@bilabadi.com" required>
-                  </div>
+                    <span>support@bilabadi.com</span>
+                  </a>
                 </div>
 
-                <!-- Phone Number -->
-                <div class="form-group">
-                  <label for="phoneNumber" class="form-label">Phone Number</label>
-                  <div class="input-icon-wrap">
-                    <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                    <input type="tel" id="phoneNumber" name="phone" class="form-control"
-                      placeholder="+91 99108 77219">
-                  </div>
-                </div>
-
-                <!-- Your Message -->
-                <div class="form-group">
-                  <label for="messageText" class="form-label">Your Message *</label>
-                  <div class="input-icon-wrap textarea-icon-wrap">
-                    <svg class="input-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 20h9"></path>
-                      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                    </svg>
-                    <textarea id="messageText" name="message" class="form-control"
-                      placeholder="How can we help you today?" rows="4" required></textarea>
-                  </div>
-                </div>
-
-                <!-- Send Message Button -->
-                <button type="submit" class="btn-send-message">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                <a href="mailto:support@bilabadi.com" class="help-card-action-btn">
+                  <span>Email Us</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                  <span>Send Message</span>
-                </button>
+                </a>
               </div>
-            </form>
+
+              <!-- Card 3: Visit Our Office -->
+              <div class="help-card">
+                <!-- Watermark Buildings Outline -->
+                <svg class="help-card-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                  <line x1="9" y1="22" x2="9" y2="22.01"></line>
+                  <line x1="15" y1="22" x2="15" y2="22.01"></line>
+                  <line x1="9" y1="6" x2="9" y2="6.01"></line>
+                  <line x1="15" y1="6" x2="15" y2="6.01"></line>
+                  <line x1="9" y1="10" x2="9" y2="10.01"></line>
+                  <line x1="15" y1="10" x2="15" y2="10.01"></line>
+                  <line x1="9" y1="14" x2="9" y2="14.01"></line>
+                  <line x1="15" y1="14" x2="15" y2="14.01"></line>
+                </svg>
+
+                <div class="help-card-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+
+                <div class="help-card-content">
+                  <h3 class="help-card-title">Visit Our Office</h3>
+                  <p class="help-card-desc">Meet our team in person for personalized assistance.</p>
+
+                  <div class="help-card-info-link loc-color">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Gurgaon, Haryana</span>
+                  </div>
+                </div>
+
+                <a href="#mapSection" class="help-card-action-btn">
+                  <span>Get Directions</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Card 4: Working Hours -->
+              <div class="help-card">
+                <!-- Watermark Calendar Outline -->
+                <svg class="help-card-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+
+                <div class="help-card-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+
+                <div class="help-card-content">
+                  <h3 class="help-card-title">Working Hours</h3>
+
+                  <div class="help-hours-rows">
+                    <div class="help-hours-line">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>Monday – Saturday</span>
+                    </div>
+                    <div class="help-hours-line">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>9:00 AM – 6:00 PM</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="help-closed-badge">
+                  Sunday Closed
+                </div>
+              </div>
+
+            </div>
           </div>
 
           <!-- Right Column: Information Cards -->
@@ -1924,7 +2315,8 @@
             <!-- Card 1: Operating Hours -->
             <div class="info-card">
               <div class="operating-hours-header">
-                <svg class="operating-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="operating-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
@@ -1934,7 +2326,8 @@
               <div class="hours-list">
                 <div class="hours-row">
                   <div class="hours-day-wrap">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                       <line x1="16" y1="2" x2="16" y2="6"></line>
                       <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -1946,7 +2339,8 @@
                 </div>
                 <div class="hours-row">
                   <div class="hours-day-wrap">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                       <line x1="16" y1="2" x2="16" y2="6"></line>
                       <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -1961,9 +2355,12 @@
               <div class="operating-divider"></div>
 
               <div class="urgent-help-row">
-                <svg class="urgent-headset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="urgent-headset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                  <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                  <path
+                    d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+                  </path>
                 </svg>
                 <div>
                   <div class="urgent-help-label">Need urgent help?</div>
@@ -1974,7 +2371,8 @@
 
             <!-- Section Label: Our Locations -->
             <div class="locations-label-row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
@@ -1986,7 +2384,8 @@
               <div class="location-card-flex">
                 <div class="location-left-wrap">
                   <div class="location-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
                       <line x1="9" y1="22" x2="9" y2="22.01"></line>
                       <line x1="15" y1="22" x2="15" y2="22.01"></line>
@@ -2000,13 +2399,16 @@
                   </div>
                   <div class="location-info-body">
                     <h4 class="location-title">Head Office</h4>
-                    <div class="location-city">Gurgaon, Haryana</div>
+                    <div class="location-city">Bhubaneswar,Odisha</div>
                     <p class="location-address">
-                      Office No-14, Ground Floor, Centrum Plaza, Golf Course Road, Sector-53, Gurgaon, Haryana, India, Pin-122011
+                      Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh, Bhubaneswar, Odisha - 751017
                     </p>
                     <a href="tel:+919910877219" class="location-phone">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
                       </svg>
                       <span>+91 99108 77219</span>
                     </a>
@@ -2023,7 +2425,8 @@
               <div class="location-card-flex">
                 <div class="location-left-wrap">
                   <div class="location-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
                       <line x1="9" y1="22" x2="9" y2="22.01"></line>
                       <line x1="15" y1="22" x2="15" y2="22.01"></line>
@@ -2039,11 +2442,13 @@
                     <h4 class="location-title">Branch Office</h4>
                     <div class="location-city">Bhubaneswar, Odisha</div>
                     <p class="location-address">
-                      BMC Panchadeep Market Complex, Bhoumya Nagar, Unit-4, Bhubaneswar, India 751001
-                    </p>
+                      4th Floor, New Annex Building Arch Bishop’s House, Satya Nagar, Bhubaneswar, Odisha 751007 </p>
                     <a href="tel:+919910877219" class="location-phone">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
                       </svg>
                       <span>+91 99108 77219</span>
                     </a>
@@ -2071,21 +2476,25 @@
           <div class="map-floating-card">
             <!-- Location Switcher Tabs -->
             <div class="map-toggle-tabs">
-              <button type="button" class="map-tab-btn active" id="mapTabGurgaon" onclick="switchMapLocation('gurgaon')">
+              <button type="button" class="map-tab-btn active" id="mapTabGurgaon"
+                onclick="switchMapLocation('gurgaon')">
                 Head Office
               </button>
-              <button type="button" class="map-tab-btn" id="mapTabBhubaneswar" onclick="switchMapLocation('bhubaneswar')">
+              <button type="button" class="map-tab-btn" id="mapTabBhubaneswar"
+                onclick="switchMapLocation('bhubaneswar')">
                 Branch Office
               </button>
             </div>
 
             <!-- Address text -->
             <div class="map-address-row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              <span id="mapFloatingAddress">Centrum Plaza, Sector 53, Gurugram, Haryana 122011, India</span>
+              <span id="mapFloatingAddress">Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh,
+                Bhubaneswar, Odisha - 751017</span>
             </div>
 
             <!-- Star Rating -->
@@ -2096,10 +2505,11 @@
             </div>
 
             <!-- Open in Maps Button -->
-            <a href="https://maps.google.com/?q=Centrum+Plaza,+Golf+Course+Road,+Sector+53,+Gurgaon" target="_blank"
-              rel="noopener noreferrer" class="btn-open-maps" id="btnOpenMaps">
+            <a href="https://maps.google.com/?q=Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh, Bhubaneswar, Odisha - 751017"
+              target="_blank" rel="noopener noreferrer" class="btn-open-maps" id="btnOpenMaps">
               <span>Open in Maps</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
                 <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -2109,7 +2519,7 @@
 
           <!-- Embedded Map -->
           <iframe id="mapIframe" class="map-iframe"
-            src="https://maps.google.com/maps?q=Centrum+Plaza,+Golf+Course+Road,+Sector+53,+Gurgaon,+Haryana+122011&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh, Bhubaneswar, Odisha - 751017+122011&t=&z=15&ie=UTF8&iwloc=&output=embed"
             loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"
             title="BilaBadi Office Location Map">
           </iframe>
@@ -2126,9 +2536,12 @@
           <!-- Item 1: Quick Response -->
           <div class="trust-feature-box">
             <div class="trust-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                <path
+                  d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+                </path>
               </svg>
             </div>
             <div>
@@ -2140,7 +2553,8 @@
           <!-- Item 2: Trusted Support -->
           <div class="trust-feature-box">
             <div class="trust-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                 <path d="m9 12 2 2 4-4"></path>
               </svg>
@@ -2154,7 +2568,8 @@
           <!-- Item 3: Property Guidance -->
           <div class="trust-feature-box">
             <div class="trust-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>
@@ -2168,7 +2583,8 @@
           <!-- Item 4: Dedicated Team -->
           <div class="trust-feature-box">
             <div class="trust-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                 <circle cx="9" cy="7" r="4"></circle>
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -2330,9 +2746,11 @@
         <div class="footer-col footer-newsletter-col">
           <h4 class="footer-col-title">Subscribe to Our Newsletter</h4>
           <p class="newsletter-desc">Get the latest properties, news and updates straight to your inbox.</p>
-          <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing to BilaBadi newsletter!');">
+          <form class="newsletter-form"
+            onsubmit="event.preventDefault(); showToast('Thank you for subscribing to BilaBadi newsletter!');">
             <div class="newsletter-input-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
@@ -2410,14 +2828,14 @@
       const btnOpenMaps = document.getElementById('btnOpenMaps');
 
       if (locationKey === 'gurgaon') {
-        iframe.src = 'https://maps.google.com/maps?q=Centrum+Plaza,+Golf+Course+Road,+Sector+53,+Gurgaon,+Haryana+122011&t=&z=15&ie=UTF8&iwloc=&output=embed';
+        iframe.src = 'https://maps.google.com/maps?q=Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh, Bhubaneswar, Odisha - 751017+122011&t=&z=15&ie=UTF8&iwloc=&output=embed';
         tabGurgaon?.classList.add('active');
         tabBhubaneswar?.classList.remove('active');
         if (floatingAddress) {
-          floatingAddress.textContent = 'Centrum Plaza, Sector 53, Gurugram, Haryana 122011, India';
+          floatingAddress.textContent = 'Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh, Bhubaneswar, Odisha - 751017';
         }
         if (btnOpenMaps) {
-          btnOpenMaps.href = 'https://maps.google.com/?q=Centrum+Plaza,+Golf+Course+Road,+Sector+53,+Gurgaon';
+          btnOpenMaps.href = 'https://maps.google.com/?q=Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh, Bhubaneswar, Odisha - 751017';
         }
       } else if (locationKey === 'bhubaneswar') {
         iframe.src = 'https://maps.google.com/maps?q=BMC+Panchadeep+Market+Complex,+Bhoumya+Nagar,+Unit+4,+Bhubaneswar,+Odisha+751001&t=&z=15&ie=UTF8&iwloc=&output=embed';

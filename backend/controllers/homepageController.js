@@ -1,4 +1,3 @@
-
 import db from "../config/db.js";
 import fs from "fs";
 import path from "path";
@@ -91,7 +90,7 @@ export const getHomepageSectionById = async (req, res) => {
 };
 
 
-// Create homepage section
+// Create or Upsert homepage section
 export const createHomepageSection = async (req, res) => {
     try {
         const {
@@ -116,6 +115,46 @@ export const createHomepageSection = async (req, res) => {
             ? `/uploads/backgrounds/${req.file.filename}`
             : null;
 
+        // Check if section with this key already exists -> if so, update it (upsert)
+        const [existing] = await db.query(
+            "SELECT id, background_image FROM homepage_sections WHERE section_key = ?",
+            [section_key]
+        );
+
+        if (existing.length > 0) {
+            const finalImage = image || existing[0].background_image;
+            await db.query(
+                `UPDATE homepage_sections SET
+                    title = ?,
+                    subtitle = ?,
+                    description = ?,
+                    background_image = ?,
+                    button_text = ?,
+                    button_link = ?,
+                    is_active = ?,
+                    sort_order = ?
+                WHERE id = ?`,
+                [
+                    title || null,
+                    subtitle || null,
+                    description || null,
+                    finalImage,
+                    button_text || null,
+                    button_link || null,
+                    is_active === "false" || is_active === false ? 0 : 1,
+                    Number(sort_order) || 0,
+                    existing[0].id
+                ]
+            );
+
+            return res.status(200).json({
+                success: true,
+                message: "Homepage section updated successfully",
+                id: existing[0].id,
+                image: finalImage
+            });
+        }
+
         const [result] = await db.query(
             `INSERT INTO homepage_sections
             (
@@ -132,7 +171,7 @@ export const createHomepageSection = async (req, res) => {
                 image,
                 button_text || null,
                 button_link || null,
-                is_active === "false" ? 0 : 1,
+                is_active === "false" || is_active === false ? 0 : 1,
                 Number(sort_order) || 0
             ]
         );
@@ -147,11 +186,9 @@ export const createHomepageSection = async (req, res) => {
     } catch (error) {
         console.error("Create Homepage Section Error:", error);
 
-        res.status(error.code === "ER_DUP_ENTRY" ? 409 : 500).json({
+        res.status(500).json({
             success: false,
-            message: error.code === "ER_DUP_ENTRY"
-                ? "This section key already exists"
-                : "Failed to create homepage section"
+            message: "Failed to save homepage section: " + error.message
         });
     }
 };
@@ -245,9 +282,7 @@ export const updateHomepageSection = async (req, res) => {
 
         res.status(500).json({
             success: false,
-            message: error.code === "ER_DUP_ENTRY"
-                ? "This section key already exists"
-                : "Failed to update homepage section"
+            message: "Failed to update homepage section"
         });
     }
 };
@@ -258,28 +293,30 @@ export const deleteHomepageSection = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const [rows] = await db.query(
-            "SELECT background_image FROM homepage_sections WHERE id = ?",
+        const [existing] = await db.query(
+            "SELECT * FROM homepage_sections WHERE id = ?",
             [id]
         );
 
-        if (rows.length === 0) {
+        if (existing.length === 0) {
             return res.status(404).json({
                 success: false,
                 message: "Homepage section not found"
             });
         }
 
+        const section = existing[0];
+
         await db.query(
             "DELETE FROM homepage_sections WHERE id = ?",
             [id]
         );
 
-        if (rows[0].background_image) {
+        if (section.background_image) {
             const imagePath = path.join(
                 __dirname,
                 "..",
-                rows[0].background_image.replace(/^\/+/, "")
+                section.background_image.replace(/^\/+/, "")
             );
 
             if (fs.existsSync(imagePath)) {

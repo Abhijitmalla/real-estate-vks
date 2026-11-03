@@ -241,6 +241,53 @@
       color: var(--primary-green);
     }
 
+    .btn-about-us {
+      background-color: transparent;
+      color: var(--primary-green, #0d5435);
+      border: 1.5px solid var(--primary-green, #0d5435);
+      padding: 8px 18px;
+      border-radius: var(--radius-pill, 9999px);
+      font-size: 13.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: var(--transition, all 0.25s ease);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-about-us:hover {
+      background-color: var(--primary-green-light, #eaf7f0);
+      color: var(--primary-green-hover, #083e26);
+      border-color: var(--primary-green-hover, #083e26);
+      transform: translateY(-1px);
+    }
+
+    .btn-contact-us {
+      background-color: var(--primary-green, #0d5435);
+      color: #ffffff;
+      padding: 9px 20px;
+      border-radius: var(--radius-pill, 9999px);
+      font-size: 13.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 0 4px 10px rgba(13, 84, 53, 0.15);
+      transition: var(--transition, all 0.25s ease);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-contact-us:hover {
+      background-color: var(--primary-green-hover, #083e26);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(13, 84, 53, 0.25);
+    }
+
     .btn-add-property {
       background-color: var(--primary-green);
       color: #ffffff;
@@ -1150,7 +1197,9 @@
         gap: 10px;
       }
 
-      .header-actions .btn-add-property {
+      .header-actions .btn-add-property,
+      .header-actions .btn-about-us,
+      .header-actions .btn-contact-us {
         display: none;
       }
 
@@ -1443,37 +1492,21 @@
 
       <!-- Desktop Navigation Menu -->
       <nav class="desktop-nav" aria-label="Primary Navigation">
-        <a href="index.html" class="nav-link">Buy</a>
-        <a href="product-details.html" class="nav-link">Sell</a>
-        <a href="index.html#about" class="nav-link">Rent</a>
-
+        <a href="index.html" class="nav-link">Properties</a>
+        <a href="product-details.html" class="nav-link">Services</a>
+        <a href="index.html#about" class="nav-link">Blog</a>
       </nav>
 
       <!-- Right Actions -->
       <div class="header-actions">
-        <!-- Wishlist Button -->
-        <button type="button" class="action-btn-icon" id="navWishlistBtn" aria-label="Wishlist">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-            </path>
-          </svg>
-        </button>
+       
 
-        <!-- Login / Register -->
-        <a href="login.html" class="login-link">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-          <span>Login / Register</span>
+        <!-- About Us & Contact Us Buttons -->
+        <a href="about-us.html" class="btn-about-us">
+          About Us
         </a>
-
-        <!-- Add Property Button -->
-        <a href="#add-property" class="btn-add-property">
-          <span>+</span> Add Property
+        <a href="contact-us.html" class="btn-contact-us">
+          Contact Us
         </a>
 
         <!-- Mobile Nav Toggle Button -->
@@ -1512,8 +1545,11 @@
         </svg>
         <span>Login / Register</span>
       </a>
-      <a href="#add-property" class="btn-add-property" style="justify-content: center;">
-        + Add Property
+      <a href="about-us.html" class="btn-about-us" style="justify-content: center;">
+        About Us
+      </a>
+      <a href="contact-us.html" class="btn-contact-us" style="justify-content: center;">
+        Contact Us
       </a>
     </div>
   </aside>
