@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 
 // Import routes
 import homepageRoutes from "./routes/homepageRoutes.js";
+import propertiesRoutes from "./routes/propertiesRoutes.js";
 
 // Import database
 import db from "./config/db.js";
@@ -30,6 +31,9 @@ app.use(
 
 // API Routes
 app.use("/api/homepage", homepageRoutes);
+app.use("/api/properties", propertiesRoutes);
+
+
 
 // Welcome route
 app.get("/", (req, res) => {
@@ -57,6 +61,7 @@ app.get("/api/health", async (req, res) => {
         });
     }
 });
+
 
 // 404 handler
 app.use((req, res) => {

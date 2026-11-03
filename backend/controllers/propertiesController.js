@@ -7,9 +7,11 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Image URL
 const propertyImagePath = (filename) =>
     filename ? `/uploads/properties/${filename}` : null;
 
+// Delete uploaded image
 const deletePropertyImage = (imageUrl) => {
     if (!imageUrl) return;
 
@@ -25,51 +27,13 @@ const deletePropertyImage = (imageUrl) => {
     }
 };
 
-const parseSubProperties = (value, files = []) => {
-    let subProperties = [];
-
-    if (typeof value === "string") {
-        try {
-            subProperties = JSON.parse(value);
-        } catch {
-            throw new Error("Invalid sub_properties JSON");
-        }
-    } else if (Array.isArray(value)) {
-        subProperties = value;
-    }
-
-    if (!Array.isArray(subProperties)) {
-        throw new Error("sub_properties must be an array");
-    }
-
-    return subProperties.map((sub, index) => {
-        const galleryFiles = files
-            .filter(file =>
-                file.fieldname === `sub_property_images_${index}`
-            )
-            .map(file => propertyImagePath(file.filename));
-
-        return {
-            name: sub.name || "",
-            type: sub.type || "",
-            area: sub.area || "",
-            price: sub.price || "",
-            facing: sub.facing || "",
-            status: sub.status || "Available",
-            images: [
-                ...(Array.isArray(sub.images) ? sub.images : []),
-                ...galleryFiles
-            ]
-        };
-    });
-};
-
+// ==========================================
 // GET ALL PROPERTIES
+// ==========================================
 export const getAllProperties = async (req, res) => {
     try {
         const [rows] = await db.query(
-            `SELECT * FROM properties
-             ORDER BY created_at DESC`
+            `SELECT * FROM properties ORDER BY created_at DESC`
         );
 
         res.status(200).json({
@@ -77,8 +41,10 @@ export const getAllProperties = async (req, res) => {
             count: rows.length,
             data: rows
         });
+
     } catch (error) {
         console.error("Get Properties Error:", error);
+
         res.status(500).json({
             success: false,
             message: "Failed to fetch properties"
@@ -86,7 +52,10 @@ export const getAllProperties = async (req, res) => {
     }
 };
 
+
+// ==========================================
 // GET ACTIVE PROPERTIES (PUBLIC WEBSITE)
+// ==========================================
 export const getActiveProperties = async (req, res) => {
     try {
         const [rows] = await db.query(
@@ -100,8 +69,10 @@ export const getActiveProperties = async (req, res) => {
             count: rows.length,
             data: rows
         });
+
     } catch (error) {
         console.error("Get Active Properties Error:", error);
+
         res.status(500).json({
             success: false,
             message: "Failed to fetch active properties"
@@ -109,7 +80,10 @@ export const getActiveProperties = async (req, res) => {
     }
 };
 
+
+// ==========================================
 // GET PROPERTY BY ID
+// ==========================================
 export const getPropertyById = async (req, res) => {
     try {
         const { id } = req.params;
@@ -130,8 +104,10 @@ export const getPropertyById = async (req, res) => {
             success: true,
             data: rows[0]
         });
+
     } catch (error) {
         console.error("Get Property Error:", error);
+
         res.status(500).json({
             success: false,
             message: "Failed to fetch property"
@@ -139,7 +115,10 @@ export const getPropertyById = async (req, res) => {
     }
 };
 
+
+// ==========================================
 // CREATE PROPERTY
+// ==========================================
 export const createProperty = async (req, res) => {
     try {
         const {
@@ -149,7 +128,23 @@ export const createProperty = async (req, res) => {
             location,
             price,
             area,
-            sub_properties,
+            contact_no,
+            transaction_type,
+            availability,
+            total_plot_area,
+            land_area,
+            length,
+            breadth,
+            super_built_up_area,
+            built_up_area,
+            carpet_area,
+            bedrooms,
+            balconies,
+            furnishing_status,
+            facing,
+            facing_road_width,
+            amenities,
+            description,
             is_active
         } = req.body;
 
@@ -162,39 +157,53 @@ export const createProperty = async (req, res) => {
 
         const files = req.files || [];
 
+        // Main cover image
         const coverFile = files.find(
             file => file.fieldname === "cover_image"
         );
 
         const coverImage = coverFile
             ? propertyImagePath(coverFile.filename)
-            : null;
-
-        const parsedSubProperties = parseSubProperties(
-            sub_properties,
-            files
-        );
+            : (req.body.property_image || req.body.image || null);
 
         const active =
             is_active === undefined ||
+            is_active === 1 ||
             is_active === true ||
             is_active === "true" ||
             is_active === "1" ? 1 : 0;
 
         const [result] = await db.query(
-            `INSERT INTO properties
-            (
+            `INSERT INTO properties (
                 title,
                 category,
                 badge,
                 location,
                 price,
                 area,
+                contact_no,
+                transaction_type,
+                availability,
+                total_plot_area,
+                land_area,
+                length,
+                breadth,
+                super_built_up_area,
+                built_up_area,
+                carpet_area,
+                bedrooms,
+                balconies,
+                furnishing_status,
+                facing,
+                facing_road_width,
+                amenities,
+                description,
                 property_image,
-                sub_properties,
                 is_active
-            )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            ) VALUES (
+                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+            )`,
             [
                 title.trim(),
                 category || "Residential Plot",
@@ -202,8 +211,24 @@ export const createProperty = async (req, res) => {
                 location || null,
                 price || null,
                 area || null,
+                contact_no || null,
+                transaction_type || null,
+                availability || null,
+                total_plot_area || null,
+                land_area || null,
+                length || null,
+                breadth || null,
+                super_built_up_area || null,
+                built_up_area || null,
+                carpet_area || null,
+                bedrooms || null,
+                balconies || null,
+                furnishing_status || null,
+                facing || null,
+                facing_road_width || null,
+                amenities || null,
+                description || null,
                 coverImage,
-                JSON.stringify(parsedSubProperties),
                 active
             ]
         );
@@ -212,11 +237,12 @@ export const createProperty = async (req, res) => {
             success: true,
             message: "Property created successfully",
             id: result.insertId,
-            image: coverImage,
-            sub_properties: parsedSubProperties
+            image: coverImage
         });
+
     } catch (error) {
         console.error("Create Property Error:", error);
+
         res.status(500).json({
             success: false,
             message: error.message || "Failed to create property"
@@ -224,7 +250,10 @@ export const createProperty = async (req, res) => {
     }
 };
 
+
+// ==========================================
 // UPDATE PROPERTY
+// ==========================================
 export const updateProperty = async (req, res) => {
     try {
         const { id } = req.params;
@@ -242,8 +271,10 @@ export const updateProperty = async (req, res) => {
         }
 
         const oldProperty = rows[0];
+        const body = req.body;
         const files = req.files || [];
 
+        // Update cover image
         const coverFile = files.find(
             file => file.fieldname === "cover_image"
         );
@@ -252,26 +283,13 @@ export const updateProperty = async (req, res) => {
             ? propertyImagePath(coverFile.filename)
             : oldProperty.property_image;
 
-        let finalSubProperties;
-
-        if (req.body.sub_properties !== undefined) {
-            finalSubProperties = parseSubProperties(
-                req.body.sub_properties,
-                files
-            );
-        } else {
-            finalSubProperties =
-                typeof oldProperty.sub_properties === "string"
-                    ? JSON.parse(oldProperty.sub_properties || "[]")
-                    : oldProperty.sub_properties || [];
-        }
-
-        const active = req.body.is_active === undefined
+        const active = body.is_active === undefined
             ? oldProperty.is_active
             : (
-                req.body.is_active === true ||
-                req.body.is_active === "true" ||
-                req.body.is_active === "1" ? 1 : 0
+                body.is_active === 1 ||
+                body.is_active === true ||
+                body.is_active === "true" ||
+                body.is_active === "1" ? 1 : 0
             );
 
         await db.query(
@@ -282,24 +300,57 @@ export const updateProperty = async (req, res) => {
                 location = ?,
                 price = ?,
                 area = ?,
+                contact_no = ?,
+                transaction_type = ?,
+                availability = ?,
+                total_plot_area = ?,
+                land_area = ?,
+                length = ?,
+                breadth = ?,
+                super_built_up_area = ?,
+                built_up_area = ?,
+                carpet_area = ?,
+                bedrooms = ?,
+                balconies = ?,
+                furnishing_status = ?,
+                facing = ?,
+                facing_road_width = ?,
+                amenities = ?,
+                description = ?,
                 property_image = ?,
-                sub_properties = ?,
                 is_active = ?
-             WHERE id = ?`,
+            WHERE id = ?`,
             [
-                req.body.title ?? oldProperty.title,
-                req.body.category ?? oldProperty.category,
-                req.body.badge ?? oldProperty.badge,
-                req.body.location ?? oldProperty.location,
-                req.body.price ?? oldProperty.price,
-                req.body.area ?? oldProperty.area,
+                body.title ?? oldProperty.title,
+                body.category ?? oldProperty.category,
+                body.badge ?? oldProperty.badge,
+                body.location ?? oldProperty.location,
+                body.price ?? oldProperty.price,
+                body.area ?? oldProperty.area,
+                body.contact_no ?? oldProperty.contact_no,
+                body.transaction_type ?? oldProperty.transaction_type,
+                body.availability ?? oldProperty.availability,
+                body.total_plot_area ?? oldProperty.total_plot_area,
+                body.land_area ?? oldProperty.land_area,
+                body.length ?? oldProperty.length,
+                body.breadth ?? oldProperty.breadth,
+                body.super_built_up_area ?? oldProperty.super_built_up_area,
+                body.built_up_area ?? oldProperty.built_up_area,
+                body.carpet_area ?? oldProperty.carpet_area,
+                body.bedrooms ?? oldProperty.bedrooms,
+                body.balconies ?? oldProperty.balconies,
+                body.furnishing_status ?? oldProperty.furnishing_status,
+                body.facing ?? oldProperty.facing,
+                body.facing_road_width ?? oldProperty.facing_road_width,
+                body.amenities ?? oldProperty.amenities,
+                body.description ?? oldProperty.description,
                 coverImage,
-                JSON.stringify(finalSubProperties),
                 active,
                 id
             ]
         );
 
+        // Delete old cover image after successful update
         if (coverFile && oldProperty.property_image) {
             deletePropertyImage(oldProperty.property_image);
         }
@@ -307,11 +358,12 @@ export const updateProperty = async (req, res) => {
         res.status(200).json({
             success: true,
             message: "Property updated successfully",
-            image: coverImage,
-            sub_properties: finalSubProperties
+            image: coverImage
         });
+
     } catch (error) {
         console.error("Update Property Error:", error);
+
         res.status(500).json({
             success: false,
             message: error.message || "Failed to update property"
@@ -319,7 +371,10 @@ export const updateProperty = async (req, res) => {
     }
 };
 
+
+// ==========================================
 // UPDATE PROPERTY STATUS
+// ==========================================
 export const updatePropertyStatus = async (req, res) => {
     try {
         const { id } = req.params;
@@ -336,6 +391,7 @@ export const updatePropertyStatus = async (req, res) => {
             `UPDATE properties SET is_active = ?
              WHERE id = ?`,
             [
+                is_active === 1 ||
                 is_active === true ||
                 is_active === "true" ||
                 is_active === "1" ? 1 : 0,
@@ -354,8 +410,10 @@ export const updatePropertyStatus = async (req, res) => {
             success: true,
             message: "Property status updated successfully"
         });
+
     } catch (error) {
         console.error("Update Property Status Error:", error);
+
         res.status(500).json({
             success: false,
             message: "Failed to update property status"
@@ -363,7 +421,10 @@ export const updatePropertyStatus = async (req, res) => {
     }
 };
 
+
+// ==========================================
 // DELETE PROPERTY
+// ==========================================
 export const deleteProperty = async (req, res) => {
     try {
         const { id } = req.params;
@@ -387,31 +448,17 @@ export const deleteProperty = async (req, res) => {
             [id]
         );
 
-        // Delete main cover image
+        // Delete cover image
         deletePropertyImage(property.property_image);
-
-        // Delete sub-property gallery images
-        let subProperties = property.sub_properties;
-
-        if (typeof subProperties === "string") {
-            subProperties = JSON.parse(subProperties || "[]");
-        }
-
-        for (const sub of subProperties || []) {
-            for (const image of sub.images || []) {
-                if (typeof image === "string" &&
-                    image.startsWith("/uploads/properties/")) {
-                    deletePropertyImage(image);
-                }
-            }
-        }
 
         res.status(200).json({
             success: true,
             message: "Property deleted successfully"
         });
+
     } catch (error) {
         console.error("Delete Property Error:", error);
+
         res.status(500).json({
             success: false,
             message: "Failed to delete property"

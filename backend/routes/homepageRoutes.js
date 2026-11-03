@@ -1,4 +1,3 @@
-
 import express from "express";
 
 import {
@@ -22,13 +21,13 @@ router.get("/sections/:id", getHomepageSectionById);
 // Admin routes
 router.post(
     "/sections",
-    upload.single("image"),
+    upload.any(),
     createHomepageSection
 );
 
 router.put(
     "/sections/:id",
-    upload.single("image"),
+    upload.any(),
     updateHomepageSection
 );
 

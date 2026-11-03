@@ -1366,7 +1366,7 @@
                 <label class="field-label">Banner Overlay Opacity (%)</label>
                 <div class="input-box">
                   <span class="input-icon-left">🌓</span>
-                  <input type="number" id="bannerOverlayInput" class="input-field" min="0" max="100" value="35">
+                  <input type="number" id="bannerOverlayInput" class="input-field" min="0" max="100" value="0">
                 </div>
               </div>
               <div class="form-group">
@@ -1671,7 +1671,7 @@
       </section>
 
       <!-- ==============================================================
-           TAB 2: PROPERTIES (Best Properties, Sub-properties with Multi-Photos)
+           TAB 2: PROPERTIES (Best Properties)
            ============================================================== -->
       <section id="tab-properties" class="tab-content-pane">
         
@@ -1682,30 +1682,11 @@
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
               </div>
               <div>
-                <h3 class="block-header-title">Properties &amp; Sub-Properties Manager</h3>
-                <p class="block-header-desc">Manage verified residential plots, farmlands, commercial properties, sub-property units &amp; multi-image galleries.</p>
+                <h3 class="block-header-title">Properties Manager</h3>
+                <p class="block-header-desc">Manage verified residential plots, farmlands, and commercial properties.</p>
               </div>
             </div>
-            <button type="button" class="btn-add-primary" onclick="focusAddPropertyForm()">+ Add Property Form</button>
-          </div>
-
-          <!-- Section Headings -->
-          <div class="form-grid-3col" style="margin-bottom: 20px;">
-            <div class="form-group">
-              <label class="field-label">Section Title</label>
-              <input type="text" id="propsSecTitle" class="subprop-input" value="Explore Our Best Properties">
-            </div>
-            <div class="form-group">
-              <label class="field-label">Section Subtitle</label>
-              <input type="text" id="propsSecSubtitle" class="subprop-input" value="Featured Properties">
-            </div>
-            <div class="form-group">
-              <label class="field-label">Button Text &amp; Link</label>
-              <div style="display:flex; gap:6px;">
-                <input type="text" id="propsSecBtnText" class="subprop-input" value="View All Properties" style="flex:1;">
-                <input type="text" id="propsSecBtnLink" class="subprop-input" value="product-details.html" style="flex:1;">
-              </div>
-            </div>
+            <button type="button" class="btn-add-primary" onclick="focusAddPropertyForm()">+ Add Property</button>
           </div>
 
           <!-- ADD PROPERTY FORM CARD -->
@@ -1717,13 +1698,14 @@
                 </div>
                 <div>
                   <h4 style="font-size:15px; font-weight:800; color:#064e3b; margin:0;">Add One Property</h4>
-                  <p style="font-size:12px; color:#059669; margin:0;">Enter property listing details below &mdash; includes embedded sub-property unit form with multi-photo gallery</p>
+                  <p style="font-size:12px; color:#059669; margin:0;">Enter comprehensive property listing details (dimensions, specs, contact, description &amp; gallery)</p>
                 </div>
               </div>
-              <span class="tab-badge-pill" style="background:#ecfdf5; color:#059669;">Step 1 &amp; 2 Form</span>
+              <span class="tab-badge-pill" style="background:#ecfdf5; color:#059669;">Property Form</span>
             </div>
 
             <div style="display:flex; flex-direction:column; gap:16px;">
+              <!-- Basic Information -->
               <div class="form-grid-3col">
                 <div class="form-group">
                   <label class="field-label">Property Title / Project Name <span class="req-star">*</span></label>
@@ -1751,6 +1733,7 @@
                 </div>
               </div>
 
+              <!-- Location, Price & Contact -->
               <div class="form-grid-3col">
                 <div class="form-group">
                   <label class="field-label">Location (City, State)</label>
@@ -1761,9 +1744,132 @@
                   <input type="text" id="draftPropPrice" class="subprop-input" placeholder="e.g. ₹45,00,000">
                 </div>
                 <div class="form-group">
+                  <label class="field-label">Contact No.</label>
+                  <input type="text" id="draftPropContactNo" class="subprop-input" placeholder="e.g. +91 98765 43210">
+                </div>
+              </div>
+
+              <!-- Status, Availability & Total Area -->
+              <div class="form-grid-3col">
+                <div class="form-group">
+                  <label class="field-label">Transaction Type</label>
+                  <select id="draftPropTransactionType" class="subprop-select">
+                    <option value="New Property">New Property</option>
+                    <option value="Resale">Resale</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="field-label">Availability</label>
+                  <select id="draftPropAvailability" class="subprop-select">
+                    <option value="Ready to Move">Ready to Move</option>
+                    <option value="Under Construction">Under Construction</option>
+                    <option value="Immediate">Immediate</option>
+                    <option value="Within 3 Months">Within 3 Months</option>
+                    <option value="Within 6 Months">Within 6 Months</option>
+                  </select>
+                </div>
+                <div class="form-group">
                   <label class="field-label">Total Plot Area</label>
                   <input type="text" id="draftPropArea" class="subprop-input" placeholder="e.g. 1,200 - 3,000 sq ft">
                 </div>
+              </div>
+
+              <!-- Land Area, Length & Breadth -->
+              <div class="form-grid-3col">
+                <div class="form-group">
+                  <label class="field-label">Land Area</label>
+                  <input type="text" id="draftPropLandArea" class="subprop-input" placeholder="e.g. 1,500 sq ft">
+                </div>
+                <div class="form-group">
+                  <label class="field-label">Length</label>
+                  <input type="text" id="draftPropLength" class="subprop-input" placeholder="e.g. 50 ft">
+                </div>
+                <div class="form-group">
+                  <label class="field-label">Breadth</label>
+                  <input type="text" id="draftPropBreadth" class="subprop-input" placeholder="e.g. 30 ft">
+                </div>
+              </div>
+
+              <!-- Built-up & Carpet Areas -->
+              <div class="form-grid-3col">
+                <div class="form-group">
+                  <label class="field-label">Super Built up Area</label>
+                  <input type="text" id="draftPropSuperBuiltUp" class="subprop-input" placeholder="e.g. 1,850 sq ft">
+                </div>
+                <div class="form-group">
+                  <label class="field-label">Built up Area</label>
+                  <input type="text" id="draftPropBuiltUp" class="subprop-input" placeholder="e.g. 1,550 sq ft">
+                </div>
+                <div class="form-group">
+                  <label class="field-label">Carpet Area</label>
+                  <input type="text" id="draftPropCarpetArea" class="subprop-input" placeholder="e.g. 1,250 sq ft">
+                </div>
+              </div>
+
+              <!-- Bedrooms, Balconies & Furnishing -->
+              <div class="form-grid-3col">
+                <div class="form-group">
+                  <label class="field-label">Bedrooms (BHK)</label>
+                  <select id="draftPropBedrooms" class="subprop-select">
+                    <option value="3 BHK">3 BHK</option>
+                    <option value="1 BHK">1 BHK</option>
+                    <option value="2 BHK">2 BHK</option>
+                    <option value="4 BHK">4 BHK</option>
+                    <option value="5+ BHK">5+ BHK</option>
+                    <option value="1 RK / Studio">1 RK / Studio</option>
+                    <option value="N/A - Plot/Land">N/A - Plot/Land</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="field-label">Balconies</label>
+                  <select id="draftPropBalconies" class="subprop-select">
+                    <option value="2 Balconies">2 Balconies</option>
+                    <option value="0 Balconies">0 Balconies</option>
+                    <option value="1 Balcony">1 Balcony</option>
+                    <option value="3 Balconies">3 Balconies</option>
+                    <option value="4+ Balconies">4+ Balconies</option>
+                    <option value="N/A - Plot/Land">N/A - Plot/Land</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="field-label">Furnishing Status</label>
+                  <select id="draftPropFurnishing" class="subprop-select">
+                    <option value="Unfurnished">Unfurnished</option>
+                    <option value="Semi-Furnished">Semi-Furnished</option>
+                    <option value="Fully Furnished">Fully Furnished</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Facing, Road Width & Amenities -->
+              <div class="form-grid-3col">
+                <div class="form-group">
+                  <label class="field-label">Facing</label>
+                  <select id="draftPropFacing" class="subprop-select">
+                    <option value="East Facing">East Facing</option>
+                    <option value="North Facing">North Facing</option>
+                    <option value="North-East Facing">North-East Facing</option>
+                    <option value="West Facing">West Facing</option>
+                    <option value="South Facing">South Facing</option>
+                    <option value="South-East Facing">South-East Facing</option>
+                    <option value="North-West Facing">North-West Facing</option>
+                    <option value="South-West Facing">South-West Facing</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="field-label">Facing Road Width</label>
+                  <input type="text" id="draftPropFacingRoadWidth" class="subprop-input" placeholder="e.g. 40 ft Road">
+                </div>
+                <div class="form-group">
+                  <label class="field-label">Amenities</label>
+                  <input type="text" id="draftPropAmenities" class="subprop-input" placeholder="e.g. Gated Security, Clubhouse, Park, CCTV">
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="form-group">
+                <label class="field-label">Description</label>
+                <textarea id="draftPropDescription" class="subprop-input" style="height:70px; padding:8px 10px;" placeholder="Enter property description, prime landmarks, connectivity..."></textarea>
               </div>
 
               <!-- Property Cover Image -->
@@ -1779,19 +1885,20 @@
                 </label>
               </div>
 
-              <!-- Embedded Sub-Properties Box (Takes Multiple Images) -->
-              <div class="subproperties-box">
-                <div class="subprops-header">
-                  <div class="subprops-title">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                    <span>Sub-Property Form (Units &amp; Plots) &mdash; Takes Multiple Images</span>
+              <!-- Property Sub-Images Gallery -->
+              <div class="subprop-multi-image-container">
+                <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px;">
+                  <div style="font-size:12.5px; font-weight:700; color:#064e3b;">
+                    Property Sub-Images (<span id="draftPropSubImagesCount">0</span> Photos) &mdash; Takes Multiple Images
                   </div>
-                  <button type="button" class="btn-add-subprop" onclick="addDraftSubProperty()">+ Add Sub-Property Unit</button>
+                  <span style="font-size:11px; color:#059669;">Hold Ctrl/Shift to choose multiple files</span>
                 </div>
-
-                <div id="draftSubPropsContainer" style="display:flex; flex-direction:column; gap:14px;">
-                  <!-- Rendered dynamically -->
+                <div class="subprop-multi-dropzone" onclick="document.getElementById('draftPropSubImagesInput').click()">
+                  <span style="font-size:18px;">📷</span>
+                  <span style="font-size:12px; font-weight:600; color:#065f46;">+ Click to select multiple sub-images for this property</span>
                 </div>
+                <input type="file" id="draftPropSubImagesInput" multiple accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleDraftSubImagesUpload(event)">
+                <div id="draftPropSubImagesStrip" class="subprop-gallery-strip" style="display:none;"></div>
               </div>
 
               <div style="display:flex; align-items:center; justify-content:space-between; padding-top:12px; border-top:1.5px solid #e2e8f0;">
@@ -1804,7 +1911,7 @@
           <!-- Existing Properties Accordion List -->
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
             <h4 style="font-size:15px; font-weight:800; color:#0f172a;" id="existingPropsHeading">Existing Properties (<span id="existingPropsCount">0</span>)</h4>
-            <span style="font-size:12px; color:#64748b;">Click any property below to expand and edit its units &amp; photos</span>
+            <span style="font-size:12px; color:#64748b;">Click any property below to expand and edit details</span>
           </div>
 
           <div id="propertyCardsAccordionList" style="display:flex; flex-direction:column; gap:16px;">
@@ -2133,7 +2240,7 @@ Sunday: Closed / Emergency Support Only</textarea>
     const DEFAULT_HOME_DATA = {
       banner: {
         bg_image: '../assets/home-hero-bg.webp',
-        overlay_opacity: 35,
+        overlay_opacity: 0,
         btn_text: 'Search Properties',
         btn_link: 'product-details.html'
       },
@@ -2207,7 +2314,7 @@ Sunday: Closed / Emergency Support Only</textarea>
       if (savedHome) homeData = JSON.parse(savedHome);
     } catch(e) {}
 
-    // 2. PROPERTIES DATA (Best Properties with Sub-properties & multiple images)
+    // 2. PROPERTIES DATA (Best Properties with Full Specs & Sub-Images Gallery)
     let propertiesData = [
       {
         id: 'prop_1',
@@ -2217,37 +2324,30 @@ Sunday: Closed / Emergency Support Only</textarea>
         location: 'Bangalore, Karnataka',
         price: '₹85,00,000',
         area: '1,200 - 2,400 sq ft',
+        contact_no: '+91 98765 43210',
+        transaction_type: 'New Property',
+        availability: 'Ready to Move',
+        land_area: '1,500 sq ft',
+        length: '50 ft',
+        breadth: '30 ft',
+        super_built_up_area: '1,850 sq ft',
+        built_up_area: '1,550 sq ft',
+        carpet_area: '1,250 sq ft',
+        bedrooms: '3 BHK',
+        balconies: '2 Balconies',
+        furnishing_status: 'Unfurnished',
+        facing: 'East Facing',
+        facing_road_width: '40 ft Road',
+        amenities: 'Gated Community, 24/7 Security, Water Supply, Clubhouse, CCTV, Park',
+        description: 'Premium residential plot situated in a serene gated layout with wide blacktop roads, underground cabling, Vaastu compliance, and rapid connectivity to tech corridors.',
         image: '../assets/cat_residential.webp',
+        sub_images: [
+          '../assets/cat_residential.webp',
+          '../assets/gallery_main.webp',
+          '../assets/gallery_thumb1.webp'
+        ],
         is_expanded: true,
-        sub_properties: [
-          {
-            id: 'sub_1_1',
-            name: 'Plot A-101',
-            type: 'Corner Villa Plot',
-            area: '1,500 sq ft',
-            price: '₹85,00,000',
-            facing: 'East Facing',
-            status: 'Available',
-            images: [
-              '../assets/cat_residential.webp',
-              '../assets/gallery_main.webp',
-              '../assets/gallery_thumb1.webp'
-            ]
-          },
-          {
-            id: 'sub_1_2',
-            name: 'Plot A-102',
-            type: 'Standard Plot',
-            area: '1,200 sq ft',
-            price: '₹68,00,000',
-            facing: 'North Facing',
-            status: 'Available',
-            images: [
-              '../assets/cat_residential.webp',
-              '../assets/gallery_thumb2.webp'
-            ]
-          }
-        ]
+        sub_properties: []
       },
       {
         id: 'prop_2',
@@ -2257,23 +2357,29 @@ Sunday: Closed / Emergency Support Only</textarea>
         location: 'Pune, Maharashtra',
         price: '₹25,000 / month',
         area: '2.5 - 10 Acres',
+        contact_no: '+91 98765 11223',
+        transaction_type: 'Resale',
+        availability: 'Immediate',
+        land_area: '2.5 Acres',
+        length: '330 ft',
+        breadth: '330 ft',
+        super_built_up_area: 'N/A',
+        built_up_area: 'N/A',
+        carpet_area: 'N/A',
+        bedrooms: 'N/A - Plot/Land',
+        balconies: 'N/A - Plot/Land',
+        furnishing_status: 'Unfurnished',
+        facing: 'North Facing',
+        facing_road_width: '30 ft Road',
+        amenities: 'Borewell, Water Canal, Solar Fencing, Road Access, Electricity Connection',
+        description: 'Fertile red-soil agricultural farmland with perennial irrigation source, ideal for organic farming, fruit orchards, or private farmhouse weekend getaway.',
         image: '../assets/cat_agricultural.webp',
+        sub_images: [
+          '../assets/cat_agricultural.webp',
+          '../assets/about-us.webp'
+        ],
         is_expanded: false,
-        sub_properties: [
-          {
-            id: 'sub_2_1',
-            name: 'Orchard Sector 1',
-            type: 'Fruit Plantation',
-            area: '2.5 Acres',
-            price: '₹25,000 / mo',
-            facing: 'Road Access',
-            status: 'Available',
-            images: [
-              '../assets/cat_agricultural.webp',
-              '../assets/about-us.webp'
-            ]
-          }
-        ]
+        sub_properties: []
       },
       {
         id: 'prop_3',
@@ -2283,29 +2389,62 @@ Sunday: Closed / Emergency Support Only</textarea>
         location: 'Goa, Goa',
         price: '₹2,50,00,000',
         area: '5,000 sq ft',
+        contact_no: '+91 98765 33445',
+        transaction_type: 'New Property',
+        availability: 'Ready to Move',
+        land_area: '5,000 sq ft',
+        length: '100 ft',
+        breadth: '50 ft',
+        super_built_up_area: '6,000 sq ft',
+        built_up_area: '5,000 sq ft',
+        carpet_area: '4,200 sq ft',
+        bedrooms: 'N/A - Plot/Land',
+        balconies: '0 Balconies',
+        furnishing_status: 'Semi-Furnished',
+        facing: 'East Facing',
+        facing_road_width: '60 ft Road',
+        amenities: 'Highway Frontage, 24/7 Power Backup, High-Speed Elevators, Ample Parking, Fire Safety',
+        description: 'High-visibility commercial retail land situated directly on major arterial road, offering exceptional consumer footfalls, broad facade, and dual entrance.',
         image: '../assets/cat_commercial.webp',
+        sub_images: [
+          '../assets/cat_commercial.webp',
+          '../assets/gallery_main.webp'
+        ],
         is_expanded: false,
-        sub_properties: [
-          {
-            id: 'sub_3_1',
-            name: 'Showroom Space G-01',
-            type: 'Ground Retail',
-            area: '2,500 sq ft',
-            price: '₹1,25,00,000',
-            facing: 'Highway Frontage',
-            status: 'Available',
-            images: [
-              '../assets/cat_commercial.webp',
-              '../assets/gallery_main.webp'
-            ]
-          }
-        ]
+        sub_properties: []
       }
     ];
 
     try {
       const savedProps = localStorage.getItem('bilabadi_properties_data');
-      if (savedProps) propertiesData = JSON.parse(savedProps);
+      if (savedProps) {
+        const parsed = JSON.parse(savedProps);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          propertiesData = parsed.map(p => ({
+            ...p,
+            sub_images: (p.sub_images && p.sub_images.length > 0)
+              ? p.sub_images
+              : (p.sub_properties && p.sub_properties[0] && p.sub_properties[0].images) || ['../assets/cat_residential.webp'],
+            contact_no: p.contact_no || '+91 98765 43210',
+            description: p.description || '',
+            land_area: p.land_area || p.area || '1,500 sq ft',
+            length: p.length || '50 ft',
+            breadth: p.breadth || '30 ft',
+            super_built_up_area: p.super_built_up_area || '1,850 sq ft',
+            built_up_area: p.built_up_area || '1,550 sq ft',
+            carpet_area: p.carpet_area || '1,250 sq ft',
+            bedrooms: p.bedrooms || '3 BHK',
+            balconies: p.balconies || '2 Balconies',
+            amenities: p.amenities || 'Gated Community, 24/7 Security, Water Supply, Clubhouse, CCTV, Park',
+            facing: p.facing || 'East Facing',
+            facing_road_width: p.facing_road_width || '40 ft Road',
+            furnishing_status: p.furnishing_status || 'Unfurnished',
+            transaction_type: p.transaction_type || 'New Property',
+            availability: p.availability || 'Ready to Move',
+            sub_properties: p.sub_properties || []
+          }));
+        }
+      }
     } catch(e) {}
 
     // Draft Property State
@@ -2316,19 +2455,25 @@ Sunday: Closed / Emergency Support Only</textarea>
       location: '',
       price: '',
       area: '',
+      contact_no: '',
+      transaction_type: 'New Property',
+      availability: 'Ready to Move',
+      land_area: '',
+      length: '',
+      breadth: '',
+      super_built_up_area: '',
+      built_up_area: '',
+      carpet_area: '',
+      bedrooms: '3 BHK',
+      balconies: '2 Balconies',
+      furnishing_status: 'Unfurnished',
+      facing: 'East Facing',
+      facing_road_width: '',
+      amenities: '',
+      description: '',
       image: '../assets/cat_residential.webp',
-      sub_properties: [
-        {
-          id: 'draft_sub_1',
-          name: '',
-          type: 'Corner Villa Plot',
-          area: '',
-          price: '',
-          facing: 'East Facing',
-          status: 'Available',
-          images: []
-        }
-      ]
+      sub_images: [],
+      sub_properties: []
     };
 
     // 3. BLOG POSTS DATA (Title, Category, Cover Image, Content)
@@ -2465,8 +2610,8 @@ Sunday: Closed / Emergency Support Only</textarea>
         titleEl.textContent = 'Homepage Sections Manager';
         descEl.textContent = 'Manage Top Banner, Top Texts, 4 Badges, Why Choose BilaBadi, Popular Cities & Client Reviews.';
       } else if (tabKey === 'properties') {
-        titleEl.textContent = 'Properties & Sub-Properties Manager';
-        descEl.textContent = 'Manage verified properties, plots, pricing, sub-property units & multi-photo galleries.';
+        titleEl.textContent = 'Properties Manager';
+        descEl.textContent = 'Manage verified properties, residential plots, farmlands, commercial properties and cover images.';
       } else if (tabKey === 'blog') {
         titleEl.textContent = 'Blog Articles Manager';
         descEl.textContent = 'Create, edit, and organize real estate blog articles with title, category, cover image and content.';
@@ -2497,7 +2642,7 @@ Sunday: Closed / Emergency Support Only</textarea>
     function renderHomeSection() {
       // 1. Top Banner
       document.getElementById('bannerThumbImg').src = homeData.banner.bg_image || '../assets/home-hero-bg.webp';
-      document.getElementById('bannerOverlayInput').value = homeData.banner.overlay_opacity || 35;
+      document.getElementById('bannerOverlayInput').value = homeData.banner.overlay_opacity !== undefined ? homeData.banner.overlay_opacity : 0;
       document.getElementById('bannerBtnTextInput').value = homeData.banner.btn_text || 'Search Properties';
       document.getElementById('bannerBtnLinkInput').value = homeData.banner.btn_link || 'product-details.html';
 
@@ -2530,11 +2675,17 @@ Sunday: Closed / Emergency Support Only</textarea>
     function renderTrustCards() {
       const container = document.getElementById('trustCardsContainer');
       if (!container) return;
+      const ADMIN_TRUST_SVGS = [
+        `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>`,
+        `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><rect x="9" y="10" width="6" height="5" rx="1"></rect><path d="M10 10V8a2 2 0 1 1 4 0v2"></path></svg>`,
+        `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>`,
+        `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>`
+      ];
       container.innerHTML = homeData.trust_cards.map((card, idx) => `
         <div class="mini-card-box">
           <div class="mini-card-header">
             <span class="mini-card-tag">Card #${idx + 1}</span>
-            <span style="font-size:18px;">${card.icon}</span>
+            <span style="display:flex; align-items:center;">${(card.icon && card.icon.includes('<svg')) ? card.icon : ADMIN_TRUST_SVGS[idx % ADMIN_TRUST_SVGS.length]}</span>
           </div>
           <div class="form-group">
             <label class="field-label" style="font-size:11.5px;">Card Title</label>
@@ -2558,11 +2709,17 @@ Sunday: Closed / Emergency Support Only</textarea>
     function renderWhyCards() {
       const container = document.getElementById('whyCardsContainer');
       if (!container) return;
+      const ADMIN_WHY_SVGS = [
+        `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>`,
+        `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><rect x="9" y="10" width="6" height="5" rx="1"></rect><path d="M10 10V8a2 2 0 1 1 4 0v2"></path></svg>`,
+        `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>`,
+        `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>`
+      ];
       container.innerHTML = homeData.why_choose.features.map((feat, idx) => `
         <div class="mini-card-box">
           <div class="mini-card-header">
             <span class="mini-card-tag">Feature #${idx + 1}</span>
-            <span style="font-size:18px;">${feat.icon}</span>
+            <span style="display:flex; align-items:center;">${(feat.icon && feat.icon.includes('<svg')) ? feat.icon : ADMIN_WHY_SVGS[idx % ADMIN_WHY_SVGS.length]}</span>
           </div>
           <div class="form-group">
             <label class="field-label" style="font-size:11.5px;">Feature Title</label>
@@ -2752,6 +2909,7 @@ Sunday: Closed / Emergency Support Only</textarea>
     }
 
     let bannerFileToUpload = null;
+    let whyFileToUpload = null;
 
     function handleBannerUpload(event) {
       const file = event.target.files && event.target.files[0];
@@ -2776,6 +2934,7 @@ Sunday: Closed / Emergency Support Only</textarea>
     function handleWhyImageUpload(event) {
       const file = event.target.files && event.target.files[0];
       if (!file) return;
+      whyFileToUpload = file;
       const reader = new FileReader();
       reader.onload = e => {
         homeData.why_choose.image = e.target.result;
@@ -2783,6 +2942,87 @@ Sunday: Closed / Emergency Support Only</textarea>
         showToast('Why Choose image updated');
       };
       reader.readAsDataURL(file);
+    }
+
+    // Load Homepage Data from Backend API (Sync with Database)
+    async function loadHomeSectionFromApi() {
+      try {
+        const res = await fetch('http://localhost:5000/api/homepage/sections');
+        if (!res.ok) return;
+        const result = await res.json();
+        if (result.success && Array.isArray(result.data) && result.data.length > 0) {
+          const item = result.data.find(s => s.section_key === 'home') || result.data[0];
+          if (item) {
+            const resolveUrl = (pathStr) => {
+              if (!pathStr) return '';
+              if (pathStr.startsWith('http://') || pathStr.startsWith('https://') || pathStr.startsWith('data:')) return pathStr;
+              if (pathStr.startsWith('/')) return 'http://localhost:5000' + pathStr;
+              return pathStr;
+            };
+
+            const parseIfNeeded = (val) => {
+              if (!val) return null;
+              if (typeof val === 'object') return val;
+              try { return JSON.parse(val); } catch(e) { return null; }
+            };
+
+            // Banner
+            if (item.background_image) homeData.banner.bg_image = resolveUrl(item.background_image);
+            if (item.overlay_opacity !== null && item.overlay_opacity !== undefined && item.overlay_opacity !== '') {
+              homeData.banner.overlay_opacity = parseInt(item.overlay_opacity) || 35;
+            }
+            if (item.button_text) homeData.banner.btn_text = item.button_text;
+            if (item.button_link) homeData.banner.btn_link = item.button_link;
+
+            // Texts
+            if (item.top_badge_text || item.subtitle) homeData.texts.badge = item.top_badge_text || item.subtitle;
+            if (item.title) homeData.texts.title = item.title;
+            if (item.highlight_words) homeData.texts.highlight = item.highlight_words;
+            if (item.description) homeData.texts.description = item.description;
+
+            // Trust Cards
+            const parsedTrust = parseIfNeeded(item.trust_cards);
+            if (Array.isArray(parsedTrust) && parsedTrust.length > 0) {
+              homeData.trust_cards = parsedTrust;
+            }
+
+            // Why Choose
+            if (item.why_eyebrow) homeData.why_choose.eyebrow = item.why_eyebrow;
+            if (item.why_title) homeData.why_choose.title = item.why_title;
+            if (item.why_description) homeData.why_choose.description = item.why_description;
+            if (item.stats_number) homeData.why_choose.badge_num = item.stats_number;
+            if (item.stats_label) homeData.why_choose.badge_label = item.stats_label;
+            if (item.why_image) homeData.why_choose.image = resolveUrl(item.why_image);
+
+            const parsedWhyFeat = parseIfNeeded(item.why_features);
+            if (Array.isArray(parsedWhyFeat) && parsedWhyFeat.length > 0) {
+              homeData.why_choose.features = parsedWhyFeat;
+            }
+
+            // Popular Cities
+            const parsedCities = parseIfNeeded(item.popular_cities);
+            if (Array.isArray(parsedCities) && parsedCities.length > 0) {
+              homeData.cities = parsedCities.map(c => ({
+                ...c,
+                image: resolveUrl(c.image)
+              }));
+            }
+
+            // Client Reviews
+            const parsedReviews = parseIfNeeded(item.client_reviews);
+            if (Array.isArray(parsedReviews) && parsedReviews.length > 0) {
+              homeData.client_reviews = parsedReviews.map(r => ({
+                ...r,
+                image: resolveUrl(r.image)
+              }));
+            }
+
+            renderHomeSection();
+          }
+        }
+      } catch (err) {
+        console.warn('Backend not reached on initial load:', err);
+      }
     }
 
     // Save Home Section
@@ -2806,25 +3046,84 @@ Sunday: Closed / Emergency Support Only</textarea>
         localStorage.setItem('bilabadi_home_data', JSON.stringify(homeData));
       } catch(e) {}
 
-      // Optional Backend Sync
+      const saveBtn = document.querySelector('#homeSectionForm .btn-save');
+      const originalBtnHtml = saveBtn ? saveBtn.innerHTML : '';
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.style.opacity = '0.7';
+        saveBtn.innerHTML = `<span>Saving to Database...</span>`;
+      }
+
+      // Backend Database Sync
       try {
         const formData = new FormData();
         formData.append('section_key', 'home');
         formData.append('title', homeData.texts.title);
         formData.append('subtitle', homeData.texts.badge);
+        formData.append('top_badge_text', homeData.texts.badge);
+        formData.append('highlight_words', homeData.texts.highlight);
         formData.append('description', homeData.texts.description);
         formData.append('button_text', homeData.banner.btn_text);
         formData.append('button_link', homeData.banner.btn_link);
+        formData.append('overlay_opacity', homeData.banner.overlay_opacity);
+        formData.append('trust_cards', JSON.stringify(homeData.trust_cards || []));
+        formData.append('why_eyebrow', homeData.why_choose.eyebrow);
+        formData.append('why_title', homeData.why_choose.title);
+        formData.append('why_description', homeData.why_choose.description);
+        formData.append('stats_number', homeData.why_choose.badge_num);
+        formData.append('stats_label', homeData.why_choose.badge_label);
+        formData.append('why_features', JSON.stringify(homeData.why_choose.features || []));
+        formData.append('popular_cities', JSON.stringify(homeData.cities || []));
+        formData.append('client_reviews', JSON.stringify(homeData.client_reviews || []));
+
+        // Background banner image
         if (bannerFileToUpload) {
           formData.append('image', bannerFileToUpload);
+        } else if (homeData.banner.bg_image) {
+          formData.append('background_image', homeData.banner.bg_image);
         }
-        await fetch('http://localhost:5000/api/homepage/sections', 
-        { method: 'POST',
-         body: formData 
-        });
-      } catch(e) {}
 
-      showToast('✓ Home Section (Banner, Texts, 4 Badges, Why Choose, Cities, Reviews) Saved Successfully!');
+        // Why choose image
+        if (whyFileToUpload) {
+          formData.append('why_image', whyFileToUpload);
+        } else if (homeData.why_choose.image) {
+          formData.append('why_image', homeData.why_choose.image);
+        }
+
+        const res = await fetch('http://localhost:5000/api/homepage/sections', {
+          method: 'POST',
+          body: formData
+        });
+
+        const resData = await res.json();
+        if (resData.success) {
+          if (resData.image) {
+            const bgUrl = resData.image.startsWith('/') ? 'http://localhost:5000' + resData.image : resData.image;
+            homeData.banner.bg_image = bgUrl;
+            document.getElementById('bannerThumbImg').src = bgUrl;
+            bannerFileToUpload = null;
+          }
+          if (resData.why_image) {
+            const wUrl = resData.why_image.startsWith('/') ? 'http://localhost:5000' + resData.why_image : resData.why_image;
+            homeData.why_choose.image = wUrl;
+            document.getElementById('whyImgPreview').src = wUrl;
+            whyFileToUpload = null;
+          }
+          localStorage.setItem('bilabadi_home_data', JSON.stringify(homeData));
+          showToast('✓ Home Section (Banner, Texts, 4 Badges, Why Choose, Cities, Reviews) Saved Successfully to Database!');
+        } else {
+          showToast('Warning: ' + (resData.message || 'Error saving to backend'), true);
+        }
+      } catch(e) {
+        console.error('Error saving homepage section:', e);
+        showToast('Saved locally, but backend sync failed: ' + e.message, true);
+      } finally {
+        if (saveBtn) {
+          saveBtn.disabled = false;
+          saveBtn.style.opacity = '1';
+          saveBtn.innerHTML = originalBtnHtml;
+        }
+      }
     }
 
     function resetHomeSectionDefaults() {
@@ -2835,7 +3134,7 @@ Sunday: Closed / Emergency Support Only</textarea>
     }
 
     /* ==============================================================
-       PROPERTIES MANAGER LOGIC (With Multiple Images Sub-Properties)
+       PROPERTIES MANAGER LOGIC
        ============================================================== */
     function renderPropertiesManager() {
       const countEl = document.getElementById('existingPropsCount');
@@ -2843,14 +3142,16 @@ Sunday: Closed / Emergency Support Only</textarea>
       const navCount = document.getElementById('navPropCount');
       if (navCount) navCount.textContent = propertiesData.length;
 
-      renderDraftSubProperties();
+      renderDraftSubImages();
 
       const container = document.getElementById('propertyCardsAccordionList');
       if (!container) return;
 
       container.innerHTML = propertiesData.map((prop, pIndex) => {
-        const subprops = prop.sub_properties || [];
         const isOpen = prop.is_expanded !== false;
+        const subImages = (prop.sub_images && prop.sub_images.length > 0)
+          ? prop.sub_images
+          : (prop.sub_properties && prop.sub_properties[0] && prop.sub_properties[0].images) || [];
 
         return `
           <div class="property-accordion-card ${isOpen ? 'open' : ''}" id="propCard_${prop.id}">
@@ -2865,12 +3166,19 @@ Sunday: Closed / Emergency Support Only</textarea>
                     <span>${escapeHtml(prop.location || 'Location not set')}</span>
                     <span>&bull;</span>
                     <span style="background:#ecfdf5; color:#059669; padding:2px 6px; border-radius:4px; font-weight:700;">${escapeHtml(prop.category || 'Plot')}</span>
+                    ${prop.bedrooms ? `
+                      <span>&bull;</span>
+                      <span style="background:#eff6ff; color:#2563eb; padding:2px 6px; border-radius:4px; font-weight:700;">${escapeHtml(prop.bedrooms)}</span>
+                    ` : ''}
+                    ${subImages.length > 0 ? `
+                      <span>&bull;</span>
+                      <span style="background:#fef3c7; color:#b45309; padding:2px 6px; border-radius:4px; font-weight:700;">📷 ${subImages.length} Sub-images</span>
+                    ` : ''}
                   </div>
                 </div>
               </div>
 
               <div style="display:flex; align-items:center; gap:10px;" onclick="event.stopPropagation()">
-                <span class="tab-badge-pill" style="background:#f1f5f9; color:#334155;">${subprops.length} Sub-units</span>
                 <button type="button" class="btn-delete-mini" onclick="deleteProperty('${prop.id}')" title="Delete Property">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                 </button>
@@ -2882,10 +3190,11 @@ Sunday: Closed / Emergency Support Only</textarea>
 
             <!-- Property Body -->
             <div class="prop-body-wrap">
+              <!-- Basic Information -->
               <div class="form-grid-3col">
                 <div class="form-group">
                   <label class="field-label" style="font-size:12px;">Property Title / Project Name</label>
-                  <input type="text" class="subprop-input" value="${escapeHtml(prop.title)}" oninput="updatePropertyField('${prop.id}', 'title', this.value)">
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.title || '')}" oninput="updatePropertyField('${prop.id}', 'title', this.value)">
                 </div>
                 <div class="form-group">
                   <label class="field-label" style="font-size:12px;">Category / Type</label>
@@ -2909,19 +3218,143 @@ Sunday: Closed / Emergency Support Only</textarea>
                 </div>
               </div>
 
+              <!-- Location, Price & Contact -->
               <div class="form-grid-3col">
                 <div class="form-group">
                   <label class="field-label" style="font-size:12px;">Location</label>
-                  <input type="text" class="subprop-input" value="${escapeHtml(prop.location)}" oninput="updatePropertyField('${prop.id}', 'location', this.value)">
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.location || '')}" oninput="updatePropertyField('${prop.id}', 'location', this.value)">
                 </div>
                 <div class="form-group">
                   <label class="field-label" style="font-size:12px;">Starting Price</label>
-                  <input type="text" class="subprop-input" value="${escapeHtml(prop.price)}" oninput="updatePropertyField('${prop.id}', 'price', this.value)">
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.price || '')}" oninput="updatePropertyField('${prop.id}', 'price', this.value)">
+                </div>
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Contact No.</label>
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.contact_no || '')}" placeholder="e.g. +91 98765 43210" oninput="updatePropertyField('${prop.id}', 'contact_no', this.value)">
+                </div>
+              </div>
+
+              <!-- Status, Availability & Total Area -->
+              <div class="form-grid-3col">
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Transaction Type</label>
+                  <select class="subprop-select" onchange="updatePropertyField('${prop.id}', 'transaction_type', this.value)">
+                    <option value="New Property" ${prop.transaction_type === 'New Property' ? 'selected' : ''}>New Property</option>
+                    <option value="Resale" ${prop.transaction_type === 'Resale' ? 'selected' : ''}>Resale</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Availability</label>
+                  <select class="subprop-select" onchange="updatePropertyField('${prop.id}', 'availability', this.value)">
+                    <option value="Ready to Move" ${prop.availability === 'Ready to Move' ? 'selected' : ''}>Ready to Move</option>
+                    <option value="Under Construction" ${prop.availability === 'Under Construction' ? 'selected' : ''}>Under Construction</option>
+                    <option value="Immediate" ${prop.availability === 'Immediate' ? 'selected' : ''}>Immediate</option>
+                    <option value="Within 3 Months" ${prop.availability === 'Within 3 Months' ? 'selected' : ''}>Within 3 Months</option>
+                    <option value="Within 6 Months" ${prop.availability === 'Within 6 Months' ? 'selected' : ''}>Within 6 Months</option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label class="field-label" style="font-size:12px;">Total Plot Area</label>
                   <input type="text" class="subprop-input" value="${escapeHtml(prop.area || '')}" oninput="updatePropertyField('${prop.id}', 'area', this.value)">
                 </div>
+              </div>
+
+              <!-- Land Area, Length & Breadth -->
+              <div class="form-grid-3col">
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Land Area</label>
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.land_area || '')}" placeholder="e.g. 1,500 sq ft" oninput="updatePropertyField('${prop.id}', 'land_area', this.value)">
+                </div>
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Length</label>
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.length || '')}" placeholder="e.g. 50 ft" oninput="updatePropertyField('${prop.id}', 'length', this.value)">
+                </div>
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Breadth</label>
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.breadth || '')}" placeholder="e.g. 30 ft" oninput="updatePropertyField('${prop.id}', 'breadth', this.value)">
+                </div>
+              </div>
+
+              <!-- Built-up & Carpet Areas -->
+              <div class="form-grid-3col">
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Super Built up Area</label>
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.super_built_up_area || '')}" placeholder="e.g. 1,850 sq ft" oninput="updatePropertyField('${prop.id}', 'super_built_up_area', this.value)">
+                </div>
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Built up Area</label>
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.built_up_area || '')}" placeholder="e.g. 1,550 sq ft" oninput="updatePropertyField('${prop.id}', 'built_up_area', this.value)">
+                </div>
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Carpet Area</label>
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.carpet_area || '')}" placeholder="e.g. 1,250 sq ft" oninput="updatePropertyField('${prop.id}', 'carpet_area', this.value)">
+                </div>
+              </div>
+
+              <!-- Bedrooms, Balconies & Furnishing -->
+              <div class="form-grid-3col">
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Bedrooms (BHK)</label>
+                  <select class="subprop-select" onchange="updatePropertyField('${prop.id}', 'bedrooms', this.value)">
+                    <option value="3 BHK" ${prop.bedrooms === '3 BHK' ? 'selected' : ''}>3 BHK</option>
+                    <option value="1 BHK" ${prop.bedrooms === '1 BHK' ? 'selected' : ''}>1 BHK</option>
+                    <option value="2 BHK" ${prop.bedrooms === '2 BHK' ? 'selected' : ''}>2 BHK</option>
+                    <option value="4 BHK" ${prop.bedrooms === '4 BHK' ? 'selected' : ''}>4 BHK</option>
+                    <option value="5+ BHK" ${prop.bedrooms === '5+ BHK' ? 'selected' : ''}>5+ BHK</option>
+                    <option value="1 RK / Studio" ${prop.bedrooms === '1 RK / Studio' ? 'selected' : ''}>1 RK / Studio</option>
+                    <option value="N/A - Plot/Land" ${prop.bedrooms === 'N/A - Plot/Land' ? 'selected' : ''}>N/A - Plot/Land</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Balconies</label>
+                  <select class="subprop-select" onchange="updatePropertyField('${prop.id}', 'balconies', this.value)">
+                    <option value="2 Balconies" ${prop.balconies === '2 Balconies' ? 'selected' : ''}>2 Balconies</option>
+                    <option value="0 Balconies" ${prop.balconies === '0 Balconies' ? 'selected' : ''}>0 Balconies</option>
+                    <option value="1 Balcony" ${prop.balconies === '1 Balcony' ? 'selected' : ''}>1 Balcony</option>
+                    <option value="3 Balconies" ${prop.balconies === '3 Balconies' ? 'selected' : ''}>3 Balconies</option>
+                    <option value="4+ Balconies" ${prop.balconies === '4+ Balconies' ? 'selected' : ''}>4+ Balconies</option>
+                    <option value="N/A - Plot/Land" ${prop.balconies === 'N/A - Plot/Land' ? 'selected' : ''}>N/A - Plot/Land</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Furnishing Status</label>
+                  <select class="subprop-select" onchange="updatePropertyField('${prop.id}', 'furnishing_status', this.value)">
+                    <option value="Unfurnished" ${prop.furnishing_status === 'Unfurnished' ? 'selected' : ''}>Unfurnished</option>
+                    <option value="Semi-Furnished" ${prop.furnishing_status === 'Semi-Furnished' ? 'selected' : ''}>Semi-Furnished</option>
+                    <option value="Fully Furnished" ${prop.furnishing_status === 'Fully Furnished' ? 'selected' : ''}>Fully Furnished</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Facing, Road Width & Amenities -->
+              <div class="form-grid-3col">
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Facing</label>
+                  <select class="subprop-select" onchange="updatePropertyField('${prop.id}', 'facing', this.value)">
+                    <option value="East Facing" ${prop.facing === 'East Facing' ? 'selected' : ''}>East Facing</option>
+                    <option value="North Facing" ${prop.facing === 'North Facing' ? 'selected' : ''}>North Facing</option>
+                    <option value="North-East Facing" ${prop.facing === 'North-East Facing' ? 'selected' : ''}>North-East Facing</option>
+                    <option value="West Facing" ${prop.facing === 'West Facing' ? 'selected' : ''}>West Facing</option>
+                    <option value="South Facing" ${prop.facing === 'South Facing' ? 'selected' : ''}>South Facing</option>
+                    <option value="South-East Facing" ${prop.facing === 'South-East Facing' ? 'selected' : ''}>South-East Facing</option>
+                    <option value="North-West Facing" ${prop.facing === 'North-West Facing' ? 'selected' : ''}>North-West Facing</option>
+                    <option value="South-West Facing" ${prop.facing === 'South-West Facing' ? 'selected' : ''}>South-West Facing</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Facing Road Width</label>
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.facing_road_width || '')}" placeholder="e.g. 40 ft Road" oninput="updatePropertyField('${prop.id}', 'facing_road_width', this.value)">
+                </div>
+                <div class="form-group">
+                  <label class="field-label" style="font-size:12px;">Amenities</label>
+                  <input type="text" class="subprop-input" value="${escapeHtml(prop.amenities || '')}" placeholder="e.g. Gated Security, Clubhouse, Park, CCTV" oninput="updatePropertyField('${prop.id}', 'amenities', this.value)">
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="form-group">
+                <label class="field-label" style="font-size:12px;">Description</label>
+                <textarea class="subprop-input" style="height:65px; padding:6px 10px; font-size:12.5px;" placeholder="Property description and details..." oninput="updatePropertyField('${prop.id}', 'description', this.value)">${escapeHtml(prop.description || '')}</textarea>
               </div>
 
               <!-- Property Cover -->
@@ -2936,65 +3369,30 @@ Sunday: Closed / Emergency Support Only</textarea>
                 </label>
               </div>
 
-              <!-- Sub-Properties -->
-              <div class="subproperties-box">
-                <div class="subprops-header">
-                  <div class="subprops-title">
-                    <span>Sub-Units for "${escapeHtml(prop.title)}" (${subprops.length})</span>
+              <!-- Property Sub-Images Gallery -->
+              <div class="subprop-multi-image-container" style="margin-top: 10px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px;">
+                  <div style="font-size:12px; font-weight:700; color:#064e3b;">
+                    Property Sub-Images (${subImages.length} Photos) &mdash; Takes Multiple Images
                   </div>
-                  <button type="button" class="btn-add-subprop" onclick="addSubProperty('${prop.id}')">+ Add Sub-Property</button>
+                  <span style="font-size:11px; color:#059669;">Hold Ctrl/Shift to choose multiple files</span>
                 </div>
+                <div class="subprop-multi-dropzone" onclick="document.getElementById('propSubImgInput_${prop.id}').click()">
+                  <span style="font-size:18px;">📷</span>
+                  <span style="font-size:12px; font-weight:600; color:#065f46;">+ Click to select multiple sub-images for "${escapeHtml(prop.title || 'Property')}"</span>
+                </div>
+                <input type="file" id="propSubImgInput_${prop.id}" multiple accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handlePropertySubImagesUpload('${prop.id}', event)">
 
-                <div style="display:flex; flex-direction:column; gap:12px;">
-                  ${subprops.map((sub, sIndex) => {
-                    const subImages = sub.images || (sub.image ? [sub.image] : ['../assets/cat_residential.webp']);
-                    return `
-                      <div class="subprop-form-card">
-                        <div class="subprop-card-top-bar">
-                          <span style="font-size:12px; font-weight:700;">Sub-Unit #${sIndex + 1}: ${escapeHtml(sub.name || 'Unit')}</span>
-                          <button type="button" class="btn-delete-mini" onclick="deleteSubProperty('${prop.id}', '${sub.id}')">&times;</button>
-                        </div>
-                        <div class="form-grid-3col">
-                          <input type="text" class="subprop-input" value="${escapeHtml(sub.name)}" placeholder="Unit / Plot Name" oninput="updateSubPropertyField('${prop.id}', '${sub.id}', 'name', this.value)">
-                          <input type="text" class="subprop-input" value="${escapeHtml(sub.type)}" placeholder="Variant / Type" oninput="updateSubPropertyField('${prop.id}', '${sub.id}', 'type', this.value)">
-                          <select class="subprop-select" onchange="updateSubPropertyField('${prop.id}', '${sub.id}', 'status', this.value)">
-                            <option value="Available" ${sub.status === 'Available' ? 'selected' : ''}>Available</option>
-                            <option value="Booked" ${sub.status === 'Booked' ? 'selected' : ''}>Booked</option>
-                            <option value="Sold Out" ${sub.status === 'Sold Out' ? 'selected' : ''}>Sold Out</option>
-                          </select>
-                        </div>
-                        <div class="form-grid-3col">
-                          <input type="text" class="subprop-input" value="${escapeHtml(sub.price)}" placeholder="Price" oninput="updateSubPropertyField('${prop.id}', '${sub.id}', 'price', this.value)">
-                          <input type="text" class="subprop-input" value="${escapeHtml(sub.area)}" placeholder="Area / Size" oninput="updateSubPropertyField('${prop.id}', '${sub.id}', 'area', this.value)">
-                          <input type="text" class="subprop-input" value="${escapeHtml(sub.facing || '')}" placeholder="Facing (e.g. East)" oninput="updateSubPropertyField('${prop.id}', '${sub.id}', 'facing', this.value)">
-                        </div>
-
-                        <!-- Multi-images for this subprop -->
-                        <div class="subprop-multi-image-container">
-                          <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:700; color:#064e3b;">
-                            <span>Sub-Property Photo Gallery (${subImages.length} Photos)</span>
-                          </div>
-                          <div class="subprop-multi-dropzone" onclick="document.getElementById('subImgInput_${prop.id}_${sub.id}').click()">
-                            <span style="font-size:18px;">📷</span>
-                            <span style="font-size:12px; font-weight:600; color:#065f46;">+ Click or drop multiple photos for "${escapeHtml(sub.name || 'Unit')}"</span>
-                          </div>
-                          <input type="file" id="subImgInput_${prop.id}_${sub.id}" multiple accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleSubPropertyMultipleImages('${prop.id}', '${sub.id}', event)">
-
-                          ${subImages.length > 0 ? `
-                            <div class="subprop-gallery-strip">
-                              ${subImages.map((imgSrc, imgIdx) => `
-                                <div class="subprop-thumb-item">
-                                  <img src="${imgSrc}" alt="Photo ${imgIdx + 1}">
-                                  <button type="button" class="subprop-thumb-remove-btn" onclick="removeSubPropertyImage('${prop.id}', '${sub.id}', ${imgIdx})">&times;</button>
-                                </div>
-                              `).join('')}
-                            </div>
-                          ` : ''}
-                        </div>
+                ${subImages.length > 0 ? `
+                  <div class="subprop-gallery-strip">
+                    ${subImages.map((imgSrc, imgIdx) => `
+                      <div class="subprop-thumb-item">
+                        <img src="${imgSrc}" alt="Photo ${imgIdx + 1}">
+                        <button type="button" class="subprop-thumb-remove-btn" onclick="removePropertySubImage('${prop.id}', ${imgIdx})" title="Remove photo">&times;</button>
                       </div>
-                    `;
-                  }).join('')}
-                </div>
+                    `).join('')}
+                  </div>
+                ` : ''}
               </div>
             </div>
           </div>
@@ -3017,9 +3415,12 @@ Sunday: Closed / Emergency Support Only</textarea>
       document.getElementById('draftPropTitle').focus();
     }
 
+    let draftPropertyCoverFile = null;
+
     function handleDraftPropertyCoverUpload(event) {
       const file = event.target.files && event.target.files[0];
       if (!file) return;
+      draftPropertyCoverFile = file;
       const reader = new FileReader();
       reader.onload = e => {
         newPropertyDraft.image = e.target.result;
@@ -3029,44 +3430,64 @@ Sunday: Closed / Emergency Support Only</textarea>
       reader.readAsDataURL(file);
     }
 
-    function addDraftSubProperty() {
-      const subNum = newPropertyDraft.sub_properties.length + 1;
-      newPropertyDraft.sub_properties.push({
-        id: 'draft_sub_' + Date.now() + '_' + subNum,
-        name: `Plot #${subNum}`,
-        type: 'Standard Plot',
-        area: newPropertyDraft.area || '1,200 sq ft',
-        price: newPropertyDraft.price || '₹45,00,000',
-        facing: 'East Facing',
-        status: 'Available',
-        images: []
-      });
-      renderDraftSubProperties();
-      showToast(`Added Sub-Property #${subNum} with multi-photo gallery.`);
-    }
-
-    function deleteDraftSubProperty(sIndex) {
-      if (newPropertyDraft.sub_properties.length <= 1) {
-        showToast('At least one sub-property is required.', true);
-        return;
-      }
-      newPropertyDraft.sub_properties.splice(sIndex, 1);
-      renderDraftSubProperties();
-      showToast('Sub-property removed');
-    }
-
-    function updateDraftSubField(sIndex, field, value) {
-      if (newPropertyDraft.sub_properties[sIndex]) {
-        newPropertyDraft.sub_properties[sIndex][field] = value;
-      }
-    }
-
-    async function handleDraftSubMultiImages(sIndex, event) {
+    function handleDraftSubImagesUpload(event) {
       const files = Array.from(event.target.files || []);
       if (files.length === 0) return;
-      const sub = newPropertyDraft.sub_properties[sIndex];
-      if (!sub) return;
-      if (!sub.images) sub.images = [];
+      if (!newPropertyDraft.sub_images) newPropertyDraft.sub_images = [];
+
+      const readPromises = files.map(file => {
+        return new Promise(resolve => {
+          const reader = new FileReader();
+          reader.onload = e => resolve(e.target.result);
+          reader.onerror = () => resolve(null);
+          reader.readAsDataURL(file);
+        });
+      });
+
+      Promise.all(readPromises).then(loaded => {
+        const valid = loaded.filter(Boolean);
+        newPropertyDraft.sub_images.push(...valid);
+        renderDraftSubImages();
+        showToast(`Uploaded ${valid.length} sub-images to draft property.`);
+      });
+    }
+
+    function removeDraftSubImage(imgIdx) {
+      if (!newPropertyDraft.sub_images) return;
+      newPropertyDraft.sub_images.splice(imgIdx, 1);
+      renderDraftSubImages();
+      showToast('Sub-image removed');
+    }
+
+    function renderDraftSubImages() {
+      const countEl = document.getElementById('draftPropSubImagesCount');
+      const stripEl = document.getElementById('draftPropSubImagesStrip');
+      const list = newPropertyDraft.sub_images || [];
+      if (countEl) countEl.textContent = list.length;
+      if (!stripEl) return;
+
+      if (list.length === 0) {
+        stripEl.style.display = 'none';
+        stripEl.innerHTML = '';
+      } else {
+        stripEl.style.display = 'flex';
+        stripEl.innerHTML = list.map((imgSrc, imgIdx) => `
+          <div class="subprop-thumb-item">
+            <img src="${imgSrc}" alt="Sub-image ${imgIdx + 1}">
+            <button type="button" class="subprop-thumb-remove-btn" onclick="removeDraftSubImage(${imgIdx})" title="Remove photo">&times;</button>
+          </div>
+        `).join('');
+      }
+    }
+
+    async function handlePropertySubImagesUpload(propId, event) {
+      const files = Array.from(event.target.files || []);
+      if (files.length === 0) return;
+      const prop = propertiesData.find(p => p.id === propId);
+      if (!prop) return;
+      if (!prop.sub_images) {
+        prop.sub_images = (prop.sub_properties && prop.sub_properties[0] && prop.sub_properties[0].images) || [];
+      }
 
       const readPromises = files.map(file => {
         return new Promise(resolve => {
@@ -3079,77 +3500,27 @@ Sunday: Closed / Emergency Support Only</textarea>
 
       const loaded = await Promise.all(readPromises);
       const valid = loaded.filter(Boolean);
-      sub.images.push(...valid);
-      renderDraftSubProperties();
-      showToast(`Uploaded ${valid.length} photos to Sub-Property #${sIndex + 1}. Total: ${sub.images.length} photos.`);
+      prop.sub_images.push(...valid);
+      renderPropertiesManager();
+      showToast(`Uploaded ${valid.length} sub-images to "${prop.title}". Total: ${prop.sub_images.length}`);
     }
 
-    function removeDraftSubImage(sIndex, imgIdx) {
-      const sub = newPropertyDraft.sub_properties[sIndex];
-      if (!sub || !sub.images) return;
-      sub.images.splice(imgIdx, 1);
-      renderDraftSubProperties();
-      showToast('Photo removed');
-    }
-
-    function renderDraftSubProperties() {
-      const container = document.getElementById('draftSubPropsContainer');
-      if (!container) return;
-
-      container.innerHTML = newPropertyDraft.sub_properties.map((sub, sIndex) => {
-        const subImages = sub.images || [];
-        return `
-          <div class="subprop-form-card">
-            <div class="subprop-card-top-bar">
-              <span class="subprop-badge-num">Sub-Unit #${sIndex + 1} &bull; ${escapeHtml(sub.name || 'Unit')}</span>
-              ${newPropertyDraft.sub_properties.length > 1 ? `
-                <button type="button" class="btn-delete-mini" onclick="deleteDraftSubProperty(${sIndex})">&times;</button>
-              ` : ''}
-            </div>
-
-            <div class="form-grid-3col">
-              <input type="text" class="subprop-input" value="${escapeHtml(sub.name)}" placeholder="Unit / Plot Name" oninput="updateDraftSubField(${sIndex}, 'name', this.value)">
-              <input type="text" class="subprop-input" value="${escapeHtml(sub.type)}" placeholder="Variant (e.g. Corner Villa Plot)" oninput="updateDraftSubField(${sIndex}, 'type', this.value)">
-              <select class="subprop-select" onchange="updateDraftSubField(${sIndex}, 'status', this.value)">
-                <option value="Available" ${sub.status === 'Available' ? 'selected' : ''}>Available</option>
-                <option value="Booked" ${sub.status === 'Booked' ? 'selected' : ''}>Booked</option>
-                <option value="Sold Out" ${sub.status === 'Sold Out' ? 'selected' : ''}>Sold Out</option>
-              </select>
-            </div>
-
-            <div class="form-grid-3col">
-              <input type="text" class="subprop-input" value="${escapeHtml(sub.price)}" placeholder="Price" oninput="updateDraftSubField(${sIndex}, 'price', this.value)">
-              <input type="text" class="subprop-input" value="${escapeHtml(sub.area)}" placeholder="Area / Size" oninput="updateDraftSubField(${sIndex}, 'area', this.value)">
-              <input type="text" class="subprop-input" value="${escapeHtml(sub.facing || '')}" placeholder="Facing (e.g. East)" oninput="updateDraftSubField(${sIndex}, 'facing', this.value)">
-            </div>
-
-            <div class="subprop-multi-image-container">
-              <div style="font-size:12px; font-weight:700; color:#064e3b;">
-                Sub-Property Photo Gallery (${subImages.length} Photos) &mdash; Takes Multiple Images
-              </div>
-              <div class="subprop-multi-dropzone" onclick="document.getElementById('draftSubImgInput_${sIndex}').click()">
-                <span style="font-size:18px;">📷</span>
-                <span style="font-size:12px; font-weight:600; color:#065f46;">+ Click to select multiple photos (Hold Ctrl/Shift to choose multiple files)</span>
-              </div>
-              <input type="file" id="draftSubImgInput_${sIndex}" multiple accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleDraftSubMultiImages(${sIndex}, event)">
-
-              ${subImages.length > 0 ? `
-                <div class="subprop-gallery-strip">
-                  ${subImages.map((imgSrc, imgIdx) => `
-                    <div class="subprop-thumb-item">
-                      <img src="${imgSrc}" alt="Photo ${imgIdx + 1}">
-                      <button type="button" class="subprop-thumb-remove-btn" onclick="removeDraftSubImage(${sIndex}, ${imgIdx})">&times;</button>
-                    </div>
-                  `).join('')}
-                </div>
-              ` : ''}
-            </div>
-          </div>
-        `;
-      }).join('');
+    function removePropertySubImage(propId, imgIdx) {
+      const prop = propertiesData.find(p => p.id === propId);
+      if (!prop) return;
+      if (!prop.sub_images) {
+        prop.sub_images = (prop.sub_properties && prop.sub_properties[0] && prop.sub_properties[0].images) || [];
+      }
+      prop.sub_images.splice(imgIdx, 1);
+      renderPropertiesManager();
+      showToast('Sub-image removed');
     }
 
     function resetDraftPropertyForm() {
+      draftPropertyCoverFile = null;
+      const coverInput = document.getElementById('draftPropCoverInput');
+      if (coverInput) coverInput.value = '';
+
       newPropertyDraft = {
         title: '',
         category: 'Residential Plot',
@@ -3157,31 +3528,60 @@ Sunday: Closed / Emergency Support Only</textarea>
         location: '',
         price: '',
         area: '',
+        contact_no: '',
+        transaction_type: 'New Property',
+        availability: 'Ready to Move',
+        land_area: '',
+        length: '',
+        breadth: '',
+        super_built_up_area: '',
+        built_up_area: '',
+        carpet_area: '',
+        bedrooms: '3 BHK',
+        balconies: '2 Balconies',
+        furnishing_status: 'Unfurnished',
+        facing: 'East Facing',
+        facing_road_width: '',
+        amenities: '',
+        description: '',
         image: '../assets/cat_residential.webp',
-        sub_properties: [
-          {
-            id: 'draft_sub_1',
-            name: '',
-            type: 'Corner Villa Plot',
-            area: '',
-            price: '',
-            facing: 'East Facing',
-            status: 'Available',
-            images: []
-          }
-        ]
+        sub_images: [],
+        sub_properties: []
       };
-      document.getElementById('draftPropTitle').value = '';
-      document.getElementById('draftPropCategory').value = 'Residential Plot';
-      document.getElementById('draftPropBadge').value = 'For Sale';
-      document.getElementById('draftPropLocation').value = '';
-      document.getElementById('draftPropPrice').value = '';
-      document.getElementById('draftPropArea').value = '';
-      document.getElementById('draftPropImgPreview').src = '../assets/cat_residential.webp';
-      renderDraftSubProperties();
+      const fields = [
+        ['draftPropTitle', ''],
+        ['draftPropCategory', 'Residential Plot'],
+        ['draftPropBadge', 'For Sale'],
+        ['draftPropLocation', ''],
+        ['draftPropPrice', ''],
+        ['draftPropArea', ''],
+        ['draftPropContactNo', ''],
+        ['draftPropTransactionType', 'New Property'],
+        ['draftPropAvailability', 'Ready to Move'],
+        ['draftPropLandArea', ''],
+        ['draftPropLength', ''],
+        ['draftPropBreadth', ''],
+        ['draftPropSuperBuiltUp', ''],
+        ['draftPropBuiltUp', ''],
+        ['draftPropCarpetArea', ''],
+        ['draftPropBedrooms', '3 BHK'],
+        ['draftPropBalconies', '2 Balconies'],
+        ['draftPropFurnishing', 'Unfurnished'],
+        ['draftPropFacing', 'East Facing'],
+        ['draftPropFacingRoadWidth', ''],
+        ['draftPropAmenities', ''],
+        ['draftPropDescription', '']
+      ];
+      fields.forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (el) el.value = val;
+      });
+      const previewEl = document.getElementById('draftPropImgPreview');
+      if (previewEl) previewEl.src = '../assets/cat_residential.webp';
+      renderDraftSubImages();
     }
 
-    function submitDraftProperty() {
+    async function submitDraftProperty() {
       const title = (document.getElementById('draftPropTitle').value || '').trim();
       if (!title) {
         showToast('Please enter Property Title / Project Name!', true);
@@ -3189,83 +3589,165 @@ Sunday: Closed / Emergency Support Only</textarea>
         return;
       }
 
-      const subProps = (newPropertyDraft.sub_properties || []).map((s, idx) => ({
-        id: 'sub_' + Date.now() + '_' + (idx + 1),
-        name: (s.name || '').trim() || `Plot #${idx + 1}`,
-        type: (s.type || '').trim() || 'Standard Plot',
-        area: (s.area || '').trim() || document.getElementById('draftPropArea').value || '1,200 sq ft',
-        price: (s.price || '').trim() || document.getElementById('draftPropPrice').value || '₹45,00,000',
-        facing: (s.facing || '').trim() || 'East Facing',
-        status: s.status || 'Available',
-        images: (s.images && s.images.length > 0) ? [...s.images] : ['../assets/cat_residential.webp', '../assets/gallery_main.webp']
-      }));
+      const submitBtn = document.querySelector('#addPropertyFormCard .btn-save');
+      const origBtnHtml = submitBtn ? submitBtn.innerHTML : '✓ Save &amp; Add This Property';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+        submitBtn.innerHTML = '⏳ Saving Property to Database...';
+      }
+
+      const getVal = (id, fallback = '') => {
+        const el = document.getElementById(id);
+        const v = el ? el.value.trim() : '';
+        return v || fallback;
+      };
+
+      const payload = {
+        title: title,
+        category: getVal('draftPropCategory', 'Residential Plot'),
+        badge: getVal('draftPropBadge', 'For Sale'),
+        location: getVal('draftPropLocation', 'Bhubaneswar, Odisha'),
+        price: getVal('draftPropPrice', '₹45,00,000'),
+        area: getVal('draftPropLandArea') || getVal('draftPropArea') || '1500 sqft',
+        contact_no: getVal('draftPropContactNo', '+919876543210'),
+        transaction_type: getVal('draftPropTransactionType', 'New Property'),
+        availability: getVal('draftPropAvailability', 'Ready to Move'),
+        total_plot_area: getVal('draftPropArea', '1200 - 3000 sqft'),
+        land_area: getVal('draftPropLandArea', '1500 sqft'),
+        length: getVal('draftPropLength', '50 ft'),
+        breadth: getVal('draftPropBreadth', '30 ft'),
+        super_built_up_area: getVal('draftPropSuperBuiltUp', '1850 sqft'),
+        built_up_area: getVal('draftPropBuiltUp', '1550 sqft'),
+        carpet_area: getVal('draftPropCarpetArea', '1250 sqft'),
+        bedrooms: getVal('draftPropBedrooms', '3 BHK'),
+        balconies: getVal('draftPropBalconies', '2 Balconies'),
+        furnishing_status: getVal('draftPropFurnishing', 'Unfurnished'),
+        facing: getVal('draftPropFacing', 'East Facing'),
+        facing_road_width: getVal('draftPropFacingRoadWidth', '40 ft Road'),
+        amenities: getVal('draftPropAmenities', 'Gated Security, Clubhouse, Park, CCTV'),
+        description: getVal('draftPropDescription', 'Premium residential property with excellent connectivity, modern amenities, nearby schools, hospitals and shopping facilities.'),
+        is_active: 1
+      };
+
+      let backendId = null;
+      let backendImageUrl = null;
+      let backendSuccess = false;
+
+      try {
+        let res;
+        if (draftPropertyCoverFile) {
+          const formData = new FormData();
+          Object.entries(payload).forEach(([k, v]) => {
+            if (v !== undefined && v !== null) formData.append(k, v);
+          });
+          formData.append('cover_image', draftPropertyCoverFile);
+          res = await fetch('http://localhost:5000/api/properties', {
+            method: 'POST',
+            body: formData
+          });
+        } else {
+          // Direct JSON POST request to http://localhost:5000/api/properties
+          res = await fetch('http://localhost:5000/api/properties', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+        }
+
+        const resData = await res.json();
+        if (res.ok && resData.success) {
+          backendSuccess = true;
+          backendId = resData.id;
+          if (resData.image) {
+            backendImageUrl = resData.image.startsWith('/')
+              ? 'http://localhost:5000' + resData.image
+              : resData.image;
+          }
+        } else {
+          console.warn('Backend POST /api/properties returned warning:', resData.message);
+        }
+      } catch (err) {
+        console.warn('Backend POST /api/properties network error (server offline):', err.message);
+      }
 
       const newProp = {
-        id: 'prop_' + Date.now(),
-        title: title,
-        category: document.getElementById('draftPropCategory').value,
-        badge: document.getElementById('draftPropBadge').value,
-        location: document.getElementById('draftPropLocation').value.trim() || 'Bhubaneswar, Odisha',
-        price: document.getElementById('draftPropPrice').value.trim() || '₹45,00,000',
-        area: document.getElementById('draftPropArea').value.trim() || '1,200 - 3,000 sq ft',
-        image: newPropertyDraft.image || '../assets/cat_residential.webp',
+        id: backendId ? String(backendId) : ('prop_' + Date.now()),
+        title: payload.title,
+        category: payload.category,
+        badge: payload.badge,
+        location: payload.location,
+        price: payload.price,
+        area: payload.area,
+        contact_no: payload.contact_no,
+        transaction_type: payload.transaction_type,
+        availability: payload.availability,
+        total_plot_area: payload.total_plot_area,
+        land_area: payload.land_area,
+        length: payload.length,
+        breadth: payload.breadth,
+        super_built_up_area: payload.super_built_up_area,
+        built_up_area: payload.built_up_area,
+        carpet_area: payload.carpet_area,
+        bedrooms: payload.bedrooms,
+        balconies: payload.balconies,
+        furnishing_status: payload.furnishing_status,
+        facing: payload.facing,
+        facing_road_width: payload.facing_road_width,
+        amenities: payload.amenities,
+        description: payload.description,
+        image: backendImageUrl || newPropertyDraft.image || '../assets/cat_residential.webp',
+        sub_images: (newPropertyDraft.sub_images && newPropertyDraft.sub_images.length > 0)
+          ? [...newPropertyDraft.sub_images]
+          : ['../assets/cat_residential.webp', '../assets/gallery_main.webp'],
         is_expanded: true,
-        sub_properties: subProps
+        is_active: 1,
+        sub_properties: []
       };
 
       propertiesData.unshift(newProp);
-      savePropertiesTab();
+      try {
+        localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+      } catch(e) {}
+
       resetDraftPropertyForm();
       renderPropertiesManager();
-      showToast(`✓ Added Property "${newProp.title}" with ${subProps.length} sub-units & multi-photo gallery!`);
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.innerHTML = origBtnHtml;
+      }
+
+      if (backendSuccess) {
+        showToast(`✓ Property "${newProp.title}" created successfully in Database (ID: ${backendId})!`);
+      } else {
+        showToast(`✓ Property "${newProp.title}" saved locally (Database offline / syncing when connected).`);
+      }
     }
 
-    function deleteProperty(propId) {
+    async function deleteProperty(propId) {
       if (!confirm('Are you sure you want to delete this property?')) return;
+      try {
+        if (!isNaN(propId)) {
+          await fetch(`http://localhost:5000/api/properties/${propId}`, {
+            method: 'DELETE'
+          });
+        }
+      } catch(e) {
+        console.warn('Backend DELETE error:', e);
+      }
       propertiesData = propertiesData.filter(p => p.id !== propId);
       savePropertiesTab();
       renderPropertiesManager();
       showToast('Property deleted');
     }
 
-    function addSubProperty(propId) {
-      const prop = propertiesData.find(p => p.id === propId);
-      if (!prop) return;
-      if (!prop.sub_properties) prop.sub_properties = [];
-      const subNum = prop.sub_properties.length + 1;
-      prop.sub_properties.push({
-        id: 'sub_' + Date.now() + '_' + subNum,
-        name: `Plot #${subNum}`,
-        type: 'Standard Plot',
-        area: '1,200 sq ft',
-        price: prop.price || '₹35,00,000',
-        facing: 'East Facing',
-        status: 'Available',
-        images: ['../assets/cat_residential.webp']
-      });
-      renderPropertiesManager();
-      showToast(`Added sub-unit #${subNum}`);
-    }
-
-    function deleteSubProperty(propId, subId) {
-      const prop = propertiesData.find(p => p.id === propId);
-      if (!prop || !prop.sub_properties) return;
-      prop.sub_properties = prop.sub_properties.filter(s => s.id !== subId);
-      renderPropertiesManager();
-      showToast('Sub-unit removed');
-    }
-
     function updatePropertyField(propId, field, value) {
       const prop = propertiesData.find(p => p.id === propId);
       if (prop) prop[field] = value;
-    }
-
-    function updateSubPropertyField(propId, subId, field, value) {
-      const prop = propertiesData.find(p => p.id === propId);
-      if (prop && prop.sub_properties) {
-        const sub = prop.sub_properties.find(s => s.id === subId);
-        if (sub) sub[field] = value;
-      }
     }
 
     function handleSinglePropertyImageUpload(propId, event) {
@@ -3283,44 +3765,119 @@ Sunday: Closed / Emergency Support Only</textarea>
       reader.readAsDataURL(file);
     }
 
-    async function handleSubPropertyMultipleImages(propId, subId, event) {
-      const files = Array.from(event.target.files || []);
-      if (files.length === 0) return;
-      const prop = propertiesData.find(p => p.id === propId);
-      if (!prop || !prop.sub_properties) return;
-      const sub = prop.sub_properties.find(s => s.id === subId);
-      if (!sub) return;
-      if (!sub.images) sub.images = [];
+    async function savePropertiesTab() {
+      const saveBtn = document.querySelector('#tab-properties .form-actions-row .btn-save');
+      const origHtml = saveBtn ? saveBtn.innerHTML : 'Save Properties';
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.style.opacity = '0.7';
+        saveBtn.innerHTML = '⏳ Saving Properties...';
+      }
 
-      const readPromises = files.map(file => {
-        return new Promise(resolve => {
-          const reader = new FileReader();
-          reader.onload = e => resolve(e.target.result);
-          reader.readAsDataURL(file);
-        });
-      });
+      let syncedCount = 0;
+      try {
+        for (const prop of propertiesData) {
+          if (prop.id && !isNaN(prop.id)) {
+            try {
+              const res = await fetch(`http://localhost:5000/api/properties/${prop.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  title: prop.title,
+                  category: prop.category,
+                  badge: prop.badge,
+                  location: prop.location,
+                  price: prop.price,
+                  area: prop.area,
+                  contact_no: prop.contact_no,
+                  transaction_type: prop.transaction_type,
+                  availability: prop.availability,
+                  total_plot_area: prop.total_plot_area || prop.area,
+                  land_area: prop.land_area,
+                  length: prop.length,
+                  breadth: prop.breadth,
+                  super_built_up_area: prop.super_built_up_area,
+                  built_up_area: prop.built_up_area,
+                  carpet_area: prop.carpet_area,
+                  bedrooms: prop.bedrooms,
+                  balconies: prop.balconies,
+                  furnishing_status: prop.furnishing_status,
+                  facing: prop.facing,
+                  facing_road_width: prop.facing_road_width,
+                  amenities: prop.amenities,
+                  description: prop.description,
+                  is_active: prop.is_active !== undefined ? prop.is_active : 1
+                })
+              });
+              if (res.ok) syncedCount++;
+            } catch(err) {}
+          }
+        }
+      } catch(e) {}
 
-      const loaded = await Promise.all(readPromises);
-      sub.images.push(...loaded.filter(Boolean));
-      renderPropertiesManager();
-      showToast(`Uploaded ${loaded.length} photos to unit "${sub.name}". Total: ${sub.images.length} photos.`);
-    }
-
-    function removeSubPropertyImage(propId, subId, imgIdx) {
-      const prop = propertiesData.find(p => p.id === propId);
-      if (!prop || !prop.sub_properties) return;
-      const sub = prop.sub_properties.find(s => s.id === subId);
-      if (!sub || !sub.images) return;
-      sub.images.splice(imgIdx, 1);
-      renderPropertiesManager();
-      showToast('Photo removed');
-    }
-
-    function savePropertiesTab() {
       try {
         localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
       } catch(e) {}
-      showToast(`✓ Saved ${propertiesData.length} properties and all multi-photo galleries!`);
+
+      if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.style.opacity = '1';
+        saveBtn.innerHTML = origHtml;
+      }
+
+      if (syncedCount > 0) {
+        showToast(`✓ Saved ${propertiesData.length} properties (${syncedCount} synced with Database)!`);
+      } else {
+        showToast(`✓ Saved ${propertiesData.length} properties successfully!`);
+      }
+    }
+
+    // Sync Properties from Backend Database API
+    async function loadPropertiesFromApi() {
+      try {
+        const res = await fetch('http://localhost:5000/api/properties');
+        if (!res.ok) return;
+        const result = await res.json();
+        if (result.success && Array.isArray(result.data) && result.data.length > 0) {
+          propertiesData = result.data.map(item => ({
+            id: item.id ? String(item.id) : ('prop_' + Date.now()),
+            title: item.title || 'Untitled Property',
+            category: item.category || 'Residential Plot',
+            badge: item.badge || 'For Sale',
+            location: item.location || 'Bhubaneswar, Odisha',
+            price: item.price || '₹45,00,000',
+            area: item.area || item.total_plot_area || '1,200 - 3,000 sq ft',
+            contact_no: item.contact_no || '+919876543210',
+            transaction_type: item.transaction_type || 'New Property',
+            availability: item.availability || 'Ready to Move',
+            total_plot_area: item.total_plot_area || item.area || '1,200 - 3,000 sq ft',
+            land_area: item.land_area || '1,500 sq ft',
+            length: item.length || '50 ft',
+            breadth: item.breadth || '30 ft',
+            super_built_up_area: item.super_built_up_area || '1,850 sq ft',
+            built_up_area: item.built_up_area || '1,550 sq ft',
+            carpet_area: item.carpet_area || '1,250 sq ft',
+            bedrooms: item.bedrooms || '3 BHK',
+            balconies: item.balconies || '2 Balconies',
+            furnishing_status: item.furnishing_status || 'Unfurnished',
+            facing: item.facing || 'East Facing',
+            facing_road_width: item.facing_road_width || '40 ft Road',
+            amenities: item.amenities || 'Gated Security, Clubhouse, Park, CCTV',
+            description: item.description || '',
+            image: item.property_image ? (item.property_image.startsWith('/') ? 'http://localhost:5000' + item.property_image : item.property_image) : '../assets/cat_residential.webp',
+            sub_images: (Array.isArray(item.sub_images) && item.sub_images.length > 0)
+              ? item.sub_images
+              : ['../assets/cat_residential.webp'],
+            is_active: item.is_active === 1 || item.is_active === true || item.is_active === '1' ? 1 : 0,
+            is_expanded: false,
+            sub_properties: []
+          }));
+          localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+          renderPropertiesManager();
+        }
+      } catch(e) {
+        console.warn('Backend properties API offline, using local cache:', e.message);
+      }
     }
 
     /* ==============================================================
@@ -3637,6 +4194,10 @@ Sunday: Closed / Emergency Support Only</textarea>
       } else {
         switchMainTab('home');
       }
+
+      // 3. Sync Homepage Section & Properties from backend Database API
+      loadHomeSectionFromApi();
+      loadPropertiesFromApi();
     });
   </script>
 </body>
