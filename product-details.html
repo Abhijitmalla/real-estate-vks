@@ -1030,6 +1030,29 @@
       fill: #ef4444;
     }
 
+    .prop-star-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1.5px solid #fde68a;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: default;
+    }
+
+    .prop-list-card:hover .prop-star-badge {
+      transform: scale(1.12);
+      box-shadow: 0 3px 10px rgba(245, 158, 11, 0.35);
+    }
+
     .prop-photo-count {
       position: absolute;
       bottom: 10px;
@@ -3669,6 +3692,13 @@
             data-premium="${isPremium}">
             <div class="prop-media-wrap">
               ${prop.badge ? `<span class="prop-badge-project ${prop.badge === 'Verified' ? 'verified' : ''}">★ ${escapeHtml(prop.badge)}</span>` : ''}
+              ${(prop.is_best_property === 1 || prop.is_best_property === true || prop.is_best_property === '1') ? `
+                <span class="prop-star-badge" title="Best Property" aria-label="Best Property">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="#f59e0b" stroke="#d97706" stroke-width="1.2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </span>
+              ` : ''}
               <!-- Wishlist icon removed as requested -->
               <a href="${viewDetailsUrl}" style="display:contents;" aria-label="View ${escapeHtml(prop.title || 'Property')} Details">
                 <img src="${imageUrl}" alt="${escapeHtml(prop.title || 'Property')}" class="prop-card-img" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">

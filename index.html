@@ -4006,6 +4006,11 @@
         <article class="prop-card" data-id="5">
           <div class="prop-img-wrap">
             <span class="prop-badge">For Sale</span>
+            <span class="prop-star-badge" title="Best Property" aria-label="Best Property">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#d97706" stroke-width="1.2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </span>
             <a href="view-details.html?id=5&title=Saroj+Enclave&price=%E2%82%B9+2%2C22%2C22%2C222&loc=Bardhman%2CKolkata&bhk=3+BHK&area=1500+sq+ft&status=Ready+to+Move&cat=Agricultural+Land&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786135358-613044061.jpg" style="display:contents;" aria-label="View Saroj Enclave Details">
               <img src="http://localhost:5000/uploads/properties/1793786135358-613044061.jpg" alt="Saroj Enclave" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">
             </a>
@@ -4031,6 +4036,11 @@
         <article class="prop-card" data-id="4">
           <div class="prop-img-wrap">
             <span class="prop-badge">For Sale</span>
+            <span class="prop-star-badge" title="Best Property" aria-label="Best Property">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#d97706" stroke-width="1.2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </span>
             <a href="view-details.html?id=4&title=Samita+enclave&price=%E2%82%B9+22%2C22%2C222&loc=Andheri%2CMumbai&bhk=3+BHK&area=1111+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786011497-203269522.webp" style="display:contents;" aria-label="View Samita enclave Details">
               <img src="http://localhost:5000/uploads/properties/1793786011497-203269522.webp" alt="Samita enclave" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_commercial.webp';">
             </a>
@@ -4056,6 +4066,11 @@
         <article class="prop-card" data-id="3">
           <div class="prop-img-wrap">
             <span class="prop-badge">For Sale</span>
+            <span class="prop-star-badge" title="Best Property" aria-label="Best Property">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#d97706" stroke-width="1.2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </span>
             <a href="view-details.html?id=3&title=Ashu+enclave&price=%E2%82%B9+34%2C00%2C000&loc=Anugul%2COdisha&bhk=3+BHK&area=1200+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793785779584-353440195.webp" style="display:contents;" aria-label="View Ashu enclave Details">
               <img src="http://localhost:5000/uploads/properties/1793785779584-353440195.webp" alt="Ashu enclave" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_agricultural.webp';">
             </a>
@@ -4081,6 +4096,11 @@
         <article class="prop-card" data-id="2">
           <div class="prop-img-wrap">
             <span class="prop-badge">For Sale</span>
+            <span class="prop-star-badge" title="Best Property" aria-label="Best Property">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#d97706" stroke-width="1.2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </span>
             <a href="view-details.html?id=2&title=Abhi+enclave&price=%E2%82%B9+34%2C23%2C23%2C232&loc=KENDRAPARA%2C+ODISHA&bhk=3+BHK&area=2222+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793784327792-411248332.webp" style="display:contents;" aria-label="View Abhi enclave Details">
               <img src="http://localhost:5000/uploads/properties/1793784327792-411248332.webp" alt="Abhi enclave" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_industrial.webp';">
             </a>
@@ -5365,10 +5385,19 @@
 
           const viewDetailsUrl = `view-details.html?id=${encodeURIComponent(prop.id)}&title=${encodeURIComponent(title)}&price=${encodeURIComponent(displayPrice)}&loc=${encodeURIComponent(location)}&bhk=${encodeURIComponent(prop.bedrooms || '')}&area=${encodeURIComponent(prop.total_plot_area || prop.area || '')}&status=${encodeURIComponent(prop.availability || 'Ready to Move')}&cat=${encodeURIComponent(prop.category || '')}&img=${encodeURIComponent(imageUrl)}`;
 
+          const isBest = (prop.is_best_property === 1 || prop.is_best_property === true || prop.is_best_property === '1');
+
           return `
             <article class="listing-card" data-id="${escapeHtml(String(prop.id))}">
               <div class="listing-media">
                 <span class="listing-badge-tag">${escapeHtml(badge)}</span>
+                ${isBest ? `
+                  <span class="prop-star-badge" title="Best Property" aria-label="Best Property">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#d97706" stroke-width="1.2">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                  </span>
+                ` : ''}
                 <a href="${viewDetailsUrl}" style="display:contents;" aria-label="View ${escapeHtml(title)} Details">
                   <img src="${imageUrl}" alt="${escapeHtml(title)} in ${escapeHtml(location)}" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">
                 </a>
@@ -5454,6 +5483,11 @@
             <article class="prop-card" data-id="${escapeHtml(String(prop.id))}">
               <div class="prop-img-wrap">
                 <span class="prop-badge">${escapeHtml(badge)}</span>
+                <span class="prop-star-badge" title="Best Property" aria-label="Best Property">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="#f59e0b" stroke="#d97706" stroke-width="1.2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </span>
                 <a href="${viewDetailsUrl}" style="display:contents;" aria-label="View ${escapeHtml(title)} Details">
                   <img src="${imageUrl}" alt="${escapeHtml(title)} in ${escapeHtml(location)}" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">
                 </a>
