@@ -1325,6 +1325,30 @@
       z-index: 2;
     }
 
+    .prop-star-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1.5px solid #fde68a;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: default;
+    }
+
+    .prop-card:hover .prop-star-badge,
+    .listing-card:hover .prop-star-badge {
+      transform: scale(1.12);
+      box-shadow: 0 3px 10px rgba(245, 158, 11, 0.35);
+    }
+
     .prop-fav-btn {
       position: absolute;
       top: 10px;
@@ -1341,6 +1365,10 @@
       cursor: pointer;
       transition: var(--transition);
       z-index: 2;
+    }
+
+    .categories-section .prop-fav-btn {
+      display: none;
     }
 
     .prop-fav-btn:hover {
@@ -1598,6 +1626,28 @@
       color: var(--text-muted);
     }
 
+    .listing-details-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--primary-green);
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .listing-details-link:hover {
+      background: var(--primary-green-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(13, 84, 53, 0.2);
+    }
+
     .meta-spec {
       display: flex;
       align-items: center;
@@ -1850,14 +1900,19 @@
       flex-shrink: 0;
     }
 
-    .testimonial-nav-btn:hover {
+    .testimonial-nav-btn:not(:disabled):hover {
       background-color: var(--primary-green);
       color: #ffffff;
       box-shadow: 0 4px 14px rgba(13, 84, 53, 0.22);
       transform: translateY(-1px);
     }
 
-    .testimonial-nav-btn:active {
+    .testimonial-nav-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .testimonial-nav-btn:not(:disabled):active {
       transform: scale(0.94);
     }
 
@@ -1898,10 +1953,6 @@
       justify-content: space-between;
       box-sizing: border-box;
       transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-    }
-
-    .testimonial-card-v2.featured {
-      border-color: var(--primary-green);
     }
 
     .testimonial-card-v2:hover {
@@ -3209,6 +3260,13 @@
         color: #6b7280 !important;
       }
 
+      .listing-details-link {
+        align-self: flex-start !important;
+        margin-top: 4px !important;
+        padding: 5px 10px !important;
+        font-size: 11px !important;
+      }
+
       .meta-spec {
         display: flex !important;
         align-items: center !important;
@@ -3554,8 +3612,8 @@
         <!-- Desktop Navigation Menu -->
         <nav class="desktop-nav" aria-label="Primary Navigation">
           <a href="#home" class="nav-link active">Properties</a>
-          <a href="#about" class="nav-link">Services</a>
-                  <a href="./blog-details.html" class="nav-link">Blog</a>
+          <a href="./services.html" class="nav-link">Services</a>
+                  <a href="./blog.html" class="nav-link">Blog</a>
 
         
         </nav>
@@ -3594,21 +3652,13 @@
       <button class="drawer-close-btn" id="drawerClose" aria-label="Close menu">&times;</button>
     </div>
     <div class="mobile-nav-links">
-      <a href="#home" class="active">Buy</a>
-      <a href="product-details.html">Sell</a>
-      <a href="#about">Rent</a>
-      <a href="about-us.html">About Us</a>
-      <a href="contact-us.html">Contact Us</a>
+      <a href="#home" class="active">Properties</a>
+      <a href="./services.html">Services</a>
+      <a href="./blog.html">Blog</a>
+      
     </div>
     <div class="mobile-drawer-footer">
-      <a href="login.html" class="login-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-        <span>Login / Register</span>
-      </a>
+
       <a href="about-us.html" class="btn-about-us" style="justify-content: center;">
         About Us
       </a>
@@ -3951,116 +4001,104 @@
       </div>
 
       <!-- Property Cards Grid -->
-      <div class="categories-grid">
-        <!-- Property 1: Luxury Villa -->
-        <article class="prop-card">
+      <div class="categories-grid" id="bestPropertiesGrid">
+        <!-- Property 1: Saroj Enclave -->
+        <article class="prop-card" data-id="5">
           <div class="prop-img-wrap">
             <span class="prop-badge">For Sale</span>
-            <button class="prop-fav-btn" aria-label="Save to favorites">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-              </svg>
-            </button>
-            <img src="assets/cat_residential.webp" alt="Residential Plot" loading="lazy">
+            <a href="view-details.html?id=5&title=Saroj+Enclave&price=%E2%82%B9+2%2C22%2C22%2C222&loc=Bardhman%2CKolkata&bhk=3+BHK&area=1500+sq+ft&status=Ready+to+Move&cat=Agricultural+Land&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786135358-613044061.jpg" style="display:contents;" aria-label="View Saroj Enclave Details">
+              <img src="http://localhost:5000/uploads/properties/1793786135358-613044061.jpg" alt="Saroj Enclave" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">
+            </a>
           </div>
           <div class="prop-body">
-            <div class="prop-price">&#8377; 85,00,000</div>
+            <div class="prop-price">&#8377; 2,22,22,222</div>
             <div class="prop-location">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              Bangalore, Karnataka
+              Bardhman,Kolkata
             </div>
 
-            <div class="prop-title">Residential Plot</div>
-            <a href="view-details.html?title=Residential+Plot&price=%E2%82%B9+85%2C00%2C000&loc=Bangalore%2C+Karnataka&bhk=Plot&area=1%2C800+sq+ft&status=Ready+to+Construct&posted=Owner" class="btn-view-details">View Details &rarr;</a>
+            <div class="prop-title">
+              <a href="view-details.html?id=5&title=Saroj+Enclave&price=%E2%82%B9+2%2C22%2C22%2C222&loc=Bardhman%2CKolkata&bhk=3+BHK&area=1500+sq+ft&status=Ready+to+Move&cat=Agricultural+Land&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786135358-613044061.jpg" style="color:inherit; text-decoration:none;">Saroj Enclave</a>
+            </div>
+            <a href="view-details.html?id=5&title=Saroj+Enclave&price=%E2%82%B9+2%2C22%2C22%2C222&loc=Bardhman%2CKolkata&bhk=3+BHK&area=1500+sq+ft&status=Ready+to+Move&cat=Agricultural+Land&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786135358-613044061.jpg" class="btn-view-details">View Details &rarr;</a>
           </div>
         </article>
 
-        <!-- Property 2: 2 BHK Apartment -->
-        <article class="prop-card">
-          <div class="prop-img-wrap">
-            <span class="prop-badge">For Rent</span>
-            <button class="prop-fav-btn" aria-label="Save to favorites">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-              </svg>
-            </button>
-            <img src="assets/cat_commercial.webp" alt="Agricultural Land" loading="lazy">
-          </div>
-          <div class="prop-body">
-            <div class="prop-price">&#8377; 25,000 <span>/month</span></div>
-            <div class="prop-location">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              Pune, Maharashtra
-            </div>
-
-            <div class="prop-title">Agricultural Land</div>
-            <a href="view-details.html?title=Agricultural+Land&price=%E2%82%B9+25%2C000+%2Fmonth&loc=Pune%2C+Maharashtra&bhk=Agri+Zone&area=2+Acres&status=Available+Now&posted=Farmer%2FOwner" class="btn-view-details">View Details &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Property 3: Premium Villa with Pool -->
-        <article class="prop-card">
+        <!-- Property 2: Samita enclave -->
+        <article class="prop-card" data-id="4">
           <div class="prop-img-wrap">
             <span class="prop-badge">For Sale</span>
-            <button class="prop-fav-btn" aria-label="Save to favorites">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-              </svg>
-            </button>
-            <img src="assets/cat_agricultural.webp" alt="Commercial Land" loading="lazy">
+            <a href="view-details.html?id=4&title=Samita+enclave&price=%E2%82%B9+22%2C22%2C222&loc=Andheri%2CMumbai&bhk=3+BHK&area=1111+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786011497-203269522.webp" style="display:contents;" aria-label="View Samita enclave Details">
+              <img src="http://localhost:5000/uploads/properties/1793786011497-203269522.webp" alt="Samita enclave" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_commercial.webp';">
+            </a>
           </div>
           <div class="prop-body">
-            <div class="prop-price">&#8377; 2,50,00,000</div>
+            <div class="prop-price">&#8377; 22,22,222</div>
             <div class="prop-location">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              Goa, Goa
+              Andheri,Mumbai
             </div>
 
-            <div class="prop-title">Commercial Land</div>
-            <a href="view-details.html?title=Commercial+Land&price=%E2%82%B9+2%2C50%2C00%2C000&loc=Goa%2C+Goa&bhk=Commercial+Zone&area=4%2C500+sq+ft&status=Ready+for+Development&posted=Owner" class="btn-view-details">View Details &rarr;</a>
+            <div class="prop-title">
+              <a href="view-details.html?id=4&title=Samita+enclave&price=%E2%82%B9+22%2C22%2C222&loc=Andheri%2CMumbai&bhk=3+BHK&area=1111+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786011497-203269522.webp" style="color:inherit; text-decoration:none;">Samita enclave</a>
+            </div>
+            <a href="view-details.html?id=4&title=Samita+enclave&price=%E2%82%B9+22%2C22%2C222&loc=Andheri%2CMumbai&bhk=3+BHK&area=1111+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786011497-203269522.webp" class="btn-view-details">View Details &rarr;</a>
           </div>
         </article>
 
-        <!-- Property 4: Modern Office Space -->
-        <article class="prop-card">
+        <!-- Property 3: Ashu enclave -->
+        <article class="prop-card" data-id="3">
           <div class="prop-img-wrap">
-            <span class="prop-badge">For Rent</span>
-            <button class="prop-fav-btn" aria-label="Save to favorites">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-              </svg>
-            </button>
-            <img src="assets/cat_industrial.webp" alt="Industrial Land" loading="lazy">
+            <span class="prop-badge">For Sale</span>
+            <a href="view-details.html?id=3&title=Ashu+enclave&price=%E2%82%B9+34%2C00%2C000&loc=Anugul%2COdisha&bhk=3+BHK&area=1200+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793785779584-353440195.webp" style="display:contents;" aria-label="View Ashu enclave Details">
+              <img src="http://localhost:5000/uploads/properties/1793785779584-353440195.webp" alt="Ashu enclave" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_agricultural.webp';">
+            </a>
           </div>
           <div class="prop-body">
-            <div class="prop-price">&#8377; 45,000 <span>/month</span></div>
+            <div class="prop-price">&#8377; 34,00,000</div>
             <div class="prop-location">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              Mumbai, Maharashtra
+              Anugul,Odisha
             </div>
 
-            <div class="prop-title">Industrial Land</div>
-            <a href="view-details.html?title=Industrial+Land&price=%E2%82%B9+45%2C000+%2Fmonth&loc=Mumbai%2C+Maharashtra&bhk=Industrial+Zone&area=6%2C000+sq+ft&status=Ready+to+Move&posted=Agent" class="btn-view-details">View Details &rarr;</a>
+            <div class="prop-title">
+              <a href="view-details.html?id=3&title=Ashu+enclave&price=%E2%82%B9+34%2C00%2C000&loc=Anugul%2COdisha&bhk=3+BHK&area=1200+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793785779584-353440195.webp" style="color:inherit; text-decoration:none;">Ashu enclave</a>
+            </div>
+            <a href="view-details.html?id=3&title=Ashu+enclave&price=%E2%82%B9+34%2C00%2C000&loc=Anugul%2COdisha&bhk=3+BHK&area=1200+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793785779584-353440195.webp" class="btn-view-details">View Details &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Property 4: Abhi enclave -->
+        <article class="prop-card" data-id="2">
+          <div class="prop-img-wrap">
+            <span class="prop-badge">For Sale</span>
+            <a href="view-details.html?id=2&title=Abhi+enclave&price=%E2%82%B9+34%2C23%2C23%2C232&loc=KENDRAPARA%2C+ODISHA&bhk=3+BHK&area=2222+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793784327792-411248332.webp" style="display:contents;" aria-label="View Abhi enclave Details">
+              <img src="http://localhost:5000/uploads/properties/1793784327792-411248332.webp" alt="Abhi enclave" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_industrial.webp';">
+            </a>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price">&#8377; 34,23,23,232</div>
+            <div class="prop-location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              KENDRAPARA, ODISHA
+            </div>
+
+            <div class="prop-title">
+              <a href="view-details.html?id=2&title=Abhi+enclave&price=%E2%82%B9+34%2C23%2C23%2C232&loc=KENDRAPARA%2C+ODISHA&bhk=3+BHK&area=2222+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793784327792-411248332.webp" style="color:inherit; text-decoration:none;">Abhi enclave</a>
+            </div>
+            <a href="view-details.html?id=2&title=Abhi+enclave&price=%E2%82%B9+34%2C23%2C23%2C232&loc=KENDRAPARA%2C+ODISHA&bhk=3+BHK&area=2222+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793784327792-411248332.webp" class="btn-view-details">View Details &rarr;</a>
           </div>
         </article>
       </div>
@@ -4151,39 +4189,30 @@
         <a href="product-details.html" class="section-view-all">View All &rarr;</a>
       </div>
 
-      <div class="listings-grid">
-        <!-- Listing 1: Residential Plot -->
-        <article class="listing-card">
+      <div class="listings-grid" id="latestListingsGrid">
+        <!-- Listing 1 (Most Recent - ID 5): Saroj Enclave -->
+        <article class="listing-card" data-id="5">
           <div class="listing-media">
             <span class="listing-badge-tag">For Sale</span>
-            <button class="listing-fav-btn" aria-label="Save to favorites">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-              </svg>
-            </button>
-            <img src="assets/cat_residential.webp" alt="Residential Plot in Bhubaneswar, Odisha" loading="lazy">
+            <a href="view-details.html?id=5&title=Saroj+Enclave&price=%E2%82%B9+2%2C22%2C22%2C222&loc=Bardhman%2CKolkata&bhk=3+BHK&area=1200+-+3000+sqft&status=Ready+to+Move&cat=Agricultural+Land&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786135358-613044061.jpg" style="display:contents;" aria-label="View Saroj Enclave Details">
+              <img src="http://localhost:5000/uploads/properties/1793786135358-613044061.jpg" alt="Saroj Enclave in Bardhman, Kolkata" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">
+            </a>
           </div>
           <div class="listing-info">
             <div>
               <div class="listing-top-row">
-                <h3 class="listing-title">Residential Plot</h3>
-                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                  </path>
-                </svg>
+                <h3 class="listing-title">
+                  <a href="view-details.html?id=5&title=Saroj+Enclave&price=%E2%82%B9+2%2C22%2C22%2C222&loc=Bardhman%2CKolkata&bhk=3+BHK&area=1200+-+3000+sqft&status=Ready+to+Move&cat=Agricultural+Land&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786135358-613044061.jpg">Saroj Enclave</a>
+                </h3>
               </div>
               <div class="listing-location">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>Bhubaneswar, Odisha</span>
+                <span>Bardhman,Kolkata</span>
               </div>
-              <div class="listing-price">&#8377; 35,00,000</div>
+              <div class="listing-price">&#8377; 2,22,22,222</div>
             </div>
             <div class="listing-meta-row">
               <div class="meta-spec">
@@ -4191,7 +4220,7 @@
                   <rect x="3" y="3" width="18" height="18" rx="2"></rect>
                   <line x1="3" y1="9" x2="21" y2="9"></line>
                 </svg>
-                <span>1200 Sq.ft</span>
+                <span>1200 - 3000 sqft</span>
               </div>
               <div class="meta-spec">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -4200,92 +4229,33 @@
                 <span>East Facing</span>
               </div>
             </div>
+            <a class="listing-details-link" href="view-details.html?id=5&title=Saroj+Enclave&price=%E2%82%B9+2%2C22%2C22%2C222&loc=Bardhman%2CKolkata&bhk=3+BHK&area=1200+-+3000+sqft&status=Ready+to+Move&cat=Agricultural+Land&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786135358-613044061.jpg">View Details &rarr;</a>
           </div>
         </article>
 
-        <!-- Listing 2: Agricultural Land -->
-        <article class="listing-card">
-          <div class="listing-media">
-            <span class="listing-badge-tag">For Rent</span>
-            <button class="listing-fav-btn" aria-label="Save to favorites">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-              </svg>
-            </button>
-            <img src="assets/cat_agricultural.webp" alt="Agricultural Land in Navi Mumbai, Maharashtra" loading="lazy">
-          </div>
-          <div class="listing-info">
-            <div>
-              <div class="listing-top-row">
-                <h3 class="listing-title">Agricultural Land</h3>
-                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                  </path>
-                </svg>
-              </div>
-              <div class="listing-location">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Navi Mumbai, Maharashtra</span>
-              </div>
-              <div class="listing-price">&#8377; 45,000 <span>/month</span></div>
-            </div>
-            <div class="listing-meta-row">
-              <div class="meta-spec">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                  <line x1="3" y1="9" x2="21" y2="9"></line>
-                </svg>
-                <span>2 Acres</span>
-              </div>
-              <div class="meta-spec">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="12 2 19 21 12 17 5 21 12 2"></polygon>
-                </svg>
-                <span>North Facing</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Listing 3: Commercial Land -->
-        <article class="listing-card">
+        <!-- Listing 2 (ID 4): Samita enclave -->
+        <article class="listing-card" data-id="4">
           <div class="listing-media">
             <span class="listing-badge-tag">For Sale</span>
-            <button class="listing-fav-btn" aria-label="Save to favorites">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-              </svg>
-            </button>
-            <img src="assets/cat_commercial.webp" alt="Commercial Land in Pune, Maharashtra" loading="lazy">
+            <a href="view-details.html?id=4&title=Samita+enclave&price=%E2%82%B9+22%2C22%2C222&loc=Andheri%2CMumbai&bhk=3+BHK&area=1200+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786011497-203269522.webp" style="display:contents;" aria-label="View Samita enclave Details">
+              <img src="http://localhost:5000/uploads/properties/1793786011497-203269522.webp" alt="Samita enclave in Andheri, Mumbai" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">
+            </a>
           </div>
           <div class="listing-info">
             <div>
               <div class="listing-top-row">
-                <h3 class="listing-title">Commercial Land</h3>
-                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                  </path>
-                </svg>
+                <h3 class="listing-title">
+                  <a href="view-details.html?id=4&title=Samita+enclave&price=%E2%82%B9+22%2C22%2C222&loc=Andheri%2CMumbai&bhk=3+BHK&area=1200+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786011497-203269522.webp">Samita enclave</a>
+                </h3>
               </div>
               <div class="listing-location">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>Pune, Maharashtra</span>
+                <span>Andheri,Mumbai</span>
               </div>
-              <div class="listing-price">&#8377; 1,20,00,000</div>
+              <div class="listing-price">&#8377; 22,22,222</div>
             </div>
             <div class="listing-meta-row">
               <div class="meta-spec">
@@ -4293,50 +4263,42 @@
                   <rect x="3" y="3" width="18" height="18" rx="2"></rect>
                   <line x1="3" y1="9" x2="21" y2="9"></line>
                 </svg>
-                <span>5,000 Sq.ft</span>
+                <span>1200 sq ft</span>
               </div>
               <div class="meta-spec">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polygon points="12 2 19 21 12 17 5 21 12 2"></polygon>
                 </svg>
-                <span>West Facing</span>
+                <span>East Facing</span>
               </div>
             </div>
+            <a class="listing-details-link" href="view-details.html?id=4&title=Samita+enclave&price=%E2%82%B9+22%2C22%2C222&loc=Andheri%2CMumbai&bhk=3+BHK&area=1200+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793786011497-203269522.webp">View Details &rarr;</a>
           </div>
         </article>
 
-        <!-- Listing 4: Industrial Land -->
-        <article class="listing-card">
+        <!-- Listing 3 (ID 3): Ashu enclave -->
+        <article class="listing-card" data-id="3">
           <div class="listing-media">
-            <span class="listing-badge-tag">For Rent</span>
-            <button class="listing-fav-btn" aria-label="Save to favorites">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-              </svg>
-            </button>
-            <img src="assets/cat_industrial.webp" alt="Industrial Land in Coimbatore, Tamil Nadu" loading="lazy">
+            <span class="listing-badge-tag">For Sale</span>
+            <a href="view-details.html?id=3&title=Ashu+enclave&price=%E2%82%B9+34%2C00%2C000&loc=Anugul%2COdisha&bhk=3+BHK&area=1200+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793785779584-353440195.webp" style="display:contents;" aria-label="View Ashu enclave Details">
+              <img src="http://localhost:5000/uploads/properties/1793785779584-353440195.webp" alt="Ashu enclave in Anugul, Odisha" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">
+            </a>
           </div>
           <div class="listing-info">
             <div>
               <div class="listing-top-row">
-                <h3 class="listing-title">Industrial Land</h3>
-                <svg class="listing-card-heart mobile-only" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                  </path>
-                </svg>
+                <h3 class="listing-title">
+                  <a href="view-details.html?id=3&title=Ashu+enclave&price=%E2%82%B9+34%2C00%2C000&loc=Anugul%2COdisha&bhk=3+BHK&area=1200+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793785779584-353440195.webp">Ashu enclave</a>
+                </h3>
               </div>
               <div class="listing-location">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>Coimbatore, Tamil Nadu</span>
+                <span>Anugul,Odisha</span>
               </div>
-              <div class="listing-price">&#8377; 80,000 <span>/month</span></div>
+              <div class="listing-price">&#8377; 34,00,000</div>
             </div>
             <div class="listing-meta-row">
               <div class="meta-spec">
@@ -4344,18 +4306,63 @@
                   <rect x="3" y="3" width="18" height="18" rx="2"></rect>
                   <line x1="3" y1="9" x2="21" y2="9"></line>
                 </svg>
-                <span>3 Acres</span>
+                <span>1200 sq ft</span>
               </div>
               <div class="meta-spec">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polygon points="12 2 19 21 12 17 5 21 12 2"></polygon>
                 </svg>
-                <span>South Facing</span>
+                <span>East Facing</span>
               </div>
             </div>
+            <a class="listing-details-link" href="view-details.html?id=3&title=Ashu+enclave&price=%E2%82%B9+34%2C00%2C000&loc=Anugul%2COdisha&bhk=3+BHK&area=1200+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793785779584-353440195.webp">View Details &rarr;</a>
           </div>
         </article>
-      </div>
+
+        <!-- Listing 4 (ID 2): Abhi enclave -->
+        <article class="listing-card" data-id="2">
+          <div class="listing-media">
+            <span class="listing-badge-tag">For Sale</span>
+            <a href="view-details.html?id=2&title=Abhi+enclave&price=%E2%82%B9+34%2C23%2C23%2C232&loc=KENDRAPARA%2C+ODISHA&bhk=3+BHK&area=2222+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793784327792-411248332.webp" style="display:contents;" aria-label="View Abhi enclave Details">
+              <img src="http://localhost:5000/uploads/properties/1793784327792-411248332.webp" alt="Abhi enclave in KENDRAPARA, ODISHA" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">
+            </a>
+          </div>
+          <div class="listing-info">
+            <div>
+              <div class="listing-top-row">
+                <h3 class="listing-title">
+                  <a href="view-details.html?id=2&title=Abhi+enclave&price=%E2%82%B9+34%2C23%2C23%2C232&loc=KENDRAPARA%2C+ODISHA&bhk=3+BHK&area=2222+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793784327792-411248332.webp">Abhi enclave</a>
+                </h3>
+              </div>
+              <div class="listing-location">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>KENDRAPARA, ODISHA</span>
+              </div>
+              <div class="listing-price">&#8377; 34,23,23,232</div>
+            </div>
+            <div class="listing-meta-row">
+              <div class="meta-spec">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                </svg>
+                <span>2222 sq ft</span>
+              </div>
+              <div class="meta-spec">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 19 21 12 17 5 21 12 2"></polygon>
+                </svg>
+                <span>East Facing</span>
+              </div>
+            </div>
+            <a class="listing-details-link" href="view-details.html?id=2&title=Abhi+enclave&price=%E2%82%B9+34%2C23%2C23%2C232&loc=KENDRAPARA%2C+ODISHA&bhk=3+BHK&area=2222+sq+ft&status=Ready+to+Move&cat=Residential+Plot&img=http%3A%2F%2Flocalhost%3A5000%2Fuploads%2Fproperties%2F1793784327792-411248332.webp">View Details &rarr;</a>
+          </div>
+        </article>
+
+              </div>
     </div>
   </section>
 
@@ -4559,7 +4566,7 @@
       <div class="testimonials-header-bar">
         <h2 class="testimonials-main-title">Testimonials</h2>
         <div class="testimonials-nav-group">
-          <button type="button" class="testimonial-nav-btn prev" id="testimonialsPrevBtn" aria-label="Previous testimonial">
+          <button type="button" class="testimonial-nav-btn prev" id="testimonialsPrevBtn" aria-label="Previous testimonial" disabled>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <line x1="19" y1="12" x2="5" y2="12"></line>
               <polyline points="12 19 5 12 12 5"></polyline>
@@ -4607,8 +4614,8 @@
           </div>
         </article>
 
-        <!-- Card 2: Alex K. (Featured Green Border, Golden Stars, Green Name) -->
-        <article class="testimonial-card-v2 featured">
+        <!-- Card 2: Alex K. (Golden Stars, Green Name) -->
+        <article class="testimonial-card-v2">
           <div class="testimonial-stars-row stars-amber" aria-label="5 out of 5 stars">
             <svg class="star-icon" viewBox="0 0 20 20" fill="currentColor">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
@@ -4638,8 +4645,8 @@
           </div>
         </article>
 
-        <!-- Card 3: Jane D (Featured Green Border, Golden Stars, Green Name) -->
-        <article class="testimonial-card-v2 featured">
+        <!-- Card 3: Jane D (Golden Stars, Green Name) -->
+        <article class="testimonial-card-v2">
           <div class="testimonial-stars-row stars-amber" aria-label="5 out of 5 stars">
             <svg class="star-icon" viewBox="0 0 20 20" fill="currentColor">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
@@ -4883,9 +4890,9 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#properties">Properties</a></li>
             <li><a href="./about-us.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact-us.html">Contact Us</a></li>
           </ul>
         </div>
 
@@ -4958,15 +4965,28 @@
       const HOMEPAGE_API_URL = 'http://localhost:5000/api/homepage/sections';
       let setTypewriterPhrase = () => {};
       let updateTestimonialsData = () => {};
+      let updateTestimonialNavButtons = () => {};
+
+      function escapeHtml(str) {
+        if (str === null || str === undefined) return '';
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
 
       function hasHomepageValue(value) {
-        return value !== null && value !== undefined && String(value).trim() !== '';
+        if (value === null || value === undefined) return false;
+        if (Array.isArray(value)) return value.length > 0;
+        return String(value).trim() !== '';
       }
 
       function resolveHomepageAsset(value) {
         if (!value) return '';
         const trimmed = String(value).trim();
-        if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('data:')) {
+        if (trimmed.startsWith('data:') || trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
           return trimmed;
         }
         if (trimmed.startsWith('../assets/')) {
@@ -4978,6 +4998,12 @@
         if (trimmed.startsWith('/uploads/')) {
           return 'http://localhost:5000' + trimmed;
         }
+        if (trimmed.startsWith('uploads/')) {
+          return 'http://localhost:5000/' + trimmed;
+        }
+        if (trimmed.startsWith('../uploads/')) {
+          return 'http://localhost:5000/' + trimmed.replace(/^\.\.\//, '');
+        }
         try {
           return new URL(trimmed, HOMEPAGE_API_URL).href;
         } catch (error) {
@@ -4985,20 +5011,80 @@
         }
       }
 
+      function renderTestimonials(reviewsData) {
+        const testTrack = document.getElementById('testimonialTrack') || document.querySelector('.testimonials-grid.desktop-only');
+        if (!testTrack || !Array.isArray(reviewsData) || reviewsData.length === 0) return;
+
+        testTrack.innerHTML = reviewsData.map((rev, idx) => {
+          const rImg = resolveHomepageAsset(rev.image || 'assets/avatar_rohit.jpg') || 'assets/avatar_rohit.jpg';
+          const starsCount = Math.max(1, Math.min(5, Number(rev.rating) || 5));
+          const starColorClass = 'stars-amber';
+          const isFeatured = idx === 1 || (idx > 0 && idx % 2 === 1);
+          const nameColorClass = isFeatured ? 'name-green' : '';
+
+          const starSvg = `<svg class="star-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>`;
+          const starsHtml = starSvg.repeat(starsCount);
+
+          return `
+            <article class="testimonial-card-v2">
+              <div class="testimonial-stars-row ${starColorClass}" aria-label="${starsCount} out of 5 stars">
+                ${starsHtml}
+              </div>
+              <p class="testimonial-quote-v2">${escapeHtml(rev.text || '')}</p>
+              <div class="testimonial-author-row">
+                <img src="${rImg}" alt="${escapeHtml(rev.name || 'Client')}" class="author-avatar" loading="lazy" onerror="this.onerror=null;this.src='assets/avatar_rohit.jpg';">
+                <div class="author-meta">
+                  <span class="author-name ${nameColorClass}">${escapeHtml(rev.name || '')}</span>
+                  <span class="author-role">${escapeHtml(rev.about || '')}</span>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        if (typeof updateTestimonialNavButtons === 'function') {
+          updateTestimonialNavButtons();
+        }
+      }
+
       async function loadHomepageSection() {
+        let section = null;
+
         try {
-          const response = await fetch(HOMEPAGE_API_URL);
+          const response = await fetch(HOMEPAGE_API_URL, { cache: 'no-store' });
           if (!response.ok) {
-            throw new Error(`Homepage request failed with status ${response.status}`);
+            throw new Error(`Homepage sections API request failed (${response.status})`);
           }
 
           const result = await response.json();
           if (!result.success || !Array.isArray(result.data)) {
-            throw new Error('Homepage API returned an invalid response');
+            throw new Error(result.message || 'Homepage sections API returned an invalid response');
           }
 
-          const section = result.data.find(item => item.section_key === 'home' && Number(item.is_active) === 1) || result.data[0];
-          if (!section) return;
+          section = result.data.find(item => item.section_key === 'home' && Number(item.is_active) === 1) || result.data[0];
+          if (section) {
+            try {
+              sessionStorage.setItem('bilabadi_home_data', JSON.stringify(section));
+            } catch (e) {}
+          } else {
+            console.warn('Homepage sections API returned no sections; checking sessionStorage cache.');
+          }
+        } catch (error) {
+          console.warn('API fetch for homepage section failed, checking sessionStorage cache:', error);
+        }
+
+        if (!section) {
+          try {
+            const cached = sessionStorage.getItem('bilabadi_home_data');
+            if (cached) {
+              section = JSON.parse(cached);
+            }
+          } catch (e) {}
+        }
+
+        if (!section) return;
+
+        try {
 
           // 1. Hero Texts & Banner
           const badge = document.getElementById('heroBadge');
@@ -5186,42 +5272,16 @@
 
           // 5. Client Reviews Dynamic Sync
           if (hasHomepageValue(section.client_reviews)) {
-            const reviewsData = typeof section.client_reviews === 'string' ? JSON.parse(section.client_reviews) : section.client_reviews;
-            const testTrack = document.getElementById('testimonialTrack') || document.querySelector('.testimonials-grid.desktop-only');
+            let reviewsData = section.client_reviews;
+            if (typeof reviewsData === 'string') {
+              try {
+                reviewsData = JSON.parse(reviewsData);
+              } catch (e) {
+                reviewsData = [];
+              }
+            }
             if (Array.isArray(reviewsData) && reviewsData.length > 0) {
-              if (testTrack) {
-                testTrack.innerHTML = reviewsData.map((rev, idx) => {
-                  const rImg = resolveHomepageAsset(rev.image || 'assets/avatar_rohit.jpg');
-                  const starsCount = Math.max(1, Math.min(5, Number(rev.rating) || 5));
-                  const isFeatured = idx === 1 || (idx > 0 && idx % 2 === 1);
-                  const starColorClass = 'stars-amber';
-                  const nameColorClass = isFeatured ? 'name-green' : '';
-                  const cardFeaturedClass = isFeatured ? 'featured' : '';
-
-                  const starSvg = `<svg class="star-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>`;
-                  const starsHtml = starSvg.repeat(starsCount);
-
-                  return `
-                    <article class="testimonial-card-v2 ${cardFeaturedClass}">
-                      <div class="testimonial-stars-row ${starColorClass}" aria-label="${starsCount} out of 5 stars">
-                        ${starsHtml}
-                      </div>
-                      <p class="testimonial-quote-v2">${escapeHtml ? escapeHtml(rev.text || '') : (rev.text || '')}</p>
-                      <div class="testimonial-author-row">
-                        <img src="${rImg}" alt="${escapeHtml ? escapeHtml(rev.name || 'Client') : (rev.name || 'Client')}" class="author-avatar" loading="lazy" onerror="this.onerror=null;this.src='assets/avatar_rohit.jpg';">
-                        <div class="author-meta">
-                          <span class="author-name ${nameColorClass}">${escapeHtml ? escapeHtml(rev.name || '') : (rev.name || '')}</span>
-                          <span class="author-role">${escapeHtml ? escapeHtml(rev.about || '') : (rev.about || '')}</span>
-                        </div>
-                      </div>
-                    </article>
-                  `;
-                }).join('');
-              }
-
-              if (typeof updateTestimonialsData === 'function') {
-                updateTestimonialsData(reviewsData);
-              }
+              renderTestimonials(reviewsData);
             }
           }
         } catch (error) {
@@ -5230,6 +5290,226 @@
       }
 
       loadHomepageSection();
+
+      // ==========================================================================
+      // Dynamic Latest Land & Plot Listings (from http://localhost:5000/api/properties)
+      // Sorted in recent to old order (first recent properties will show then old properties)
+      // ==========================================================================
+      function formatListingPrice(price, badge) {
+        if (price === null || price === undefined || String(price).trim() === '') {
+          return '&#8377; Price on Request';
+        }
+        let str = String(price).trim();
+        const isRent = (badge && String(badge).toLowerCase().includes('rent')) || str.toLowerCase().includes('/month');
+        str = str.replace(/₹/g, '').replace(/&#8377;/g, '').replace(/\/month/i, '').trim();
+
+        const num = parseFloat(str.replace(/,/g, ''));
+        let formatted = str;
+        if (!isNaN(num) && /^\d+(\.\d+)?$/.test(str.replace(/,/g, ''))) {
+          formatted = num.toLocaleString('en-IN');
+        }
+
+        const suffix = isRent ? ' <span>/month</span>' : '';
+        return `&#8377; ${formatted}${suffix}`;
+      }
+
+      function resolvePropertyImageUrl(imgPath) {
+        if (!imgPath) return 'assets/cat_residential.webp';
+        const trimmed = String(imgPath).trim();
+        if (trimmed.startsWith('data:') || trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
+          return trimmed;
+        }
+        if (trimmed.startsWith('/uploads/')) {
+          return 'http://localhost:5000' + trimmed;
+        }
+        if (trimmed.startsWith('uploads/')) {
+          return 'http://localhost:5000/' + trimmed;
+        }
+        if (trimmed.startsWith('../assets/')) {
+          return trimmed.replace(/^\.\.\//, '');
+        }
+        if (trimmed.startsWith('assets/')) {
+          return trimmed;
+        }
+        if (trimmed.startsWith('../uploads/')) {
+          return 'http://localhost:5000/' + trimmed.replace(/^\.\.\//, '');
+        }
+        return 'http://localhost:5000/' + trimmed;
+      }
+
+      function renderLatestListings(properties) {
+        const grid = document.getElementById('latestListingsGrid');
+        if (!grid || !Array.isArray(properties) || properties.length === 0) return;
+
+        // Sort in recent to old form: first recent properties will show then old properties
+        const sorted = [...properties].sort((a, b) => {
+          const timeA = a.created_at ? new Date(a.created_at).getTime() : 0;
+          const timeB = b.created_at ? new Date(b.created_at).getTime() : 0;
+          if (timeB !== timeA) {
+            return timeB - timeA; // Descending: newest timestamp first
+          }
+          return (Number(b.id) || 0) - (Number(a.id) || 0); // Descending: highest ID first
+        });
+
+        // Show only 4 products in Latest Land & Plot Listings
+        const top4 = sorted.slice(0, 4);
+
+        grid.innerHTML = top4.map(prop => {
+          const displayPrice = formatListingPrice(prop.price, prop.badge);
+          const imageUrl = resolvePropertyImageUrl(prop.property_image);
+          const title = prop.title || 'Untitled Property';
+          const location = prop.location || 'Bhubaneswar, Odisha';
+          const area = prop.total_plot_area || prop.land_area || prop.area || '1,200 Sq.ft';
+          const facing = prop.facing || prop.bedrooms || prop.availability || 'East Facing';
+          const badge = prop.badge || 'For Sale';
+
+          const viewDetailsUrl = `view-details.html?id=${encodeURIComponent(prop.id)}&title=${encodeURIComponent(title)}&price=${encodeURIComponent(displayPrice)}&loc=${encodeURIComponent(location)}&bhk=${encodeURIComponent(prop.bedrooms || '')}&area=${encodeURIComponent(prop.total_plot_area || prop.area || '')}&status=${encodeURIComponent(prop.availability || 'Ready to Move')}&cat=${encodeURIComponent(prop.category || '')}&img=${encodeURIComponent(imageUrl)}`;
+
+          return `
+            <article class="listing-card" data-id="${escapeHtml(String(prop.id))}">
+              <div class="listing-media">
+                <span class="listing-badge-tag">${escapeHtml(badge)}</span>
+                <a href="${viewDetailsUrl}" style="display:contents;" aria-label="View ${escapeHtml(title)} Details">
+                  <img src="${imageUrl}" alt="${escapeHtml(title)} in ${escapeHtml(location)}" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">
+                </a>
+              </div>
+              <div class="listing-info">
+                <div>
+                  <div class="listing-top-row">
+                    <h3 class="listing-title">
+                      <a href="${viewDetailsUrl}">${escapeHtml(title)}</a>
+                    </h3>
+                  </div>
+                  <div class="listing-location">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>${escapeHtml(location)}</span>
+                  </div>
+                  <div class="listing-price">${displayPrice}</div>
+                </div>
+                <div class="listing-meta-row">
+                  <div class="meta-spec">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                      <line x1="3" y1="9" x2="21" y2="9"></line>
+                    </svg>
+                    <span>${escapeHtml(area)}</span>
+                  </div>
+                  <div class="meta-spec">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="12 2 19 21 12 17 5 21 12 2"></polygon>
+                    </svg>
+                    <span>${escapeHtml(facing)}</span>
+                  </div>
+                </div>
+                <a class="listing-details-link" href="${viewDetailsUrl}">View Details &rarr;</a>
+              </div>
+            </article>
+          `;
+        }).join('');
+      }
+
+      // ==========================================================================
+      // Dynamic Explore Our Best Properties (from http://localhost:5000/api/properties)
+      // Strictly shows properties whose is_best_property is 1 (is_best_property: 0 will NOT show)
+      // Sorted in recent to old order (first recent properties will show then old properties)
+      // ==========================================================================
+      function renderBestProperties(properties) {
+        const grid = document.getElementById('bestPropertiesGrid') || document.querySelector('.categories-section .categories-grid');
+        if (!grid || !Array.isArray(properties) || properties.length === 0) return;
+
+        // Strictly show properties whose is_best_property is 1 (is_best_property: 0 will NOT show)
+        const bestProperties = properties.filter(prop => {
+          return prop.is_best_property === 1 ||
+                 prop.is_best_property === true ||
+                 prop.is_best_property === '1';
+        });
+
+        if (bestProperties.length === 0) {
+          return;
+        }
+
+        // Sort in recent to old order (first recent properties will show then old properties)
+        const sorted = [...bestProperties].sort((a, b) => {
+          const timeA = a.created_at ? new Date(a.created_at).getTime() : 0;
+          const timeB = b.created_at ? new Date(b.created_at).getTime() : 0;
+          if (timeB !== timeA) {
+            return timeB - timeA; // Descending: newest timestamp first
+          }
+          return (Number(b.id) || 0) - (Number(a.id) || 0); // Descending: highest ID first
+        });
+
+        grid.innerHTML = sorted.map(prop => {
+          const displayPrice = formatListingPrice(prop.price, prop.badge);
+          const imageUrl = resolvePropertyImageUrl(prop.property_image);
+          const title = prop.title || prop.category || 'Untitled Property';
+          const location = prop.location || 'Bhubaneswar, Odisha';
+          const badge = prop.badge || 'For Sale';
+
+          const viewDetailsUrl = `view-details.html?id=${encodeURIComponent(prop.id)}&title=${encodeURIComponent(title)}&price=${encodeURIComponent(displayPrice)}&loc=${encodeURIComponent(location)}&bhk=${encodeURIComponent(prop.bedrooms || '')}&area=${encodeURIComponent(prop.total_plot_area || prop.area || '')}&status=${encodeURIComponent(prop.availability || 'Ready to Move')}&cat=${encodeURIComponent(prop.category || '')}&img=${encodeURIComponent(imageUrl)}`;
+
+          return `
+            <article class="prop-card" data-id="${escapeHtml(String(prop.id))}">
+              <div class="prop-img-wrap">
+                <span class="prop-badge">${escapeHtml(badge)}</span>
+                <a href="${viewDetailsUrl}" style="display:contents;" aria-label="View ${escapeHtml(title)} Details">
+                  <img src="${imageUrl}" alt="${escapeHtml(title)} in ${escapeHtml(location)}" loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">
+                </a>
+              </div>
+              <div class="prop-body">
+                <div class="prop-price">${displayPrice}</div>
+                <div class="prop-location">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  ${escapeHtml(location)}
+                </div>
+                <div class="prop-title">
+                  <a href="${viewDetailsUrl}" style="color:inherit; text-decoration:none;">${escapeHtml(title)}</a>
+                </div>
+                <a href="${viewDetailsUrl}" class="btn-view-details">View Details &rarr;</a>
+              </div>
+            </article>
+          `;
+        }).join('');
+      }
+
+      async function loadLatestListings() {
+        try {
+          const res = await fetch('http://localhost:5000/api/properties');
+          if (res.ok) {
+            const json = await res.json();
+            if (json && json.success && Array.isArray(json.data) && json.data.length > 0) {
+              try {
+                sessionStorage.setItem('bilabadi_properties_data', JSON.stringify(json.data));
+              } catch (e) {}
+              renderLatestListings(json.data);
+              renderBestProperties(json.data);
+              return;
+            }
+          }
+        } catch (err) {
+          console.warn('Properties fetch from API offline, checking cache:', err);
+        }
+
+        try {
+          const saved = sessionStorage.getItem('bilabadi_properties_data') || sessionStorage.getItem('bilabadi_admin_properties_data') || localStorage.getItem('bilabadi_properties_data');
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              renderLatestListings(parsed);
+              renderBestProperties(parsed);
+              return;
+            }
+          }
+        } catch (e) {}
+      }
+
+      loadLatestListings();
+      
 
       // Mobile Drawer Toggle
       const mobileToggle = document.getElementById('mobileNavToggle');
@@ -5324,6 +5604,13 @@
       const testPrevBtn = document.getElementById('testimonialsPrevBtn');
       const testNextBtn = document.getElementById('testimonialsNextBtn');
 
+      updateTestimonialNavButtons = function() {
+        if (!testimonialTrack) return;
+        const maxScrollLeft = Math.max(0, testimonialTrack.scrollWidth - testimonialTrack.clientWidth);
+        testPrevBtn && (testPrevBtn.disabled = testimonialTrack.scrollLeft <= 1);
+        testNextBtn && (testNextBtn.disabled = testimonialTrack.scrollLeft >= maxScrollLeft - 1);
+      };
+
       function scrollTestimonials(direction) {
         if (!testimonialTrack) return;
         const firstCard = testimonialTrack.querySelector('.testimonial-card-v2') || testimonialTrack.querySelector('article');
@@ -5331,26 +5618,18 @@
         const style = window.getComputedStyle(testimonialTrack);
         const gap = parseInt(style.gap || '24') || 24;
         const scrollStep = cardWidth + gap;
-
-        if (direction === 'next') {
-          // If scrolled near the end, loop smoothly to start
-          if (testimonialTrack.scrollLeft + testimonialTrack.clientWidth >= testimonialTrack.scrollWidth - 15) {
-            testimonialTrack.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            testimonialTrack.scrollBy({ left: scrollStep, behavior: 'smooth' });
-          }
-        } else {
-          // If scrolled near start, loop smoothly to end
-          if (testimonialTrack.scrollLeft <= 15) {
-            testimonialTrack.scrollTo({ left: testimonialTrack.scrollWidth, behavior: 'smooth' });
-          } else {
-            testimonialTrack.scrollBy({ left: -scrollStep, behavior: 'smooth' });
-          }
-        }
+        const maxScrollLeft = Math.max(0, testimonialTrack.scrollWidth - testimonialTrack.clientWidth);
+        const nextScrollLeft = direction === 'next'
+          ? Math.min(maxScrollLeft, testimonialTrack.scrollLeft + scrollStep)
+          : Math.max(0, testimonialTrack.scrollLeft - scrollStep);
+        testimonialTrack.scrollTo({ left: nextScrollLeft, behavior: 'smooth' });
       }
 
       testNextBtn?.addEventListener('click', () => scrollTestimonials('next'));
       testPrevBtn?.addEventListener('click', () => scrollTestimonials('prev'));
+      testimonialTrack?.addEventListener('scroll', updateTestimonialNavButtons, { passive: true });
+      window.addEventListener('resize', updateTestimonialNavButtons);
+      updateTestimonialNavButtons();
 
       // Keyboard left/right arrow navigation when focused
       testimonialTrack?.addEventListener('keydown', (e) => {
@@ -5364,9 +5643,10 @@
       // Maintain updateTestimonialsData callback for dynamic sync
       updateTestimonialsData = function(apiReviews) {
         if (!Array.isArray(apiReviews) || apiReviews.length === 0) return;
-        // The track was already rendered by the API block; reset scroll position
+        renderTestimonials(apiReviews);
         if (testimonialTrack) {
           testimonialTrack.scrollTo({ left: 0, behavior: 'smooth' });
+          updateTestimonialNavButtons();
         }
       };
 

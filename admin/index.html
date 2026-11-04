@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard | BilaBadi Real Estate</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -66,8 +70,8 @@
       background-size: cover;
       background-position: center right;
       opacity: 0.9;
-      mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
-      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+      mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
       pointer-events: none;
     }
 
@@ -202,6 +206,7 @@
       overflow-x: auto;
       scrollbar-width: none;
     }
+
     .primary-tabs-nav::-webkit-scrollbar {
       display: none;
     }
@@ -255,6 +260,7 @@
       background: #e2e8f0;
       color: #475569;
     }
+
     .primary-tab-btn.active .tab-badge-pill {
       background: #ecfdf5;
       color: #059669;
@@ -271,6 +277,7 @@
       border-bottom: 1px solid #e2e8f0;
       scrollbar-width: none;
     }
+
     .home-subnav-bar::-webkit-scrollbar {
       display: none;
     }
@@ -309,13 +316,21 @@
       display: none;
       animation: fadeIn 0.25s ease-in-out;
     }
+
     .tab-content-pane.active {
       display: block;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Section Cards / Blocks */
@@ -328,6 +343,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
       transition: border-color 0.2s ease;
     }
+
     .section-block-card:hover {
       border-color: #cbd5e1;
     }
@@ -380,11 +396,13 @@
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
+
     .form-grid-3col {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
+
     .form-grid-4col {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -392,7 +410,10 @@
     }
 
     @media (max-width: 900px) {
-      .form-grid-2col, .form-grid-3col, .form-grid-4col {
+
+      .form-grid-2col,
+      .form-grid-3col,
+      .form-grid-4col {
         grid-template-columns: 1fr;
       }
     }
@@ -547,6 +568,7 @@
       cursor: pointer;
       transition: background 0.2s;
     }
+
     .thumb-close-btn:hover {
       background: rgba(220, 38, 38, 0.9);
     }
@@ -567,7 +589,8 @@
       position: relative;
     }
 
-    .dropzone-box:hover, .dropzone-box.drag-over {
+    .dropzone-box:hover,
+    .dropzone-box.drag-over {
       background: #f0fdf4;
       border-color: #10b981;
     }
@@ -577,6 +600,7 @@
       font-weight: 700;
       color: #1e293b;
     }
+
     .dropzone-sub {
       font-size: 11px;
       color: var(--text-muted);
@@ -595,6 +619,7 @@
       gap: 10px;
       transition: all 0.2s ease;
     }
+
     .mini-card-box:hover {
       border-color: #a7f3d0;
       background: #ffffff;
@@ -629,9 +654,30 @@
       justify-content: center;
       transition: all 0.2s;
     }
+
     .btn-delete-mini:hover {
       color: #ef4444;
       background: #fee2e2;
+    }
+
+    .property-accordion-card .btn-delete-mini {
+      width: 36px;
+      height: 36px;
+      padding: 8px;
+      color: #dc2626;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+
+    .property-accordion-card .btn-delete-mini svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .property-accordion-card .btn-delete-mini:hover {
+      color: #b91c1c;
+      background: #fee2e2;
+      border-color: #fca5a5;
     }
 
     /* Cities Grid Cards */
@@ -645,6 +691,7 @@
       padding: 12px 14px;
       transition: all 0.2s ease;
     }
+
     .city-card-item:hover {
       border-color: #10b981;
       box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
@@ -660,6 +707,7 @@
       position: relative;
       background: #0f172a;
     }
+
     .city-thumb-wrap img {
       width: 100%;
       height: 100%;
@@ -685,6 +733,7 @@
       gap: 12px;
       transition: all 0.2s ease;
     }
+
     .testimonial-card-item:hover {
       border-color: #10b981;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
@@ -706,6 +755,7 @@
       flex-shrink: 0;
       background: #0f172a;
     }
+
     .client-avatar-wrap img {
       width: 100%;
       height: 100%;
@@ -796,6 +846,7 @@
       cursor: pointer;
       transition: all 0.2s;
     }
+
     .btn-browse-file:hover {
       background: #f1f5f9;
       border-color: #94a3b8;
@@ -843,6 +894,7 @@
       cursor: pointer;
       transition: all 0.2s;
     }
+
     .btn-add-subprop:hover {
       background: #047857;
     }
@@ -874,7 +926,8 @@
       color: #0f172a;
     }
 
-    .subprop-input, .subprop-select {
+    .subprop-input,
+    .subprop-select {
       width: 100%;
       height: 38px;
       border: 1.5px solid #cbd5e1;
@@ -886,7 +939,9 @@
       color: #0f172a;
       background: #ffffff;
     }
-    .subprop-input:focus, .subprop-select:focus {
+
+    .subprop-input:focus,
+    .subprop-select:focus {
       border-color: #10b981;
     }
 
@@ -911,7 +966,9 @@
       cursor: pointer;
       transition: all 0.2s;
     }
-    .subprop-multi-dropzone:hover, .subprop-multi-dropzone.drag-over {
+
+    .subprop-multi-dropzone:hover,
+    .subprop-multi-dropzone.drag-over {
       background: #ecfdf5;
       border-color: #10b981;
     }
@@ -933,6 +990,7 @@
       flex-shrink: 0;
       border: 1.5px solid #cbd5e1;
     }
+
     .subprop-thumb-item img {
       width: 100%;
       height: 100%;
@@ -956,6 +1014,88 @@
       justify-content: center;
     }
 
+    /* Best Property Button & Badges */
+    .btn-mark-best-prop {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      color: #059669;
+      border: 1.5px solid #10b981;
+      border-radius: 9999px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .btn-mark-best-prop:hover {
+      background: #ecfdf5;
+      border-color: #059669;
+    }
+
+    .btn-mark-best-prop.active {
+      background: #fef3c7;
+      color: #b45309;
+      border-color: #f59e0b;
+      box-shadow: 0 1px 4px rgba(245, 158, 11, 0.2);
+    }
+
+    .btn-mark-best-prop.active:hover {
+      background: #fde68a;
+      border-color: #d97706;
+    }
+
+    .badge-best-prop {
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 1px 2px rgba(245, 158, 11, 0.1);
+    }
+
+    .btn-toggle-best-star {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #f8fafc;
+      color: #64748b;
+      border: 1px solid #cbd5e1;
+      border-radius: 9999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-toggle-best-star:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+      color: #334155;
+    }
+
+    .btn-toggle-best-star.active {
+      background: #fef3c7;
+      color: #b45309;
+      border-color: #fde68a;
+      font-weight: 800;
+    }
+
+    .btn-toggle-best-star.active:hover {
+      background: #fde68a;
+      color: #92400e;
+    }
+
     /* Property Accordion Card */
     .property-accordion-card {
       background: #ffffff;
@@ -965,6 +1105,7 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
       transition: all 0.2s ease;
     }
+
     .property-accordion-card.open {
       border-color: #a7f3d0;
       box-shadow: 0 4px 16px rgba(16, 185, 129, 0.08);
@@ -979,6 +1120,7 @@
       background: #ffffff;
       gap: 12px;
     }
+
     .prop-header-bar:hover {
       background: #fbfdfb;
     }
@@ -1033,6 +1175,7 @@
       flex-direction: column;
       gap: 16px;
     }
+
     .property-accordion-card.open .prop-body-wrap {
       display: flex;
     }
@@ -1048,6 +1191,7 @@
       align-items: flex-start;
       transition: all 0.2s ease;
     }
+
     .blog-post-card:hover {
       border-color: #10b981;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
@@ -1072,6 +1216,7 @@
       gap: 10px;
       transition: all 0.2s;
     }
+
     .service-item-card:hover {
       border-color: #10b981;
       box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
@@ -1090,6 +1235,7 @@
       font-size: 13px;
       text-align: left;
     }
+
     .inquiry-table th {
       background: #f8fafc;
       padding: 12px 14px;
@@ -1097,6 +1243,7 @@
       color: #334155;
       border-bottom: 1.5px solid #e2e8f0;
     }
+
     .inquiry-table td {
       padding: 12px 14px;
       border-bottom: 1px solid #f1f5f9;
@@ -1137,6 +1284,7 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
+
     .btn-reset:hover {
       background: #e2e8f0;
       color: #0f172a;
@@ -1158,6 +1306,7 @@
       box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28);
       transition: all 0.2s ease;
     }
+
     .btn-save:hover {
       background: linear-gradient(135deg, #047857 0%, #065f46 100%);
       transform: translateY(-1px);
@@ -1178,6 +1327,7 @@
       cursor: pointer;
       transition: all 0.2s;
     }
+
     .btn-add-primary:hover {
       background: #047857;
     }
@@ -1210,6 +1360,7 @@
       transition: all 0.25s ease;
       pointer-events: auto;
     }
+
     .toast-message.show {
       opacity: 1;
       transform: translateY(0);
@@ -1220,16 +1371,20 @@
         padding: 20px;
         height: 140px;
       }
+
       .main-wrapper {
         padding: 0 16px;
         margin-top: -45px;
       }
+
       .admin-card {
         padding: 22px 18px;
       }
+
       .blog-post-card {
         flex-direction: column;
       }
+
       .blog-cover-thumb {
         width: 100%;
         height: 140px;
@@ -1237,6 +1392,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Top Banner Header -->
@@ -1244,10 +1400,10 @@
     <div class="admin-header-bg-img"></div>
     <a href="../index.html" class="brand-container" aria-label="BilaBadi Real Estate">
       <svg class="brand-logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="44" height="44" rx="10" fill="#15803d"/>
-        <path d="M22 8L7 20H13V34H31V20H37L22 8Z" fill="#22c55e"/>
-        <path d="M22 17L14 23.5V30H30V23.5L22 17Z" fill="#15803d"/>
-        <circle cx="22" cy="24" r="3" fill="#ffffff"/>
+        <rect width="44" height="44" rx="10" fill="#15803d" />
+        <path d="M22 8L7 20H13V34H31V20H37L22 8Z" fill="#22c55e" />
+        <path d="M22 17L14 23.5V30H30V23.5L22 17Z" fill="#15803d" />
+        <circle cx="22" cy="24" r="3" fill="#ffffff" />
       </svg>
       <div class="brand-text-col">
         <span class="brand-title">BilaBadi</span>
@@ -1259,12 +1415,13 @@
   <!-- Main Content Card -->
   <main class="main-wrapper">
     <div class="admin-card">
-      
+
       <!-- Card Title Bar -->
       <div class="card-title-bar">
         <div class="title-left-side">
           <div class="add-icon-badge">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="3" width="7" height="7"></rect>
               <rect x="14" y="3" width="7" height="7"></rect>
               <rect x="14" y="14" width="7" height="7"></rect>
@@ -1273,11 +1430,13 @@
           </div>
           <div class="card-title-text">
             <h1 id="pageHeadingTitle">Admin Dashboard</h1>
-            <p id="pageHeadingDesc">Manage Homepage Sections, Properties, Blog Articles, Services, and Contact details.</p>
+            <p id="pageHeadingDesc">Manage Homepage Sections, Properties, Blog Articles, Services, and Contact details.
+            </p>
           </div>
         </div>
         <a href="../index.html" target="_blank" class="btn-view-site" title="Open live homepage in a new tab">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
             <polyline points="15 3 21 3 21 9"></polyline>
             <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -1316,32 +1475,44 @@
            TAB 1: HOME SECTION (Top Banner, Top Texts, 4 Cards, Why Choose BilaBadi, Popular Cities, What Our Client Say)
            ============================================================== -->
       <section id="tab-home" class="tab-content-pane active">
-        
+
         <!-- Home Subnav Anchors -->
         <div class="home-subnav-bar">
-          <button type="button" class="home-subnav-pill active" onclick="scrollToHomeSub('sec-top-banner', this)">1. Top Banner</button>
-          <button type="button" class="home-subnav-pill" onclick="scrollToHomeSub('sec-top-texts', this)">2. Top Texts</button>
-          <button type="button" class="home-subnav-pill" onclick="scrollToHomeSub('sec-four-cards', this)">3. 4 Badges Cards</button>
-          <button type="button" class="home-subnav-pill" onclick="scrollToHomeSub('sec-why-choose', this)">4. Why Choose BilaBadi &amp; 4 Cards</button>
-          <button type="button" class="home-subnav-pill" onclick="scrollToHomeSub('sec-popular-cities', this)">5. Popular Cities</button>
-          <button type="button" class="home-subnav-pill" onclick="scrollToHomeSub('sec-client-reviews', this)">6. What Our Client Say</button>
+          <button type="button" class="home-subnav-pill active" onclick="scrollToHomeSub('sec-top-banner', this)">1. Top
+            Banner</button>
+          <button type="button" class="home-subnav-pill" onclick="scrollToHomeSub('sec-top-texts', this)">2. Top
+            Texts</button>
+          <button type="button" class="home-subnav-pill" onclick="scrollToHomeSub('sec-four-cards', this)">3. 4 Badges
+            Cards</button>
+          <button type="button" class="home-subnav-pill" onclick="scrollToHomeSub('sec-why-choose', this)">4. Why Choose
+            BilaBadi &amp; 4 Cards</button>
+          <button type="button" class="home-subnav-pill" onclick="scrollToHomeSub('sec-popular-cities', this)">5.
+            Popular Cities</button>
+          <button type="button" class="home-subnav-pill" onclick="scrollToHomeSub('sec-client-reviews', this)">6. What
+            Our Client Say</button>
         </div>
 
-        <form id="homeSectionForm" onsubmit="event.preventDefault(); saveHomeSection();">
+        <form id="homeSectionForm" onsubmit="saveHomeSection(event)">
 
           <!-- 1. TOP BANNER -->
           <div class="section-block-card" id="sec-top-banner">
             <div class="section-block-header">
               <div class="block-header-left">
                 <div class="block-icon-circle">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
                 </div>
                 <div>
                   <h3 class="block-header-title">1. Top Banner</h3>
-                  <p class="block-header-desc">Banner background image, banner overlay, button link and top banner options</p>
+                  <p class="block-header-desc">Banner background image, banner overlay, button link and top banner
+                    options</p>
                 </div>
               </div>
-              <span class="tab-badge-pill" style="background:#ecfdf5; color:#059669; padding:4px 10px; font-size:12px;">Home Hero Banner</span>
+              <span class="tab-badge-pill"
+                style="background:#ecfdf5; color:#059669; padding:4px 10px; font-size:12px;">Home Hero Banner</span>
             </div>
 
             <!-- Banner Image Upload -->
@@ -1350,13 +1521,20 @@
               <div class="image-picker-duo">
                 <div class="image-preview-thumb" id="bannerThumbBox">
                   <img id="bannerThumbImg" src="../assets/home-hero-bg.webp" alt="Top Banner Preview">
-                  <button type="button" class="thumb-close-btn" onclick="clearBannerImage()" title="Remove banner image">&times;</button>
+                  <button type="button" class="thumb-close-btn" onclick="clearBannerImage()"
+                    title="Remove banner image">&times;</button>
                 </div>
                 <div class="dropzone-box" onclick="document.getElementById('bannerFileInput').click()">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path><polyline points="12 12 12 17"></polyline><polyline points="9 14 12 11 15 14"></polyline></svg>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                    <polyline points="12 12 12 17"></polyline>
+                    <polyline points="9 14 12 11 15 14"></polyline>
+                  </svg>
                   <div class="dropzone-title">Upload Top Banner Image</div>
-                  <div class="dropzone-sub">Click or drag &amp; drop (JPG, PNG, WebP &mdash; recommended: 1920x800)</div>
-                  <input type="file" id="bannerFileInput" accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleBannerUpload(event)">
+                  <div class="dropzone-sub">Click or drag &amp; drop (JPG, PNG, WebP &mdash; recommended: 1920x800)
+                  </div>
+                  <input type="file" id="bannerFileInput" accept="image/jpeg,image/png,image/webp" style="display:none;"
+                    onchange="handleBannerUpload(event)">
                 </div>
               </div>
             </div>
@@ -1391,11 +1569,16 @@
             <div class="section-block-header">
               <div class="block-header-left">
                 <div class="block-icon-circle">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                    <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                    <line x1="9" y1="20" x2="15" y2="20"></line>
+                    <line x1="12" y1="4" x2="12" y2="20"></line>
+                  </svg>
                 </div>
                 <div>
                   <h3 class="block-header-title">2. Top Texts</h3>
-                  <p class="block-header-desc">Hero badge eyebrow, main headline title, green typewriter phrases and descriptive paragraph</p>
+                  <p class="block-header-desc">Hero badge eyebrow, main headline title, green typewriter phrases and
+                    descriptive paragraph</p>
                 </div>
               </div>
             </div>
@@ -1421,7 +1604,8 @@
               <label class="field-label">Top Main Heading / Title <span class="req-star">*</span></label>
               <div class="input-box">
                 <span class="input-icon-left">📢</span>
-                <input type="text" id="topTitleInput" class="input-field" value="Buy, Sell or Rent Land &amp; Commercial Spaces" required>
+                <input type="text" id="topTitleInput" class="input-field"
+                  value="Buy, Sell or Rent Land &amp; Commercial Spaces" required>
               </div>
             </div>
 
@@ -1429,7 +1613,8 @@
               <label class="field-label">Top Description Paragraph</label>
               <div class="input-box textarea-box">
                 <span class="input-icon-left">📝</span>
-                <textarea id="topDescInput" class="textarea-field" rows="2">Explore verified plots, agricultural land, commercial land and investment opportunities &ndash; all in one place.</textarea>
+                <textarea id="topDescInput" class="textarea-field"
+                  rows="2">Explore verified plots, agricultural land, commercial land and investment opportunities &ndash; all in one place.</textarea>
               </div>
             </div>
           </div>
@@ -1439,7 +1624,12 @@
             <div class="section-block-header">
               <div class="block-header-left">
                 <div class="block-icon-circle">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                  </svg>
                 </div>
                 <div>
                   <h3 class="block-header-title">3. 4 Cards (Trust Highlights)</h3>
@@ -1459,11 +1649,14 @@
             <div class="section-block-header">
               <div class="block-header-left">
                 <div class="block-icon-circle">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
                 </div>
                 <div>
                   <h3 class="block-header-title">4. Why Choose BilaBadi Part</h3>
-                  <p class="block-header-desc">Why Choose BilaBadi texts paragraph, image, badge and its 4 feature cards</p>
+                  <p class="block-header-desc">Why Choose BilaBadi texts paragraph, image, badge and its 4 feature cards
+                  </p>
                 </div>
               </div>
             </div>
@@ -1483,7 +1676,8 @@
                   <label class="field-label">Section Title <span class="req-star">*</span></label>
                   <div class="input-box">
                     <span class="input-icon-left">⭐</span>
-                    <input type="text" id="whyTitleInput" class="input-field" value="Your Trusted Real Estate Partner" required>
+                    <input type="text" id="whyTitleInput" class="input-field" value="Your Trusted Real Estate Partner"
+                      required>
                   </div>
                 </div>
 
@@ -1491,7 +1685,8 @@
                   <label class="field-label">Texts Paragraph <span class="req-star">*</span></label>
                   <div class="input-box textarea-box" style="min-height:92px;">
                     <span class="input-icon-left">📄</span>
-                    <textarea id="whyDescInput" class="textarea-field" rows="3" required>We make buying, selling, and renting properties simple, secure, and stress-free. With years of experience and a wide range of listings, we help you find the perfect property for your lifestyle and investment goals.</textarea>
+                    <textarea id="whyDescInput" class="textarea-field" rows="3"
+                      required>We make buying, selling, and renting properties simple, secure, and stress-free. With years of experience and a wide range of listings, we help you find the perfect property for your lifestyle and investment goals.</textarea>
                   </div>
                 </div>
 
@@ -1521,10 +1716,15 @@
                     <img id="whyImgPreview" src="../assets/about-us.webp" alt="Why Choose BilaBadi">
                   </div>
                   <div class="dropzone-box" onclick="document.getElementById('whyFileInput').click()">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
                     <div class="dropzone-title">Upload Why Choose Image</div>
                     <div class="dropzone-sub">Upload showcase photo or select WebP/JPG</div>
-                    <input type="file" id="whyFileInput" accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleWhyImageUpload(event)">
+                    <input type="file" id="whyFileInput" accept="image/jpeg,image/png,image/webp" style="display:none;"
+                      onchange="handleWhyImageUpload(event)">
                   </div>
                 </div>
               </div>
@@ -1532,8 +1732,11 @@
 
             <!-- Why Choose 4 Feature Cards -->
             <div style="margin-top: 10px;">
-              <h4 style="font-size: 14.5px; font-weight: 800; color: #064e3b; margin-bottom: 12px; display:flex; align-items:center; gap:6px;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <h4
+                style="font-size: 14.5px; font-weight: 800; color: #064e3b; margin-bottom: 12px; display:flex; align-items:center; gap:6px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
                 Why Choose BilaBadi: 4 Feature Cards
               </h4>
               <div class="form-grid-4col" id="whyCardsContainer">
@@ -1547,7 +1750,10 @@
             <div class="section-block-header">
               <div class="block-header-left">
                 <div class="block-icon-circle">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
                 </div>
                 <div>
                   <h3 class="block-header-title">5. Popular Cities</h3>
@@ -1558,24 +1764,30 @@
             </div>
 
             <!-- Add City Form Mini Card -->
-            <div style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:18px; margin-bottom:18px;" id="addCityFormWrap">
-              <div style="font-size:13.5px; font-weight:800; color:#064e3b; margin-bottom:10px;">+ Add New Popular City</div>
+            <div
+              style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:18px; margin-bottom:18px;"
+              id="addCityFormWrap">
+              <div style="font-size:13.5px; font-weight:800; color:#064e3b; margin-bottom:10px;">+ Add New Popular City
+              </div>
               <div class="form-grid-3col">
                 <div class="form-group">
                   <label class="field-label">City Name Field <span class="req-star">*</span></label>
                   <input type="text" id="newCityName" class="subprop-input" placeholder="e.g. Delhi / NCR">
                 </div>
                 <div class="form-group">
-                  <label class="field-label">Text Field (Property Count / Subtext) <span class="req-star">*</span></label>
+                  <label class="field-label">Text Field (Property Count / Subtext) <span
+                      class="req-star">*</span></label>
                   <input type="text" id="newCityText" class="subprop-input" placeholder="e.g. 171,000+ Properties">
                 </div>
                 <div class="form-group">
                   <label class="field-label">Image Field (Upload or Path)</label>
                   <div style="display:flex; gap:8px;">
-                    <input type="text" id="newCityImgPath" class="subprop-input" value="../assets/city_delhi.jpg" placeholder="Image URL / Path">
+                    <input type="text" id="newCityImgPath" class="subprop-input" value="../assets/city_delhi.jpg"
+                      placeholder="Image URL / Path">
                     <label class="btn-browse-file" style="padding:6px 12px; white-space:nowrap;">
                       Browse
-                      <input type="file" accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleNewCityImageUpload(event)">
+                      <input type="file" accept="image/jpeg,image/png,image/webp" style="display:none;"
+                        onchange="handleNewCityImageUpload(event)">
                     </label>
                   </div>
                 </div>
@@ -1596,19 +1808,25 @@
             <div class="section-block-header">
               <div class="block-header-left">
                 <div class="block-icon-circle">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
                 </div>
                 <div>
                   <h3 class="block-header-title">6. What Our Client Say Part</h3>
-                  <p class="block-header-desc">Customer reviews with image, rating, text quote, client name, and about field</p>
+                  <p class="block-header-desc">Customer reviews with image, rating, text quote, client name, and about
+                    field</p>
                 </div>
               </div>
               <button type="button" class="btn-add-primary" onclick="focusAddReview()">+ Add Client Review</button>
             </div>
 
             <!-- Add Review Form Card -->
-            <div style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:18px; margin-bottom:18px;" id="addReviewFormWrap">
-              <div style="font-size:13.5px; font-weight:800; color:#064e3b; margin-bottom:10px;">+ Add Client Review</div>
+            <div
+              style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:18px; margin-bottom:18px;"
+              id="addReviewFormWrap">
+              <div style="font-size:13.5px; font-weight:800; color:#064e3b; margin-bottom:10px;">+ Add Client Review
+              </div>
               <div class="form-grid-3col" style="margin-bottom:12px;">
                 <div class="form-group">
                   <label class="field-label">Name Field <span class="req-star">*</span></label>
@@ -1630,17 +1848,22 @@
 
               <div class="form-grid-2col">
                 <div class="form-group">
-                  <label class="field-label">Text Field (Quote / Review Paragraph) <span class="req-star">*</span></label>
-                  <textarea id="newRevText" class="subprop-input" style="height:70px; padding:8px;" placeholder="Enter client testimonial quote..."></textarea>
+                  <label class="field-label">Text Field (Quote / Review Paragraph) <span
+                      class="req-star">*</span></label>
+                  <textarea id="newRevText" class="subprop-input" style="height:70px; padding:8px;"
+                    placeholder="Enter client testimonial quote..."></textarea>
                 </div>
                 <div class="form-group">
                   <label class="field-label">Image Field (Avatar Photo)</label>
                   <div style="display:flex; gap:10px; align-items:center;">
-                    <img id="newRevAvatarPreview" src="../assets/avatar_rohit.jpg" style="width:48px; height:48px; border-radius:50%; object-fit:cover; border:2px solid #10b981;">
-                    <input type="text" id="newRevAvatarPath" class="subprop-input" value="../assets/avatar_rohit.jpg" style="flex:1;">
+                    <img id="newRevAvatarPreview" src="../assets/avatar_rohit.jpg"
+                      style="width:48px; height:48px; border-radius:50%; object-fit:cover; border:2px solid #10b981;">
+                    <input type="text" id="newRevAvatarPath" class="subprop-input" value="../assets/avatar_rohit.jpg"
+                      style="flex:1;">
                     <label class="btn-browse-file" style="padding:8px 14px; white-space:nowrap;">
                       Browse
-                      <input type="file" accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleNewReviewAvatar(event)">
+                      <input type="file" accept="image/jpeg,image/png,image/webp" style="display:none;"
+                        onchange="handleNewReviewAvatar(event)">
                     </label>
                   </div>
                 </div>
@@ -1660,8 +1883,12 @@
           <!-- Bottom Save Bar for Home Section -->
           <div class="form-actions-row">
             <button type="button" class="btn-reset" onclick="resetHomeSectionDefaults()">Reset Home Section</button>
-            <button type="submit" class="btn-save">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            <button type="button" class="btn-save" onclick="saveHomeSection()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                <polyline points="7 3 7 8 15 8"></polyline>
+              </svg>
               <span>Save Home Section</span>
             </button>
           </div>
@@ -1674,16 +1901,20 @@
            TAB 2: PROPERTIES (Best Properties)
            ============================================================== -->
       <section id="tab-properties" class="tab-content-pane">
-        
+
         <div class="section-block-card">
           <div class="section-block-header">
             <div class="block-header-left">
               <div class="block-icon-circle">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
               </div>
               <div>
                 <h3 class="block-header-title">Properties Manager</h3>
-                <p class="block-header-desc">Manage verified residential plots, farmlands, and commercial properties.</p>
+                <p class="block-header-desc">Manage verified residential plots, farmlands, and commercial properties.
+                </p>
               </div>
             </div>
             <button type="button" class="btn-add-primary" onclick="focusAddPropertyForm()">+ Add Property</button>
@@ -1694,14 +1925,23 @@
             <div class="add-property-form-header">
               <div class="add-property-form-title">
                 <div class="add-property-icon-pill">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
                 </div>
                 <div>
                   <h4 style="font-size:15px; font-weight:800; color:#064e3b; margin:0;">Add One Property</h4>
-                  <p style="font-size:12px; color:#059669; margin:0;">Enter comprehensive property listing details (dimensions, specs, contact, description &amp; gallery)</p>
+                  <p style="font-size:12px; color:#059669; margin:0;">Enter comprehensive property listing details
+                    (dimensions, specs, contact, description &amp; gallery)</p>
                 </div>
               </div>
-              <span class="tab-badge-pill" style="background:#ecfdf5; color:#059669;">Property Form</span>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <button type="button" class="btn-mark-best-prop" id="draftMarkBestBtn" onclick="toggleDraftBestProperty()">
+                  <span id="draftStarIcon">☆</span> <span id="draftBestText">Mark as Best Property</span>
+                </button>
+                <span class="tab-badge-pill" style="background:#ecfdf5; color:#059669;">Property Form</span>
+              </div>
             </div>
 
             <div style="display:flex; flex-direction:column; gap:16px;">
@@ -1709,7 +1949,8 @@
               <div class="form-grid-3col">
                 <div class="form-group">
                   <label class="field-label">Property Title / Project Name <span class="req-star">*</span></label>
-                  <input type="text" id="draftPropTitle" class="subprop-input" placeholder="e.g. Greenfield Luxury Enclave">
+                  <input type="text" id="draftPropTitle" class="subprop-input"
+                    placeholder="e.g. Greenfield Luxury Enclave">
                 </div>
                 <div class="form-group">
                   <label class="field-label">Category / Type</label>
@@ -1737,7 +1978,8 @@
               <div class="form-grid-3col">
                 <div class="form-group">
                   <label class="field-label">Location (City, State)</label>
-                  <input type="text" id="draftPropLocation" class="subprop-input" placeholder="e.g. Bhubaneswar, Odisha">
+                  <input type="text" id="draftPropLocation" class="subprop-input"
+                    placeholder="e.g. Bhubaneswar, Odisha">
                 </div>
                 <div class="form-group">
                   <label class="field-label">Starting Price</label>
@@ -1862,26 +2104,30 @@
                 </div>
                 <div class="form-group">
                   <label class="field-label">Amenities</label>
-                  <input type="text" id="draftPropAmenities" class="subprop-input" placeholder="e.g. Gated Security, Clubhouse, Park, CCTV">
+                  <input type="text" id="draftPropAmenities" class="subprop-input"
+                    placeholder="e.g. Gated Security, Clubhouse, Park, CCTV">
                 </div>
               </div>
 
               <!-- Description -->
               <div class="form-group">
                 <label class="field-label">Description</label>
-                <textarea id="draftPropDescription" class="subprop-input" style="height:70px; padding:8px 10px;" placeholder="Enter property description, prime landmarks, connectivity..."></textarea>
+                <textarea id="draftPropDescription" class="subprop-input" style="height:70px; padding:8px 10px;"
+                  placeholder="Enter property description, prime landmarks, connectivity..."></textarea>
               </div>
 
               <!-- Property Cover Image -->
               <div class="property-cover-row">
-                <img id="draftPropImgPreview" src="../assets/cat_residential.webp" alt="Property Cover" class="cover-thumb-preview">
+                <img id="draftPropImgPreview" src="../assets/cat_residential.webp" alt="Property Cover"
+                  class="cover-thumb-preview">
                 <div style="flex:1;">
                   <div style="font-size:13px; font-weight:700; color:#0f172a;">Property Main Cover Image (WebP)</div>
                   <div style="font-size:11.5px; color:#64748b;">Primary display cover for this property listing</div>
                 </div>
                 <label class="btn-browse-file">
                   Browse Cover
-                  <input type="file" id="draftPropCoverInput" accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleDraftPropertyCoverUpload(event)">
+                  <input type="file" id="draftPropCoverInput" accept="image/jpeg,image/png,image/webp"
+                    style="display:none;" onchange="handleDraftPropertyCoverUpload(event)">
                 </label>
               </div>
 
@@ -1889,28 +2135,35 @@
               <div class="subprop-multi-image-container">
                 <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px;">
                   <div style="font-size:12.5px; font-weight:700; color:#064e3b;">
-                    Property Sub-Images (<span id="draftPropSubImagesCount">0</span> Photos) &mdash; Takes Multiple Images
+                    Property Sub-Images (<span id="draftPropSubImagesCount">0</span> Photos) &mdash; Takes Multiple
+                    Images
                   </div>
                   <span style="font-size:11px; color:#059669;">Hold Ctrl/Shift to choose multiple files</span>
                 </div>
-                <div class="subprop-multi-dropzone" onclick="document.getElementById('draftPropSubImagesInput').click()">
+                <div class="subprop-multi-dropzone"
+                  onclick="document.getElementById('draftPropSubImagesInput').click()">
                   <span style="font-size:18px;">📷</span>
-                  <span style="font-size:12px; font-weight:600; color:#065f46;">+ Click to select multiple sub-images for this property</span>
+                  <span style="font-size:12px; font-weight:600; color:#065f46;">+ Click to select multiple sub-images
+                    for this property</span>
                 </div>
-                <input type="file" id="draftPropSubImagesInput" multiple accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleDraftSubImagesUpload(event)">
+                <input type="file" id="draftPropSubImagesInput" multiple accept="image/jpeg,image/png,image/webp"
+                  style="display:none;" onchange="handleDraftSubImagesUpload(event)">
                 <div id="draftPropSubImagesStrip" class="subprop-gallery-strip" style="display:none;"></div>
               </div>
 
-              <div style="display:flex; align-items:center; justify-content:space-between; padding-top:12px; border-top:1.5px solid #e2e8f0;">
+              <div
+                style="display:flex; align-items:center; justify-content:space-between; padding-top:12px; border-top:1.5px solid #e2e8f0;">
                 <button type="button" class="btn-reset" onclick="resetDraftPropertyForm()">Clear Form</button>
-                <button type="button" class="btn-save" onclick="submitDraftProperty()">✓ Save &amp; Add This Property</button>
+                <button type="button" class="btn-save" onclick="submitDraftProperty()">✓ Save &amp; Add This
+                  Property</button>
               </div>
             </div>
           </div>
 
           <!-- Existing Properties Accordion List -->
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-            <h4 style="font-size:15px; font-weight:800; color:#0f172a;" id="existingPropsHeading">Existing Properties (<span id="existingPropsCount">0</span>)</h4>
+            <h4 style="font-size:15px; font-weight:800; color:#0f172a;" id="existingPropsHeading">Existing Properties
+              (<span id="existingPropsCount">0</span>)</h4>
             <span style="font-size:12px; color:#64748b;">Click any property below to expand and edit details</span>
           </div>
 
@@ -1931,28 +2184,36 @@
            TAB 3: BLOG (Title, Category, Cover Image and Content)
            ============================================================== -->
       <section id="tab-blog" class="tab-content-pane">
-        
+
         <div class="section-block-card">
           <div class="section-block-header">
             <div class="block-header-left">
               <div class="block-icon-circle">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
               </div>
               <div>
                 <h3 class="block-header-title">Blog Articles Manager</h3>
-                <p class="block-header-desc">Manage real estate blog articles with title, category, cover image, and full content</p>
+                <p class="block-header-desc">Manage real estate blog articles with title, category, cover image, and
+                  full content</p>
               </div>
             </div>
             <button type="button" class="btn-add-primary" onclick="focusAddBlog()">+ Add Blog Article</button>
           </div>
 
           <!-- Add Blog Post Form Card -->
-          <div style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:20px; margin-bottom:24px;" id="addBlogCardWrap">
-            <div style="font-size:14.5px; font-weight:800; color:#064e3b; margin-bottom:12px;">+ Add New Blog Article</div>
+          <div
+            style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:20px; margin-bottom:24px;"
+            id="addBlogCardWrap">
+            <div style="font-size:14.5px; font-weight:800; color:#064e3b; margin-bottom:12px;">+ Add New Blog Article
+            </div>
             <div class="form-grid-2col" style="margin-bottom:14px;">
               <div class="form-group">
                 <label class="field-label">Article Title <span class="req-star">*</span></label>
-                <input type="text" id="newBlogTitle" class="subprop-input" placeholder="e.g. Online Property Tax in Andhra Pradesh: How to Pay House Tax">
+                <input type="text" id="newBlogTitle" class="subprop-input"
+                  placeholder="e.g. Online Property Tax in Andhra Pradesh: How to Pay House Tax">
               </div>
               <div class="form-group">
                 <label class="field-label">Category <span class="req-star">*</span></label>
@@ -1970,14 +2231,18 @@
             <!-- Cover Image Upload -->
             <div class="form-group" style="margin-bottom:14px;">
               <label class="field-label">Cover Image <span class="req-star">*</span></label>
-              <div style="display:flex; align-items:center; gap:14px; background:#fff; border:1.5px solid #cbd5e1; border-radius:10px; padding:10px 14px;">
-                <img id="newBlogCoverPreview" src="../assets/blog_hero_tiruppur.jpg" style="width:100px; height:65px; border-radius:8px; object-fit:cover; border:1px solid #cbd5e1;">
+              <div
+                style="display:flex; align-items:center; gap:14px; background:#fff; border:1.5px solid #cbd5e1; border-radius:10px; padding:10px 14px;">
+                <img id="newBlogCoverPreview" src="../assets/blog_hero_tiruppur.jpg"
+                  style="width:100px; height:65px; border-radius:8px; object-fit:cover; border:1px solid #cbd5e1;">
                 <div style="flex:1;">
-                  <input type="text" id="newBlogCoverPath" class="subprop-input" value="../assets/blog_hero_tiruppur.jpg" placeholder="Cover image path / URL">
+                  <input type="text" id="newBlogCoverPath" class="subprop-input"
+                    value="../assets/blog_hero_tiruppur.jpg" placeholder="Cover image path / URL">
                 </div>
                 <label class="btn-browse-file">
                   Browse Cover
-                  <input type="file" accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleNewBlogCover(event)">
+                  <input type="file" accept="image/jpeg,image/png,image/webp" style="display:none;"
+                    onchange="handleNewBlogCover(event)">
                 </label>
               </div>
             </div>
@@ -1985,7 +2250,8 @@
             <!-- Content Area -->
             <div class="form-group" style="margin-bottom:14px;">
               <label class="field-label">Article Content / Summary <span class="req-star">*</span></label>
-              <textarea id="newBlogContent" class="subprop-input" style="height:110px; padding:10px;" placeholder="Write or paste complete blog post content or overview..."></textarea>
+              <textarea id="newBlogContent" class="subprop-input" style="height:110px; padding:10px;"
+                placeholder="Write or paste complete blog post content or overview..."></textarea>
             </div>
 
             <div class="form-grid-2col">
@@ -2000,13 +2266,15 @@
             </div>
 
             <div style="display:flex; justify-content:flex-end; margin-top:14px;">
-              <button type="button" class="btn-add-primary" onclick="addNewBlogPost()">✓ Save &amp; Publish Article</button>
+              <button type="button" class="btn-add-primary" onclick="addNewBlogPost()">✓ Save &amp; Publish
+                Article</button>
             </div>
           </div>
 
           <!-- Existing Blog Posts List -->
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
-            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Existing Blog Articles (<span id="existingBlogCount">0</span>)</h4>
+            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Existing Blog Articles (<span
+                id="existingBlogCount">0</span>)</h4>
           </div>
 
           <div id="blogArticlesListContainer" style="display:flex; flex-direction:column; gap:16px;">
@@ -2026,16 +2294,22 @@
            TAB 4: SERVICES (Service Cards, Titles, Descriptions, Icons, Links)
            ============================================================== -->
       <section id="tab-services" class="tab-content-pane">
-        
+
         <div class="section-block-card">
           <div class="section-block-header">
             <div class="block-header-left">
               <div class="block-icon-circle">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                  </path>
+                </svg>
               </div>
               <div>
                 <h3 class="block-header-title">Services Manager</h3>
-                <p class="block-header-desc">Manage BilaBadi real estate service offerings, icons, descriptions, and action links</p>
+                <p class="block-header-desc">Manage BilaBadi real estate service offerings, icons, descriptions, and
+                  action links</p>
               </div>
             </div>
             <button type="button" class="btn-add-primary" onclick="focusAddService()">+ Add Service Card</button>
@@ -2058,12 +2332,16 @@
           </div>
 
           <!-- Add Service Form Card -->
-          <div style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:18px; margin-bottom:22px;" id="addServiceFormWrap">
-            <div style="font-size:14px; font-weight:800; color:#064e3b; margin-bottom:10px;">+ Add New Service Card</div>
+          <div
+            style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:18px; margin-bottom:22px;"
+            id="addServiceFormWrap">
+            <div style="font-size:14px; font-weight:800; color:#064e3b; margin-bottom:10px;">+ Add New Service Card
+            </div>
             <div class="form-grid-3col" style="margin-bottom:12px;">
               <div class="form-group">
                 <label class="field-label">Service Title <span class="req-star">*</span></label>
-                <input type="text" id="newServTitle" class="subprop-input" placeholder="e.g. Legal &amp; Title Verification">
+                <input type="text" id="newServTitle" class="subprop-input"
+                  placeholder="e.g. Legal &amp; Title Verification">
               </div>
               <div class="form-group">
                 <label class="field-label">Service Icon (Emoji / Icon tag)</label>
@@ -2080,23 +2358,27 @@
               </div>
               <div class="form-group">
                 <label class="field-label">Target Link URL</label>
-                <input type="text" id="newServLink" class="subprop-input" value="contact-us.html" placeholder="e.g. contact-us.html">
+                <input type="text" id="newServLink" class="subprop-input" value="contact-us.html"
+                  placeholder="e.g. contact-us.html">
               </div>
             </div>
 
             <div class="form-group" style="margin-bottom:12px;">
               <label class="field-label">Service Description <span class="req-star">*</span></label>
-              <textarea id="newServDesc" class="subprop-input" style="height:70px; padding:8px;" placeholder="Describe what this service offers to clients..."></textarea>
+              <textarea id="newServDesc" class="subprop-input" style="height:70px; padding:8px;"
+                placeholder="Describe what this service offers to clients..."></textarea>
             </div>
 
             <div style="display:flex; justify-content:flex-end;">
-              <button type="button" class="btn-add-primary" onclick="addNewServiceCard()">✓ Save &amp; Add Service</button>
+              <button type="button" class="btn-add-primary" onclick="addNewServiceCard()">✓ Save &amp; Add
+                Service</button>
             </div>
           </div>
 
           <!-- Services Grid -->
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Active Services (<span id="existingServCount">0</span>)</h4>
+            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Active Services (<span
+                id="existingServCount">0</span>)</h4>
           </div>
 
           <div class="form-grid-2col" id="servicesListContainer">
@@ -2116,16 +2398,21 @@
            TAB 5: CONTACT US (Contact Information, Office Locations, Inquiries Inbox)
            ============================================================== -->
       <section id="tab-contact" class="tab-content-pane">
-        
+
         <div class="section-block-card">
           <div class="section-block-header">
             <div class="block-header-left">
               <div class="block-icon-circle">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
               </div>
               <div>
                 <h3 class="block-header-title">Contact Us &amp; Leads Manager</h3>
-                <p class="block-header-desc">Manage office contact phone numbers, support emails, physical addresses, map embed, and client inquiries</p>
+                <p class="block-header-desc">Manage office contact phone numbers, support emails, physical addresses,
+                  map embed, and client inquiries</p>
               </div>
             </div>
           </div>
@@ -2170,7 +2457,8 @@
               <label class="field-label">Head Office Address <span class="req-star">*</span></label>
               <div class="input-box textarea-box">
                 <span class="input-icon-left">📍</span>
-                <textarea id="contactAddress" class="textarea-field" rows="2">12th Floor, BilaBadi Tower, Outer Ring Road, Bellandur, Bangalore, Karnataka - 560103</textarea>
+                <textarea id="contactAddress" class="textarea-field"
+                  rows="2">12th Floor, BilaBadi Tower, Outer Ring Road, Bellandur, Bangalore, Karnataka - 560103</textarea>
               </div>
             </div>
             <div class="form-group">
@@ -2188,13 +2476,16 @@ Sunday: Closed / Emergency Support Only</textarea>
             <label class="field-label">Google Maps Embed URL / Query</label>
             <div class="input-box">
               <span class="input-icon-left">🗺️</span>
-              <input type="text" id="contactMapUrl" class="input-field" value="https://maps.google.com/maps?q=Bangalore,Karnataka&t=&z=13&ie=UTF8&iwloc=&output=embed">
+              <input type="text" id="contactMapUrl" class="input-field"
+                value="https://maps.google.com/maps?q=Bangalore,Karnataka&t=&z=13&ie=UTF8&iwloc=&output=embed">
             </div>
           </div>
 
           <!-- Received Client Inquiries Inbox -->
-          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; margin-top:10px;">
-            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Client Inquiries &amp; Messages Received (<span id="inquiryCount">3</span>)</h4>
+          <div
+            style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; margin-top:10px;">
+            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Client Inquiries &amp; Messages Received (<span
+                id="inquiryCount">3</span>)</h4>
             <span class="tab-badge-pill" style="background:#ecfdf5; color:#059669;">Live Leads</span>
           </div>
 
@@ -2235,7 +2526,7 @@ Sunday: Closed / Emergency Support Only</textarea>
     /* ==============================================================
        APP STATE & LOCAL STORAGE INITIALIZATION
        ============================================================== */
-    
+
     // 1. HOME SECTION DATA (Top Banner, Top Texts, 4 Cards, Why Choose & 4 Cards, Popular Cities, Client Reviews)
     const DEFAULT_HOME_DATA = {
       banner: {
@@ -2308,144 +2599,90 @@ Sunday: Closed / Emergency Support Only</textarea>
       ]
     };
 
-    let homeData = JSON.parse(JSON.stringify(DEFAULT_HOME_DATA));
+    function normalizeHomeData(data) {
+      const source = data && typeof data === 'object' && !Array.isArray(data) ? data : {};
+      const sourceBanner = source.banner && typeof source.banner === 'object' && !Array.isArray(source.banner)
+        ? source.banner
+        : {};
+      const sourceTexts = source.texts && typeof source.texts === 'object' && !Array.isArray(source.texts)
+        ? source.texts
+        : {};
+      const sourceWhyChoose = source.why_choose && typeof source.why_choose === 'object' && !Array.isArray(source.why_choose)
+        ? source.why_choose
+        : {};
+
+      return {
+        ...DEFAULT_HOME_DATA,
+        ...source,
+        banner: { ...DEFAULT_HOME_DATA.banner, ...sourceBanner },
+        texts: { ...DEFAULT_HOME_DATA.texts, ...sourceTexts },
+        why_choose: {
+          ...DEFAULT_HOME_DATA.why_choose,
+          ...sourceWhyChoose,
+          features: Array.isArray(sourceWhyChoose.features)
+            ? sourceWhyChoose.features
+            : DEFAULT_HOME_DATA.why_choose.features.map(feature => ({ ...feature }))
+        },
+        trust_cards: Array.isArray(source.trust_cards)
+          ? source.trust_cards
+          : DEFAULT_HOME_DATA.trust_cards.map(card => ({ ...card })),
+        cities: Array.isArray(source.cities)
+          ? source.cities
+          : DEFAULT_HOME_DATA.cities.map(city => ({ ...city })),
+        client_reviews: Array.isArray(source.client_reviews)
+          ? source.client_reviews
+          : DEFAULT_HOME_DATA.client_reviews.map(review => ({ ...review }))
+      };
+    }
+
+    let homeData = normalizeHomeData(DEFAULT_HOME_DATA);
+    let homeSectionApiLoaded = false;
+    let homeSectionApiLoading = false;
     try {
       const savedHome = localStorage.getItem('bilabadi_home_data');
-      if (savedHome) homeData = JSON.parse(savedHome);
-    } catch(e) {}
+      if (savedHome) homeData = normalizeHomeData(JSON.parse(savedHome));
+    } catch (e) { }
 
-    // 2. PROPERTIES DATA (Best Properties with Full Specs & Sub-Images Gallery)
-    let propertiesData = [
-      {
-        id: 'prop_1',
-        title: 'Residential Villa Plot',
-        category: 'Residential Plot',
-        badge: 'For Sale',
-        location: 'Bangalore, Karnataka',
-        price: '₹85,00,000',
-        area: '1,200 - 2,400 sq ft',
-        contact_no: '+91 98765 43210',
-        transaction_type: 'New Property',
-        availability: 'Ready to Move',
-        land_area: '1,500 sq ft',
-        length: '50 ft',
-        breadth: '30 ft',
-        super_built_up_area: '1,850 sq ft',
-        built_up_area: '1,550 sq ft',
-        carpet_area: '1,250 sq ft',
-        bedrooms: '3 BHK',
-        balconies: '2 Balconies',
-        furnishing_status: 'Unfurnished',
-        facing: 'East Facing',
-        facing_road_width: '40 ft Road',
-        amenities: 'Gated Community, 24/7 Security, Water Supply, Clubhouse, CCTV, Park',
-        description: 'Premium residential plot situated in a serene gated layout with wide blacktop roads, underground cabling, Vaastu compliance, and rapid connectivity to tech corridors.',
-        image: '../assets/cat_residential.webp',
-        sub_images: [
-          '../assets/cat_residential.webp',
-          '../assets/gallery_main.webp',
-          '../assets/gallery_thumb1.webp'
-        ],
-        is_expanded: true,
-        sub_properties: []
-      },
-      {
-        id: 'prop_2',
-        title: 'Agricultural Farm Land',
-        category: 'Agricultural Land',
-        badge: 'For Rent',
-        location: 'Pune, Maharashtra',
-        price: '₹25,000 / month',
-        area: '2.5 - 10 Acres',
-        contact_no: '+91 98765 11223',
-        transaction_type: 'Resale',
-        availability: 'Immediate',
-        land_area: '2.5 Acres',
-        length: '330 ft',
-        breadth: '330 ft',
-        super_built_up_area: 'N/A',
-        built_up_area: 'N/A',
-        carpet_area: 'N/A',
-        bedrooms: 'N/A - Plot/Land',
-        balconies: 'N/A - Plot/Land',
-        furnishing_status: 'Unfurnished',
-        facing: 'North Facing',
-        facing_road_width: '30 ft Road',
-        amenities: 'Borewell, Water Canal, Solar Fencing, Road Access, Electricity Connection',
-        description: 'Fertile red-soil agricultural farmland with perennial irrigation source, ideal for organic farming, fruit orchards, or private farmhouse weekend getaway.',
-        image: '../assets/cat_agricultural.webp',
-        sub_images: [
-          '../assets/cat_agricultural.webp',
-          '../assets/about-us.webp'
-        ],
-        is_expanded: false,
-        sub_properties: []
-      },
-      {
-        id: 'prop_3',
-        title: 'Commercial Retail Hub',
-        category: 'Commercial Land',
-        badge: 'Hot Deal',
-        location: 'Goa, Goa',
-        price: '₹2,50,00,000',
-        area: '5,000 sq ft',
-        contact_no: '+91 98765 33445',
-        transaction_type: 'New Property',
-        availability: 'Ready to Move',
-        land_area: '5,000 sq ft',
-        length: '100 ft',
-        breadth: '50 ft',
-        super_built_up_area: '6,000 sq ft',
-        built_up_area: '5,000 sq ft',
-        carpet_area: '4,200 sq ft',
-        bedrooms: 'N/A - Plot/Land',
-        balconies: '0 Balconies',
-        furnishing_status: 'Semi-Furnished',
-        facing: 'East Facing',
-        facing_road_width: '60 ft Road',
-        amenities: 'Highway Frontage, 24/7 Power Backup, High-Speed Elevators, Ample Parking, Fire Safety',
-        description: 'High-visibility commercial retail land situated directly on major arterial road, offering exceptional consumer footfalls, broad facade, and dual entrance.',
-        image: '../assets/cat_commercial.webp',
-        sub_images: [
-          '../assets/cat_commercial.webp',
-          '../assets/gallery_main.webp'
-        ],
-        is_expanded: false,
-        sub_properties: []
-      }
-    ];
+    // 2. PROPERTIES DATA (Loaded from local storage or the backend)
+    let propertiesData = [];
+    let propertiesApiLoaded = false;
 
     try {
       const savedProps = localStorage.getItem('bilabadi_properties_data');
       if (savedProps) {
         const parsed = JSON.parse(savedProps);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          propertiesData = parsed.map(p => ({
-            ...p,
-            sub_images: (p.sub_images && p.sub_images.length > 0)
-              ? p.sub_images
-              : (p.sub_properties && p.sub_properties[0] && p.sub_properties[0].images) || ['../assets/cat_residential.webp'],
-            contact_no: p.contact_no || '+91 98765 43210',
-            description: p.description || '',
-            land_area: p.land_area || p.area || '1,500 sq ft',
-            length: p.length || '50 ft',
-            breadth: p.breadth || '30 ft',
-            super_built_up_area: p.super_built_up_area || '1,850 sq ft',
-            built_up_area: p.built_up_area || '1,550 sq ft',
-            carpet_area: p.carpet_area || '1,250 sq ft',
-            bedrooms: p.bedrooms || '3 BHK',
-            balconies: p.balconies || '2 Balconies',
-            amenities: p.amenities || 'Gated Community, 24/7 Security, Water Supply, Clubhouse, CCTV, Park',
-            facing: p.facing || 'East Facing',
-            facing_road_width: p.facing_road_width || '40 ft Road',
-            furnishing_status: p.furnishing_status || 'Unfurnished',
-            transaction_type: p.transaction_type || 'New Property',
-            availability: p.availability || 'Ready to Move',
-            sub_properties: p.sub_properties || []
-          }));
+        if (Array.isArray(parsed)) {
+          propertiesData = parsed
+            .filter(p => !['prop_1', 'prop_2', 'prop_3'].includes(String(p.id)))
+            .map(p => ({
+              ...p,
+              sub_images: (p.sub_images && p.sub_images.length > 0)
+                ? p.sub_images
+                : (p.sub_properties && p.sub_properties[0] && p.sub_properties[0].images) || ['../assets/cat_residential.webp'],
+              contact_no: p.contact_no || '+91 98765 43210',
+              description: p.description || '',
+              land_area: p.land_area || p.area || '1,500 sq ft',
+              length: p.length || '50 ft',
+              breadth: p.breadth || '30 ft',
+              super_built_up_area: p.super_built_up_area || '1,850 sq ft',
+              built_up_area: p.built_up_area || '1,550 sq ft',
+              carpet_area: p.carpet_area || '1,250 sq ft',
+              bedrooms: p.bedrooms || '3 BHK',
+              balconies: p.balconies || '2 Balconies',
+              amenities: p.amenities || 'Gated Community, 24/7 Security, Water Supply, Clubhouse, CCTV, Park',
+              facing: p.facing || 'East Facing',
+              facing_road_width: p.facing_road_width || '40 ft Road',
+              furnishing_status: p.furnishing_status || 'Unfurnished',
+              transaction_type: p.transaction_type || 'New Property',
+              availability: p.availability || 'Ready to Move',
+              is_best_property: p.is_best_property !== undefined
+                ? (p.is_best_property === 1 || p.is_best_property === true || p.is_best_property === '1' ? 1 : 0)
+                : (String(p.id) === '5' || p.title === 'Saroj Enclave' ? 1 : 0),
+              sub_properties: p.sub_properties || []
+            }));
         }
       }
-    } catch(e) {}
+    } catch (e) { }
 
     // Draft Property State
     let newPropertyDraft = {
@@ -2471,6 +2708,7 @@ Sunday: Closed / Emergency Support Only</textarea>
       facing_road_width: '',
       amenities: '',
       description: '',
+      is_best_property: false,
       image: '../assets/cat_residential.webp',
       sub_images: [],
       sub_properties: []
@@ -2543,7 +2781,7 @@ Sunday: Closed / Emergency Support Only</textarea>
     try {
       const savedBlog = localStorage.getItem('bilabadi_blog_data');
       if (savedBlog) blogArticlesData = JSON.parse(savedBlog);
-    } catch(e) {}
+    } catch (e) { }
 
     // 4. SERVICES DATA
     let servicesData = [
@@ -2560,7 +2798,7 @@ Sunday: Closed / Emergency Support Only</textarea>
     try {
       const savedServ = localStorage.getItem('bilabadi_services_data');
       if (savedServ) servicesData = JSON.parse(savedServ);
-    } catch(e) {}
+    } catch (e) { }
 
     // 5. CONTACT US DATA
     let contactData = {
@@ -2581,7 +2819,7 @@ Sunday: Closed / Emergency Support Only</textarea>
     try {
       const savedContact = localStorage.getItem('bilabadi_contact_data');
       if (savedContact) contactData = JSON.parse(savedContact);
-    } catch(e) {}
+    } catch (e) { }
 
     /* ==============================================================
        TAB SWITCHING LOGIC (Home, Properties, Blog, Services, Contact Us)
@@ -2625,6 +2863,12 @@ Sunday: Closed / Emergency Support Only</textarea>
 
       window.location.hash = tabKey;
       window.scrollTo({ top: 120, behavior: 'smooth' });
+      if (tabKey === 'home' && !homeSectionApiLoaded && !homeSectionApiLoading) {
+        loadHomeSectionFromApi();
+      }
+      if (tabKey === 'properties' && !propertiesApiLoaded) {
+        loadPropertiesFromApi();
+      }
     }
 
     function scrollToHomeSub(subId, pillBtn) {
@@ -2640,6 +2884,8 @@ Sunday: Closed / Emergency Support Only</textarea>
        HOME SECTION RENDERING & ACTIONS
        ============================================================== */
     function renderHomeSection() {
+      homeData = normalizeHomeData(homeData);
+
       // 1. Top Banner
       document.getElementById('bannerThumbImg').src = homeData.banner.bg_image || '../assets/home-hero-bg.webp';
       document.getElementById('bannerOverlayInput').value = homeData.banner.overlay_opacity !== undefined ? homeData.banner.overlay_opacity : 0;
@@ -2946,11 +3192,20 @@ Sunday: Closed / Emergency Support Only</textarea>
 
     // Load Homepage Data from Backend API (Sync with Database)
     async function loadHomeSectionFromApi() {
+      if (homeSectionApiLoading || homeSectionApiLoaded) return;
+      homeSectionApiLoading = true;
+
       try {
-        const res = await fetch('http://localhost:5000/api/homepage/sections');
-        if (!res.ok) return;
+        const res = await fetch('http://localhost:5000/api/homepage/sections', { cache: 'no-store' });
+        if (!res.ok) {
+          throw new Error(`Homepage sections API request failed (${res.status})`);
+        }
         const result = await res.json();
-        if (result.success && Array.isArray(result.data) && result.data.length > 0) {
+        if (!result.success || !Array.isArray(result.data)) {
+          throw new Error(result.message || 'Homepage sections API returned an invalid response');
+        }
+
+        if (result.data.length > 0) {
           const item = result.data.find(s => s.section_key === 'home') || result.data[0];
           if (item) {
             const resolveUrl = (pathStr) => {
@@ -2963,45 +3218,68 @@ Sunday: Closed / Emergency Support Only</textarea>
             const parseIfNeeded = (val) => {
               if (!val) return null;
               if (typeof val === 'object') return val;
-              try { return JSON.parse(val); } catch(e) { return null; }
+              try { return JSON.parse(val); } catch (e) { return null; }
             };
 
             // Banner
-            if (item.background_image) homeData.banner.bg_image = resolveUrl(item.background_image);
-            if (item.overlay_opacity !== null && item.overlay_opacity !== undefined && item.overlay_opacity !== '') {
-              homeData.banner.overlay_opacity = parseInt(item.overlay_opacity) || 35;
+            if (item.background_image !== null && item.background_image !== undefined) {
+              homeData.banner.bg_image = resolveUrl(item.background_image);
             }
-            if (item.button_text) homeData.banner.btn_text = item.button_text;
-            if (item.button_link) homeData.banner.btn_link = item.button_link;
+            if (item.overlay_opacity !== null && item.overlay_opacity !== undefined && item.overlay_opacity !== '') {
+              const overlayOpacity = Number.parseInt(item.overlay_opacity, 10);
+              if (Number.isFinite(overlayOpacity)) homeData.banner.overlay_opacity = overlayOpacity;
+            }
+            if (item.button_text !== null && item.button_text !== undefined) homeData.banner.btn_text = item.button_text;
+            if (item.button_link !== null && item.button_link !== undefined) homeData.banner.btn_link = item.button_link;
 
             // Texts
-            if (item.top_badge_text || item.subtitle) homeData.texts.badge = item.top_badge_text || item.subtitle;
-            if (item.title) homeData.texts.title = item.title;
-            if (item.highlight_words) homeData.texts.highlight = item.highlight_words;
-            if (item.description) homeData.texts.description = item.description;
+            if (item.top_badge_text !== null && item.top_badge_text !== undefined) {
+              homeData.texts.badge = item.top_badge_text;
+            } else if (item.subtitle !== null && item.subtitle !== undefined) {
+              homeData.texts.badge = item.subtitle;
+            }
+            if (item.title !== null && item.title !== undefined) homeData.texts.title = item.title;
+            if (item.highlight_words !== null && item.highlight_words !== undefined) {
+              homeData.texts.highlight = item.highlight_words;
+            }
+            if (item.description !== null && item.description !== undefined) {
+              homeData.texts.description = item.description;
+            }
 
             // Trust Cards
             const parsedTrust = parseIfNeeded(item.trust_cards);
-            if (Array.isArray(parsedTrust) && parsedTrust.length > 0) {
+            if (Array.isArray(parsedTrust)) {
               homeData.trust_cards = parsedTrust;
             }
 
             // Why Choose
-            if (item.why_eyebrow) homeData.why_choose.eyebrow = item.why_eyebrow;
-            if (item.why_title) homeData.why_choose.title = item.why_title;
-            if (item.why_description) homeData.why_choose.description = item.why_description;
-            if (item.stats_number) homeData.why_choose.badge_num = item.stats_number;
-            if (item.stats_label) homeData.why_choose.badge_label = item.stats_label;
-            if (item.why_image) homeData.why_choose.image = resolveUrl(item.why_image);
+            if (item.why_eyebrow !== null && item.why_eyebrow !== undefined) {
+              homeData.why_choose.eyebrow = item.why_eyebrow;
+            }
+            if (item.why_title !== null && item.why_title !== undefined) {
+              homeData.why_choose.title = item.why_title;
+            }
+            if (item.why_description !== null && item.why_description !== undefined) {
+              homeData.why_choose.description = item.why_description;
+            }
+            if (item.stats_number !== null && item.stats_number !== undefined) {
+              homeData.why_choose.badge_num = item.stats_number;
+            }
+            if (item.stats_label !== null && item.stats_label !== undefined) {
+              homeData.why_choose.badge_label = item.stats_label;
+            }
+            if (item.why_image !== null && item.why_image !== undefined) {
+              homeData.why_choose.image = resolveUrl(item.why_image);
+            }
 
             const parsedWhyFeat = parseIfNeeded(item.why_features);
-            if (Array.isArray(parsedWhyFeat) && parsedWhyFeat.length > 0) {
+            if (Array.isArray(parsedWhyFeat)) {
               homeData.why_choose.features = parsedWhyFeat;
             }
 
             // Popular Cities
             const parsedCities = parseIfNeeded(item.popular_cities);
-            if (Array.isArray(parsedCities) && parsedCities.length > 0) {
+            if (Array.isArray(parsedCities)) {
               homeData.cities = parsedCities.map(c => ({
                 ...c,
                 image: resolveUrl(c.image)
@@ -3010,7 +3288,7 @@ Sunday: Closed / Emergency Support Only</textarea>
 
             // Client Reviews
             const parsedReviews = parseIfNeeded(item.client_reviews);
-            if (Array.isArray(parsedReviews) && parsedReviews.length > 0) {
+            if (Array.isArray(parsedReviews)) {
               homeData.client_reviews = parsedReviews.map(r => ({
                 ...r,
                 image: resolveUrl(r.image)
@@ -3018,15 +3296,26 @@ Sunday: Closed / Emergency Support Only</textarea>
             }
 
             renderHomeSection();
+            try {
+              localStorage.setItem('bilabadi_home_data', JSON.stringify(homeData));
+            } catch (storageError) {
+              console.warn('Unable to cache homepage section locally:', storageError);
+            }
           }
         }
+        homeSectionApiLoaded = true;
       } catch (err) {
-        console.warn('Backend not reached on initial load:', err);
+        console.error('Unable to load homepage section from the backend API:', err);
+        showToast('Could not load Home Section from the API: ' + err.message, true);
+      } finally {
+        homeSectionApiLoading = false;
       }
     }
 
     // Save Home Section
-    async function saveHomeSection() {
+    async function saveHomeSection(event) {
+      event?.preventDefault();
+      homeData = normalizeHomeData(homeData);
       homeData.banner.overlay_opacity = parseInt(document.getElementById('bannerOverlayInput').value) || 35;
       homeData.banner.btn_text = document.getElementById('bannerBtnTextInput').value.trim();
       homeData.banner.btn_link = document.getElementById('bannerBtnLinkInput').value.trim();
@@ -3044,7 +3333,7 @@ Sunday: Closed / Emergency Support Only</textarea>
 
       try {
         localStorage.setItem('bilabadi_home_data', JSON.stringify(homeData));
-      } catch(e) {}
+      } catch (e) { }
 
       const saveBtn = document.querySelector('#homeSectionForm .btn-save');
       const originalBtnHtml = saveBtn ? saveBtn.innerHTML : '';
@@ -3096,7 +3385,8 @@ Sunday: Closed / Emergency Support Only</textarea>
         });
 
         const resData = await res.json();
-        if (resData.success) {
+        if (res.ok && resData.success) {
+          homeSectionApiLoaded = true;
           if (resData.image) {
             const bgUrl = resData.image.startsWith('/') ? 'http://localhost:5000' + resData.image : resData.image;
             homeData.banner.bg_image = bgUrl;
@@ -3114,7 +3404,7 @@ Sunday: Closed / Emergency Support Only</textarea>
         } else {
           showToast('Warning: ' + (resData.message || 'Error saving to backend'), true);
         }
-      } catch(e) {
+      } catch (e) {
         console.error('Error saving homepage section:', e);
         showToast('Saved locally, but backend sync failed: ' + e.message, true);
       } finally {
@@ -3149,6 +3439,7 @@ Sunday: Closed / Emergency Support Only</textarea>
 
       container.innerHTML = propertiesData.map((prop, pIndex) => {
         const isOpen = prop.is_expanded !== false;
+        const isBest = (prop.is_best_property === 1 || prop.is_best_property === true || prop.is_best_property === '1' || (prop.is_best_property === undefined && (String(prop.id) === '5' || prop.title === 'Saroj Enclave')));
         const subImages = (prop.sub_images && prop.sub_images.length > 0)
           ? prop.sub_images
           : (prop.sub_properties && prop.sub_properties[0] && prop.sub_properties[0].images) || [];
@@ -3159,7 +3450,12 @@ Sunday: Closed / Emergency Support Only</textarea>
               <div class="prop-header-left">
                 <img src="${prop.image || '../assets/cat_residential.webp'}" alt="${escapeHtml(prop.title)}" class="prop-thumb-mini">
                 <div class="prop-header-info">
-                  <span class="prop-header-title">${escapeHtml(prop.title || 'Untitled Property')}</span>
+                  <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                    <span class="prop-header-title">${escapeHtml(prop.title || 'Untitled Property')}</span>
+                    ${isBest ? `
+                      <span class="badge-best-prop">⭐ BEST PROPERTY</span>
+                    ` : ''}
+                  </div>
                   <div class="prop-header-meta">
                     <span style="font-weight:700; color:#059669;">${escapeHtml(prop.price || 'Price on request')}</span>
                     <span>&bull;</span>
@@ -3179,6 +3475,9 @@ Sunday: Closed / Emergency Support Only</textarea>
               </div>
 
               <div style="display:flex; align-items:center; gap:10px;" onclick="event.stopPropagation()">
+                <button type="button" class="btn-toggle-best-star ${isBest ? 'active' : ''}" onclick="togglePropertyBestStatus('${prop.id}', event)" title="${isBest ? 'Click to remove from Best Properties' : 'Click to mark as Best Property'}">
+                  ${isBest ? '⭐ Best' : '☆ Best'}
+                </button>
                 <button type="button" class="btn-delete-mini" onclick="deleteProperty('${prop.id}')" title="Delete Property">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                 </button>
@@ -3190,6 +3489,17 @@ Sunday: Closed / Emergency Support Only</textarea>
 
             <!-- Property Body -->
             <div class="prop-body-wrap">
+              <!-- Best Property Feature Toggle Strip -->
+              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:10px; padding:10px 14px; margin-bottom:14px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span style="font-size:13px; font-weight:800; color:#064e3b;">Featured Status:</span>
+                  <span style="font-size:12px; color:#047857;">Featured with "⭐ BEST PROPERTY" badge on admin dashboard and website listings</span>
+                </div>
+                <button type="button" class="btn-mark-best-prop ${isBest ? 'active' : ''}" onclick="togglePropertyBestStatus('${prop.id}', event)">
+                  <span>${isBest ? '⭐' : '☆'}</span>
+                  <span>${isBest ? 'Marked as Best Property' : 'Mark as Best Property'}</span>
+                </button>
+              </div>
               <!-- Basic Information -->
               <div class="form-grid-3col">
                 <div class="form-group">
@@ -3409,6 +3719,60 @@ Sunday: Closed / Emergency Support Only</textarea>
       }
     }
 
+    function toggleDraftBestProperty() {
+      newPropertyDraft.is_best_property = !newPropertyDraft.is_best_property;
+      const btn = document.getElementById('draftMarkBestBtn');
+      const star = document.getElementById('draftStarIcon');
+      const text = document.getElementById('draftBestText');
+      if (newPropertyDraft.is_best_property) {
+        if (btn) btn.classList.add('active');
+        if (star) star.textContent = '⭐';
+        if (text) text.textContent = 'Marked as Best Property';
+        showToast('⭐ Draft property marked as Best Property');
+      } else {
+        if (btn) btn.classList.remove('active');
+        if (star) star.textContent = '☆';
+        if (text) text.textContent = 'Mark as Best Property';
+        showToast('ℹ Draft property unmarked as Best Property');
+      }
+    }
+
+    async function togglePropertyBestStatus(propId, event) {
+      if (event) {
+        event.stopPropagation();
+      }
+      const prop = propertiesData.find(p => String(p.id) === String(propId));
+      if (!prop) return;
+
+      const currentStatus = (prop.is_best_property === 1 || prop.is_best_property === true || prop.is_best_property === '1' || (prop.is_best_property === undefined && (String(prop.id) === '5' || prop.title === 'Saroj Enclave')));
+      prop.is_best_property = currentStatus ? 0 : 1;
+      prop.is_expanded = true;
+
+      try {
+        localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+      } catch (e) { }
+
+      renderPropertiesManager();
+
+      if (prop.is_best_property) {
+        showToast(`⭐ "${prop.title}" marked as Best Property!`);
+      } else {
+        showToast(`ℹ "${prop.title}" removed from Best Properties.`);
+      }
+
+      if (propId && !isNaN(propId)) {
+        try {
+          await fetch(`http://localhost:5000/api/properties/${propId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ is_best_property: prop.is_best_property })
+          });
+        } catch (err) {
+          console.warn('Backend is_best_property sync warning:', err.message);
+        }
+      }
+    }
+
     function focusAddPropertyForm() {
       const card = document.getElementById('addPropertyFormCard');
       if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -3416,6 +3780,7 @@ Sunday: Closed / Emergency Support Only</textarea>
     }
 
     let draftPropertyCoverFile = null;
+    let draftPropertySubImageFiles = [];
 
     function handleDraftPropertyCoverUpload(event) {
       const file = event.target.files && event.target.files[0];
@@ -3434,6 +3799,8 @@ Sunday: Closed / Emergency Support Only</textarea>
       const files = Array.from(event.target.files || []);
       if (files.length === 0) return;
       if (!newPropertyDraft.sub_images) newPropertyDraft.sub_images = [];
+
+      draftPropertySubImageFiles.push(...files);
 
       const readPromises = files.map(file => {
         return new Promise(resolve => {
@@ -3455,6 +3822,9 @@ Sunday: Closed / Emergency Support Only</textarea>
     function removeDraftSubImage(imgIdx) {
       if (!newPropertyDraft.sub_images) return;
       newPropertyDraft.sub_images.splice(imgIdx, 1);
+      if (draftPropertySubImageFiles && draftPropertySubImageFiles.length > imgIdx) {
+        draftPropertySubImageFiles.splice(imgIdx, 1);
+      }
       renderDraftSubImages();
       showToast('Sub-image removed');
     }
@@ -3489,6 +3859,38 @@ Sunday: Closed / Emergency Support Only</textarea>
         prop.sub_images = (prop.sub_properties && prop.sub_properties[0] && prop.sub_properties[0].images) || [];
       }
 
+      // If backend property, upload via multipart FormData PUT
+      if (propId && !isNaN(propId)) {
+        try {
+          const formData = new FormData();
+          files.forEach(file => formData.append('sub_images', file));
+          const existing = (prop.sub_images || [])
+            .map(img => (typeof img === 'string' && img.startsWith('http://localhost:5000') ? img.replace('http://localhost:5000', '') : img))
+            .filter(img => typeof img === 'string' && !img.startsWith('data:'));
+          formData.append('existing_sub_images', JSON.stringify(existing));
+
+          const res = await fetch(`http://localhost:5000/api/properties/${propId}`, {
+            method: 'PUT',
+            body: formData
+          });
+
+          if (res.ok) {
+            const resData = await res.json();
+            if (resData.success && Array.isArray(resData.sub_images)) {
+              prop.sub_images = resData.sub_images.map(img =>
+                typeof img === 'string' && img.startsWith('/') ? 'http://localhost:5000' + img : img
+              );
+              localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+              renderPropertiesManager();
+              showToast(`✓ Uploaded ${files.length} sub-images to Database for "${prop.title}".`);
+              return;
+            }
+          }
+        } catch (err) {
+          console.warn('Backend sub-images upload failed, falling back to local FileReader:', err.message);
+        }
+      }
+
       const readPromises = files.map(file => {
         return new Promise(resolve => {
           const reader = new FileReader();
@@ -3501,25 +3903,45 @@ Sunday: Closed / Emergency Support Only</textarea>
       const loaded = await Promise.all(readPromises);
       const valid = loaded.filter(Boolean);
       prop.sub_images.push(...valid);
+      localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
       renderPropertiesManager();
       showToast(`Uploaded ${valid.length} sub-images to "${prop.title}". Total: ${prop.sub_images.length}`);
     }
 
-    function removePropertySubImage(propId, imgIdx) {
+    async function removePropertySubImage(propId, imgIdx) {
       const prop = propertiesData.find(p => p.id === propId);
       if (!prop) return;
       if (!prop.sub_images) {
         prop.sub_images = (prop.sub_properties && prop.sub_properties[0] && prop.sub_properties[0].images) || [];
       }
       prop.sub_images.splice(imgIdx, 1);
+      localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
       renderPropertiesManager();
       showToast('Sub-image removed');
+
+      if (propId && !isNaN(propId)) {
+        try {
+          const remaining = (prop.sub_images || [])
+            .map(img => (typeof img === 'string' && img.startsWith('http://localhost:5000') ? img.replace('http://localhost:5000', '') : img))
+            .filter(img => typeof img === 'string' && !img.startsWith('data:'));
+          await fetch(`http://localhost:5000/api/properties/${propId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sub_images: remaining })
+          });
+        } catch (err) {
+          console.warn('Backend sub-image remove sync error:', err.message);
+        }
+      }
     }
 
     function resetDraftPropertyForm() {
       draftPropertyCoverFile = null;
+      draftPropertySubImageFiles = [];
       const coverInput = document.getElementById('draftPropCoverInput');
       if (coverInput) coverInput.value = '';
+      const subImgInput = document.getElementById('draftPropSubImagesInput');
+      if (subImgInput) subImgInput.value = '';
 
       newPropertyDraft = {
         title: '',
@@ -3544,10 +3966,18 @@ Sunday: Closed / Emergency Support Only</textarea>
         facing_road_width: '',
         amenities: '',
         description: '',
+        is_best_property: false,
         image: '../assets/cat_residential.webp',
         sub_images: [],
         sub_properties: []
       };
+
+      const draftBtn = document.getElementById('draftMarkBestBtn');
+      const draftStar = document.getElementById('draftStarIcon');
+      const draftText = document.getElementById('draftBestText');
+      if (draftBtn) draftBtn.classList.remove('active');
+      if (draftStar) draftStar.textContent = '☆';
+      if (draftText) draftText.textContent = 'Mark as Best Property';
       const fields = [
         ['draftPropTitle', ''],
         ['draftPropCategory', 'Residential Plot'],
@@ -3627,33 +4057,58 @@ Sunday: Closed / Emergency Support Only</textarea>
         facing_road_width: getVal('draftPropFacingRoadWidth', '40 ft Road'),
         amenities: getVal('draftPropAmenities', 'Gated Security, Clubhouse, Park, CCTV'),
         description: getVal('draftPropDescription', 'Premium residential property with excellent connectivity, modern amenities, nearby schools, hospitals and shopping facilities.'),
+        is_best_property: newPropertyDraft.is_best_property ? 1 : 0,
         is_active: 1
       };
 
       let backendId = null;
       let backendImageUrl = null;
+      let backendSubImages = null;
       let backendSuccess = false;
+
+      const hasFilesToUpload = draftPropertyCoverFile || (draftPropertySubImageFiles && draftPropertySubImageFiles.length > 0);
 
       try {
         let res;
-        if (draftPropertyCoverFile) {
+        if (hasFilesToUpload) {
           const formData = new FormData();
           Object.entries(payload).forEach(([k, v]) => {
             if (v !== undefined && v !== null) formData.append(k, v);
           });
-          formData.append('cover_image', draftPropertyCoverFile);
+          if (draftPropertyCoverFile) {
+            formData.append('cover_image', draftPropertyCoverFile);
+          }
+          if (draftPropertySubImageFiles && draftPropertySubImageFiles.length > 0) {
+            draftPropertySubImageFiles.forEach(file => {
+              formData.append('sub_images', file);
+            });
+          }
+          const existingSub = (newPropertyDraft.sub_images || [])
+            .map(img => (typeof img === 'string' && img.startsWith('http://localhost:5000') ? img.replace('http://localhost:5000', '') : img))
+            .filter(img => typeof img === 'string' && !img.startsWith('data:'));
+          if (existingSub.length > 0) {
+            formData.append('existing_sub_images', JSON.stringify(existingSub));
+          }
+
           res = await fetch('http://localhost:5000/api/properties', {
             method: 'POST',
             body: formData
           });
         } else {
           // Direct JSON POST request to http://localhost:5000/api/properties
+          const existingSub = (newPropertyDraft.sub_images || [])
+            .map(img => (typeof img === 'string' && img.startsWith('http://localhost:5000') ? img.replace('http://localhost:5000', '') : img))
+            .filter(img => typeof img === 'string' && !img.startsWith('data:'));
+
           res = await fetch('http://localhost:5000/api/properties', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify({
+              ...payload,
+              sub_images: existingSub
+            })
           });
         }
 
@@ -3665,6 +4120,11 @@ Sunday: Closed / Emergency Support Only</textarea>
             backendImageUrl = resData.image.startsWith('/')
               ? 'http://localhost:5000' + resData.image
               : resData.image;
+          }
+          if (Array.isArray(resData.sub_images)) {
+            backendSubImages = resData.sub_images.map(img =>
+              typeof img === 'string' && img.startsWith('/') ? 'http://localhost:5000' + img : img
+            );
           }
         } else {
           console.warn('Backend POST /api/properties returned warning:', resData.message);
@@ -3698,10 +4158,13 @@ Sunday: Closed / Emergency Support Only</textarea>
         facing_road_width: payload.facing_road_width,
         amenities: payload.amenities,
         description: payload.description,
+        is_best_property: newPropertyDraft.is_best_property ? 1 : 0,
         image: backendImageUrl || newPropertyDraft.image || '../assets/cat_residential.webp',
-        sub_images: (newPropertyDraft.sub_images && newPropertyDraft.sub_images.length > 0)
-          ? [...newPropertyDraft.sub_images]
-          : ['../assets/cat_residential.webp', '../assets/gallery_main.webp'],
+        sub_images: (backendSubImages && backendSubImages.length > 0)
+          ? backendSubImages
+          : ((newPropertyDraft.sub_images && newPropertyDraft.sub_images.length > 0)
+            ? [...newPropertyDraft.sub_images]
+            : ['../assets/cat_residential.webp']),
         is_expanded: true,
         is_active: 1,
         sub_properties: []
@@ -3710,7 +4173,7 @@ Sunday: Closed / Emergency Support Only</textarea>
       propertiesData.unshift(newProp);
       try {
         localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
-      } catch(e) {}
+      } catch (e) { }
 
       resetDraftPropertyForm();
       renderPropertiesManager();
@@ -3722,7 +4185,7 @@ Sunday: Closed / Emergency Support Only</textarea>
       }
 
       if (backendSuccess) {
-        showToast(`✓ Property "${newProp.title}" created successfully in Database (ID: ${backendId})!`);
+        showToast(`✓ Property "${newProp.title}" created successfully in Database (ID: ${backendId}) with ${newProp.sub_images.length} sub-images!`);
       } else {
         showToast(`✓ Property "${newProp.title}" saved locally (Database offline / syncing when connected).`);
       }
@@ -3736,7 +4199,7 @@ Sunday: Closed / Emergency Support Only</textarea>
             method: 'DELETE'
           });
         }
-      } catch(e) {
+      } catch (e) {
         console.warn('Backend DELETE error:', e);
       }
       propertiesData = propertiesData.filter(p => p.id !== propId);
@@ -3750,17 +4213,41 @@ Sunday: Closed / Emergency Support Only</textarea>
       if (prop) prop[field] = value;
     }
 
-    function handleSinglePropertyImageUpload(propId, event) {
+    async function handleSinglePropertyImageUpload(propId, event) {
       const file = event.target.files && event.target.files[0];
       if (!file) return;
+      const prop = propertiesData.find(p => p.id === propId);
+      if (!prop) return;
+
+      if (propId && !isNaN(propId)) {
+        try {
+          const formData = new FormData();
+          formData.append('cover_image', file);
+          const res = await fetch(`http://localhost:5000/api/properties/${propId}`, {
+            method: 'PUT',
+            body: formData
+          });
+          if (res.ok) {
+            const resData = await res.json();
+            if (resData.success && resData.image) {
+              prop.image = resData.image.startsWith('/') ? 'http://localhost:5000' + resData.image : resData.image;
+              localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+              renderPropertiesManager();
+              showToast('Property cover updated in database');
+              return;
+            }
+          }
+        } catch (err) {
+          console.warn('Backend cover upload failed:', err.message);
+        }
+      }
+
       const reader = new FileReader();
       reader.onload = e => {
-        const prop = propertiesData.find(p => p.id === propId);
-        if (prop) {
-          prop.image = e.target.result;
-          renderPropertiesManager();
-          showToast('Property cover updated');
-        }
+        prop.image = e.target.result;
+        localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+        renderPropertiesManager();
+        showToast('Property cover updated');
       };
       reader.readAsDataURL(file);
     }
@@ -3779,6 +4266,10 @@ Sunday: Closed / Emergency Support Only</textarea>
         for (const prop of propertiesData) {
           if (prop.id && !isNaN(prop.id)) {
             try {
+              const subImagesToSend = (prop.sub_images || [])
+                .map(img => (typeof img === 'string' && img.startsWith('http://localhost:5000') ? img.replace('http://localhost:5000', '') : img))
+                .filter(img => typeof img === 'string' && !img.startsWith('data:'));
+
               const res = await fetch(`http://localhost:5000/api/properties/${prop.id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
@@ -3806,18 +4297,20 @@ Sunday: Closed / Emergency Support Only</textarea>
                   facing_road_width: prop.facing_road_width,
                   amenities: prop.amenities,
                   description: prop.description,
+                  sub_images: subImagesToSend,
+                  is_best_property: (prop.is_best_property === 1 || prop.is_best_property === true || prop.is_best_property === '1') ? 1 : 0,
                   is_active: prop.is_active !== undefined ? prop.is_active : 1
                 })
               });
               if (res.ok) syncedCount++;
-            } catch(err) {}
+            } catch (err) { }
           }
         }
-      } catch(e) {}
+      } catch (e) { }
 
       try {
         localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
-      } catch(e) {}
+      } catch (e) { }
 
       if (saveBtn) {
         saveBtn.disabled = false;
@@ -3835,48 +4328,82 @@ Sunday: Closed / Emergency Support Only</textarea>
     // Sync Properties from Backend Database API
     async function loadPropertiesFromApi() {
       try {
-        const res = await fetch('http://localhost:5000/api/properties');
-        if (!res.ok) return;
-        const result = await res.json();
-        if (result.success && Array.isArray(result.data) && result.data.length > 0) {
-          propertiesData = result.data.map(item => ({
-            id: item.id ? String(item.id) : ('prop_' + Date.now()),
-            title: item.title || 'Untitled Property',
-            category: item.category || 'Residential Plot',
-            badge: item.badge || 'For Sale',
-            location: item.location || 'Bhubaneswar, Odisha',
-            price: item.price || '₹45,00,000',
-            area: item.area || item.total_plot_area || '1,200 - 3,000 sq ft',
-            contact_no: item.contact_no || '+919876543210',
-            transaction_type: item.transaction_type || 'New Property',
-            availability: item.availability || 'Ready to Move',
-            total_plot_area: item.total_plot_area || item.area || '1,200 - 3,000 sq ft',
-            land_area: item.land_area || '1,500 sq ft',
-            length: item.length || '50 ft',
-            breadth: item.breadth || '30 ft',
-            super_built_up_area: item.super_built_up_area || '1,850 sq ft',
-            built_up_area: item.built_up_area || '1,550 sq ft',
-            carpet_area: item.carpet_area || '1,250 sq ft',
-            bedrooms: item.bedrooms || '3 BHK',
-            balconies: item.balconies || '2 Balconies',
-            furnishing_status: item.furnishing_status || 'Unfurnished',
-            facing: item.facing || 'East Facing',
-            facing_road_width: item.facing_road_width || '40 ft Road',
-            amenities: item.amenities || 'Gated Security, Clubhouse, Park, CCTV',
-            description: item.description || '',
-            image: item.property_image ? (item.property_image.startsWith('/') ? 'http://localhost:5000' + item.property_image : item.property_image) : '../assets/cat_residential.webp',
-            sub_images: (Array.isArray(item.sub_images) && item.sub_images.length > 0)
-              ? item.sub_images
-              : ['../assets/cat_residential.webp'],
-            is_active: item.is_active === 1 || item.is_active === true || item.is_active === '1' ? 1 : 0,
-            is_expanded: false,
-            sub_properties: []
-          }));
-          localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
-          renderPropertiesManager();
+        const res = await fetch('http://localhost:5000/api/properties', { cache: 'no-store' });
+        if (!res.ok) {
+          throw new Error(`Properties API request failed (${res.status})`);
         }
-      } catch(e) {
-        console.warn('Backend properties API offline, using local cache:', e.message);
+        const result = await res.json();
+        if (result.success && Array.isArray(result.data)) {
+          propertiesData = result.data.map(item => {
+            let subImgs = [];
+            if (Array.isArray(item.sub_images) && item.sub_images.length > 0) {
+              subImgs = item.sub_images.map(img =>
+                typeof img === 'string' && img.startsWith('/') ? 'http://localhost:5000' + img : img
+              );
+            } else if (typeof item.sub_images === 'string' && item.sub_images.trim()) {
+              try {
+                const parsed = JSON.parse(item.sub_images);
+                if (Array.isArray(parsed)) {
+                  subImgs = parsed.map(img =>
+                    typeof img === 'string' && img.startsWith('/') ? 'http://localhost:5000' + img : img
+                  );
+                }
+              } catch (e) { }
+            }
+            if (subImgs.length === 0) {
+              subImgs = ['../assets/cat_residential.webp'];
+            }
+
+            return {
+              id: item.id ? String(item.id) : ('prop_' + Date.now()),
+              title: item.title || 'Untitled Property',
+              category: item.category || 'Residential Plot',
+              badge: item.badge || 'For Sale',
+              location: item.location || 'Bhubaneswar, Odisha',
+              price: item.price || '₹45,00,000',
+              area: item.area || item.total_plot_area || '1,200 - 3,000 sq ft',
+              contact_no: item.contact_no || '+919876543210',
+              transaction_type: item.transaction_type || 'New Property',
+              availability: item.availability || 'Ready to Move',
+              total_plot_area: item.total_plot_area || item.area || '1,200 - 3,000 sq ft',
+              land_area: item.land_area || '1,500 sq ft',
+              length: item.length || '50 ft',
+              breadth: item.breadth || '30 ft',
+              super_built_up_area: item.super_built_up_area || '1,850 sq ft',
+              built_up_area: item.built_up_area || '1,550 sq ft',
+              carpet_area: item.carpet_area || '1,250 sq ft',
+              bedrooms: item.bedrooms || '3 BHK',
+              balconies: item.balconies || '2 Balconies',
+              furnishing_status: item.furnishing_status || 'Unfurnished',
+              facing: item.facing || 'East Facing',
+              facing_road_width: item.facing_road_width || '40 ft Road',
+              amenities: item.amenities || 'Gated Security, Clubhouse, Park, CCTV',
+              description: item.description || '',
+              image: item.property_image ? (item.property_image.startsWith('/') ? 'http://localhost:5000' + item.property_image : item.property_image) : '../assets/cat_residential.webp',
+              sub_images: subImgs,
+              is_best_property: (
+                item.is_best_property === 1 ||
+                item.is_best_property === true ||
+                item.is_best_property === '1' ||
+                (item.is_best_property === undefined && (String(item.id) === '5' || item.title === 'Saroj Enclave'))
+              ) ? 1 : 0,
+              is_active: item.is_active === 1 || item.is_active === true || item.is_active === '1' ? 1 : 0,
+              is_expanded: false,
+              sub_properties: []
+            };
+          });
+          propertiesApiLoaded = true;
+          try {
+            localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+          } catch (storageError) {
+            console.warn('Unable to cache properties locally:', storageError);
+          }
+          renderPropertiesManager();
+        } else {
+          throw new Error('Properties API returned an invalid response');
+        }
+      } catch (e) {
+        console.error('Unable to load properties from the backend API:', e);
       }
     }
 
@@ -3978,7 +4505,7 @@ Sunday: Closed / Emergency Support Only</textarea>
     function saveBlogTab() {
       try {
         localStorage.setItem('bilabadi_blog_data', JSON.stringify(blogArticlesData));
-      } catch(e) {}
+      } catch (e) { }
       showToast(`✓ Saved ${blogArticlesData.length} blog articles successfully!`);
     }
 
@@ -4064,13 +4591,10 @@ Sunday: Closed / Emergency Support Only</textarea>
     function saveServicesTab() {
       try {
         localStorage.setItem('bilabadi_services_data', JSON.stringify(servicesData));
-      } catch(e) {}
+      } catch (e) { }
       showToast(`✓ Saved ${servicesData.length} services successfully!`);
     }
 
-    /* ==============================================================
-       CONTACT US & LEADS MANAGER LOGIC
-       ============================================================== */
     function renderContactTab() {
       document.getElementById('contactPhone1').value = contactData.phone1 || '+91 98765 43210';
       document.getElementById('contactPhone2').value = contactData.phone2 || '+91 1800 123 4567';
@@ -4120,7 +4644,7 @@ Sunday: Closed / Emergency Support Only</textarea>
 
       try {
         localStorage.setItem('bilabadi_contact_data', JSON.stringify(contactData));
-      } catch(e) {}
+      } catch (e) { }
 
       showToast('✓ Contact Us information & coordinates saved successfully!');
     }
@@ -4149,10 +4673,10 @@ Sunday: Closed / Emergency Support Only</textarea>
 
       toast.innerHTML = `
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          ${isError 
-            ? '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>'
-            : '<polyline points="20 6 9 17 4 12"></polyline>'
-          }
+          ${isError
+          ? '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>'
+          : '<polyline points="20 6 9 17 4 12"></polyline>'
+        }
         </svg>
         <span>${escapeHtml(msg)}</span>
       `;
@@ -4196,9 +4720,8 @@ Sunday: Closed / Emergency Support Only</textarea>
       }
 
       // 3. Sync Homepage Section & Properties from backend Database API
-      loadHomeSectionFromApi();
-      loadPropertiesFromApi();
     });
   </script>
 </body>
+
 </html>

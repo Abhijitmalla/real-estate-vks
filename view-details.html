@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Property Details | Bila Badi</title>
   <meta name="description"
-    content="View verified property details, floor plans, pricing, amenities, and owner contact for Ashray Vihar Phase 2 in Patia, Bhubaneswar.">
+    content="View verified property details, specifications, floor plans, pricing, amenities, and direct seller contact on Bila Badi.">
 
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1575,8 +1575,13 @@
       transition: var(--transition);
     }
 
-    .lightbox-nav-btn:hover {
+    .lightbox-nav-btn:not(:disabled):hover {
       background: rgba(255, 255, 255, 0.4);
+    }
+
+    .lightbox-nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
     }
 
     .lightbox-prev {
@@ -1890,24 +1895,17 @@
     <div class="mobile-nav-links">
       <a href="index.html">Home</a>
       <a href="product-details.html" class="active">Properties</a>
-      <a href="index.html#about">About Us</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#blog">Blog</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="./about-us.html">About Us</a>
+      <a href="./services.html">Services</a>
+      <a href="./blog.html">Blog</a>
+      <a href="./contact-us.html">Contact</a>
     </div>
     <div class="mobile-drawer-footer">
-      <a href="login.html" class="login-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-        <span>Login / Register</span>
-      </a>
-      <a href="about-us.html" class="btn-about-us" style="justify-content: center;">
+   
+      <a href="./about-us.html" class="btn-about-us" style="justify-content: center;">
         About Us
       </a>
-      <a href="contact-us.html" class="btn-contact-us" style="justify-content: center;">
+      <a href="./contact-us.html" class="btn-contact-us" style="justify-content: center;">
         Contact Us
       </a>
     </div>
@@ -1929,98 +1927,76 @@
           </svg>
           Back to Listings
         </a>
-
-        <div class="top-action-buttons">
-          <button type="button" class="btn-circle-action" id="btnShareProp" aria-label="Share property" title="Share property link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="18" cy="5" r="3"></circle>
-              <circle cx="6" cy="12" r="3"></circle>
-              <circle cx="18" cy="19" r="3"></circle>
-              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-            </svg>
-          </button>
-          <button type="button" class="btn-circle-action" id="btnSaveProp" aria-label="Save to favorites" title="Save to favorites">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-              </path>
-            </svg>
-          </button>
-        </div>
       </div>
     </div>
 
     <!-- Property Header Info -->
     <section class="prop-main-header">
-      <div class="prop-badges-row">
-        <span class="prop-pill-badge sale">For Sale</span>
-        <span class="prop-pill-badge status" id="propBadgeStatus">Under Construction</span>
-        <span class="prop-pill-badge verified">★ Verified</span>
-        <span class="prop-pill-badge rera">RERA Reg.</span>
-        <span class="prop-pill-badge rating">★ 4.8</span>
+      <div class="prop-badges-row" id="propBadgesRow">
+        <span class="prop-pill-badge sale" id="propBadgePurpose" style="display: none;"></span>
+        <span class="prop-pill-badge status" id="propBadgeAvailability" style="display: none;"></span>
+        <span class="prop-pill-badge verified" id="propBadgeCategory" style="display: none;"></span>
+        <span class="prop-pill-badge rera" id="propBadgeTransaction" style="display: none;"></span>
       </div>
 
       <div class="prop-header-flex-row">
         <div class="prop-title-area">
-          <h1 id="propTitleText">Ashray Vihar Phase 2</h1>
+          <h1 id="propTitleText"></h1>
           <div class="prop-loc-meta">
-            <span class="prop-loc-item">
+            <span class="prop-loc-item" id="propLocItem" style="display: none;">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              <span id="propLocationText">Patia, Bhubaneswar, Odisha</span>
+              <span id="propLocationText"></span>
             </span>
-            <span class="prop-loc-item">
+            <span class="prop-loc-item" id="propDateItem" style="display: none;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                 <line x1="16" y1="2" x2="16" y2="6"></line>
                 <line x1="8" y1="2" x2="8" y2="6"></line>
                 <line x1="3" y1="10" x2="21" y2="10"></line>
               </svg>
-              <span>Posted on 17 Jul 2024</span>
+              <span id="propPostedDateText"></span>
             </span>
           </div>
         </div>
 
         <div class="prop-header-right-tags">
-          <span class="owner-badge-tag" id="propPostedBadge">Posted by Owner</span>
-          <span class="rera-id-text">RERA ID: PR/OD/KHORDHA/2024/00189</span>
+          <span class="owner-badge-tag" id="propContactBadge" style="display: none;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span id="propContactBadgeText"></span>
+          </span>
         </div>
       </div>
     </section>
 
-    <!-- Photo Gallery Grid (3 Photos Layout Matching Mockup) -->
+    <!-- Photo Gallery Grid -->
     <section class="gallery-section">
-      <div class="gallery-grid">
+      <div class="gallery-grid" id="galleryGrid">
         <!-- Hero Big Image (Left) -->
         <div class="gallery-hero-box" id="galleryHeroBox" title="Click to view photos in full screen">
-          <span class="gallery-posted-tag">Posted on 17 Jul 2024</span>
-          <img id="mainHeroImg" src="assets/gallery_main.jpg" alt="Ashray Vihar Phase 2 Exterior View"
+          <span class="gallery-posted-tag" id="galleryPostedTag" style="display: none;"></span>
+          <img id="mainHeroImg" src="" alt="Property Main Image"
             onerror="this.src='assets/cat_residential.webp'">
-          <button type="button" class="gallery-btn-tour" id="btnViewAllPhotos">
+          <button type="button" class="gallery-btn-tour" id="btnViewAllPhotos" style="display: none;">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
               <circle cx="12" cy="13" r="4"></circle>
             </svg>
-            View All 8 Photos
+            <span id="viewAllPhotosText">View Photos</span>
           </button>
         </div>
 
         <!-- 2 Side Thumbnails (Right) -->
-        <div class="gallery-thumbs-col">
-          <div class="gallery-thumb-item" data-index="1" title="Click to view photo">
-            <img src="assets/gallery_thumb1.jpg" alt="Building Courtyard View"
-              onerror="this.src='assets/cat_commercial.webp'">
+        <div class="gallery-thumbs-col" id="galleryThumbsCol" style="display: none;">
+          <div class="gallery-thumb-item" id="galleryThumb1" data-index="1" title="Click to view photo" style="display: none;">
+            <img id="thumbImg1" src="" alt="Property Sub Image 1" onerror="this.parentElement.style.display='none'">
           </div>
-          <div class="gallery-thumb-item" data-index="2" title="Click to view photo">
-            <img src="assets/gallery_thumb2.jpg" alt="Evening Perspective View"
-              onerror="this.src='assets/banner_land_sale.webp'">
-            <div class="gallery-more-overlay">
-              <div>+3 More</div>
+          <div class="gallery-thumb-item" id="galleryThumb2" data-index="2" title="Click to view photo" style="display: none;">
+            <img id="thumbImg2" src="" alt="Property Sub Image 2" onerror="this.parentElement.style.display='none'">
+            <div class="gallery-more-overlay" id="galleryMoreOverlay" style="display: none;">
+              <div id="galleryMoreCount">+0 More</div>
             </div>
           </div>
         </div>
@@ -2030,10 +2006,10 @@
     <!-- Main Content: Left Details + Right Sticky Booking Sidebar -->
     <div class="details-main-layout">
 
-      <!-- Left Column: 6 Information Cards -->
+      <!-- Left Column: 5 Information Cards -->
       <div class="details-left-col">
 
-        <!-- Card 1: Property Features -->
+        <!-- Card 1: Property Overview -->
         <article class="detail-card">
           <div class="card-heading-row">
             <div class="card-heading-icon">
@@ -2042,94 +2018,38 @@
                 <line x1="7" y1="7" x2="7.01" y2="7"></line>
               </svg>
             </div>
-            <h2>Property Features</h2>
+            <h2>Property Overview</h2>
           </div>
 
           <div class="info-specs-grid">
             <div class="info-spec-item">
-              <span class="spec-label">Furnishing</span>
-              <span class="spec-val" id="specFurnish">Unfurnished</span>
+              <span class="spec-label">Category / Type</span>
+              <span class="spec-val" id="specCategory"></span>
             </div>
             <div class="info-spec-item">
-              <span class="spec-label">Personal Washroom</span>
-              <span class="spec-val">Yes</span>
+              <span class="spec-label">Purpose / Badge</span>
+              <span class="spec-val" id="specBadge"></span>
             </div>
             <div class="info-spec-item">
-              <span class="spec-label">Total Floors</span>
-              <span class="spec-val">4 Floors</span>
+              <span class="spec-label">Transaction Type</span>
+              <span class="spec-val" id="specTransactionType"></span>
             </div>
             <div class="info-spec-item">
-              <span class="spec-label">Corner Property</span>
-              <span class="spec-val">No</span>
+              <span class="spec-label">Availability</span>
+              <span class="spec-val" id="specAvailability"></span>
             </div>
             <div class="info-spec-item">
-              <span class="spec-label">Main Road Facing</span>
-              <span class="spec-val">Yes</span>
+              <span class="spec-label">Location</span>
+              <span class="spec-val" id="specLocation"></span>
             </div>
             <div class="info-spec-item">
-              <span class="spec-label">Building Type</span>
-              <span class="spec-val" id="specType">Flat / Apartment</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Boundary Wall</span>
-              <span class="spec-val">Yes</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Gated Community</span>
-              <span class="spec-val">Yes</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Overlooking Main Road</span>
-              <span class="spec-val">Yes</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Security Guards</span>
-              <span class="spec-val">24/7 Available</span>
+              <span class="spec-label">Contact Number</span>
+              <span class="spec-val" id="specContactNo"></span>
             </div>
           </div>
         </article>
 
-        <!-- Card 2: Residential Details -->
-        <article class="detail-card">
-          <div class="card-heading-row">
-            <div class="card-heading-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-            </div>
-            <h2>Residential Details</h2>
-          </div>
-
-          <div class="info-specs-grid">
-            <div class="info-spec-item">
-              <span class="spec-label">Bedrooms</span>
-              <span class="spec-val" id="specBedrooms">3 BHK</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Bathrooms</span>
-              <span class="spec-val">3 Bathrooms</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Balconies</span>
-              <span class="spec-val">2 Balconies</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Facing Direction</span>
-              <span class="spec-val">North-East (Vaastu)</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Floor Number</span>
-              <span class="spec-val">2nd of 4 Floors</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Kitchen</span>
-              <span class="spec-val">Modular with Chimney</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 3: Area & Possession -->
+        <!-- Card 2: Area & Dimensions -->
         <article class="detail-card">
           <div class="card-heading-row">
             <div class="card-heading-icon">
@@ -2138,199 +2058,99 @@
                 <line x1="3" y1="9" x2="21" y2="9"></line>
               </svg>
             </div>
-            <h2>Area &amp; Possession</h2>
+            <h2>Area &amp; Dimensions</h2>
           </div>
 
           <div class="info-specs-grid">
             <div class="info-spec-item">
-              <span class="spec-label">Super Built-up Area</span>
-              <span class="spec-val" id="specSuperArea">1,560 sq ft</span>
+              <span class="spec-label">Total Plot Area</span>
+              <span class="spec-val" id="specTotalPlotArea"></span>
             </div>
             <div class="info-spec-item">
-              <span class="spec-label">Possession Status</span>
-              <span class="spec-val" id="specPossession">Under Construction</span>
+              <span class="spec-label">Land Area</span>
+              <span class="spec-val" id="specLandArea"></span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">General Area</span>
+              <span class="spec-val" id="specArea"></span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Plot Length</span>
+              <span class="spec-val" id="specLength"></span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Plot Breadth</span>
+              <span class="spec-val" id="specBreadth"></span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Super Built-up Area</span>
+              <span class="spec-val" id="specSuperBuiltUpArea"></span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Built-up Area</span>
+              <span class="spec-val" id="specBuiltUpArea"></span>
             </div>
             <div class="info-spec-item">
               <span class="spec-label">Carpet Area</span>
-              <span class="spec-val">1,250 sq ft</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Transaction Type</span>
-              <span class="spec-val">New Property</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Expected Handover</span>
-              <span class="spec-val">December 2025</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Price per sq ft</span>
-              <span class="spec-val">&#8377;9,807 / sq ft</span>
+              <span class="spec-val" id="specCarpetArea"></span>
             </div>
           </div>
         </article>
 
-        <!-- Card 4: Building & Utilities -->
+        <!-- Card 3: Layout & Specifications -->
         <article class="detail-card">
           <div class="card-heading-row">
             <div class="card-heading-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
-                <line x1="9" y1="22" x2="9" y2="22.01"></line>
-                <line x1="15" y1="22" x2="15" y2="22.01"></line>
-                <line x1="9" y1="6" x2="9" y2="6.01"></line>
-                <line x1="15" y1="6" x2="15" y2="6.01"></line>
-                <line x1="9" y1="10" x2="9" y2="10.01"></line>
-                <line x1="15" y1="10" x2="15" y2="10.01"></line>
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>
             </div>
-            <h2>Building &amp; Utilities</h2>
-          </div>
-
-          <!-- Highlight Utility Cards (Matches Mockup) -->
-          <div class="utilities-banners-row">
-            <div class="utility-highlight-box water">
-              <div class="util-icon-circle">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-                </svg>
-              </div>
-              <div class="util-text-wrap">
-                <span class="util-label">Water Supply</span>
-                <span class="util-title">24 Hours Regular Supply</span>
-              </div>
-            </div>
-
-            <div class="utility-highlight-box power">
-              <div class="util-icon-circle">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                </svg>
-              </div>
-              <div class="util-text-wrap">
-                <span class="util-label">Electricity</span>
-                <span class="util-title">24 Hours - No Power Cut</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="info-specs-grid" style="margin-bottom: 22px;">
-            <div class="info-spec-item">
-              <span class="spec-label">Car Parking</span>
-              <span class="spec-val">Covered Reserved</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Visitor Parking</span>
-              <span class="spec-val">Available (20+ Bays)</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Power Backup</span>
-              <span class="spec-val">Full DG Backup</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Fire Extinguishers Installed</span>
-              <span class="spec-val">Yes</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Sewage Treatment</span>
-              <span class="spec-val">Operational STP</span>
-            </div>
-            <div class="info-spec-item">
-              <span class="spec-label">Elevators</span>
-              <span class="spec-val">2 High-Speed Automatic</span>
-            </div>
-          </div>
-
-          <!-- Amenities Chips -->
-          <div>
-            <div style="font-size: 13.5px; font-weight: 800; color: var(--text-heading); margin-bottom: 8px;">
-              Featured Amenities
-            </div>
-            <div class="amenities-chips-wrap">
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Lift / Elevators
-              </span>
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Power Backup
-              </span>
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Landscaped Park
-              </span>
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                24/7 CCTV &amp; Security
-              </span>
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                AC Waiting Lounge
-              </span>
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Clubhouse
-              </span>
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Fitness Gymnasium
-              </span>
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Swimming Pool
-              </span>
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Children Play Area
-              </span>
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Food Court
-              </span>
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Banquet Hall
-              </span>
-              <span class="amenity-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Jogging Track
-              </span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 5: Ownership & Legal -->
-        <article class="detail-card">
-          <div class="card-heading-row">
-            <div class="card-heading-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-            </div>
-            <h2>Ownership &amp; Legal</h2>
+            <h2>Layout &amp; Specifications</h2>
           </div>
 
           <div class="info-specs-grid">
             <div class="info-spec-item">
-              <span class="spec-label">Ownership Status</span>
-              <span class="spec-val">Freehold</span>
+              <span class="spec-label">Bedrooms</span>
+              <span class="spec-val" id="specBedrooms"></span>
             </div>
             <div class="info-spec-item">
-              <span class="spec-label">Approval Authority</span>
-              <span class="spec-val">BDA Approved</span>
+              <span class="spec-label">Balconies</span>
+              <span class="spec-val" id="specBalconies"></span>
             </div>
             <div class="info-spec-item">
-              <span class="spec-label">Property Age</span>
-              <span class="spec-val">Under Construction (New)</span>
+              <span class="spec-label">Furnishing Status</span>
+              <span class="spec-val" id="specFurnishingStatus"></span>
             </div>
             <div class="info-spec-item">
-              <span class="spec-label">Home Loans Pre-Approved</span>
-              <span class="spec-val">SBI, HDFC, ICICI, Axis</span>
+              <span class="spec-label">Facing Direction</span>
+              <span class="spec-val" id="specFacing"></span>
+            </div>
+            <div class="info-spec-item">
+              <span class="spec-label">Facing Road Width</span>
+              <span class="spec-val" id="specFacingRoadWidth"></span>
             </div>
           </div>
         </article>
 
-        <!-- Card 6: Description & Reviews -->
-        <article class="detail-card">
+        <!-- Card 4: Amenities & Facilities -->
+        <article class="detail-card" id="cardAmenities">
+          <div class="card-heading-row">
+            <div class="card-heading-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <h2>Amenities &amp; Facilities</h2>
+          </div>
+
+          <div class="amenities-chips-wrap" id="amenitiesChipsWrap">
+            <!-- Dynamically populated chips from prop.amenities -->
+          </div>
+        </article>
+
+        <!-- Card 5: Description -->
+        <article class="detail-card" id="cardDescription">
           <div class="card-heading-row">
             <div class="card-heading-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -2341,27 +2161,10 @@
                 <polyline points="10 9 9 9 8 9"></polyline>
               </svg>
             </div>
-            <h2>Description &amp; Reviews</h2>
+            <h2>Description</h2>
           </div>
 
-          <p style="font-size: 13.5px; color: var(--text-body); line-height: 1.7; margin-bottom: 12px;">
-            Ashray Vihar Phase 2 offers luxury homes that are truly one of a kind. Carefully crafted for urban families seeking unmatched comfort, peaceful green surroundings, and prime connectivity in Bhubaneswar. The residence features expansive living and dining spaces, large sunlit balconies, vaastu-compliant layout, Italian vitrified flooring, and high ceilings.
-          </p>
-          <p style="font-size: 13.5px; color: var(--text-body); line-height: 1.7;">
-            Conveniently situated near leading IT Hubs (Infocity, TCS, Infosys), top educational institutions (KIIT, Silicon), multi-specialty hospitals, and popular shopping destinations.
-          </p>
-
-          <!-- Rating & Verified Badge Banner -->
-          <div class="rating-summary-banner">
-            <div class="rating-left-meta">
-              <span class="rating-star-badge">4.8 ★</span>
-              <span class="rating-title-text">Excellent Property Rating (24 Reviews)</span>
-            </div>
-            <span class="verified-inspect-tag">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              Inspected &amp; Verified by Bila Badi Experts
-            </span>
-          </div>
+          <div id="propDescriptionText" style="font-size: 14px; color: var(--text-body); line-height: 1.7; white-space: pre-line;"></div>
         </article>
 
       </div><!-- /details-left-col -->
@@ -2372,16 +2175,14 @@
         <!-- Price & Action Card -->
         <div class="price-booking-card">
           <div class="price-header-row">
-            <span class="price-tag-label">All-Inclusive Price</span>
-            <div class="price-large-amount" id="propPriceText">&#8377; 1.53 Cr</div>
-            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
-              &#8377;9,807 / sq ft &bull; Negotiable
-            </div>
+            <span class="price-tag-label">Property Price</span>
+            <div class="price-large-amount" id="propPriceText"></div>
+            <div id="propPriceSubText" style="font-size: 12px; color: var(--text-muted); margin-top: 2px;"></div>
           </div>
 
           <div class="price-note-box">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            <span>Govt. Stamp Duty &amp; Registration Charges excluded</span>
+            <span>Verified Property &bull; Direct Seller Connect</span>
           </div>
 
           <button type="button" class="btn-schedule-call" id="btnScheduleCall">
@@ -2396,18 +2197,12 @@
         </div>
 
         <!-- Seller Profile Card -->
-        <div class="seller-contact-card">
+        <div class="seller-contact-card" id="sellerContactCard">
           <div class="seller-profile-row">
-            <img src="assets/avatar_amit.jpg" alt="Seller Avatar" class="seller-avatar-img"
-              onerror="this.src='assets/avatar_rohit.jpg'">
-            <div class="seller-info-meta">
-              <span class="seller-name" id="sellerNameText">Biswajit Pattanaik</span>
-              <span class="seller-sub-label">★ Verified Property Owner</span>
+            <div class="seller-info-meta" style="width: 100%;">
+              <span class="seller-name" id="sellerNameText"></span>
+              <span class="seller-sub-label" id="sellerPhoneText"></span>
             </div>
-          </div>
-          <div class="seller-response-row">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            <span>Typically responds within <strong>15 minutes</strong></span>
           </div>
         </div>
 
@@ -2419,7 +2214,7 @@
             <input type="tel" class="form-input-field" placeholder="Mobile Number (+91)" required>
             <input type="email" class="form-input-field" placeholder="Email Address">
             <textarea class="form-input-field" rows="3" style="resize: none;"
-              placeholder="I am interested in this property. Please share full brochure and schedule site visit."></textarea>
+              placeholder="I am interested in this property. Please share full brochure and details."></textarea>
             <button type="submit" class="btn-submit-inquiry">Send Inquiry &rarr;</button>
           </form>
         </div>
@@ -2638,8 +2433,7 @@
       drawerClose?.addEventListener('click', closeDrawer);
       drawerOverlay?.addEventListener('click', closeDrawer);
 
-      // 2. Share Property Button (Clipboard copy)
-      const btnShare = document.getElementById('btnShareProp');
+      // Toast Notification Helper
       const toast = document.getElementById('toastNotification');
       const toastMsg = document.getElementById('toastMsgText');
 
@@ -2652,48 +2446,9 @@
         }, 3200);
       }
 
-      btnShare?.addEventListener('click', async () => {
-        const url = window.location.href;
-        if (navigator.clipboard) {
-          try {
-            await navigator.clipboard.writeText(url);
-            showToast('Property link copied to clipboard!');
-          } catch {
-            showToast('Share link ready: ' + window.location.pathname);
-          }
-        } else {
-          showToast('Share link: ' + window.location.pathname);
-        }
-      });
-
-      // 3. Save / Favorite Property Button
-      const btnSave = document.getElementById('btnSaveProp');
-      const navWishlistBtn = document.getElementById('navWishlistBtn');
-      const favBadge = document.getElementById('favCountBadge');
-      let isSaved = false;
-
-      function toggleSave() {
-        isSaved = !isSaved;
-        btnSave?.classList.toggle('active', isSaved);
-        navWishlistBtn?.classList.toggle('active', isSaved);
-        if (favBadge) {
-          favBadge.textContent = isSaved ? '1' : '0';
-          favBadge.style.display = isSaved ? 'flex' : 'none';
-        }
-        showToast(isSaved ? 'Property saved to your Wishlist!' : 'Property removed from Wishlist');
-      }
-
-      btnSave?.addEventListener('click', toggleSave);
-      navWishlistBtn?.addEventListener('click', toggleSave);
-
-      // 4. Photo Lightbox Gallery
-      const galleryImages = [
-        'assets/gallery_main.jpg',
-        'assets/gallery_thumb1.jpg',
-        'assets/gallery_thumb2.jpg',
-        'assets/cat_residential.webp',
-        'assets/cat_commercial.webp'
-      ];
+      // 4. Property Data State & Dynamic Gallery
+      let activeProperty = null;
+      let galleryImages = [];
       let currentImgIdx = 0;
 
       const lightbox = document.getElementById('photoLightbox');
@@ -2703,15 +2458,42 @@
       const lightboxPrev = document.getElementById('lightboxPrevBtn');
       const lightboxNext = document.getElementById('lightboxNextBtn');
 
-      function updateLightbox() {
-        if (lightboxImg) lightboxImg.src = galleryImages[currentImgIdx];
-        if (lightboxCounter) {
-          lightboxCounter.textContent = `Photo ${currentImgIdx + 1} of ${galleryImages.length}`;
+      function resolveImageUrl(url) {
+        if (!url) return '';
+        const trimmed = String(url).trim();
+        if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('data:')) {
+          return trimmed;
+        }
+        if (trimmed.startsWith('/')) {
+          return `http://localhost:5000${trimmed}`;
+        }
+        return `http://localhost:5000/${trimmed}`;
+      }
+
+      function setField(id, value) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (value !== undefined && value !== null && String(value).trim() !== '') {
+          el.textContent = String(value).trim();
+        } else {
+          el.textContent = '';
         }
       }
 
+      function updateLightbox() {
+        if (lightboxImg && galleryImages[currentImgIdx]) {
+          lightboxImg.src = galleryImages[currentImgIdx];
+        }
+        if (lightboxCounter) {
+          lightboxCounter.textContent = `Photo ${currentImgIdx + 1} of ${galleryImages.length}`;
+        }
+        if (lightboxPrev) lightboxPrev.disabled = currentImgIdx === 0;
+        if (lightboxNext) lightboxNext.disabled = currentImgIdx >= galleryImages.length - 1;
+      }
+
       function openLightbox(idx = 0) {
-        currentImgIdx = idx;
+        if (!galleryImages || galleryImages.length === 0) return;
+        currentImgIdx = Math.max(0, Math.min(idx, galleryImages.length - 1));
         updateLightbox();
         lightbox?.classList.add('open');
         document.body.style.overflow = 'hidden';
@@ -2722,18 +2504,297 @@
         document.body.style.overflow = '';
       }
 
+      function updateGalleryImages(prop) {
+        const images = [];
+
+        if (prop.property_image && String(prop.property_image).trim()) {
+          images.push(resolveImageUrl(prop.property_image));
+        }
+
+        let sub = prop.sub_images;
+        if (typeof sub === 'string') {
+          try {
+            sub = JSON.parse(sub);
+          } catch {
+            sub = sub.split(',').map(s => s.trim()).filter(Boolean);
+          }
+        }
+        if (Array.isArray(sub)) {
+          sub.forEach(item => {
+            if (typeof item === 'string' && item.trim()) {
+              images.push(resolveImageUrl(item));
+            }
+          });
+        }
+
+        galleryImages = images;
+
+        const heroImg = document.getElementById('mainHeroImg');
+        const galleryGrid = document.getElementById('galleryGrid');
+        const thumbsCol = document.getElementById('galleryThumbsCol');
+        const thumb1 = document.getElementById('galleryThumb1');
+        const thumb2 = document.getElementById('galleryThumb2');
+        const thumbImg1 = document.getElementById('thumbImg1');
+        const thumbImg2 = document.getElementById('thumbImg2');
+        const moreOverlay = document.getElementById('galleryMoreOverlay');
+        const moreCount = document.getElementById('galleryMoreCount');
+        const btnAll = document.getElementById('btnViewAllPhotos');
+        const btnAllText = document.getElementById('viewAllPhotosText');
+
+        if (images.length === 0) {
+          if (heroImg) {
+            heroImg.src = 'assets/cat_residential.webp';
+            heroImg.alt = prop.title || 'Property Image';
+          }
+          if (thumbsCol) thumbsCol.style.display = 'none';
+          if (galleryGrid) galleryGrid.style.gridTemplateColumns = '1fr';
+          if (btnAll) btnAll.style.display = 'none';
+          return;
+        }
+
+        // Set main hero image
+        if (heroImg) {
+          heroImg.src = images[0];
+          heroImg.alt = prop.title || 'Property Main Image';
+        }
+
+        // Sub images
+        const extraImages = images.slice(1);
+        if (extraImages.length === 0) {
+          if (thumbsCol) thumbsCol.style.display = 'none';
+          if (galleryGrid) galleryGrid.style.gridTemplateColumns = '1fr';
+          if (btnAll) {
+            btnAll.style.display = 'inline-flex';
+            if (btnAllText) btnAllText.textContent = 'View Photo';
+          }
+        } else {
+          if (thumbsCol) thumbsCol.style.display = 'grid';
+          if (galleryGrid) galleryGrid.style.gridTemplateColumns = '2.2fr 1fr';
+
+          if (thumb1 && thumbImg1 && extraImages[0]) {
+            thumbImg1.src = extraImages[0];
+            thumb1.style.display = 'block';
+          } else if (thumb1) {
+            thumb1.style.display = 'none';
+          }
+
+          if (thumb2 && thumbImg2 && extraImages[1]) {
+            thumbImg2.src = extraImages[1];
+            thumb2.style.display = 'block';
+            if (extraImages.length > 2) {
+              if (moreOverlay) moreOverlay.style.display = 'flex';
+              if (moreCount) moreCount.textContent = `+${extraImages.length - 2} More`;
+            } else {
+              if (moreOverlay) moreOverlay.style.display = 'none';
+            }
+          } else if (thumb2) {
+            thumb2.style.display = 'none';
+          }
+
+          if (btnAll) {
+            btnAll.style.display = 'inline-flex';
+            if (btnAllText) btnAllText.textContent = `View All ${images.length} Photos`;
+          }
+        }
+      }
+
+      function populatePropertyDetails(prop) {
+        activeProperty = prop || {};
+
+        // 1. Title
+        const title = prop.title ? String(prop.title).trim() : '';
+        const titleEl = document.getElementById('propTitleText');
+        if (titleEl) titleEl.textContent = title;
+        if (title) {
+          document.title = `${title} - Property Details | Bila Badi`;
+        } else {
+          document.title = 'Property Details | Bila Badi';
+        }
+
+        // 2. Badges
+        const badgePurpose = document.getElementById('propBadgePurpose');
+        if (badgePurpose) {
+          if (prop.badge && String(prop.badge).trim()) {
+            badgePurpose.textContent = String(prop.badge).trim();
+            badgePurpose.style.display = 'inline-flex';
+          } else {
+            badgePurpose.textContent = '';
+            badgePurpose.style.display = 'none';
+          }
+        }
+
+        const badgeAvailability = document.getElementById('propBadgeAvailability');
+        if (badgeAvailability) {
+          if (prop.availability && String(prop.availability).trim()) {
+            badgeAvailability.textContent = String(prop.availability).trim();
+            badgeAvailability.style.display = 'inline-flex';
+          } else {
+            badgeAvailability.textContent = '';
+            badgeAvailability.style.display = 'none';
+          }
+        }
+
+        const badgeCategory = document.getElementById('propBadgeCategory');
+        if (badgeCategory) {
+          if (prop.category && String(prop.category).trim()) {
+            badgeCategory.textContent = String(prop.category).trim();
+            badgeCategory.style.display = 'inline-flex';
+          } else {
+            badgeCategory.textContent = '';
+            badgeCategory.style.display = 'none';
+          }
+        }
+
+        const badgeTransaction = document.getElementById('propBadgeTransaction');
+        if (badgeTransaction) {
+          if (prop.transaction_type && String(prop.transaction_type).trim()) {
+            badgeTransaction.textContent = String(prop.transaction_type).trim();
+            badgeTransaction.style.display = 'inline-flex';
+          } else {
+            badgeTransaction.textContent = '';
+            badgeTransaction.style.display = 'none';
+          }
+        }
+
+        // 3. Location
+        const locEl = document.getElementById('propLocationText');
+        const locItem = document.getElementById('propLocItem');
+        if (prop.location && String(prop.location).trim()) {
+          if (locEl) locEl.textContent = String(prop.location).trim();
+          if (locItem) locItem.style.display = 'inline-flex';
+        } else {
+          if (locEl) locEl.textContent = '';
+          if (locItem) locItem.style.display = 'none';
+        }
+
+        // 4. Posted Date
+        const dateEl = document.getElementById('propPostedDateText');
+        const dateItem = document.getElementById('propDateItem');
+        const heroDateTag = document.getElementById('galleryPostedTag');
+        if (prop.created_at) {
+          try {
+            const d = new Date(prop.created_at);
+            const formatted = isNaN(d.getTime())
+              ? String(prop.created_at)
+              : d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+            if (dateEl) dateEl.textContent = `Posted on ${formatted}`;
+            if (dateItem) dateItem.style.display = 'inline-flex';
+            if (heroDateTag) {
+              heroDateTag.textContent = `Posted on ${formatted}`;
+              heroDateTag.style.display = 'inline-block';
+            }
+          } catch {
+            if (dateEl) dateEl.textContent = '';
+            if (dateItem) dateItem.style.display = 'none';
+            if (heroDateTag) heroDateTag.style.display = 'none';
+          }
+        } else {
+          if (dateEl) dateEl.textContent = '';
+          if (dateItem) dateItem.style.display = 'none';
+          if (heroDateTag) heroDateTag.style.display = 'none';
+        }
+
+        // 5. Contact Badge
+        const contactBadge = document.getElementById('propContactBadge');
+        const contactBadgeText = document.getElementById('propContactBadgeText');
+        if (prop.contact_no && String(prop.contact_no).trim()) {
+          if (contactBadgeText) contactBadgeText.textContent = `Contact: ${String(prop.contact_no).trim()}`;
+          if (contactBadge) contactBadge.style.display = 'inline-flex';
+        } else {
+          if (contactBadgeText) contactBadgeText.textContent = '';
+          if (contactBadge) contactBadge.style.display = 'none';
+        }
+
+        // 6. Price
+        const priceEl = document.getElementById('propPriceText');
+        const priceSubEl = document.getElementById('propPriceSubText');
+        if (prop.price && String(prop.price).trim()) {
+          const rawPrice = String(prop.price).trim();
+          if (priceEl) priceEl.textContent = rawPrice.startsWith('₹') ? rawPrice : `₹ ${rawPrice}`;
+          const subArea = prop.total_plot_area || prop.area || '';
+          if (priceSubEl) priceSubEl.textContent = subArea ? `${subArea}` : '';
+        } else {
+          if (priceEl) priceEl.textContent = '';
+          if (priceSubEl) priceSubEl.textContent = '';
+        }
+
+        // 7. Seller Card
+        const sellerName = document.getElementById('sellerNameText');
+        const sellerPhone = document.getElementById('sellerPhoneText');
+        if (prop.contact_no && String(prop.contact_no).trim()) {
+          if (sellerName) sellerName.textContent = 'Property Contact';
+          if (sellerPhone) sellerPhone.textContent = `Phone: ${String(prop.contact_no).trim()}`;
+        } else {
+          if (sellerName) sellerName.textContent = '';
+          if (sellerPhone) sellerPhone.textContent = '';
+        }
+
+        // 8. Card 1: Overview Specs
+        setField('specCategory', prop.category);
+        setField('specBadge', prop.badge);
+        setField('specTransactionType', prop.transaction_type);
+        setField('specAvailability', prop.availability);
+        setField('specLocation', prop.location);
+        setField('specContactNo', prop.contact_no);
+
+        // 9. Card 2: Area & Dimensions
+        setField('specTotalPlotArea', prop.total_plot_area);
+        setField('specLandArea', prop.land_area);
+        setField('specArea', prop.area);
+        setField('specLength', prop.length);
+        setField('specBreadth', prop.breadth);
+        setField('specSuperBuiltUpArea', prop.super_built_up_area);
+        setField('specBuiltUpArea', prop.built_up_area);
+        setField('specCarpetArea', prop.carpet_area);
+
+        // 10. Card 3: Layout & Specifications
+        setField('specBedrooms', prop.bedrooms);
+        setField('specBalconies', prop.balconies);
+        setField('specFurnishingStatus', prop.furnishing_status);
+        setField('specFacing', prop.facing);
+        setField('specFacingRoadWidth', prop.facing_road_width);
+
+        // 11. Card 4: Amenities Chips
+        const amenitiesWrap = document.getElementById('amenitiesChipsWrap');
+        if (amenitiesWrap) {
+          amenitiesWrap.innerHTML = '';
+          if (prop.amenities && String(prop.amenities).trim()) {
+            const list = String(prop.amenities).split(',').map(s => s.trim()).filter(Boolean);
+            list.forEach(amenity => {
+              const chip = document.createElement('span');
+              chip.className = 'amenity-chip';
+              chip.innerHTML = `
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                ${amenity}
+              `;
+              amenitiesWrap.appendChild(chip);
+            });
+          }
+        }
+
+        // 12. Card 5: Description
+        const descEl = document.getElementById('propDescriptionText');
+        if (descEl) {
+          if (prop.description && String(prop.description).trim()) {
+            descEl.textContent = String(prop.description).trim();
+          } else {
+            descEl.textContent = '';
+          }
+        }
+
+        // 13. Gallery Photos
+        updateGalleryImages(prop);
+      }
+
+      // Event listeners for Photo Lightbox
       document.getElementById('galleryHeroBox')?.addEventListener('click', () => openLightbox(0));
       document.getElementById('btnViewAllPhotos')?.addEventListener('click', (e) => {
         e.stopPropagation();
         openLightbox(0);
       });
 
-      document.querySelectorAll('.gallery-thumb-item').forEach((thumb) => {
-        thumb.addEventListener('click', () => {
-          const idx = parseInt(thumb.dataset.index) || 0;
-          openLightbox(idx);
-        });
-      });
+      document.getElementById('galleryThumb1')?.addEventListener('click', () => openLightbox(1));
+      document.getElementById('galleryThumb2')?.addEventListener('click', () => openLightbox(2));
 
       lightboxClose?.addEventListener('click', closeLightbox);
       lightbox?.addEventListener('click', (e) => {
@@ -2741,12 +2802,14 @@
       });
 
       lightboxPrev?.addEventListener('click', () => {
-        currentImgIdx = (currentImgIdx - 1 + galleryImages.length) % galleryImages.length;
+        if (currentImgIdx <= 0) return;
+        currentImgIdx -= 1;
         updateLightbox();
       });
 
       lightboxNext?.addEventListener('click', () => {
-        currentImgIdx = (currentImgIdx + 1) % galleryImages.length;
+        if (currentImgIdx >= galleryImages.length - 1) return;
+        currentImgIdx += 1;
         updateLightbox();
       });
 
@@ -2760,18 +2823,26 @@
       // 5. Booking & Schedule Call Action
       const btnScheduleCall = document.getElementById('btnScheduleCall');
       btnScheduleCall?.addEventListener('click', () => {
-        const phone = prompt('Schedule a Direct Call with Owner:\nPlease enter your mobile number (+91):');
-        if (phone && phone.trim()) {
-          alert(`Thank you! The property owner will call you shortly on ${phone.trim()}.`);
+        const contact = activeProperty?.contact_no ? String(activeProperty.contact_no).trim() : '';
+        if (contact) {
+          window.location.href = `tel:${contact}`;
+        } else {
+          const phone = prompt('Schedule a Direct Call with Owner:\nPlease enter your mobile number (+91):');
+          if (phone && phone.trim()) {
+            alert(`Thank you! The property owner will call you shortly on ${phone.trim()}.`);
+          }
         }
       });
 
       // 6. WhatsApp Action
       const btnWhatsapp = document.getElementById('btnWhatsappChat');
       btnWhatsapp?.addEventListener('click', () => {
-        const title = document.getElementById('propTitleText')?.textContent || 'Ashray Vihar Phase 2';
+        const contact = activeProperty?.contact_no
+          ? String(activeProperty.contact_no).replace(/\D/g, '')
+          : '919876543210';
+        const title = activeProperty?.title || 'Property';
         const msg = encodeURIComponent(`Hello, I am interested in "${title}" listed on Bila Badi. Please share more details.`);
-        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+        window.open(`https://wa.me/${contact}?text=${msg}`, '_blank');
       });
 
       // 7. Quick Inquiry Form Submission
@@ -2782,54 +2853,110 @@
         inquiryForm.reset();
       });
 
-      // 8. Dynamic URL Query Parameters (Supports loading any listing from product-details)
-      const params = new URLSearchParams(window.location.search);
-      const paramTitle = params.get('title');
-      const paramPrice = params.get('price');
-      const paramLoc = params.get('loc');
-      const paramBhk = params.get('bhk');
-      const paramArea = params.get('area');
-      const paramFurnish = params.get('furnish');
-      const paramStatus = params.get('status');
-      const paramPosted = params.get('posted');
+      // 8. Load Property Data from API / Local Storage / URL Search Query
+      async function loadPropertyData() {
+        const params = new URLSearchParams(window.location.search);
+        const propId = params.get('id');
 
-      if (paramTitle) {
-        document.title = `${paramTitle} - Property Details | Bila Badi`;
-        const titleEl = document.getElementById('propTitleText');
-        if (titleEl) titleEl.textContent = paramTitle;
+        let propData = null;
+
+        // 1. If ID is provided, try fetching GET /api/properties/:id
+        if (propId) {
+          try {
+            const res = await fetch(`http://localhost:5000/api/properties/${encodeURIComponent(propId)}`);
+            if (res.ok) {
+              const json = await res.json();
+              if (json.success && json.data) {
+                propData = json.data;
+              }
+            }
+          } catch (e) {
+            console.warn('API fetch by ID failed:', e);
+          }
+        }
+
+        // 2. If not found or no ID, try fetching all properties
+        if (!propData) {
+          try {
+            const res = await fetch('http://localhost:5000/api/properties');
+            if (res.ok) {
+              const json = await res.json();
+              if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+                if (propId) {
+                  propData = json.data.find(p => String(p.id) === String(propId));
+                } else if (params.get('title')) {
+                  const searchTitle = params.get('title').toLowerCase().trim();
+                  propData = json.data.find(p => p.title && p.title.toLowerCase().trim() === searchTitle);
+                }
+                if (!propData && !propId && !params.get('title')) {
+                  propData = json.data[0];
+                }
+              }
+            }
+          } catch (e) {
+            console.warn('API fetch all properties failed:', e);
+          }
+        }
+
+        // 3. Fallback to sessionStorage cache
+        if (!propData) {
+          try {
+            const local = sessionStorage.getItem('bilabadi_properties_data') || sessionStorage.getItem('bilabadi_admin_properties_data');
+            if (local) {
+              const list = JSON.parse(local);
+              if (Array.isArray(list) && list.length > 0) {
+                if (propId) {
+                  propData = list.find(p => String(p.id) === String(propId));
+                } else if (params.get('title')) {
+                  const searchTitle = params.get('title').toLowerCase().trim();
+                  propData = list.find(p => p.title && p.title.toLowerCase().trim() === searchTitle);
+                }
+                if (!propData && !propId && !params.get('title')) {
+                  propData = list[0];
+                }
+              }
+            }
+          } catch (e) {
+            console.warn('sessionStorage read failed:', e);
+          }
+        }
+
+        // 4. If still no propData but URL has query parameters, build object from URL params
+        if (!propData) {
+          propData = {
+            title: params.get('title') || '',
+            price: params.get('price') || '',
+            location: params.get('loc') || '',
+            bedrooms: params.get('bhk') || '',
+            area: params.get('area') || '',
+            total_plot_area: params.get('area') || '',
+            furnishing_status: params.get('furnish') || '',
+            availability: params.get('status') || '',
+            category: params.get('cat') || '',
+            property_image: params.get('img') || '',
+            contact_no: params.get('contact') || '',
+            badge: params.get('badge') || '',
+            transaction_type: params.get('transaction_type') || '',
+            land_area: params.get('land_area') || '',
+            length: params.get('length') || '',
+            breadth: params.get('breadth') || '',
+            super_built_up_area: params.get('super_built_up_area') || '',
+            built_up_area: params.get('built_up_area') || '',
+            carpet_area: params.get('carpet_area') || '',
+            balconies: params.get('balconies') || '',
+            facing: params.get('facing') || '',
+            facing_road_width: params.get('facing_road_width') || '',
+            amenities: params.get('amenities') || '',
+            description: params.get('description') || '',
+            sub_images: []
+          };
+        }
+
+        // Populate details (any missing/empty field displays blank)
+        populatePropertyDetails(propData);
       }
-      if (paramPrice) {
-        const priceEl = document.getElementById('propPriceText');
-        const cleanPrice = paramPrice.trim();
-        if (priceEl) priceEl.textContent = cleanPrice.startsWith('₹') ? cleanPrice : `₹ ${cleanPrice}`;
-      }
-      if (paramLoc) {
-        const locEl = document.getElementById('propLocationText');
-        if (locEl) locEl.textContent = paramLoc;
-      }
-      if (paramBhk) {
-        const bhkEl = document.getElementById('specBedrooms');
-        if (bhkEl) bhkEl.textContent = paramBhk.toLowerCase().includes('bhk') || paramBhk.toLowerCase().includes('plot') || paramBhk.toLowerCase().includes('zone') ? paramBhk : `${paramBhk} BHK`;
-      }
-      if (paramArea) {
-        const areaEl = document.getElementById('specSuperArea');
-        if (areaEl) areaEl.textContent = paramArea.toLowerCase().includes('sq') || paramArea.toLowerCase().includes('acre') ? paramArea : `${paramArea} sq ft`;
-      }
-      if (paramFurnish) {
-        const furnishEl = document.getElementById('specFurnish');
-        if (furnishEl) furnishEl.textContent = paramFurnish.charAt(0).toUpperCase() + paramFurnish.slice(1);
-      }
-      if (paramStatus) {
-        const statusEl = document.getElementById('specPossession');
-        const badgeStatusEl = document.getElementById('propBadgeStatus');
-        const formatted = paramStatus.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
-        if (statusEl) statusEl.textContent = formatted;
-        if (badgeStatusEl) badgeStatusEl.textContent = formatted;
-      }
-      if (paramPosted) {
-        const postedEl = document.getElementById('propPostedBadge');
-        if (postedEl) postedEl.textContent = `Posted by ${paramPosted.charAt(0).toUpperCase() + paramPosted.slice(1)}`;
-      }
+
+      loadPropertyData();
 
       // 9. Scroll to Top
       const scrollTopBtn = document.getElementById('scrollToTopBtn');

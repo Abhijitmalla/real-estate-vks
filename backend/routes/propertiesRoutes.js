@@ -11,9 +11,10 @@ import {
     deleteProperty
 } from "../controllers/propertiesController.js";
 
-import upload from "../middleware/upload.js";
+import createUpload from "../middleware/upload.js";
 
 const router = express.Router();
+const upload = createUpload("properties");
 
 // Get all properties (Admin)
 router.get("/", getAllProperties);

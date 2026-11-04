@@ -29,6 +29,12 @@ app.use(
     express.static(path.join(__dirname, "uploads"))
 );
 
+// Serve existing property images uploaded before property uploads had their own directory.
+app.use(
+    "/uploads/properties",
+    express.static(path.join(__dirname, "uploads", "backgrounds"))
+);
+
 // API Routes
 app.use("/api/homepage", homepageRoutes);
 app.use("/api/properties", propertiesRoutes);
@@ -73,6 +79,14 @@ app.use((req, res) => {
 
 // Global error handler
 app.use((err, req, res, next) => {
+    // Handle invalid JSON sent in request body
+    if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
+        return res.status(400).json({
+            success: false,
+            message: "Invalid JSON payload in request body"
+        });
+    }
+
     if (err.name === "MulterError") {
         return res.status(400).json({
             success: false,
@@ -98,6 +112,13 @@ const startServer = async () => {
         await db.query("SELECT 1");
 
         console.log("Database connected successfully!");
+
+        try {
+            await db.query(`ALTER TABLE properties ADD COLUMN is_best_property TINYINT(1) DEFAULT 0`);
+            console.log("Column 'is_best_property' verified/added in properties table.");
+        } catch (e) {
+            // Column already exists or table not ready
+        }
 
         app.listen(PORT, () => {
             console.log(`Server running on port ${PORT}`);

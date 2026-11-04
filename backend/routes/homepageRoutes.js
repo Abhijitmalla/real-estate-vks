@@ -9,9 +9,10 @@ import {
     deleteHomepageSection
 } from "../controllers/homepageController.js";
 
-import upload from "../middleware/upload.js";
+import createUpload from "../middleware/upload.js";
 
 const router = express.Router();
+const upload = createUpload("backgrounds");
 
 // Public routes
 router.get("/", getHomepage);
