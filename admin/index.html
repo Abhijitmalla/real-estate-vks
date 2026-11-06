@@ -1390,6 +1390,30 @@
         height: 140px;
       }
     }
+
+    /* Hero Typewriter Light Green Preview in Admin */
+    .typewriter-preview-box {
+      margin-top: 14px;
+      margin-bottom: 16px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+      border: 1.5px dashed #86efac;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(34, 197, 94, 0.08);
+      transition: all 0.2s ease;
+    }
+    .typewriter-preview-box:hover {
+      border-color: #22c55e;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.14);
+    }
+    .input-box-lightgreen {
+      background: #f0fdf4 !important;
+      border-color: #86efac !important;
+    }
+    .input-box-lightgreen:focus-within {
+      border-color: #22c55e !important;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2) !important;
+    }
   </style>
 </head>
 
@@ -1457,6 +1481,10 @@
           <span>🏢 Properties</span>
           <span class="tab-badge-pill" id="navPropCount">3</span>
         </button>
+        <button type="button" class="primary-tab-btn" data-tab="about" onclick="switchMainTab('about')">
+          <span>ℹ️ About Us</span>
+          <span class="tab-badge-pill" id="navAboutCount">3 Cards</span>
+        </button>
         <button type="button" class="primary-tab-btn" data-tab="blog" onclick="switchMainTab('blog')">
           <span>📝 Blog</span>
           <span class="tab-badge-pill" id="navBlogCount">6</span>
@@ -1467,7 +1495,7 @@
         </button>
         <button type="button" class="primary-tab-btn" data-tab="contact" onclick="switchMainTab('contact')">
           <span>📞 Contact Us</span>
-          <span class="tab-badge-pill">Info &amp; Leads</span>
+          <span class="tab-badge-pill" id="navContactCount">Info &amp; Leads</span>
         </button>
       </nav>
 
@@ -1577,38 +1605,65 @@
                 </div>
                 <div>
                   <h3 class="block-header-title">2. Top Texts</h3>
-                  <p class="block-header-desc">Hero badge eyebrow, main headline title, green typewriter phrases and
-                    descriptive paragraph</p>
+                  <p class="block-header-desc">Hero badge eyebrow, headline fields (Buy, Sell or Rent &amp; light green typewriter words) and descriptive paragraph</p>
                 </div>
               </div>
             </div>
 
-            <div class="form-grid-2col" style="margin-bottom: 16px;">
-              <div class="form-group">
-                <label class="field-label">Top Badge / Eyebrow Text <span class="req-star">*</span></label>
-                <div class="input-box">
-                  <span class="input-icon-left">🏷️</span>
-                  <input type="text" id="topBadgeInput" class="input-field" value="Your Land. Your Future." required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="field-label">Green Highlight / Typewriter Words</label>
-                <div class="input-box">
-                  <span class="input-icon-left">✨</span>
-                  <input type="text" id="topHighlightInput" class="input-field" value="Land &amp; Commercial Spaces">
-                </div>
-              </div>
-            </div>
-
+            <!-- Top Badge / Eyebrow Text -->
             <div class="form-group" style="margin-bottom: 16px;">
-              <label class="field-label">Top Main Heading / Title <span class="req-star">*</span></label>
+              <label class="field-label">Top Badge / Eyebrow Text <span class="req-star">*</span></label>
               <div class="input-box">
-                <span class="input-icon-left">📢</span>
-                <input type="text" id="topTitleInput" class="input-field"
-                  value="Buy, Sell or Rent Land &amp; Commercial Spaces" required>
+                <span class="input-icon-left">🏷️</span>
+                <input type="text" id="topBadgeInput" class="input-field" value="Your Land. Your Future." required>
               </div>
             </div>
 
+            <!-- Two Heading Fields: Line 1 (Buy, Sell or Rent) & Line 2 (Typewriter Words in Light Green) -->
+            <div class="form-grid-2col" style="margin-bottom: 14px;">
+              <!-- Field 1: Buy, Sell or Rent -->
+              <div class="form-group">
+                <label class="field-label">Top Heading / First Line <span class="req-star">*</span></label>
+                <div class="input-box">
+                  <span class="input-icon-left">📢</span>
+                  <input type="text" id="topTitleInput" class="input-field"
+                    value="Buy, Sell or Rent" placeholder="e.g. Buy, Sell or Rent" required>
+                </div>
+                <p style="font-size: 11.5px; color: #6b7280; margin-top: 5px;">Static main headline line (e.g. Buy, Sell or Rent)</p>
+              </div>
+
+              <!-- Field 2: Land & Commercial Spaces (Typewriter Effect - Light Green) -->
+              <div class="form-group">
+                <label class="field-label" style="display: flex; align-items: center; justify-content: space-between;">
+                  <span>Typewriter Words (Line 2 - Light Green) <span class="req-star">*</span></span>
+                  <span style="font-size: 11px; background: #dcfce7; color: #15803d; padding: 2px 8px; border-radius: 999px; font-weight: 700; border: 1px solid #86efac;">✨ Light Green Typewriter</span>
+                </label>
+                <div class="input-box input-box-lightgreen">
+                  <span class="input-icon-left">✨</span>
+                  <input type="text" id="topHighlightInput" class="input-field"
+                    style="color: #15803d; font-weight: 700;"
+                    value="Land &amp; Commercial Spaces" placeholder="e.g. Land &amp; Commercial Spaces" required>
+                </div>
+                <p style="font-size: 11.5px; color: #16a34a; margin-top: 5px;">Animates with typewriter effect in light green. Anything you write here will typewrite!</p>
+              </div>
+            </div>
+
+            <!-- Live Typewriter Preview Box in Admin -->
+            <div class="typewriter-preview-box" id="adminTypewriterPreviewCard">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #15803d; display: flex; align-items: center; gap: 6px;">
+                  <span style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%; display: inline-block; box-shadow: 0 0 6px #22c55e;"></span>
+                  Live Heading Preview (Light Green Typewriter)
+                </span>
+                <span style="font-size: 11px; color: #059669; font-weight: 600;">Real-time typing animation</span>
+              </div>
+              <div style="font-size: 22px; font-weight: 800; color: #111827; line-height: 1.25; font-family: var(--font-main, sans-serif);">
+                <span id="adminPreviewTitle">Buy, Sell or Rent</span><br>
+                <span id="adminPreviewHighlight" style="color: #22c55e; font-weight: 800;">Land &amp; Commercial Spaces</span>
+              </div>
+            </div>
+
+            <!-- Top Description Paragraph -->
             <div class="form-group">
               <label class="field-label">Top Description Paragraph</label>
               <div class="input-box textarea-box">
@@ -2395,98 +2450,501 @@
       </section>
 
       <!-- ==============================================================
-           TAB 5: CONTACT US (Contact Information, Office Locations, Inquiries Inbox)
+           TAB 5: CONTACT US (Contact Hero, Action Cards, Operating Hours, Locations, Map, Trust Badges, CTA, Inquiries)
            ============================================================== -->
       <section id="tab-contact" class="tab-content-pane">
 
+        <!-- 1. Contact Us Hero & Farmland Showcase Image -->
         <div class="section-block-card">
           <div class="section-block-header">
             <div class="block-header-left">
               <div class="block-icon-circle">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                  </path>
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
               </div>
               <div>
-                <h3 class="block-header-title">Contact Us &amp; Leads Manager</h3>
-                <p class="block-header-desc">Manage office contact phone numbers, support emails, physical addresses,
-                  map embed, and client inquiries</p>
+                <h3 class="block-header-title">1. Hero Banner &amp; Farmland Showcase Image</h3>
+                <p class="block-header-desc">Manage top hero badge, title, subtitle, 3 benefit bullet points, and farmland image</p>
               </div>
             </div>
           </div>
 
-          <!-- Contact Channels Form -->
+          <div class="form-grid-2col" style="margin-bottom:16px;">
+            <div class="form-group">
+              <label class="field-label">Hero Badge / Pill</label>
+              <input type="text" id="contactHeroBadge" class="subprop-input" value="CONTACT US">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Hero Main Title <span class="req-star">*</span></label>
+              <input type="text" id="contactHeroTitle" class="subprop-input" value="Let's Start a Conversation">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:16px;">
+            <label class="field-label">Hero Subtitle / Description</label>
+            <textarea id="contactHeroSubtitle" class="subprop-input" style="height:60px; padding:8px;">Need help with homes for sale, rental properties, studio apartments or duplex housing? Connect with trusted property agents for clear guidance.</textarea>
+          </div>
+
+          <div class="form-grid-3col" style="margin-bottom:16px;">
+            <div class="form-group">
+              <label class="field-label">Benefit Point 1</label>
+              <input type="text" id="contactHeroFeat1" class="subprop-input" value="Expert Support">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Benefit Point 2</label>
+              <input type="text" id="contactHeroFeat2" class="subprop-input" value="Verified Assistance">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Benefit Point 3</label>
+              <input type="text" id="contactHeroFeat3" class="subprop-input" value="Quick Response">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label">Farmland Hero Image (Right Side)</label>
+            <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
+              <div class="thumb-preview-box" style="width:200px; height:120px; border-radius:10px; overflow:hidden; border:1px solid #d1d5db; position:relative; background:#f3f4f6;">
+                <img id="contactHeroImgPreview" src="../assets/cat_agricultural.webp" alt="Farmland Hero Preview" style="width:100%; height:100%; object-fit:cover;">
+              </div>
+              <div style="flex:1; min-width:260px;">
+                <div class="dropzone-box" onclick="document.getElementById('contactHeroImgFile').click()" style="padding:14px; margin-bottom:8px;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                  </svg>
+                  <div class="dropzone-title" style="font-size:13px;">Upload Farmland Image</div>
+                  <div class="dropzone-sub" style="font-size:11px;">Select JPG, PNG or WebP file</div>
+                  <input type="file" id="contactHeroImgFile" accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleContactHeroImgUpload(event)">
+                </div>
+                <div style="display:flex; gap:8px;">
+                  <input type="text" id="contactHeroImgUrl" class="subprop-input" placeholder="Or enter image URL / path (e.g. assets/cat_agricultural.webp)" onchange="onContactHeroImgUrlChange(this.value)">
+                  <button type="button" class="btn-reset" style="padding:4px 10px; font-size:12px; white-space:nowrap;" onclick="clearContactHeroImg()">Reset</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. How Can We Help You (Action Cards) -->
+        <div class="section-block-card">
+          <div class="section-block-header">
+            <div class="block-header-left">
+              <div class="block-icon-circle">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <div>
+                <h3 class="block-header-title">2. How Can We Help You? (Action Cards)</h3>
+                <p class="block-header-desc">Customize section header, add new action cards (Call, Email, Visit, Hours), and edit or remove them</p>
+              </div>
+            </div>
+            <button type="button" class="btn-add-primary" onclick="focusAddContactCard()">+ Add Help Card</button>
+          </div>
+
           <div class="form-grid-2col" style="margin-bottom:18px;">
             <div class="form-group">
-              <label class="field-label">Primary Phone Number <span class="req-star">*</span></label>
-              <div class="input-box">
-                <span class="input-icon-left">📞</span>
-                <input type="text" id="contactPhone1" class="input-field" value="+91 98765 43210" required>
-              </div>
+              <label class="field-label">Section Title</label>
+              <input type="text" id="contactHelpTitle" class="subprop-input" value="How Can We Help You?">
             </div>
             <div class="form-group">
-              <label class="field-label">Secondary / Toll-Free Number</label>
-              <div class="input-box">
-                <span class="input-icon-left">📱</span>
-                <input type="text" id="contactPhone2" class="input-field" value="+91 1800 123 4567">
+              <label class="field-label">Section Subtitle</label>
+              <input type="text" id="contactHelpSubtitle" class="subprop-input" value="Our team is here to help you with buying, selling, renting and property-related queries.">
+            </div>
+          </div>
+
+          <!-- Add Help Card Form Box -->
+          <div style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:18px; margin-bottom:22px;" id="addContactCardWrap">
+            <div style="font-size:14px; font-weight:800; color:#064e3b; margin-bottom:10px;">+ Add New Action Card</div>
+            <div class="form-grid-3col" style="margin-bottom:12px;">
+              <div class="form-group">
+                <label class="field-label">Card Title <span class="req-star">*</span></label>
+                <input type="text" id="newCardTitle" class="subprop-input" placeholder="e.g. Call Our Team">
+              </div>
+              <div class="form-group">
+                <label class="field-label">Card Icon (FontAwesome or Emoji)</label>
+                <input type="text" id="newCardIcon" class="subprop-input" value="fa-solid fa-phone" placeholder="fa-solid fa-phone or 📞">
+              </div>
+              <div class="form-group">
+                <label class="field-label">Optional Badge Text</label>
+                <input type="text" id="newCardBadge" class="subprop-input" placeholder="e.g. Sunday Closed (or leave blank)">
+              </div>
+            </div>
+
+            <div class="form-grid-2col" style="margin-bottom:12px;">
+              <div class="form-group">
+                <label class="field-label">Card Subtitle / Description</label>
+                <input type="text" id="newCardSubtitle" class="subprop-input" placeholder="Speak directly with our property experts.">
+              </div>
+              <div class="form-group">
+                <label class="field-label">Contact Info Text (Phone / Email / Address)</label>
+                <input type="text" id="newCardInfoText" class="subprop-input" placeholder="+91 99108 77219">
+              </div>
+            </div>
+
+            <div class="form-grid-3col" style="margin-bottom:12px;">
+              <div class="form-group">
+                <label class="field-label">Contact Info Destination URL</label>
+                <input type="text" id="newCardInfoLink" class="subprop-input" placeholder="tel:+919910877219 or mailto:support@bilabadi.com">
+              </div>
+              <div class="form-group">
+                <label class="field-label">Action Button Text</label>
+                <input type="text" id="newCardBtnText" class="subprop-input" value="Call Now" placeholder="Call Now / Email Us / Get Directions">
+              </div>
+              <div class="form-group">
+                <label class="field-label">Action Button URL</label>
+                <input type="text" id="newCardBtnLink" class="subprop-input" placeholder="tel:+919910877219 or #mapSection">
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" class="btn-add-primary" onclick="addNewContactCard()">✓ Save &amp; Add Help Card</button>
+            </div>
+          </div>
+
+          <!-- Existing Action Cards Grid -->
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Active Help Cards (<span id="existingContactCardsCount">0</span>)</h4>
+          </div>
+
+          <div class="form-grid-2col" id="contactCardsListContainer">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- 3. Operating Hours & Urgent Support -->
+        <div class="section-block-card">
+          <div class="section-block-header">
+            <div class="block-header-left">
+              <div class="block-icon-circle">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="block-header-title">3. Operating Hours &amp; Urgent Support</h3>
+                <p class="block-header-desc">Manage office opening schedule, weekend status, and urgent support contact link</p>
               </div>
             </div>
           </div>
 
-          <div class="form-grid-2col" style="margin-bottom:18px;">
+          <div class="form-grid-3col" style="margin-bottom:16px;">
             <div class="form-group">
-              <label class="field-label">Primary Support Email <span class="req-star">*</span></label>
-              <div class="input-box">
-                <span class="input-icon-left">✉️</span>
-                <input type="email" id="contactEmail1" class="input-field" value="support@bilabadi.com" required>
-              </div>
+              <label class="field-label">Card Title</label>
+              <input type="text" id="contactOperTitle" class="subprop-input" value="Operating Hours">
             </div>
             <div class="form-group">
-              <label class="field-label">Sales / Inquiry Email</label>
-              <div class="input-box">
-                <span class="input-icon-left">💼</span>
-                <input type="email" id="contactEmail2" class="input-field" value="sales@bilabadi.com">
+              <label class="field-label">Working Days</label>
+              <input type="text" id="contactOperDays" class="subprop-input" value="Monday – Saturday">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Working Hours</label>
+              <input type="text" id="contactOperHours" class="subprop-input" value="9:00 AM – 6:00 PM">
+            </div>
+          </div>
+
+          <div class="form-grid-2col" style="margin-bottom:16px;">
+            <div class="form-group">
+              <label class="field-label">Weekend Day Label</label>
+              <input type="text" id="contactOperSunday" class="subprop-input" value="Sunday">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Weekend Status Badge</label>
+              <input type="text" id="contactOperSundayStatus" class="subprop-input" value="Closed">
+            </div>
+          </div>
+
+          <div class="form-grid-3col">
+            <div class="form-group">
+              <label class="field-label">Urgent Help Label</label>
+              <input type="text" id="contactUrgentLabel" class="subprop-input" value="Need urgent help?">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Support Email Address</label>
+              <input type="email" id="contactUrgentEmail" class="subprop-input" value="support@bilabadi.com">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Email Action Link</label>
+              <input type="text" id="contactUrgentLink" class="subprop-input" value="mailto:support@bilabadi.com">
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Our Locations & Office Photos -->
+        <div class="section-block-card">
+          <div class="section-block-header">
+            <div class="block-header-left">
+              <div class="block-icon-circle">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <h3 class="block-header-title">4. Our Locations &amp; Office Photos</h3>
+                <p class="block-header-desc">Add, edit, or delete office branches with building photos, addresses, phone numbers, and map coordinates</p>
+              </div>
+            </div>
+            <button type="button" class="btn-add-primary" onclick="focusAddContactLoc()">+ Add Location</button>
+          </div>
+
+          <div class="form-group" style="margin-bottom:18px;">
+            <label class="field-label">Locations Section Heading Label</label>
+            <input type="text" id="contactLocationsLabel" class="subprop-input" value="Our Locations">
+          </div>
+
+          <!-- Add Location Form Card -->
+          <div style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:18px; margin-bottom:22px;" id="addContactLocWrap">
+            <div style="font-size:14px; font-weight:800; color:#064e3b; margin-bottom:10px;">+ Add New Office Location</div>
+            <div class="form-grid-3col" style="margin-bottom:12px;">
+              <div class="form-group">
+                <label class="field-label">Office Title <span class="req-star">*</span></label>
+                <input type="text" id="newLocTitle" class="subprop-input" placeholder="e.g. Head Office / Branch Office">
+              </div>
+              <div class="form-group">
+                <label class="field-label">City &amp; State <span class="req-star">*</span></label>
+                <input type="text" id="newLocCityState" class="subprop-input" placeholder="e.g. Bhubaneswar, Odisha">
+              </div>
+              <div class="form-group">
+                <label class="field-label">Phone Number <span class="req-star">*</span></label>
+                <input type="text" id="newLocPhone" class="subprop-input" value="+91 99108 77219" placeholder="+91 99108 77219">
+              </div>
+            </div>
+
+            <div class="form-grid-2col" style="margin-bottom:12px;">
+              <div class="form-group">
+                <label class="field-label">Full Address <span class="req-star">*</span></label>
+                <textarea id="newLocAddress" class="subprop-input" style="height:65px; padding:6px;" placeholder="Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh, Bhubaneswar, Odisha - 751017"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="field-label">Map Search Query / Coordinate Name</label>
+                <textarea id="newLocMapQuery" class="subprop-input" style="height:65px; padding:6px;" placeholder="Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh, Bhubaneswar, Odisha - 751017"></textarea>
+              </div>
+            </div>
+
+            <!-- Building Photo Upload -->
+            <div class="form-group" style="margin-bottom:14px;">
+              <label class="field-label">Office Building Photo</label>
+              <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
+                <div class="thumb-preview-box" style="width:130px; height:85px; border-radius:8px; overflow:hidden; border:1px solid #d1d5db; position:relative; background:#f3f4f6;">
+                  <img id="newLocImgPreview" src="../assets/city_delhi.jpg" alt="Office Preview" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div style="flex:1; min-width:240px;">
+                  <div class="dropzone-box" onclick="document.getElementById('newLocImgFile').click()" style="padding:10px; margin-bottom:6px;">
+                    <span style="font-size:12px; font-weight:700; color:#059669;">📷 Select Office Building Photo</span>
+                    <input type="file" id="newLocImgFile" accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleNewLocImgUpload(event)">
+                  </div>
+                  <div style="display:flex; gap:6px;">
+                    <input type="text" id="newLocImgUrl" class="subprop-input" placeholder="Or enter image URL (e.g. assets/city_delhi.jpg)">
+                    <button type="button" class="btn-reset" style="padding:2px 8px; font-size:11px;" onclick="clearNewLocImg()">Reset</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" class="btn-add-primary" onclick="addNewContactLocation()">✓ Save &amp; Add Location</button>
+            </div>
+          </div>
+
+          <!-- Existing Locations Grid -->
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Active Office Locations (<span id="existingContactLocsCount">0</span>)</h4>
+          </div>
+
+          <div class="form-grid-2col" id="contactLocsListContainer">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- 5. Interactive Google Map & Floating Card -->
+        <div class="section-block-card">
+          <div class="section-block-header">
+            <div class="block-header-left">
+              <div class="block-icon-circle">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                  <line x1="8" y1="2" x2="8" y2="18"></line>
+                  <line x1="16" y1="6" x2="16" y2="22"></line>
+                </svg>
+              </div>
+              <div>
+                <h3 class="block-header-title">5. Interactive Google Map &amp; Floating Card</h3>
+                <p class="block-header-desc">Manage the map embed URL, floating overlay address, star rating, and direct map link</p>
               </div>
             </div>
           </div>
 
-          <div class="form-grid-2col" style="margin-bottom:18px;">
+          <div class="form-grid-2col" style="margin-bottom:16px;">
             <div class="form-group">
-              <label class="field-label">Head Office Address <span class="req-star">*</span></label>
-              <div class="input-box textarea-box">
-                <span class="input-icon-left">📍</span>
-                <textarea id="contactAddress" class="textarea-field"
-                  rows="2">12th Floor, BilaBadi Tower, Outer Ring Road, Bellandur, Bangalore, Karnataka - 560103</textarea>
-              </div>
+              <label class="field-label">Google Maps Embed URL / Query</label>
+              <input type="text" id="contactMapEmbedUrl" class="subprop-input" value="https://maps.google.com/maps?q=Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh, Bhubaneswar, Odisha - 751017+122011&t=&z=15&ie=UTF8&iwloc=&output=embed">
             </div>
             <div class="form-group">
-              <label class="field-label">Working Hours / Days</label>
-              <div class="input-box textarea-box">
-                <span class="input-icon-left">🕒</span>
-                <textarea id="contactHours" class="textarea-field" rows="2">Monday - Saturday: 9:00 AM - 7:00 PM (IST)
-Sunday: Closed / Emergency Support Only</textarea>
+              <label class="field-label">Floating Card Address Text</label>
+              <input type="text" id="contactMapAddress" class="subprop-input" value="Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh, Bhubaneswar, Odisha - 751017">
+            </div>
+          </div>
+
+          <div class="form-grid-3col">
+            <div class="form-group">
+              <label class="field-label">Rating Score</label>
+              <input type="text" id="contactMapRating" class="subprop-input" value="4.0">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Reviews Count</label>
+              <input type="text" id="contactMapReviewsCount" class="subprop-input" value="(2,084)">
+            </div>
+            <div class="form-group">
+              <label class="field-label">"Open in Maps" URL</label>
+              <input type="text" id="contactMapOpenUrl" class="subprop-input" value="https://maps.google.com/?q=Plot No: 1632/15509, Khata No: 1330/10531, Satya Vihar, Rasulgarh, Bhubaneswar, Odisha - 751017">
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Trust Features Bar (4 Badges) -->
+        <div class="section-block-card">
+          <div class="section-block-header">
+            <div class="block-header-left">
+              <div class="block-icon-circle">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="block-header-title">6. Trust Features Bar (4 Badges)</h3>
+                <p class="block-header-desc">Manage the 4 key service badges displayed below the interactive map</p>
               </div>
             </div>
           </div>
 
-          <!-- Google Maps Embed Link -->
-          <div class="form-group" style="margin-bottom:24px;">
-            <label class="field-label">Google Maps Embed URL / Query</label>
-            <div class="input-box">
-              <span class="input-icon-left">🗺️</span>
-              <input type="text" id="contactMapUrl" class="input-field"
-                value="https://maps.google.com/maps?q=Bangalore,Karnataka&t=&z=13&ie=UTF8&iwloc=&output=embed">
+          <div class="form-grid-4col">
+            <!-- Badge 1 -->
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px;">
+              <div style="font-size:12px; font-weight:800; color:#064e3b; margin-bottom:6px;">Badge 1</div>
+              <div class="form-group" style="margin-bottom:6px;">
+                <label class="field-label" style="font-size:11px;">Title</label>
+                <input type="text" id="contactTrustTitle1" class="subprop-input" value="Quick Response">
+              </div>
+              <div class="form-group">
+                <label class="field-label" style="font-size:11px;">Subtitle</label>
+                <input type="text" id="contactTrustSub1" class="subprop-input" value="We reply within 2 hours">
+              </div>
+            </div>
+
+            <!-- Badge 2 -->
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px;">
+              <div style="font-size:12px; font-weight:800; color:#064e3b; margin-bottom:6px;">Badge 2</div>
+              <div class="form-group" style="margin-bottom:6px;">
+                <label class="field-label" style="font-size:11px;">Title</label>
+                <input type="text" id="contactTrustTitle2" class="subprop-input" value="Trusted Support">
+              </div>
+              <div class="form-group">
+                <label class="field-label" style="font-size:11px;">Subtitle</label>
+                <input type="text" id="contactTrustSub2" class="subprop-input" value="Get reliable assistance">
+              </div>
+            </div>
+
+            <!-- Badge 3 -->
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px;">
+              <div style="font-size:12px; font-weight:800; color:#064e3b; margin-bottom:6px;">Badge 3</div>
+              <div class="form-group" style="margin-bottom:6px;">
+                <label class="field-label" style="font-size:11px;">Title</label>
+                <input type="text" id="contactTrustTitle3" class="subprop-input" value="Property Guidance">
+              </div>
+              <div class="form-group">
+                <label class="field-label" style="font-size:11px;">Subtitle</label>
+                <input type="text" id="contactTrustSub3" class="subprop-input" value="Buy, sell or rent with ease">
+              </div>
+            </div>
+
+            <!-- Badge 4 -->
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px;">
+              <div style="font-size:12px; font-weight:800; color:#064e3b; margin-bottom:6px;">Badge 4</div>
+              <div class="form-group" style="margin-bottom:6px;">
+                <label class="field-label" style="font-size:11px;">Title</label>
+                <input type="text" id="contactTrustTitle4" class="subprop-input" value="Dedicated Team">
+              </div>
+              <div class="form-group">
+                <label class="field-label" style="font-size:11px;">Subtitle</label>
+                <input type="text" id="contactTrustSub4" class="subprop-input" value="Real estate experts for you">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Call-To-Action (CTA) Banner -->
+        <div class="section-block-card">
+          <div class="section-block-header">
+            <div class="block-header-left">
+              <div class="block-icon-circle">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="block-header-title">7. Call-To-Action (CTA) Banner</h3>
+                <p class="block-header-desc">Manage the bottom green CTA banner headline, description, and dual action buttons</p>
+              </div>
             </div>
           </div>
 
-          <!-- Received Client Inquiries Inbox -->
-          <div
-            style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; margin-top:10px;">
-            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Client Inquiries &amp; Messages Received (<span
-                id="inquiryCount">3</span>)</h4>
-            <span class="tab-badge-pill" style="background:#ecfdf5; color:#059669;">Live Leads</span>
+          <div class="form-grid-2col" style="margin-bottom:14px;">
+            <div class="form-group">
+              <label class="field-label">CTA Headline</label>
+              <input type="text" id="contactCtaTitle" class="subprop-input" value="Find Your Next Home">
+            </div>
+            <div class="form-group">
+              <label class="field-label">CTA Description</label>
+              <textarea id="contactCtaDesc" class="subprop-input" style="height:60px; padding:6px;">Browse new apartments, luxury houses, furnished apartments for rent, and flats for sale across India Homes - start your real estate journey with no brokerage.</textarea>
+            </div>
+          </div>
+
+          <div class="form-grid-2col" style="margin-bottom:12px;">
+            <div class="form-group">
+              <label class="field-label">Button 1 Label</label>
+              <input type="text" id="contactCtaBtn1Text" class="subprop-input" value="Become a Reseller →">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Button 1 Destination URL</label>
+              <input type="text" id="contactCtaBtn1Link" class="subprop-input" value="register.html">
+            </div>
+          </div>
+
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label class="field-label">Button 2 Label</label>
+              <input type="text" id="contactCtaBtn2Text" class="subprop-input" value="Get Started →">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Button 2 Destination URL</label>
+              <input type="text" id="contactCtaBtn2Link" class="subprop-input" value="product-details.html">
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Client Inquiries & Live Leads Inbox -->
+        <div class="section-block-card">
+          <div class="section-block-header">
+            <div class="block-header-left">
+              <div class="block-icon-circle">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="block-header-title">8. Client Inquiries Inbox (<span id="contactInquiryCount">0</span>)</h3>
+                <p class="block-header-desc">Live messages and inquiry leads submitted by visitors from Contact Us page</p>
+              </div>
+            </div>
+            <span class="tab-badge-pill" style="background:#ecfdf5; color:#059669; font-weight:700;">Live Leads Inbox</span>
           </div>
 
           <div class="inquiry-table-wrap">
@@ -2495,22 +2953,263 @@ Sunday: Closed / Emergency Support Only</textarea>
                 <tr>
                   <th>Client Name</th>
                   <th>Contact Info</th>
-                  <th>Interested Service / Subject</th>
+                  <th>Service / Subject</th>
                   <th>Message Excerpt</th>
                   <th>Date</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
-              <tbody id="inquiriesTableBody">
+              <tbody id="contactInquiriesTableBody">
                 <!-- Rendered dynamically -->
               </tbody>
             </table>
           </div>
 
           <!-- Bottom Action Bar -->
-          <div class="form-actions-row">
+          <div class="form-actions-row" style="margin-top:24px;">
             <button type="button" class="btn-reset" onclick="resetContactTabDefaults()">Reset Details</button>
-            <button type="button" class="btn-save" onclick="saveContactTab()">Save Contact Us Settings</button>
+            <button type="button" class="btn-save" onclick="saveContactTab()">Save Contact Us &amp; All Sections</button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==============================================================
+           TAB 6: ABOUT US (Hero Who We Are, Story & Featured Image, Why Choose Cards, CTA Banner)
+           ============================================================== -->
+      <section id="tab-about" class="tab-content-pane">
+
+        <!-- 1. Hero Section: Who We Are & Intro -->
+        <div class="section-block-card">
+          <div class="section-block-header">
+            <div class="block-header-left">
+              <div class="block-icon-circle">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="block-header-title">1. Hero Section &amp; Intro Lead</h3>
+                <p class="block-header-desc">Manage top badge, hero headline, and introductory paragraph</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-grid-2col" style="margin-bottom:16px;">
+            <div class="form-group">
+              <label class="field-label">Who We Are Badge / Pill</label>
+              <input type="text" id="aboutHeroBadge" class="subprop-input" value="WHO WE ARE">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Hero Main Title <span class="req-star">*</span></label>
+              <input type="text" id="aboutHeroTitle" class="subprop-input" value="Simplify Your Home Buying, Selling &amp; Renting Journey">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label">Hero Lead Paragraph / Subtitle</label>
+            <textarea id="aboutHeroLead" class="subprop-input" style="height:90px; padding:10px;">Bilabadi is a modern property listing platform designed to simplify real estate decisions across residential, commercial, Plot and PG living options in India. With the help of our interactive map and trusted local insights, users can easily discover suitable flats, apartments, land, and commercial spaces across multiple locations. Whether you are looking for rental homes, houses for sale, studio apartments, shared living spaces, land investment opportunities, or newly developed projects, Bilabadi brings verified and reliable options together in one place</textarea>
+          </div>
+        </div>
+
+        <!-- 2. Story & Featured Showcase Image -->
+        <div class="section-block-card">
+          <div class="section-block-header">
+            <div class="block-header-left">
+              <div class="block-icon-circle">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="block-header-title">2. Company Story &amp; Featured Image</h3>
+                <p class="block-header-desc">Manage the left showcase image (e.g. assets/about-us.png), detailed story text, and 4 trust checklist items</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Image Row -->
+          <div class="form-group" style="margin-bottom:20px;">
+            <label class="field-label">Featured Story Image (Left Side Showcase)</label>
+            <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
+              <div class="thumb-preview-box" style="width:200px; height:130px; border-radius:10px; overflow:hidden; border:1px solid #d1d5db; position:relative; background:#f3f4f6;">
+                <img id="aboutStoryImgPreview" src="../assets/about-us.png" alt="Story Showcase Preview" style="width:100%; height:100%; object-fit:cover;">
+              </div>
+              <div style="flex:1; min-width:260px;">
+                <div class="dropzone-box" onclick="document.getElementById('aboutStoryImgFile').click()" style="padding:14px; margin-bottom:8px;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                  </svg>
+                  <div class="dropzone-title" style="font-size:13px;">Upload Story Image</div>
+                  <div class="dropzone-sub" style="font-size:11px;">Select PNG, WebP or JPG file</div>
+                  <input type="file" id="aboutStoryImgFile" accept="image/jpeg,image/png,image/webp" style="display:none;" onchange="handleAboutStoryImgUpload(event)">
+                </div>
+                <div style="display:flex; gap:8px;">
+                  <input type="text" id="aboutStoryImgUrl" class="subprop-input" placeholder="Or enter image URL / path (e.g. assets/about-us.png)" onchange="onAboutStoryImgUrlChange(this.value)">
+                  <button type="button" class="btn-reset" style="padding:4px 10px; font-size:12px; white-space:nowrap;" onclick="clearAboutStoryImg()">Reset</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paragraphs -->
+          <div class="form-grid-2col" style="margin-bottom:18px;">
+            <div class="form-group">
+              <label class="field-label">Story Paragraph 1 (Services &amp; Scope)</label>
+              <textarea id="aboutStoryPara1" class="subprop-input" style="height:110px; padding:10px;">From furnished rental homes and shared stays to plots, premium residences, duplex homes, and commercial establishments, Bilabadi supports every stage of property search and transaction. Our platform helps users buy, sell, rent, lease, or invest in property while maintaining clarity and trust throughout the process. Users can explore rental homes, residential properties, student and working professional stays, business spaces, and land opportunities with complete transparency and confidence</textarea>
+            </div>
+            <div class="form-group">
+              <label class="field-label">Story Paragraph 2 (Company Details &amp; Mission)</label>
+              <textarea id="aboutStoryPara2" class="subprop-input" style="height:110px; padding:10px;">Based in Gurugram, Bilabadi is part of Cloudsat Pvt. Ltd (CIN: U72900HR2022PTC105173) and operates as an Indian real estate property site trusted across the country. We bring buyers, sellers, and verified real estate agents together through a unified system - offering more than listings with real post-transaction support</textarea>
+            </div>
+          </div>
+
+          <!-- 4 Trust Highlights Checklist -->
+          <h4 style="font-size:14px; font-weight:800; color:#064e3b; margin-bottom:10px;">4 Trust Checklist Items (Checkmark Highlights)</h4>
+          <div class="form-grid-4col">
+            <div class="form-group">
+              <label class="field-label" style="font-size:11px;">Checkmark 1</label>
+              <input type="text" id="aboutTrustPoint1" class="subprop-input" value="Direct Owner Access">
+            </div>
+            <div class="form-group">
+              <label class="field-label" style="font-size:11px;">Checkmark 2</label>
+              <input type="text" id="aboutTrustPoint2" class="subprop-input" value="Verified Listings">
+            </div>
+            <div class="form-group">
+              <label class="field-label" style="font-size:11px;">Checkmark 3</label>
+              <input type="text" id="aboutTrustPoint3" class="subprop-input" value="Reduced Middlemen">
+            </div>
+            <div class="form-group">
+              <label class="field-label" style="font-size:11px;">Checkmark 4</label>
+              <input type="text" id="aboutTrustPoint4" class="subprop-input" value="End-to-End Support">
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Why Choose Bilabadi (Feature Cards) -->
+        <div class="section-block-card">
+          <div class="section-block-header">
+            <div class="block-header-left">
+              <div class="block-icon-circle">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="block-header-title">3. Why Choose Bilabadi (Section &amp; Feature Cards)</h3>
+                <p class="block-header-desc">Customize section titles, add new feature cards, and manage or delete existing ones</p>
+              </div>
+            </div>
+            <button type="button" class="btn-add-primary" onclick="focusAddAboutCard()">+ Add Feature Card</button>
+          </div>
+
+          <div class="form-grid-2col" style="margin-bottom:18px;">
+            <div class="form-group">
+              <label class="field-label">Section Title</label>
+              <input type="text" id="aboutWhyTitle" class="subprop-input" value="Why Choose Bilabadi?">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Section Subtitle / Description</label>
+              <input type="text" id="aboutWhySubtitle" class="subprop-input" value="We deliver a trusted real estate India experience with accurate property in India listings for modern India homes - simple, transparent, and always with no brokerage">
+            </div>
+          </div>
+
+          <!-- Add Feature Card Form Box -->
+          <div style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:18px; margin-bottom:22px;" id="addAboutCardWrap">
+            <div style="font-size:14px; font-weight:800; color:#064e3b; margin-bottom:10px;">+ Add New Feature Card</div>
+            <div class="form-grid-2col" style="margin-bottom:12px;">
+              <div class="form-group">
+                <label class="field-label">Card Title <span class="req-star">*</span></label>
+                <input type="text" id="newAboutCardTitle" class="subprop-input" placeholder="e.g. Verified &amp; Authentic">
+              </div>
+              <div class="form-group">
+                <label class="field-label">Card Icon (FontAwesome class or Emoji)</label>
+                <input type="text" id="newAboutCardIcon" class="subprop-input" value="fa-solid fa-shield-halved" placeholder="fa-solid fa-shield-halved or 🛡️">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:12px;">
+              <label class="field-label">Card Description <span class="req-star">*</span></label>
+              <textarea id="newAboutCardDesc" class="subprop-input" style="height:65px; padding:8px;" placeholder="Every flat, apartment, and home for sale entry is reviewed to confirm genuine owners..."></textarea>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" class="btn-add-primary" onclick="addNewAboutCard()">✓ Save &amp; Add Feature Card</button>
+            </div>
+          </div>
+
+          <!-- Active Feature Cards Grid -->
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Active Feature Cards (<span id="existingAboutCardsCount">0</span>)</h4>
+          </div>
+
+          <div class="form-grid-3col" id="aboutCardsListContainer">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- 4. Call-To-Action (CTA) Banner -->
+        <div class="section-block-card">
+          <div class="section-block-header">
+            <div class="block-header-left">
+              <div class="block-icon-circle">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="block-header-title">4. Call-To-Action (CTA) Banner</h3>
+                <p class="block-header-desc">Manage the green bottom CTA banner heading, description, and action buttons</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-grid-2col" style="margin-bottom:14px;">
+            <div class="form-group">
+              <label class="field-label">CTA Headline</label>
+              <input type="text" id="aboutCtaTitle" class="subprop-input" value="Find Your Next Home">
+            </div>
+            <div class="form-group">
+              <label class="field-label">CTA Description</label>
+              <textarea id="aboutCtaDesc" class="subprop-input" style="height:60px; padding:6px;">Browse new apartments, luxury houses, furnished apartments for rent, and flats for sale across India Homes - start your real estate journey with no brokerage.</textarea>
+            </div>
+          </div>
+
+          <div class="form-grid-2col" style="margin-bottom:12px;">
+            <div class="form-group">
+              <label class="field-label">Button 1 Label</label>
+              <input type="text" id="aboutCtaBtn1Text" class="subprop-input" value="Become a Reseller →">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Button 1 Destination URL</label>
+              <input type="text" id="aboutCtaBtn1Link" class="subprop-input" value="register.html">
+            </div>
+          </div>
+
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label class="field-label">Button 2 Label</label>
+              <input type="text" id="aboutCtaBtn2Text" class="subprop-input" value="Get Started →">
+            </div>
+            <div class="form-group">
+              <label class="field-label">Button 2 Destination URL</label>
+              <input type="text" id="aboutCtaBtn2Link" class="subprop-input" value="product-details.html">
+            </div>
+          </div>
+
+          <!-- Bottom Action Bar -->
+          <div class="form-actions-row" style="margin-top:24px;">
+            <button type="button" class="btn-reset" onclick="resetAboutTabDefaults()">Reset Details</button>
+            <button type="button" class="btn-save" onclick="saveAboutTab()">Save About Us &amp; All Sections</button>
           </div>
         </div>
 
@@ -2537,7 +3236,7 @@ Sunday: Closed / Emergency Support Only</textarea>
       },
       texts: {
         badge: 'Your Land. Your Future.',
-        title: 'Buy, Sell or Rent Land & Commercial Spaces',
+        title: 'Buy, Sell or Rent',
         highlight: 'Land & Commercial Spaces',
         description: 'Explore verified plots, agricultural land, commercial land and investment opportunities – all in one place.'
       },
@@ -2611,11 +3310,17 @@ Sunday: Closed / Emergency Support Only</textarea>
         ? source.why_choose
         : {};
 
+      const mergedTexts = { ...DEFAULT_HOME_DATA.texts, ...sourceTexts };
+      if (mergedTexts.highlight && mergedTexts.title && mergedTexts.title.endsWith(mergedTexts.highlight)) {
+        mergedTexts.title = mergedTexts.title.slice(0, -mergedTexts.highlight.length).trim();
+      }
+      if (!mergedTexts.title) mergedTexts.title = 'Buy, Sell or Rent';
+
       return {
         ...DEFAULT_HOME_DATA,
         ...source,
         banner: { ...DEFAULT_HOME_DATA.banner, ...sourceBanner },
-        texts: { ...DEFAULT_HOME_DATA.texts, ...sourceTexts },
+        texts: mergedTexts,
         why_choose: {
           ...DEFAULT_HOME_DATA.why_choose,
           ...sourceWhyChoose,
@@ -2859,6 +3564,9 @@ Sunday: Closed / Emergency Support Only</textarea>
       } else if (tabKey === 'contact') {
         titleEl.textContent = 'Contact Us & Leads Manager';
         descEl.textContent = 'Update contact phone numbers, support emails, office locations, maps and client inquiries.';
+      } else if (tabKey === 'about') {
+        titleEl.textContent = 'About Us Manager';
+        descEl.textContent = 'Manage Who We Are lead, story text & image, Why Choose feature cards, and CTA banner.';
       }
 
       window.location.hash = tabKey;
@@ -2868,6 +3576,9 @@ Sunday: Closed / Emergency Support Only</textarea>
       }
       if (tabKey === 'properties' && !propertiesApiLoaded) {
         loadPropertiesFromApi();
+      }
+      if (tabKey === 'about' && !aboutApiLoaded && !aboutApiLoading) {
+        loadAboutFromApi();
       }
     }
 
@@ -2894,9 +3605,15 @@ Sunday: Closed / Emergency Support Only</textarea>
 
       // 2. Top Texts
       document.getElementById('topBadgeInput').value = homeData.texts.badge || 'Your Land. Your Future.';
-      document.getElementById('topHighlightInput').value = homeData.texts.highlight || 'Land & Commercial Spaces';
-      document.getElementById('topTitleInput').value = homeData.texts.title || 'Buy, Sell or Rent Land & Commercial Spaces';
+      let titleVal = homeData.texts.title || 'Buy, Sell or Rent';
+      const highlightVal = homeData.texts.highlight || 'Land & Commercial Spaces';
+      if (highlightVal && titleVal.endsWith(highlightVal)) {
+        titleVal = titleVal.slice(0, -highlightVal.length).trim();
+      }
+      document.getElementById('topTitleInput').value = titleVal || 'Buy, Sell or Rent';
+      document.getElementById('topHighlightInput').value = highlightVal;
       document.getElementById('topDescInput').value = homeData.texts.description || '';
+      if (typeof restartAdminTypewriter === 'function') restartAdminTypewriter();
 
       // 3. 4 Cards (Trust Badges)
       renderTrustCards();
@@ -3238,9 +3955,16 @@ Sunday: Closed / Emergency Support Only</textarea>
             } else if (item.subtitle !== null && item.subtitle !== undefined) {
               homeData.texts.badge = item.subtitle;
             }
-            if (item.title !== null && item.title !== undefined) homeData.texts.title = item.title;
             if (item.highlight_words !== null && item.highlight_words !== undefined) {
               homeData.texts.highlight = item.highlight_words;
+            }
+            if (item.title !== null && item.title !== undefined) {
+              let t = item.title;
+              const h = homeData.texts.highlight || '';
+              if (h && t.endsWith(h)) {
+                t = t.slice(0, -h.length).trim();
+              }
+              homeData.texts.title = t;
             }
             if (item.description !== null && item.description !== undefined) {
               homeData.texts.description = item.description;
@@ -4662,6 +5386,338 @@ Sunday: Closed / Emergency Support Only</textarea>
     }
 
     /* ==============================================================
+       ABOUT US TAB LOGIC & API SYNC (DYNAMIC FROM DATABASE)
+       ============================================================== */
+    let aboutSettingsData = null;
+    let aboutCardsData = [];
+    let aboutStoryImgFileToUpload = null;
+    let aboutApiLoaded = false;
+    let aboutApiLoading = false;
+
+    function formatAboutAdminImg(url) {
+      if (!url) return '../assets/about-us.png';
+      if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) return url;
+      if (url.startsWith('/uploads/')) return `http://localhost:5000${url}`;
+      if (url.startsWith('uploads/')) return `http://localhost:5000/${url}`;
+      if (url.startsWith('assets/')) return `../${url}`;
+      return url;
+    }
+
+    function handleAboutStoryImgUpload(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      aboutStoryImgFileToUpload = file;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const preview = document.getElementById('aboutStoryImgPreview');
+        if (preview) preview.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearAboutStoryImg() {
+      aboutStoryImgFileToUpload = null;
+      const fileInput = document.getElementById('aboutStoryImgFile');
+      if (fileInput) fileInput.value = '';
+      const urlInput = document.getElementById('aboutStoryImgUrl');
+      if (urlInput) urlInput.value = 'assets/about-us.png';
+      const preview = document.getElementById('aboutStoryImgPreview');
+      if (preview) preview.src = '../assets/about-us.png';
+      aboutSettingsData.story_image = 'assets/about-us.png';
+      showToast('Story image reset to default');
+    }
+
+    function onAboutStoryImgUrlChange(val) {
+      const preview = document.getElementById('aboutStoryImgPreview');
+      if (preview) preview.src = formatAboutAdminImg(val);
+      aboutStoryImgFileToUpload = null;
+      aboutSettingsData.story_image = val;
+    }
+
+    function populateAboutSettingsInputs() {
+      const s = aboutSettingsData;
+      if (document.getElementById('aboutHeroBadge')) document.getElementById('aboutHeroBadge').value = s.hero_badge || '';
+      if (document.getElementById('aboutHeroTitle')) document.getElementById('aboutHeroTitle').value = s.hero_title || '';
+      if (document.getElementById('aboutHeroLead')) document.getElementById('aboutHeroLead').value = s.hero_lead || '';
+      if (document.getElementById('aboutStoryImgPreview')) document.getElementById('aboutStoryImgPreview').src = formatAboutAdminImg(s.story_image);
+      if (document.getElementById('aboutStoryImgUrl')) document.getElementById('aboutStoryImgUrl').value = s.story_image || '';
+      if (document.getElementById('aboutStoryPara1')) document.getElementById('aboutStoryPara1').value = s.story_para_1 || '';
+      if (document.getElementById('aboutStoryPara2')) document.getElementById('aboutStoryPara2').value = s.story_para_2 || '';
+      if (document.getElementById('aboutTrustPoint1')) document.getElementById('aboutTrustPoint1').value = s.trust_point_1 || '';
+      if (document.getElementById('aboutTrustPoint2')) document.getElementById('aboutTrustPoint2').value = s.trust_point_2 || '';
+      if (document.getElementById('aboutTrustPoint3')) document.getElementById('aboutTrustPoint3').value = s.trust_point_3 || '';
+      if (document.getElementById('aboutTrustPoint4')) document.getElementById('aboutTrustPoint4').value = s.trust_point_4 || '';
+      if (document.getElementById('aboutWhyTitle')) document.getElementById('aboutWhyTitle').value = s.why_title || '';
+      if (document.getElementById('aboutWhySubtitle')) document.getElementById('aboutWhySubtitle').value = s.why_subtitle || '';
+      if (document.getElementById('aboutCtaTitle')) document.getElementById('aboutCtaTitle').value = s.cta_title || '';
+      if (document.getElementById('aboutCtaDesc')) document.getElementById('aboutCtaDesc').value = s.cta_desc || '';
+      if (document.getElementById('aboutCtaBtn1Text')) document.getElementById('aboutCtaBtn1Text').value = s.cta_btn1_text || '';
+      if (document.getElementById('aboutCtaBtn1Link')) document.getElementById('aboutCtaBtn1Link').value = s.cta_btn1_link || '';
+      if (document.getElementById('aboutCtaBtn2Text')) document.getElementById('aboutCtaBtn2Text').value = s.cta_btn2_text || '';
+      if (document.getElementById('aboutCtaBtn2Link')) document.getElementById('aboutCtaBtn2Link').value = s.cta_btn2_link || '';
+    }
+
+    function renderAboutCardsList() {
+      const countEl = document.getElementById('existingAboutCardsCount');
+      if (countEl) countEl.textContent = aboutCardsData.length;
+      const navAboutCount = document.getElementById('navAboutCount');
+      if (navAboutCount) navAboutCount.textContent = `${aboutCardsData.length} Cards`;
+
+      const container = document.getElementById('aboutCardsListContainer');
+      if (!container) return;
+
+      if (!aboutCardsData || aboutCardsData.length === 0) {
+        container.innerHTML = `<div style="grid-column: 1 / -1; padding:24px; text-align:center; color:#64748b; background:#f8fafc; border:1px dashed #cbd5e1; border-radius:10px;">No feature cards added yet. Click "+ Add Feature Card" to create one.</div>`;
+        return;
+      }
+
+      container.innerHTML = aboutCardsData.map((card, idx) => `
+        <div class="service-item-card" style="display:flex; flex-direction:column; gap:10px; background:#ffffff; border:1.5px solid #e2e8f0; border-radius:12px; padding:16px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <i class="${escapeHtml(card.card_icon || 'fa-solid fa-shield-halved')}" style="color:#0d5435; font-size:18px;"></i>
+              <span class="mini-card-tag">Card #${idx + 1}</span>
+            </div>
+            <button type="button" class="btn-delete-mini" onclick="deleteAboutCardItem(${idx})" title="Remove Feature Card">&times;</button>
+          </div>
+
+          <div class="form-group" style="margin:0;">
+            <label class="field-label" style="font-size:11.5px;">Card Title <span class="req-star">*</span></label>
+            <input type="text" class="subprop-input" value="${escapeHtml(card.card_title || '')}" placeholder="Card Title" oninput="updateAboutCardField(${idx}, 'card_title', this.value)" style="font-weight:700;">
+          </div>
+
+          <div class="form-group" style="margin:0;">
+            <label class="field-label" style="font-size:11.5px;">Icon Class or Emoji</label>
+            <input type="text" class="subprop-input" value="${escapeHtml(card.card_icon || '')}" placeholder="e.g. fa-solid fa-shield-halved" oninput="updateAboutCardField(${idx}, 'card_icon', this.value)" style="font-size:12px;">
+          </div>
+
+          <div class="form-group" style="margin:0;">
+            <label class="field-label" style="font-size:11.5px;">Card Description <span class="req-star">*</span></label>
+            <textarea class="subprop-input" style="height:75px; font-size:12px; padding:6px;" oninput="updateAboutCardField(${idx}, 'card_desc', this.value)">${escapeHtml(card.card_desc || '')}</textarea>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updateAboutCardField(idx, field, val) {
+      if (aboutCardsData[idx]) {
+        aboutCardsData[idx][field] = val;
+      }
+    }
+
+    function focusAddAboutCard() {
+      const el = document.getElementById('addAboutCardWrap');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      const input = document.getElementById('newAboutCardTitle');
+      if (input) input.focus();
+    }
+
+    async function addNewAboutCard() {
+      const title = (document.getElementById('newAboutCardTitle').value || '').trim();
+      const icon = (document.getElementById('newAboutCardIcon').value || 'fa-solid fa-shield-halved').trim();
+      const desc = (document.getElementById('newAboutCardDesc').value || '').trim();
+
+      if (!title || !desc) {
+        showToast('Please enter Card Title and Description!', true);
+        document.getElementById('newAboutCardTitle').focus();
+        return;
+      }
+
+      const newCard = {
+        card_title: title,
+        card_icon: icon,
+        card_desc: desc,
+        sort_order: aboutCardsData.length + 1,
+        is_active: 1
+      };
+
+      try {
+        const res = await fetch('http://localhost:5000/api/about/cards', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newCard)
+        });
+        if (res.ok) {
+          const data = await res.json();
+          newCard.id = data.id;
+        }
+      } catch (err) {
+        console.warn('Card POST offline, assigned local id');
+        newCard.id = Date.now();
+      }
+
+      aboutCardsData.push(newCard);
+      renderAboutCardsList();
+
+      document.getElementById('newAboutCardTitle').value = '';
+      document.getElementById('newAboutCardDesc').value = '';
+      document.getElementById('newAboutCardIcon').value = 'fa-solid fa-shield-halved';
+
+      showToast(`✓ Added feature card: "${title}"`);
+    }
+
+    async function deleteAboutCardItem(idx) {
+      const card = aboutCardsData[idx];
+      if (!card) return;
+      if (!confirm(`Delete feature card "${card.card_title || 'Untitled'}"?`)) return;
+
+      if (card.id) {
+        try {
+          await fetch(`http://localhost:5000/api/about/cards/${card.id}`, {
+            method: 'DELETE'
+          });
+        } catch (e) {
+          console.warn('Delete card offline:', e);
+        }
+      }
+
+      aboutCardsData.splice(idx, 1);
+      renderAboutCardsList();
+      showToast('✓ Feature card deleted');
+    }
+
+    async function loadAboutFromApi() {
+      if (aboutApiLoading) return;
+      aboutApiLoading = true;
+
+      try {
+        const res = await fetch('http://localhost:5000/api/about/', { cache: 'no-store' });
+        if (res.ok) {
+          const json = await res.json();
+          aboutSettingsData = json.settings || {};
+          aboutCardsData = Array.isArray(json.cards) ? json.cards : [];
+          populateAboutSettingsInputs();
+          renderAboutCardsList();
+          aboutApiLoaded = true;
+        }
+      } catch (err) {
+        console.warn('About API fetch offline, checking local cache:', err.message);
+        try {
+          const local = localStorage.getItem('bilabadi_about_data');
+          if (local) {
+            const parsed = JSON.parse(local);
+            if (parsed.settings) aboutSettingsData = parsed.settings;
+            if (Array.isArray(parsed.cards)) aboutCardsData = parsed.cards;
+            populateAboutSettingsInputs();
+            renderAboutCardsList();
+          }
+        } catch (e) {}
+      } finally {
+        aboutApiLoading = false;
+      }
+    }
+
+    async function saveAboutTab() {
+      const hero_badge = (document.getElementById('aboutHeroBadge')?.value || '').trim();
+      const hero_title = (document.getElementById('aboutHeroTitle')?.value || '').trim();
+      const hero_lead = (document.getElementById('aboutHeroLead')?.value || '').trim();
+      const story_para_1 = (document.getElementById('aboutStoryPara1')?.value || '').trim();
+      const story_para_2 = (document.getElementById('aboutStoryPara2')?.value || '').trim();
+      const trust_point_1 = (document.getElementById('aboutTrustPoint1')?.value || '').trim();
+      const trust_point_2 = (document.getElementById('aboutTrustPoint2')?.value || '').trim();
+      const trust_point_3 = (document.getElementById('aboutTrustPoint3')?.value || '').trim();
+      const trust_point_4 = (document.getElementById('aboutTrustPoint4')?.value || '').trim();
+      const why_title = (document.getElementById('aboutWhyTitle')?.value || '').trim();
+      const why_subtitle = (document.getElementById('aboutWhySubtitle')?.value || '').trim();
+      const cta_title = (document.getElementById('aboutCtaTitle')?.value || '').trim();
+      const cta_desc = (document.getElementById('aboutCtaDesc')?.value || '').trim();
+      const cta_btn1_text = (document.getElementById('aboutCtaBtn1Text')?.value || '').trim();
+      const cta_btn1_link = (document.getElementById('aboutCtaBtn1Link')?.value || '').trim();
+      const cta_btn2_text = (document.getElementById('aboutCtaBtn2Text')?.value || '').trim();
+      const cta_btn2_link = (document.getElementById('aboutCtaBtn2Link')?.value || '').trim();
+      const story_image_url = (document.getElementById('aboutStoryImgUrl')?.value || '').trim();
+
+      const formData = new FormData();
+      formData.append('hero_badge', hero_badge);
+      formData.append('hero_title', hero_title);
+      formData.append('hero_lead', hero_lead);
+      formData.append('story_para_1', story_para_1);
+      formData.append('story_para_2', story_para_2);
+      formData.append('trust_point_1', trust_point_1);
+      formData.append('trust_point_2', trust_point_2);
+      formData.append('trust_point_3', trust_point_3);
+      formData.append('trust_point_4', trust_point_4);
+      formData.append('why_title', why_title);
+      formData.append('why_subtitle', why_subtitle);
+      formData.append('cta_title', cta_title);
+      formData.append('cta_desc', cta_desc);
+      formData.append('cta_btn1_text', cta_btn1_text);
+      formData.append('cta_btn1_link', cta_btn1_link);
+      formData.append('cta_btn2_text', cta_btn2_text);
+      formData.append('cta_btn2_link', cta_btn2_link);
+
+      if (aboutStoryImgFileToUpload) {
+        formData.append('story_image', aboutStoryImgFileToUpload);
+      } else if (story_image_url) {
+        formData.append('story_image', story_image_url);
+      }
+
+      aboutSettingsData = {
+        hero_badge, hero_title, hero_lead,
+        story_image: story_image_url || aboutSettingsData.story_image,
+        story_para_1, story_para_2,
+        trust_point_1, trust_point_2, trust_point_3, trust_point_4,
+        why_title, why_subtitle,
+        cta_title, cta_desc, cta_btn1_text, cta_btn1_link, cta_btn2_text, cta_btn2_link
+      };
+
+      try {
+        const res = await fetch('http://localhost:5000/api/about/settings', {
+          method: 'PUT',
+          body: formData
+        });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.story_image) {
+            aboutSettingsData.story_image = json.story_image;
+            document.getElementById('aboutStoryImgUrl').value = json.story_image;
+            document.getElementById('aboutStoryImgPreview').src = formatAboutAdminImg(json.story_image);
+            aboutStoryImgFileToUpload = null;
+          }
+        }
+      } catch (e) {
+        console.warn('API save offline, saving to localStorage:', e);
+      }
+
+      // Sync feature cards
+      for (let i = 0; i < aboutCardsData.length; i++) {
+        const card = aboutCardsData[i];
+        card.sort_order = i + 1;
+        if (card.id && typeof card.id === 'number' && card.id < 1000000000) {
+          try {
+            await fetch(`http://localhost:5000/api/about/cards/${card.id}`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(card)
+            });
+          } catch (e) {}
+        }
+      }
+
+      try {
+        localStorage.setItem('bilabadi_about_data', JSON.stringify({
+          settings: aboutSettingsData,
+          cards: aboutCardsData
+        }));
+      } catch (e) {}
+
+      showToast('✓ About Us details & feature cards saved successfully!');
+    }
+
+    function resetAboutTabDefaults() {
+      if (!confirm('Clear About Us inputs?')) return;
+      aboutSettingsData = {};
+      aboutCardsData = [];
+      aboutStoryImgFileToUpload = null;
+      populateAboutSettingsInputs();
+      renderAboutCardsList();
+      try {
+        localStorage.removeItem('bilabadi_about_data');
+      } catch (e) {}
+      showToast('About Us inputs cleared');
+    }
+
+    /* ==============================================================
        TOAST HELPER & HTML ESCAPING
        ============================================================== */
     function showToast(msg, isError = false) {
@@ -4701,6 +5757,65 @@ Sunday: Closed / Emergency Support Only</textarea>
     }
 
     /* ==============================================================
+       ADMIN HERO TYPEWRITER LIVE PREVIEW
+       ============================================================== */
+    let adminTypeTimer = null;
+    let adminPhrases = ["Land & Commercial Spaces"];
+    let adminPhraseIdx = 0;
+    let adminCharIdx = 0;
+    let adminIsDeleting = false;
+
+    function restartAdminTypewriter() {
+      const highlightInput = document.getElementById('topHighlightInput');
+      const titleInput = document.getElementById('topTitleInput');
+      const previewTitle = document.getElementById('adminPreviewTitle');
+      const previewHighlight = document.getElementById('adminPreviewHighlight');
+
+      if (previewTitle && titleInput) {
+        previewTitle.textContent = titleInput.value.trim() || 'Buy, Sell or Rent';
+      }
+
+      if (!previewHighlight || !highlightInput) return;
+
+      const rawVal = highlightInput.value.trim() || 'Land & Commercial Spaces';
+      const parsed = rawVal.split(/[,|\n]+/).map(s => s.trim()).filter(Boolean);
+      adminPhrases = parsed.length > 0 ? parsed : [rawVal];
+      adminPhraseIdx = 0;
+      adminCharIdx = 0;
+      adminIsDeleting = false;
+
+      if (adminTypeTimer) clearTimeout(adminTypeTimer);
+
+      function adminTypeLoop() {
+        if (!adminPhrases.length) return;
+        const current = adminPhrases[adminPhraseIdx % adminPhrases.length];
+
+        if (!adminIsDeleting) {
+          adminCharIdx++;
+          previewHighlight.textContent = current.substring(0, adminCharIdx);
+          if (adminCharIdx >= current.length) {
+            adminIsDeleting = true;
+            adminTypeTimer = setTimeout(adminTypeLoop, 2000);
+            return;
+          }
+          adminTypeTimer = setTimeout(adminTypeLoop, 75);
+        } else {
+          adminCharIdx--;
+          previewHighlight.textContent = current.substring(0, adminCharIdx) || '\u00A0';
+          if (adminCharIdx <= 0) {
+            adminIsDeleting = false;
+            adminPhraseIdx = (adminPhraseIdx + 1) % adminPhrases.length;
+            adminTypeTimer = setTimeout(adminTypeLoop, 450);
+            return;
+          }
+          adminTypeTimer = setTimeout(adminTypeLoop, 35);
+        }
+      }
+
+      adminTypeLoop();
+    }
+
+    /* ==============================================================
        APP INITIALIZATION
        ============================================================== */
     window.addEventListener('DOMContentLoaded', () => {
@@ -4710,10 +5825,19 @@ Sunday: Closed / Emergency Support Only</textarea>
       renderBlogArticles();
       renderServicesList();
       renderContactTab();
+      loadAboutFromApi();
+
+      // Typewriter live preview input events
+      document.getElementById('topHighlightInput')?.addEventListener('input', restartAdminTypewriter);
+      document.getElementById('topTitleInput')?.addEventListener('input', () => {
+        const previewTitle = document.getElementById('adminPreviewTitle');
+        if (previewTitle) previewTitle.textContent = document.getElementById('topTitleInput').value.trim() || 'Buy, Sell or Rent';
+      });
+      restartAdminTypewriter();
 
       // 2. Hash router support
       const hash = window.location.hash ? window.location.hash.replace('#', '') : 'home';
-      if (['home', 'properties', 'blog', 'services', 'contact'].includes(hash)) {
+      if (['home', 'properties', 'blog', 'services', 'contact', 'about'].includes(hash)) {
         switchMainTab(hash);
       } else {
         switchMainTab('home');

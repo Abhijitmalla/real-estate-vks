@@ -1,4 +1,3 @@
-
 import express from "express";
 
 import {
@@ -16,8 +15,9 @@ import createUpload from "../middleware/upload.js";
 const router = express.Router();
 const upload = createUpload("properties");
 
-// Get all properties (Admin)
+// Get all properties (Admin) & Search properties
 router.get("/", getAllProperties);
+router.get("/search", getAllProperties);
 
 // Get active properties (Public website)
 router.get("/public/active", getActiveProperties);

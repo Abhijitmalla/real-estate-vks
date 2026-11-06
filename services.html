@@ -13,6 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
@@ -1378,7 +1380,7 @@
          Hero Header Banner Section
          Image: assets/service-page-header.png
          ========================================================================== -->
-    <section class="services-hero-banner">
+    <section class="services-hero-banner" id="servicesHeroBanner">
       <div class="container">
         <div class="services-hero-content">
           <!-- Breadcrumbs -->
@@ -1398,12 +1400,12 @@
           </div>
 
           <!-- Main Title -->
-          <h1 class="hero-main-title">
+          <h1 class="hero-main-title" id="servicesHeroTitle">
             Our <span class="highlight-green">Services</span>
           </h1>
 
           <!-- Lead Subtitle -->
-          <p class="hero-lead-text">
+          <p class="hero-lead-text" id="servicesHeroSubtitle">
             Comprehensive real estate solutions to help you<br>
             buy, sell, rent and invest with confidence.
           </p>
@@ -1418,16 +1420,16 @@
       <div class="container">
         <!-- Section Header -->
         <div class="section-header-center">
-          <span class="section-eyebrow">&mdash; Our Services &mdash;</span>
-          <h2 class="section-title">What We Offer</h2>
-          <p class="section-subtitle">
+          <span class="section-eyebrow" id="servicesSectionEyebrow">&mdash; Our Services &mdash;</span>
+          <h2 class="section-title" id="servicesSectionTitle">What We Offer</h2>
+          <p class="section-subtitle" id="servicesSectionSubtitle">
             A complete range of real estate services designed to make your property journey simple, secure, and
             successful.
           </p>
         </div>
 
         <!-- 8 Cards Grid -->
-        <div class="services-cards-grid">
+        <div class="services-cards-grid" id="servicesCardsGrid">
           <!-- Card 1: Buy Property -->
           <div class="service-card">
             <div class="service-icon-box">
@@ -1592,18 +1594,18 @@
         <div class="why-choose-banner-card">
           <!-- Left: Image (Hand holding house) -->
           <div class="why-choose-img-wrap">
-            <img src="assets/service-page2.png" alt="Reliable Real Estate Services - Bila Badi" loading="lazy">
+            <img id="whyChooseImg" src="assets/service-page2.png" alt="Reliable Real Estate Services - Bila Badi" loading="lazy">
           </div>
 
           <!-- Right: Content -->
           <div class="why-choose-content-wrap">
-            <span class="why-choose-eyebrow">&mdash; Why Choose Our Services? &mdash;</span>
-            <h2 class="why-choose-headline">
+            <span class="why-choose-eyebrow" id="whyChooseEyebrow">&mdash; Why Choose Our Services? &mdash;</span>
+            <h2 class="why-choose-headline" id="whyChooseHeadline">
               Reliable, Transparent &amp; <span class="highlight-green">Customer-Focused</span>
             </h2>
 
             <!-- 4 Features Row -->
-            <div class="why-choose-features-row">
+            <div class="why-choose-features-row" id="whyChooseFeaturesRow">
               <!-- Feature 1: Trusted Platform -->
               <div class="why-feature-item">
                 <div class="why-feature-icon">
@@ -1665,15 +1667,15 @@
       <div class="container">
         <!-- Section Header -->
         <div class="section-header-center">
-          <span class="section-eyebrow">&mdash; How It Works &mdash;</span>
-          <h2 class="section-title">A Simple and Seamless Process</h2>
-          <p class="section-subtitle">
+          <span class="section-eyebrow" id="howItWorksEyebrow">&mdash; How It Works &mdash;</span>
+          <h2 class="section-title" id="howItWorksTitle">A Simple and Seamless Process</h2>
+          <p class="section-subtitle" id="howItWorksSubtitle">
             Get your desired property or list your own in just a few easy steps.
           </p>
         </div>
 
         <!-- 4 Steps Flow with Arrow Dividers -->
-        <div class="process-steps-row">
+        <div class="process-steps-row" id="howItWorksStepsRow">
           <!-- Step 1 -->
           <div class="process-step-item">
             <div class="process-step-circle-box">
@@ -1780,11 +1782,11 @@
               </svg>
             </div>
             <div class="cta-title-wrap">
-              <h3>Ready to Use Our Services?</h3>
-              <p>Explore properties, list your own, or get expert real estate guidance today.</p>
+              <h3 id="servicesCtaTitle">Ready to Use Our Services?</h3>
+              <p id="servicesCtaSubtitle">Explore properties, list your own, or get expert real estate guidance today.</p>
             </div>
           </div>
-          <a href="product-details.html" class="btn-cta-browse">
+          <a href="product-details.html" class="btn-cta-browse" id="servicesCtaBtn">
             Browse Properties &rarr;
           </a>
         </div>
@@ -1981,6 +1983,242 @@
           behavior: 'smooth'
         });
       });
+
+      // Fetch and Render Dynamic Services from Backend API
+      async function fetchServicesData() {
+        try {
+          const res = await fetch('http://localhost:5000/api/services/', { cache: 'no-store' });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const json = await res.json();
+          if (!json || !json.success) return;
+
+          const s = json.settings;
+
+          // 1. Update Hero Banner & Page Title / Subtitle
+          if (s) {
+            if (s.hero_bg_image) {
+              const heroBanner = document.getElementById('servicesHeroBanner');
+              if (heroBanner) {
+                const resolvedBg = resolveMediaUrl(s.hero_bg_image);
+                heroBanner.style.backgroundImage = `url('${resolvedBg}')`;
+              }
+            }
+
+            if (s.page_title) {
+              const heroTitleEl = document.getElementById('servicesHeroTitle');
+              if (heroTitleEl) {
+                heroTitleEl.innerHTML = formatHighlightedTitle(s.page_title);
+              }
+            }
+
+            if (s.page_subtitle) {
+              const heroSubEl = document.getElementById('servicesHeroSubtitle');
+              if (heroSubEl) heroSubEl.textContent = s.page_subtitle;
+            }
+
+            // 2. What We Offer Section Header
+            const offerEyebrow = s.offer_eyebrow || s.hero_badge;
+            if (offerEyebrow) {
+              const eyebrowEl = document.getElementById('servicesSectionEyebrow');
+              if (eyebrowEl) eyebrowEl.textContent = formatEyebrow(offerEyebrow);
+            }
+
+            if (s.offer_title) {
+              const offerTitleEl = document.getElementById('servicesSectionTitle');
+              if (offerTitleEl) offerTitleEl.textContent = s.offer_title;
+            }
+
+            if (s.offer_subtitle) {
+              const offerSubEl = document.getElementById('servicesSectionSubtitle');
+              if (offerSubEl) offerSubEl.textContent = s.offer_subtitle;
+            }
+
+            // 3. Why Choose Us Section
+            if (s.why_choose_image) {
+              const whyImg = document.getElementById('whyChooseImg');
+              if (whyImg) whyImg.src = resolveMediaUrl(s.why_choose_image);
+            }
+
+            if (s.why_choose_eyebrow) {
+              const whyEyebrowEl = document.getElementById('whyChooseEyebrow');
+              if (whyEyebrowEl) whyEyebrowEl.textContent = formatEyebrow(s.why_choose_eyebrow);
+            }
+
+            if (s.why_choose_title) {
+              const whyHeadlineEl = document.getElementById('whyChooseHeadline');
+              if (whyHeadlineEl) whyHeadlineEl.innerHTML = formatHighlightedTitle(s.why_choose_title);
+            }
+
+            if (Array.isArray(s.why_choose_features) && s.why_choose_features.length > 0) {
+              const featsRow = document.getElementById('whyChooseFeaturesRow');
+              if (featsRow) {
+                featsRow.innerHTML = s.why_choose_features.map(f => `
+                  <div class="why-feature-item">
+                    <div class="why-feature-icon">
+                      ${renderServiceIcon(f.icon)}
+                    </div>
+                    <div class="why-feature-label">${escapeHtml(f.label || '')}</div>
+                  </div>
+                `).join('');
+              }
+            }
+
+            // 4. How It Works Section
+            if (s.how_it_works_eyebrow) {
+              const howEyebrowEl = document.getElementById('howItWorksEyebrow');
+              if (howEyebrowEl) howEyebrowEl.textContent = formatEyebrow(s.how_it_works_eyebrow);
+            }
+
+            if (s.how_it_works_title) {
+              const howTitleEl = document.getElementById('howItWorksTitle');
+              if (howTitleEl) howTitleEl.textContent = s.how_it_works_title;
+            }
+
+            if (s.how_it_works_subtitle) {
+              const howSubEl = document.getElementById('howItWorksSubtitle');
+              if (howSubEl) howSubEl.textContent = s.how_it_works_subtitle;
+            }
+
+            if (Array.isArray(s.how_it_works_steps) && s.how_it_works_steps.length > 0) {
+              const stepsRow = document.getElementById('howItWorksStepsRow');
+              if (stepsRow) {
+                const arrowHtml = `
+                  <div class="process-arrow-divider" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                      <polyline points="15 18 21 12 15 6"></polyline>
+                    </svg>
+                  </div>
+                `;
+                stepsRow.innerHTML = s.how_it_works_steps.map((st, i) => {
+                  const stepNum = st.step || (i + 1);
+                  const iconHtml = renderServiceIcon(st.icon || 'fa-solid fa-check');
+                  const stepHtml = `
+                    <div class="process-step-item">
+                      <div class="process-step-circle-box">
+                        <span class="process-step-badge">${stepNum}</span>
+                        ${iconHtml}
+                      </div>
+                      <h4 class="process-step-title">${escapeHtml(st.title || '')}</h4>
+                      <p class="process-step-desc">${escapeHtml(st.desc || '')}</p>
+                    </div>
+                  `;
+                  return i < s.how_it_works_steps.length - 1 ? stepHtml + arrowHtml : stepHtml;
+                }).join('');
+              }
+            }
+
+            // 5. CTA Banner Section
+            if (s.cta_title) {
+              const ctaTitleEl = document.getElementById('servicesCtaTitle');
+              if (ctaTitleEl) ctaTitleEl.textContent = s.cta_title;
+            }
+
+            if (s.cta_subtitle) {
+              const ctaSubEl = document.getElementById('servicesCtaSubtitle');
+              if (ctaSubEl) ctaSubEl.textContent = s.cta_subtitle;
+            }
+
+            const ctaBtnEl = document.getElementById('servicesCtaBtn');
+            if (ctaBtnEl) {
+              if (s.cta_btn_text) ctaBtnEl.textContent = s.cta_btn_text;
+              if (s.cta_btn_link) ctaBtnEl.href = s.cta_btn_link;
+            }
+          }
+
+          // 6. Render Services Cards Grid
+          const cardsGrid = document.getElementById('servicesCardsGrid');
+          if (cardsGrid && Array.isArray(json.services) && json.services.length > 0) {
+            const activeCards = json.services.filter(s => s.is_active === undefined || s.is_active === 1 || s.is_active === '1' || s.is_active === true);
+            if (activeCards.length > 0) {
+              cardsGrid.innerHTML = activeCards.map(s => {
+                const title = s.service_title || 'Service';
+                const desc = s.service_description || '';
+                const iconHtml = renderServiceIcon(s.service_icon);
+                const linkHtml = s.target_url
+                  ? `<a href="${escapeHtml(s.target_url)}" class="service-learn-more">Learn More &rarr;</a>`
+                  : '';
+
+                return `
+                  <div class="service-card">
+                    <div class="service-icon-box">
+                      ${iconHtml}
+                    </div>
+                    <h3 class="service-card-title">${escapeHtml(title)}</h3>
+                    <p class="service-card-desc">${escapeHtml(desc)}</p>
+                    ${linkHtml}
+                  </div>
+                `;
+              }).join('');
+            }
+          }
+        } catch (err) {
+          console.warn('API error loading services on services.html:', err);
+        }
+      }
+
+      function formatEyebrow(str) {
+        if (!str) return '';
+        let clean = String(str).trim();
+        clean = clean.replace(/^[\-—–\s]+|[\-—–\s]+$/g, '');
+        return `— ${clean} —`;
+      }
+
+      function formatHighlightedTitle(titleStr) {
+        if (!titleStr) return '';
+        const trimmed = String(titleStr).trim();
+        if (trimmed.includes('<span') || trimmed.includes('&amp;') || trimmed.includes('<')) {
+          return trimmed;
+        }
+        if (trimmed.includes('&')) {
+          const parts = trimmed.split('&');
+          return `${escapeHtml(parts[0].trim())} &amp; <span class="highlight-green">${escapeHtml(parts.slice(1).join('&').trim())}</span>`;
+        }
+        const words = trimmed.split(/\s+/);
+        if (words.length > 1) {
+          const lastWord = words.pop();
+          return `${escapeHtml(words.join(' '))} <span class="highlight-green">${escapeHtml(lastWord)}</span>`;
+        }
+        return escapeHtml(trimmed);
+      }
+
+      function resolveMediaUrl(url) {
+        if (!url) return '';
+        const s = String(url).trim();
+        if (s.startsWith('http://') || s.startsWith('https://') || s.startsWith('data:')) return s;
+        if (s.startsWith('/uploads/')) return 'http://localhost:5000' + s;
+        if (s.startsWith('uploads/')) return 'http://localhost:5000/' + s;
+        return s;
+      }
+
+      function renderServiceIcon(icon) {
+        if (!icon) {
+          return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`;
+        }
+        const clean = String(icon).trim();
+        if (clean.startsWith('<svg')) {
+          return clean;
+        }
+        if (clean.includes('fa-') || clean.startsWith('fa ') || clean.startsWith('fas ') || clean.startsWith('far ')) {
+          return `<i class="${escapeHtml(clean)}" style="font-size:22px;"></i>`;
+        }
+        if (clean.startsWith('http://') || clean.startsWith('https://') || clean.startsWith('/') || clean.startsWith('assets/')) {
+          return `<img src="${escapeHtml(clean)}" alt="service icon" style="width:28px; height:28px; object-fit:contain;">`;
+        }
+        return `<span style="font-size:24px; line-height:1;">${escapeHtml(clean)}</span>`;
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      fetchServicesData();
     });
   </script>
 </body>

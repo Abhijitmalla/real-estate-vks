@@ -7,7 +7,10 @@ import { fileURLToPath } from "url";
 // Import routes
 import homepageRoutes from "./routes/homepageRoutes.js";
 import propertiesRoutes from "./routes/propertiesRoutes.js";
-
+import blogRoutes from "./routes/blogRoutes.js";
+import servicesRoutes from "./routes/servicesRoutes.js";
+import contactUsRoutes from "./routes/contactUsRoutes.js";
+import aboutUsRoutes from "./routes/aboutUsRoutes.js";
 // Import database
 import db from "./config/db.js";
 
@@ -38,7 +41,12 @@ app.use(
 // API Routes
 app.use("/api/homepage", homepageRoutes);
 app.use("/api/properties", propertiesRoutes);
-
+app.use("/api/blogs",blogRoutes);
+app.use("/api/services",servicesRoutes);
+app.use("/api/contact", contactUsRoutes);
+app.use("/api/contact-us", contactUsRoutes);
+app.use("/api/about", aboutUsRoutes);
+app.use("/api/about-us", aboutUsRoutes);
 
 
 // Welcome route

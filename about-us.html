@@ -14,6 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
       --primary-green: #0d5435;
@@ -725,6 +728,10 @@
     .feature-card-icon-wrap svg {
       width: 24px;
       height: 24px;
+    }
+
+    .feature-card-icon-wrap i {
+      font-size: 22px;
     }
 
     .feature-card-title {
@@ -1592,17 +1599,17 @@
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
             <polyline points="9 22 9 12 15 12 15 22"></polyline>
           </svg>
-          WHO WE ARE
+          <span id="aboutHeroBadgeText">WHO WE ARE</span>
         </div>
 
         <!-- Main Title -->
-        <h1 class="about-hero-title">
+        <h1 class="about-hero-title" id="aboutHeroTitle">
           Simplify Your Home<br>
           Buying, Selling &amp; Renting Journey
         </h1>
 
         <!-- Subheading Paragraph -->
-        <p class="about-hero-lead">
+        <p class="about-hero-lead" id="aboutHeroLead">
           Bilabadi is a modern property listing platform designed to simplify real estate decisions across residential,
           commercial, Plot and PG living options in India. With the help of our interactive map and trusted local insights,
           users can easily discover suitable flats, apartments, land, and commercial spaces across multiple locations.
@@ -1622,7 +1629,7 @@
           <!-- Left Column: Featured Image with Badge -->
           <div class="about-image-card-wrap">
             <div class="about-image-card">
-              <img src="assets/about-us.png" alt="Bilabadi modern real estate property preview" loading="lazy">
+              <img id="aboutStoryImage" src="assets/about-us.png" alt="Bilabadi modern real estate property preview" loading="lazy">
               <!-- Powered by Badge Overlay -->
             
             </div>
@@ -1630,7 +1637,7 @@
 
           <!-- Right Column: Description & Highlights -->
           <div class="about-story-text">
-            <p>
+            <p id="aboutStoryPara1">
               From furnished rental homes and shared stays to plots, premium residences, duplex homes, and commercial
               establishments, Bilabadi supports every stage of property search and transaction. Our platform helps users
               buy, sell, rent, lease, or invest in property while maintaining clarity and trust throughout the process.
@@ -1638,7 +1645,7 @@
               spaces, and land opportunities with complete transparency and confidence
             </p>
 
-            <p>
+            <p id="aboutStoryPara2">
               Based in Gurugram, Bilabadi is part of Cloudsat Pvt. Ltd (CIN: U72900HR2022PTC105173) and operates as an
               Indian real estate property site trusted across the country. We bring buyers, sellers, and verified real
               estate agents together through a unified system - offering more than listings with real post-transaction
@@ -1654,7 +1661,7 @@
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </span>
-                <span>Direct Owner Access</span>
+                <span id="aboutTrustPoint1">Direct Owner Access</span>
               </div>
 
               <div class="trust-item">
@@ -1664,7 +1671,7 @@
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </span>
-                <span>Verified Listings</span>
+                <span id="aboutTrustPoint2">Verified Listings</span>
               </div>
 
               <div class="trust-item">
@@ -1674,7 +1681,7 @@
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </span>
-                <span>Reduced Middlemen</span>
+                <span id="aboutTrustPoint3">Reduced Middlemen</span>
               </div>
 
               <div class="trust-item">
@@ -1684,7 +1691,7 @@
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </span>
-                <span>End-to-End Support</span>
+                <span id="aboutTrustPoint4">End-to-End Support</span>
               </div>
             </div>
           </div>
@@ -1698,16 +1705,16 @@
     <section class="why-choose-section-about">
       <div class="container">
         <div class="section-header-centered">
-          <h2 class="section-main-title">
+          <h2 class="section-main-title" id="aboutWhyTitle">
             Why Choose <span class="title-highlight-green">Bilabadi?</span>
           </h2>
-          <p class="section-sub-lead">
+          <p class="section-sub-lead" id="aboutWhySubtitle">
             We deliver a trusted real estate India experience with accurate property in India listings for modern India
             homes - simple, transparent, and always with no brokerage
           </p>
         </div>
 
-        <div class="features-three-grid">
+        <div class="features-three-grid" id="aboutWhyCardsGrid">
           <!-- Card 1: Verified & Authentic -->
           <div class="feature-card-clean">
             <div class="feature-card-icon-wrap">
@@ -1772,17 +1779,17 @@
       <div class="container">
         <div class="about-cta-card">
           <div class="cta-left-content">
-            <h3>Find Your <span class="cta-word-accent">Next Home</span></h3>
-            <p>
+            <h3 id="aboutCtaTitle">Find Your <span class="cta-word-accent">Next Home</span></h3>
+            <p id="aboutCtaDesc">
               Browse new apartments, luxury houses, furnished apartments for rent, and flats for sale across India Homes
               - start your real estate journey with no brokerage.
             </p>
           </div>
           <div class="cta-right-actions">
-            <a href="#become-reseller" class="btn-cta-reseller">
+            <a href="register.html" class="btn-cta-reseller" id="aboutCtaBtn1">
               Become a Reseller &rarr;
             </a>
-            <a href="product-details.html" class="btn-cta-get-started">
+            <a href="product-details.html" class="btn-cta-get-started" id="aboutCtaBtn2">
               Get Started &rarr;
             </a>
           </div>
@@ -1942,7 +1949,173 @@
 
   <!-- Scripts -->
   <script>
+    /* ==============================================================
+       DYNAMIC ABOUT US DATA SYNC
+       ============================================================== */
+    function resolveAboutMediaUrl(path) {
+      if (!path) return 'assets/about-us.png';
+      if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) return path;
+      if (path.startsWith('/uploads/')) return `http://localhost:5000${path}`;
+      if (path.startsWith('uploads/')) return `http://localhost:5000/${path}`;
+      return path;
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      };
+      return String(text).replace(/[&<>"']/g, m => map[m]);
+    }
+
+    function renderAboutWhyCards(cards) {
+      const grid = document.getElementById('aboutWhyCardsGrid');
+      if (!grid || !Array.isArray(cards) || cards.length === 0) return;
+
+      grid.innerHTML = cards.map(c => {
+        let iconHtml = '';
+        const icon = (c.card_icon || '').trim();
+        if (icon.startsWith('fa-') || icon.includes('fa-')) {
+          iconHtml = `<i class="${escapeHtml(icon)}"></i>`;
+        } else if (icon.startsWith('<svg') || icon.includes('</svg>')) {
+          iconHtml = icon;
+        } else if (icon) {
+          iconHtml = `<span style="font-size:22px;">${escapeHtml(icon)}</span>`;
+        } else {
+          iconHtml = `<i class="fa-solid fa-shield-halved"></i>`;
+        }
+
+        return `
+          <div class="feature-card-clean">
+            <div class="feature-card-icon-wrap">
+              ${iconHtml}
+            </div>
+            <h3 class="feature-card-title">${escapeHtml(c.card_title || '')}</h3>
+            <p class="feature-card-desc">
+              ${escapeHtml(c.card_desc || '')}
+            </p>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function applyAboutData(settings, cards) {
+      if (settings) {
+        // 1. Hero Badge
+        const badgeText = document.getElementById('aboutHeroBadgeText');
+        if (badgeText && settings.hero_badge) badgeText.textContent = settings.hero_badge;
+
+        // 2. Hero Title
+        const heroTitle = document.getElementById('aboutHeroTitle');
+        if (heroTitle && settings.hero_title) {
+          heroTitle.textContent = settings.hero_title;
+        }
+
+        // 3. Hero Lead
+        const heroLead = document.getElementById('aboutHeroLead');
+        if (heroLead && settings.hero_lead) heroLead.textContent = settings.hero_lead;
+
+        // 4. Story Image
+        const storyImg = document.getElementById('aboutStoryImage');
+        if (storyImg && settings.story_image) {
+          storyImg.src = resolveAboutMediaUrl(settings.story_image);
+        }
+
+        // 5. Story Paragraphs
+        const p1 = document.getElementById('aboutStoryPara1');
+        if (p1 && settings.story_para_1) p1.textContent = settings.story_para_1;
+        const p2 = document.getElementById('aboutStoryPara2');
+        if (p2 && settings.story_para_2) p2.textContent = settings.story_para_2;
+
+        // 6. Trust points
+        const tp1 = document.getElementById('aboutTrustPoint1');
+        if (tp1 && settings.trust_point_1) tp1.textContent = settings.trust_point_1;
+        const tp2 = document.getElementById('aboutTrustPoint2');
+        if (tp2 && settings.trust_point_2) tp2.textContent = settings.trust_point_2;
+        const tp3 = document.getElementById('aboutTrustPoint3');
+        if (tp3 && settings.trust_point_3) tp3.textContent = settings.trust_point_3;
+        const tp4 = document.getElementById('aboutTrustPoint4');
+        if (tp4 && settings.trust_point_4) tp4.textContent = settings.trust_point_4;
+
+        // 7. Why Choose
+        const whyTitle = document.getElementById('aboutWhyTitle');
+        if (whyTitle && settings.why_title) {
+          const parts = settings.why_title.split(' ');
+          if (parts.length > 1) {
+            const last = parts.pop();
+            whyTitle.innerHTML = `${escapeHtml(parts.join(' '))} <span class="title-highlight-green">${escapeHtml(last)}</span>`;
+          } else {
+            whyTitle.textContent = settings.why_title;
+          }
+        }
+        const whySub = document.getElementById('aboutWhySubtitle');
+        if (whySub && settings.why_subtitle) whySub.textContent = settings.why_subtitle;
+
+        // 8. CTA Banner
+        const ctaTitle = document.getElementById('aboutCtaTitle');
+        if (ctaTitle && settings.cta_title) {
+          const parts = settings.cta_title.split(' ');
+          if (parts.length >= 2) {
+            const accent = parts.slice(-2).join(' ');
+            const rest = parts.slice(0, -2).join(' ');
+            ctaTitle.innerHTML = `${escapeHtml(rest)} <span class="cta-word-accent">${escapeHtml(accent)}</span>`;
+          } else {
+            ctaTitle.textContent = settings.cta_title;
+          }
+        }
+        const ctaDesc = document.getElementById('aboutCtaDesc');
+        if (ctaDesc && settings.cta_desc) ctaDesc.textContent = settings.cta_desc;
+
+        const ctaBtn1 = document.getElementById('aboutCtaBtn1');
+        if (ctaBtn1) {
+          if (settings.cta_btn1_text) ctaBtn1.textContent = settings.cta_btn1_text;
+          if (settings.cta_btn1_link) ctaBtn1.href = settings.cta_btn1_link;
+        }
+
+        const ctaBtn2 = document.getElementById('aboutCtaBtn2');
+        if (ctaBtn2) {
+          if (settings.cta_btn2_text) ctaBtn2.textContent = settings.cta_btn2_text;
+          if (settings.cta_btn2_link) ctaBtn2.href = settings.cta_btn2_link;
+        }
+      }
+
+      if (Array.isArray(cards) && cards.length > 0) {
+        renderAboutWhyCards(cards);
+      }
+    }
+
+    async function loadAboutPageContent() {
+      // 1. First check localStorage for instant client-side updates
+      try {
+        const local = localStorage.getItem('bilabadi_about_data');
+        if (local) {
+          const parsed = JSON.parse(local);
+          applyAboutData(parsed.settings, parsed.cards);
+        }
+      } catch (e) {}
+
+      // 2. Fetch fresh data from backend MySQL API
+      try {
+        const res = await fetch('http://localhost:5000/api/about/', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success) {
+            applyAboutData(data.settings, data.cards);
+          }
+        }
+      } catch (err) {
+        console.warn('About data API offline, keeping local/defaults:', err.message);
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      // Load dynamic About Us content from API / storage
+      loadAboutPageContent();
+
       // Mobile Drawer Toggle
       const mobileToggle = document.getElementById('mobileNavToggle');
       const mobileDrawer = document.getElementById('mobileDrawer');

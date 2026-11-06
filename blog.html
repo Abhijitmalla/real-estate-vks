@@ -1581,12 +1581,12 @@
          ========================================================================== -->
     <section class="featured-hero-wrap">
       <div class="container">
-        <article class="featured-article-card" onclick="window.location.href='blog-details.html'" title="Read featured article">
-          <img src="assets/blog_hero_tiruppur.jpg" alt="Tiruppur Real Estate Investment" class="featured-bg-img" loading="eager">
+        <article class="featured-article-card" id="featuredArticleCard" onclick="window.location.href='blog-details.html'" title="Read featured article">
+          <img id="featuredBgImg" src="assets/blog_hero_tiruppur.jpg" alt="Featured Article" class="featured-bg-img" loading="eager">
           <div class="featured-overlay"></div>
           <div class="featured-content">
             <div class="featured-meta-row">
-              <span class="badge-category-tag">Business</span>
+              <span class="badge-category-tag" id="featuredCategoryTag">Business</span>
               <span class="meta-date">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -1594,19 +1594,19 @@
                   <line x1="8" y1="2" x2="8" y2="6"></line>
                   <line x1="3" y1="10" x2="21" y2="10"></line>
                 </svg>
-                27 Oct 2026
+                <span id="featuredDateText">27 Oct 2026</span>
               </span>
               <span class="meta-time">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
-                5 min read
+                <span id="featuredReadTimeText">5 min read</span>
               </span>
             </div>
 
-            <h2 class="featured-title">Tiruppur Real Estate Investment: Property Rates, Best Areas and Future Growth</h2>
-            <p class="featured-excerpt">IntroductionChoosing the right location is important when investing in real estate. A growing i...</p>
+            <h2 class="featured-title" id="featuredTitle">Tiruppur Real Estate Investment: Property Rates, Best Areas and Future Growth</h2>
+            <p class="featured-excerpt" id="featuredExcerpt">IntroductionChoosing the right location is important when investing in real estate. A growing i...</p>
 
             <div class="featured-author-row">
               <div class="author-avatar-circle">
@@ -1616,7 +1616,7 @@
                 </svg>
               </div>
               <div class="author-details">
-                <span class="author-name-text">BilaBadi Team</span>
+                <span class="author-name-text" id="featuredAuthorText">BilaBadi Team</span>
                 <span class="author-role-sub">AUTHOR</span>
               </div>
             </div>
@@ -2074,13 +2074,38 @@
       // Interactive Category Filtering & Search
       const categoryButtons = document.querySelectorAll('.cat-pill-btn');
       const searchInput = document.getElementById('blogSearchInput');
-      const cards = document.querySelectorAll('.article-card');
       const noResultsMsg = document.getElementById('noResultsMsg');
+      const articlesGrid = document.getElementById('articlesGrid');
 
       let currentCategory = 'all';
       let searchQuery = '';
 
+      function escapeHtml(str) {
+        if (str === null || str === undefined) return '';
+        const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+        return String(str).replace(/[&<>"']/g, m => map[m]);
+      }
+
+      function stripHtmlTags(html) {
+        if (!html) return '';
+        const div = document.createElement('div');
+        div.innerHTML = html;
+        return (div.textContent || div.innerText || '').trim();
+      }
+
+      function resolveBlogImageUrl(url) {
+        if (!url) return 'assets/blog_hero_tiruppur.jpg';
+        const clean = String(url).trim();
+        if (!clean) return 'assets/blog_hero_tiruppur.jpg';
+        if (clean.startsWith('http://') || clean.startsWith('https://') || clean.startsWith('data:')) return clean;
+        if (clean.startsWith('../assets/')) return clean.replace('../assets/', 'assets/');
+        if (clean.startsWith('/uploads')) return 'http://localhost:5000' + clean;
+        if (clean.startsWith('uploads/')) return 'http://localhost:5000/' + clean;
+        return clean;
+      }
+
       function filterArticles() {
+        const cards = document.querySelectorAll('.article-card');
         let visibleCount = 0;
 
         cards.forEach(card => {
@@ -2088,7 +2113,7 @@
           const cardTitle = card.getAttribute('data-title')?.toLowerCase() || '';
           const cardExcerpt = card.querySelector('.card-excerpt')?.textContent.toLowerCase() || '';
 
-          const matchesCategory = (currentCategory === 'all') || (cardCategory === currentCategory);
+          const matchesCategory = (currentCategory === 'all') || (cardCategory === currentCategory) || (cardCategory.includes(currentCategory)) || (currentCategory.includes(cardCategory));
           const matchesSearch = !searchQuery || cardTitle.includes(searchQuery) || cardExcerpt.includes(searchQuery);
 
           if (matchesCategory && matchesSearch) {
@@ -2101,6 +2126,113 @@
 
         if (noResultsMsg) {
           noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      function renderDynamicArticles(blogs) {
+        if (!Array.isArray(blogs) || blogs.length === 0) return;
+
+        // 1. Featured Hero Blog (First blog)
+        const featured = blogs[0];
+        const featCard = document.getElementById('featuredArticleCard');
+        if (featCard && featured) {
+          featCard.onclick = () => window.location.href = `blog-details.html?id=${encodeURIComponent(featured.id)}`;
+          const featImg = document.getElementById('featuredBgImg');
+          if (featImg) featImg.src = resolveBlogImageUrl(featured.cover_image);
+          const featCat = document.getElementById('featuredCategoryTag');
+          if (featCat) featCat.textContent = featured.category || 'General';
+          const featTitle = document.getElementById('featuredTitle');
+          if (featTitle) featTitle.textContent = featured.title || 'Untitled Article';
+          const featExcerpt = document.getElementById('featuredExcerpt');
+          if (featExcerpt) {
+            const plain = stripHtmlTags(featured.content || '');
+            featExcerpt.textContent = plain.length > 150 ? plain.slice(0, 150) + '...' : plain;
+          }
+          const featAuthor = document.getElementById('featuredAuthorText');
+          if (featAuthor) featAuthor.textContent = featured.author || 'BilaBadi Team';
+          const featRead = document.getElementById('featuredReadTimeText');
+          if (featRead) featRead.textContent = featured.read_time || '5 min read';
+          const featDate = document.getElementById('featuredDateText');
+          if (featDate) {
+            const dt = featured.created_at ? new Date(featured.created_at) : null;
+            featDate.textContent = dt && !Number.isNaN(dt.getTime())
+              ? dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+              : 'Recent';
+          }
+        }
+
+        // 2. Grid Articles (all blogs)
+        if (articlesGrid) {
+          articlesGrid.innerHTML = blogs.map(b => {
+            const bTitle = b.title || 'Untitled Article';
+            const bCategory = (b.category || 'General');
+            const bImg = resolveBlogImageUrl(b.cover_image);
+            const bCreated = b.created_at ? new Date(b.created_at) : null;
+            const bDate = bCreated && !Number.isNaN(bCreated.getTime())
+              ? bCreated.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+              : 'Recent';
+            const bRead = b.read_time || '5 min read';
+            const bAuthor = b.author || 'BilaBadi Team';
+            const plainContent = stripHtmlTags(b.content || '');
+            const excerpt = plainContent.length > 110 ? plainContent.slice(0, 110) + '...' : plainContent;
+
+            return `
+              <article class="article-card" data-category="${escapeHtml(bCategory.toLowerCase())}" data-title="${escapeHtml(bTitle)}">
+                <div class="card-thumb-wrap">
+                  <span class="card-category-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    ${escapeHtml(bCategory.toUpperCase())}
+                  </span>
+                  <img src="${escapeHtml(bImg)}" alt="${escapeHtml(bTitle)}" class="card-thumb-img" loading="lazy" onerror="this.onerror=null;this.src='assets/blog_hero_tiruppur.jpg';">
+                </div>
+                <div class="card-body-content">
+                  <div class="card-meta-line">
+                    <span class="card-meta-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                      ${escapeHtml(bDate)}
+                    </span>
+                    <span class="card-meta-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      ${escapeHtml(bRead)}
+                    </span>
+                  </div>
+                  <h3 class="card-title">
+                    <a href="blog-details.html?id=${encodeURIComponent(b.id)}" style="color:inherit; text-decoration:none;">${escapeHtml(bTitle)}</a>
+                  </h3>
+                  <p class="card-excerpt">${escapeHtml(excerpt || 'Explore full article details.')}</p>
+                  <div class="card-footer-row">
+                    <div class="card-author-info">
+                      <span class="card-author-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                      </span>
+                      <span>${escapeHtml(bAuthor)}</span>
+                    </div>
+                    <a href="blog-details.html?id=${encodeURIComponent(b.id)}" class="card-read-more-btn">Read More &rarr;</a>
+                  </div>
+                </div>
+              </article>
+            `;
+          }).join('');
+        }
+        filterArticles();
+      }
+
+      async function fetchPublishedBlogs() {
+        try {
+          let res = await fetch('http://localhost:5000/api/blogs/public/published');
+          if (!res.ok) {
+            res = await fetch('http://localhost:5000/api/blogs/');
+          }
+          if (res.ok) {
+            const json = await res.json();
+            if (json && json.success && Array.isArray(json.data) && json.data.length > 0) {
+              renderDynamicArticles(json.data);
+            }
+          }
+        } catch (e) {
+          console.warn('API error loading blogs in blog.html:', e);
         }
       }
 
@@ -2117,6 +2249,21 @@
         searchQuery = e.target.value.trim().toLowerCase();
         filterArticles();
       });
+
+      // Check category in URL params (e.g. blog.html?category=travel)
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialCat = (urlParams.get('category') || '').toLowerCase().trim();
+      if (initialCat) {
+        currentCategory = initialCat;
+        categoryButtons.forEach(btn => {
+          if (btn.getAttribute('data-category')?.toLowerCase() === initialCat) {
+            categoryButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          }
+        });
+      }
+
+      fetchPublishedBlogs();
     });
   </script>
 </body>

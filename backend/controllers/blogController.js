@@ -1,4 +1,3 @@
-
 import db from "../config/db.js";
 import fs from "fs";
 import path from "path";
@@ -6,6 +5,27 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const ensureBlogsTable = async () => {
+    try {
+        await db.query(`
+            CREATE TABLE IF NOT EXISTS blogs (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                title VARCHAR(255) NOT NULL,
+                category VARCHAR(100) NOT NULL,
+                cover_image VARCHAR(255) DEFAULT NULL,
+                content LONGTEXT NOT NULL,
+                author VARCHAR(100) DEFAULT 'BilaBadi Editorial Team',
+                read_time VARCHAR(50) DEFAULT '5 min read',
+                is_published TINYINT(1) DEFAULT 1,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+        `);
+    } catch (e) {
+        console.warn("Blogs table check warning:", e.message);
+    }
+};
 
 const getImagePath = (filename) =>
     filename ? `/uploads/blogs/${filename}` : null;
@@ -21,13 +41,18 @@ const deleteImage = (imageUrl) => {
     );
 
     if (fs.existsSync(imagePath)) {
-        fs.unlinkSync(imagePath);
+        try {
+            fs.unlinkSync(imagePath);
+        } catch (e) {
+            console.warn("Could not delete image file:", e.message);
+        }
     }
 };
 
-// GET ALL BLOGS
+// GET ALL BLOGS (Admin list)
 export const getAllBlogs = async (req, res) => {
     try {
+        await ensureBlogsTable();
         const [rows] = await db.query(
             `SELECT * FROM blogs ORDER BY created_at DESC`
         );
@@ -46,9 +71,10 @@ export const getAllBlogs = async (req, res) => {
     }
 };
 
-// GET PUBLISHED BLOGS (PUBLIC WEBSITE)
+// GET PUBLISHED BLOGS (Public website)
 export const getPublishedBlogs = async (req, res) => {
     try {
+        await ensureBlogsTable();
         const [rows] = await db.query(
             `SELECT * FROM blogs
              WHERE is_published = 1
@@ -72,6 +98,7 @@ export const getPublishedBlogs = async (req, res) => {
 // GET BLOG BY ID
 export const getBlogById = async (req, res) => {
     try {
+        await ensureBlogsTable();
         const { id } = req.params;
 
         const [rows] = await db.query(
@@ -102,6 +129,7 @@ export const getBlogById = async (req, res) => {
 // CREATE BLOG
 export const createBlog = async (req, res) => {
     try {
+        await ensureBlogsTable();
         const {
             title,
             category,
@@ -120,11 +148,13 @@ export const createBlog = async (req, res) => {
 
         const coverImage = req.file
             ? getImagePath(req.file.filename)
-            : null;
+            : (req.body.cover_image || req.body.image || null);
 
         const published =
+            is_published === undefined ||
             is_published === true ||
             is_published === "true" ||
+            is_published === 1 ||
             is_published === "1" ? 1 : 0;
 
         const [result] = await db.query(
@@ -133,12 +163,12 @@ export const createBlog = async (req, res) => {
              author, read_time, is_published)
             VALUES (?, ?, ?, ?, ?, ?, ?)`,
             [
-                title.trim(),
-                category,
+                String(title).trim(),
+                String(category).trim(),
                 coverImage,
-                content,
-                author || "BilaBadi Editorial Team",
-                read_time || "5 min read",
+                String(content).trim(),
+                String(author || "BilaBadi Editorial Team").trim(),
+                String(read_time || "5 min read").trim(),
                 published
             ]
         );
@@ -147,13 +177,23 @@ export const createBlog = async (req, res) => {
             success: true,
             message: "Blog created successfully",
             id: result.insertId,
-            image: coverImage
+            image: coverImage,
+            data: {
+                id: result.insertId,
+                title: String(title).trim(),
+                category: String(category).trim(),
+                cover_image: coverImage,
+                content: String(content).trim(),
+                author: String(author || "BilaBadi Editorial Team").trim(),
+                read_time: String(read_time || "5 min read").trim(),
+                is_published: published
+            }
         });
     } catch (error) {
         console.error("Create Blog Error:", error);
         res.status(500).json({
             success: false,
-            message: "Failed to create blog"
+            message: error.message || "Failed to create blog"
         });
     }
 };
@@ -161,6 +201,7 @@ export const createBlog = async (req, res) => {
 // UPDATE BLOG
 export const updateBlog = async (req, res) => {
     try {
+        await ensureBlogsTable();
         const { id } = req.params;
 
         const [rows] = await db.query(
@@ -188,13 +229,14 @@ export const updateBlog = async (req, res) => {
 
         const coverImage = req.file
             ? getImagePath(req.file.filename)
-            : oldBlog.cover_image;
+            : (req.body.cover_image || req.body.image || oldBlog.cover_image);
 
         const published = is_published === undefined
             ? oldBlog.is_published
             : (
                 is_published === true ||
                 is_published === "true" ||
+                is_published === 1 ||
                 is_published === "1" ? 1 : 0
             );
 
@@ -209,18 +251,18 @@ export const updateBlog = async (req, res) => {
                 is_published = ?
              WHERE id = ?`,
             [
-                title ?? oldBlog.title,
-                category ?? oldBlog.category,
+                (title !== undefined ? String(title).trim() : oldBlog.title),
+                (category !== undefined ? String(category).trim() : oldBlog.category),
                 coverImage,
-                content ?? oldBlog.content,
-                author ?? oldBlog.author,
-                read_time ?? oldBlog.read_time,
+                (content !== undefined ? String(content).trim() : oldBlog.content),
+                (author !== undefined ? String(author).trim() : oldBlog.author),
+                (read_time !== undefined ? String(read_time).trim() : oldBlog.read_time),
                 published,
                 id
             ]
         );
 
-        if (req.file && oldBlog.cover_image) {
+        if (req.file && oldBlog.cover_image && oldBlog.cover_image !== coverImage) {
             deleteImage(oldBlog.cover_image);
         }
 
@@ -233,7 +275,7 @@ export const updateBlog = async (req, res) => {
         console.error("Update Blog Error:", error);
         res.status(500).json({
             success: false,
-            message: "Failed to update blog"
+            message: error.message || "Failed to update blog"
         });
     }
 };
@@ -241,6 +283,7 @@ export const updateBlog = async (req, res) => {
 // DELETE BLOG
 export const deleteBlog = async (req, res) => {
     try {
+        await ensureBlogsTable();
         const { id } = req.params;
 
         const [rows] = await db.query(
@@ -260,7 +303,9 @@ export const deleteBlog = async (req, res) => {
             [id]
         );
 
-        deleteImage(rows[0].cover_image);
+        if (rows[0].cover_image) {
+            deleteImage(rows[0].cover_image);
+        }
 
         res.status(200).json({
             success: true,
@@ -270,7 +315,7 @@ export const deleteBlog = async (req, res) => {
         console.error("Delete Blog Error:", error);
         res.status(500).json({
             success: false,
-            message: "Failed to delete blog"
+            message: error.message || "Failed to delete blog"
         });
     }
 };

@@ -354,7 +354,7 @@
       z-index: 2;
       padding: 40px 0 46px;
       width: 100%;
-      max-width: 900px;
+      max-width: 1080px;
       text-align: left;
     }
 
@@ -397,7 +397,7 @@
     }
 
     .hero-title .hero-title-green {
-      color: #1b804e;
+      color: #22c55e;
       display: inline;
     }
 
@@ -415,14 +415,16 @@
       position: relative;
       z-index: 30;
       background: #ffffff;
-      border-radius: 20px;
+      border-radius: var(--radius-pill);
       box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
-      padding: 10px 12px 10px 22px;
-      display: inline-flex;
+      padding: 8px 10px 8px 20px;
+      display: flex;
       align-items: center;
+      justify-content: space-between;
       border: 1px solid rgba(0, 0, 0, 0.06);
       width: 100%;
-      max-width: 860px;
+      max-width: 1040px;
+      box-sizing: border-box;
       backdrop-filter: blur(10px);
     }
 
@@ -430,20 +432,22 @@
       display: flex;
       align-items: center;
       flex: 1;
+      min-width: 0;
     }
 
     .search-field {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 8px 14px;
+      gap: 10px;
+      padding: 6px 12px;
       flex: 1;
+      min-width: 0;
       position: relative;
     }
 
     .field-icon {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       color: var(--primary-green);
       flex-shrink: 0;
     }
@@ -452,25 +456,30 @@
       display: flex;
       flex-direction: column;
       width: 100%;
+      min-width: 0;
     }
 
     .field-label {
-      font-size: 13.5px;
+      font-size: 12.5px;
       font-weight: 700;
       color: var(--text-dark);
       line-height: 1.2;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
+      white-space: nowrap;
     }
 
     .field-input {
       border: none;
       outline: none;
-      font-size: 14px;
+      font-size: 13.5px;
       color: var(--text-dark);
       background: transparent;
       width: 100%;
       padding: 0;
-      font-weight: 500;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .field-input::placeholder {
@@ -561,7 +570,7 @@
       position: absolute;
       top: calc(100% + 14px);
       left: -14px;
-      width: 660px;
+      width: 830px;
       max-width: calc(100vw - 32px);
       background: #ffffff;
       border-radius: 18px;
@@ -573,9 +582,9 @@
       transform: translateY(8px);
       transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
       pointer-events: none;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
 
     .location-search-field.open .location-states-popover {
@@ -590,6 +599,8 @@
       padding: 12px 14px;
       border-bottom: 1px solid var(--border-light);
       background: #ffffff;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -637,17 +648,17 @@
       white-space: nowrap;
     }
 
-    /* Popover Body: Two Columns */
+    /* Popover Body: Three Columns (States -> Cities -> Localities) */
     .loc-popover-body {
       display: flex;
-      height: 380px;
+      height: 395px;
       background: #ffffff;
       position: relative;
     }
 
-    /* Left Column: States List */
+    /* Column 1: States List */
     .loc-states-col {
-      width: 250px;
+      width: 225px;
       flex-shrink: 0;
       border-right: 1px solid var(--border-light);
       background: #fbfdfb;
@@ -658,7 +669,7 @@
     }
 
     .loc-states-col::-webkit-scrollbar {
-      width: 5px;
+      width: 4px;
     }
 
     .loc-states-col::-webkit-scrollbar-thumb {
@@ -670,9 +681,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 12px;
+      padding: 7px 10px;
       border-radius: 9px;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
       color: #374151;
       cursor: pointer;
@@ -680,6 +691,8 @@
       margin-bottom: 2px;
       user-select: none;
       border: 1px solid transparent;
+      gap: 6px;
+      min-width: 0;
     }
 
     .loc-state-item:hover,
@@ -694,8 +707,10 @@
     .loc-state-info {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       min-width: 0;
+      flex: 1;
+      overflow: hidden;
     }
 
     .loc-state-pin-icon {
@@ -751,48 +766,57 @@
       transform: translateX(2px);
     }
 
-    /* Right Column: Districts */
+    /* Column 2: Cities */
     .loc-districts-col {
-      flex: 1;
+      width: 240px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border-light);
+      background: #ffffff;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      background: #ffffff;
       min-width: 0;
     }
 
     .loc-districts-header {
-      padding: 10px 16px;
+      padding: 10px 12px;
       border-bottom: 1px solid var(--border-light);
       background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 8px;
       flex-shrink: 0;
+      min-width: 0;
     }
 
     .loc-districts-title-wrap {
       display: flex;
       flex-direction: column;
       min-width: 0;
+      flex: 1;
+      overflow: hidden;
     }
 
     .loc-current-state-name {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 800;
       color: var(--text-heading);
-      line-height: 1.2;
+      line-height: 1.25;
       margin: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      max-width: 100%;
     }
 
     .loc-districts-count {
       font-size: 11px;
       color: var(--text-muted);
       margin-top: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .btn-select-all-state {
@@ -800,12 +824,13 @@
       color: var(--primary-green);
       border: 1px solid var(--primary-green-border);
       border-radius: var(--radius-pill);
-      padding: 5px 12px;
-      font-size: 11.5px;
+      padding: 4px 10px;
+      font-size: 11px;
       font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.15s ease;
+      flex-shrink: 0;
     }
 
     .btn-select-all-state:hover {
@@ -816,17 +841,16 @@
     .loc-districts-grid {
       flex: 1;
       overflow-y: auto;
-      padding: 12px 14px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 6px;
-      align-content: start;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
       scrollbar-width: thin;
       scrollbar-color: #cbd5e1 transparent;
     }
 
     .loc-districts-grid::-webkit-scrollbar {
-      width: 5px;
+      width: 4px;
     }
 
     .loc-districts-grid::-webkit-scrollbar-thumb {
@@ -835,23 +859,30 @@
     }
 
     .loc-district-btn {
+      position: relative;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 6px;
       padding: 7px 10px;
       border-radius: 8px;
-      border: 1px solid var(--border-light);
-      background: #fbfdfb;
+      border: 1px solid transparent;
+      background: transparent;
       color: var(--text-dark);
       font-size: 12px;
       font-weight: 600;
       text-align: left;
       cursor: pointer;
       transition: all 0.15s ease;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
       user-select: none;
+    }
+
+    .loc-district-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .loc-district-btn svg {
@@ -861,28 +892,199 @@
       flex-shrink: 0;
     }
 
-    .loc-district-btn span {
+    .loc-district-name {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .loc-district-btn:hover {
-      background: var(--primary-green-light);
-      color: var(--primary-green);
-      border-color: var(--primary-green-border);
-      transform: translateY(-1px);
-      box-shadow: 0 2px 5px rgba(13, 84, 53, 0.08);
+    .loc-district-meta {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
     }
 
-    .loc-district-btn.selected {
+    .loc-dist-loc-count {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--accent-green);
+      background: rgba(46, 155, 98, 0.12);
+      padding: 1px 6px;
+      border-radius: 10px;
+      line-height: 1.3;
+    }
+
+    .loc-district-arrow {
+      width: 12px;
+      height: 12px;
+      color: #9ca3af;
+      transition: transform 0.15s ease, color 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .loc-district-btn:hover,
+    .loc-district-btn.active {
+      background: var(--primary-green-light);
+      border-color: var(--primary-green-border);
+      color: var(--primary-green);
+      font-weight: 700;
+    }
+
+    .loc-district-btn:hover .loc-dist-loc-count,
+    .loc-district-btn.active .loc-dist-loc-count {
       background: var(--primary-green);
       color: #ffffff;
-      border-color: var(--primary-green);
     }
 
-    .loc-district-btn.selected svg {
+    .loc-district-btn:hover .loc-district-arrow,
+    .loc-district-btn.active .loc-district-arrow {
+      color: var(--primary-green);
+      transform: translateX(2px);
+    }
+
+    /* Column 3: Localities */
+    .loc-localities-col {
+      flex: 1;
+      min-width: 0;
+      background: #fbfdfb;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .loc-localities-header {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-light);
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+
+    .loc-localities-title-wrap {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .loc-current-city-name {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .loc-localities-count {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .btn-select-all-city {
+      background: var(--primary-green-light);
+      color: var(--primary-green);
+      border: 1px solid var(--primary-green-border);
+      border-radius: var(--radius-pill);
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-select-all-city:hover {
+      background: var(--primary-green);
       color: #ffffff;
+    }
+
+    .loc-localities-grid {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px 14px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 7px;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .loc-localities-grid::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .loc-localities-grid::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .loc-locality-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      color: #1f2937;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .loc-locality-pill svg {
+      width: 12px;
+      height: 12px;
+      color: var(--accent-green);
+      flex-shrink: 0;
+      transition: color 0.15s ease;
+    }
+
+    .loc-locality-pill:hover {
+      background: #0d5435;
+      color: #ffffff;
+      border-color: #0d5435;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(13, 84, 53, 0.25);
+    }
+
+    .loc-locality-pill:hover svg {
+      color: #ffffff;
+    }
+
+    .loc-no-localities-box {
+      width: 100%;
+      padding: 24px 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .loc-no-localities-box p {
+      font-size: 12px;
+      color: #6b7280;
+      margin: 0;
     }
 
     /* Filter Results Overlay (Search As You Type) */
@@ -931,6 +1133,8 @@
       padding: 8px 14px;
       border-top: 1px solid var(--border-light);
       background: #fbfdfb;
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -972,12 +1176,12 @@
       }
 
       .loc-states-col {
-        width: 130px;
+        width: 125px;
         padding: 4px;
       }
 
       .loc-state-item {
-        padding: 8px 6px;
+        padding: 7px 6px;
         font-size: 11.5px;
       }
 
@@ -985,14 +1189,31 @@
         display: none;
       }
 
+      .loc-districts-col {
+        width: 130px;
+      }
+
       .loc-districts-grid {
-        grid-template-columns: 1fr;
-        padding: 8px 10px;
+        padding: 6px;
       }
 
       .loc-district-btn {
+        padding: 7px 8px;
+        font-size: 11px;
+      }
+
+      .loc-localities-col {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .loc-localities-grid {
         padding: 8px 10px;
-        font-size: 11.5px;
+      }
+
+      .loc-locality-pill {
+        padding: 5px 9px;
+        font-size: 11px;
       }
     }
 
@@ -1020,6 +1241,7 @@
     .custom-select-dropdown {
       position: relative;
       width: 100%;
+      min-width: 0;
       cursor: pointer;
     }
 
@@ -1028,6 +1250,8 @@
       align-items: center;
       justify-content: space-between;
       width: 100%;
+      min-width: 0;
+      gap: 6px;
       user-select: none;
       padding-right: 2px;
     }
@@ -1121,24 +1345,31 @@
 
     .search-divider {
       width: 1px;
-      height: 42px;
+      height: 38px;
       background-color: var(--border-color);
-      margin: 0 6px;
+      margin: 0 4px;
+      flex-shrink: 0;
     }
 
     .btn-search {
       background-color: var(--primary-green);
       color: #ffffff;
       border-radius: var(--radius-pill);
-      padding: 13px 32px;
-      font-size: 15px;
+      padding: 12px 24px;
+      font-size: 14.5px;
       font-weight: 700;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 9px;
+      justify-content: center;
+      gap: 8px;
       box-shadow: 0 4px 14px rgba(13, 84, 53, 0.28);
-      margin-left: 8px;
+      margin-left: 6px;
       flex-shrink: 0;
+      white-space: nowrap;
+      height: 48px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
     }
 
     .btn-search:hover {
@@ -2777,6 +3008,49 @@
     /* ==========================================================================
    Responsive Media Queries (Exact Mobile Match to Mockup)
    ========================================================================== */
+    @media (max-width: 1080px) and (min-width: 769px) {
+      .search-widget-card {
+        padding: 6px 8px 6px 14px;
+        max-width: 100%;
+      }
+
+      .search-field {
+        padding: 4px 6px;
+        gap: 6px;
+      }
+
+      .field-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      .field-label {
+        font-size: 11.5px;
+      }
+
+      .field-input,
+      .dropdown-selected-text {
+        font-size: 13px;
+      }
+
+      .location-badge-hint {
+        display: none;
+      }
+
+      .btn-search {
+        padding: 10px 18px;
+        font-size: 13.5px;
+        height: 44px;
+        gap: 6px;
+        margin-left: 4px;
+      }
+
+      .btn-search svg {
+        width: 17px;
+        height: 17px;
+      }
+    }
+
     @media (max-width: 1024px) {
       .hero-title {
         font-size: 34px;
@@ -2908,7 +3182,7 @@
       }
 
       .hero-title .hero-title-green {
-        color: #2e9b62;
+        color: #22c55e;
         white-space: normal;
         display: inline;
       }
@@ -3700,11 +3974,11 @@
               <div class="field-content">
                 <div class="location-label-row">
                   <label for="searchLocation" class="field-label">Location</label>
-                  <span class="location-badge-hint" id="locationDataStatus">States &amp; Districts</span>
+                  <span class="location-badge-hint" id="locationDataStatus">States &amp; Cities</span>
                 </div>
                 <div class="location-input-container">
-                  <input type="text" id="searchLocation" class="field-input"
-                    placeholder="Select state or search district..." autocomplete="off" aria-expanded="false"
+                  <input type="text" id="searchLocation" name="location" class="field-input"
+                    placeholder="Select state or search city..." autocomplete="off" aria-expanded="false"
                     aria-haspopup="true">
                   <button type="button" class="loc-clear-btn" id="locClearBtn" aria-label="Clear location input"
                     title="Clear location">&times;</button>
@@ -3714,8 +3988,8 @@
                 </div>
 
                 <!-- States and Districts Popover -->
-                <div class="location-states-popover" id="locationStatesPopover" role="dialog"
-                  aria-label="India States and Districts Selector">
+                  <div class="location-states-popover" id="locationStatesPopover" role="dialog"
+                  aria-label="India States and Cities Selector">
                   <div class="loc-popover-header">
                     <div class="loc-search-box">
                       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -3723,7 +3997,7 @@
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                       </svg>
-                      <input type="text" id="locQuickSearch" placeholder="Type to filter states or districts..."
+                      <input type="text" id="locQuickSearch" placeholder="Type to filter states or cities..."
                         autocomplete="off">
                     </div>
                     <span class="loc-states-count-badge" id="locStatesCountBadge">Loading states...</span>
@@ -3735,20 +4009,35 @@
                       <!-- Rendered dynamically -->
                     </div>
 
-                    <!-- Right Column: Districts for Hovered State -->
+                    <!-- Middle Column: Cities of Hovered State -->
                     <div class="loc-districts-col" id="locDistrictsPanel">
                       <div class="loc-districts-header">
                         <div class="loc-districts-title-wrap">
                           <h4 class="loc-current-state-name" id="locCurrentStateName">Select a State</h4>
-                          <span class="loc-districts-count" id="locDistrictsCount">Hover over a state on the left to see
-                            districts</span>
+                          <span class="loc-districts-count" id="locDistrictsCount">Hover a state to see cities</span>
                         </div>
                         <button type="button" class="btn-select-all-state" id="btnSelectEntireState"
                           style="display:none;">
-                          Select State
+                          Select City
                         </button>
                       </div>
-                      <div class="loc-districts-grid" id="locDistrictsGrid" role="listbox" aria-label="Districts">
+                      <div class="loc-districts-grid" id="locDistrictsGrid" role="listbox" aria-label="Cities">
+                        <!-- Rendered dynamically -->
+                      </div>
+                    </div>
+
+                    <!-- Right Column: Localities of Hovered City -->
+                    <div class="loc-localities-col" id="locLocalitiesPanel">
+                      <div class="loc-localities-header">
+                        <div class="loc-localities-title-wrap">
+                          <h4 class="loc-current-city-name" id="locCurrentCityName">Select a City</h4>
+                          <span class="loc-localities-count" id="locLocalitiesCount">Hover over a city to view localities</span>
+                        </div>
+                        <button type="button" class="btn-select-all-city" id="btnSelectEntireCity" style="display:none;">
+                          Select Locality
+                        </button>
+                      </div>
+                      <div class="loc-localities-grid" id="locLocalitiesGrid" role="listbox" aria-label="Localities">
                         <!-- Rendered dynamically -->
                       </div>
                     </div>
@@ -3767,7 +4056,7 @@
                         <line x1="12" y1="16" x2="12" y2="12"></line>
                         <line x1="12" y1="8" x2="12.01" y2="8"></line>
                       </svg>
-                      Hover over any state to browse its districts. Click to select.
+                      Hover over a state to browse cities. Hover over a city to see available localities; click to select.
                     </span>
                   </div>
                 </div>
@@ -4770,64 +5059,12 @@
         <a href="blog.html" class="section-view-all">View All Articles &rarr;</a>
       </div>
 
-      <div class="blog-grid">
-        <!-- Blog 1 -->
-        <article class="blog-card">
-          <div class="blog-card-img-wrap">
-            <img src="assets/cat_residential.webp" alt="Top 10 Tips for Buying Your First Home" class="blog-card-img"
-              loading="lazy">
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-date">May 15, 2025</div>
-            <h3 class="blog-card-title">Top 10 Tips for Buying Your First Home</h3>
-            <a href="#blog" class="blog-card-read-more">Read More &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Blog 2 -->
-        <article class="blog-card">
-          <div class="blog-card-img-wrap">
-            <img src="assets/cat_commercial.webp" alt="Real Estate Investment Trends in 2025" class="blog-card-img"
-              loading="lazy">
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-date">May 10, 2025</div>
-            <h3 class="blog-card-title">Real Estate Investment Trends in 2025</h3>
-            <a href="#blog" class="blog-card-read-more">Read More &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Blog 3 -->
-        <article class="blog-card">
-          <div class="blog-card-img-wrap">
-            <img src="assets/cat_agricultural.webp" alt="How to Choose the Right Location for Your Home"
-              class="blog-card-img" loading="lazy">
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-date">May 5, 2025</div>
-            <h3 class="blog-card-title">How to Choose the Right Location for Your Home</h3>
-            <a href="#blog" class="blog-card-read-more">Read More &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Blog 4 -->
-        <article class="blog-card">
-          <div class="blog-card-img-wrap">
-            <img src="assets/cat_industrial.webp" alt="Benefits of Living in a Gated Community" class="blog-card-img"
-              loading="lazy">
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-date">Apr 28, 2025</div>
-            <h3 class="blog-card-title">Benefits of Living in a Gated Community</h3>
-            <a href="#blog" class="blog-card-read-more">Read More &rarr;</a>
-          </div>
-        </article>
-      </div>
+      <div class="blog-grid" id="blogGrid" aria-live="polite"></div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       Footer
+       Footer Section 
        ========================================================================== -->
   <footer class="site-footer">
     <div class="container">
@@ -4983,6 +5220,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       const HOMEPAGE_API_URL = 'http://localhost:5000/api/homepage/sections';
+      const BLOGS_API_URL = 'http://localhost:5000/api/blogs';
       let setTypewriterPhrase = () => {};
       let updateTestimonialsData = () => {};
       let updateTestimonialNavButtons = () => {};
@@ -5028,6 +5266,57 @@
           return new URL(trimmed, HOMEPAGE_API_URL).href;
         } catch (error) {
           return trimmed;
+        }
+      }
+
+      async function loadBlogs() {
+        const blogGrid = document.getElementById('blogGrid');
+        if (!blogGrid) return;
+
+        try {
+          const response = await fetch(BLOGS_API_URL, { cache: 'no-store' });
+          if (!response.ok) {
+            throw new Error(`Blogs API request failed (${response.status})`);
+          }
+
+          const result = await response.json();
+          if (!result.success || !Array.isArray(result.data)) {
+            throw new Error(result.message || 'Blogs API returned an invalid response');
+          }
+
+          if (result.data.length === 0) {
+            blogGrid.innerHTML = '<p>No articles are available right now.</p>';
+            return;
+          }
+
+          blogGrid.innerHTML = result.data.map(blog => {
+            const title = blog.title || 'Untitled article';
+            const imageUrl = resolveHomepageAsset(blog.cover_image) || 'assets/cat_residential.webp';
+            const createdAt = blog.created_at ? new Date(blog.created_at) : null;
+            const date = createdAt && !Number.isNaN(createdAt.getTime())
+              ? createdAt.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
+              : '';
+            const category = blog.category ? `${escapeHtml(blog.category)}${date ? ' · ' : ''}` : '';
+
+            return `
+              <article class="blog-card">
+                <a href="blog-details.html?id=${encodeURIComponent(blog.id)}" class="blog-card-img-wrap" style="display:block;">
+                  <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}" class="blog-card-img"
+                    loading="lazy" onerror="this.onerror=null;this.src='assets/cat_residential.webp';">
+                </a>
+                <div class="blog-card-body">
+                  <div class="blog-card-date">${category}${escapeHtml(date)}</div>
+                  <h3 class="blog-card-title">
+                    <a href="blog-details.html?id=${encodeURIComponent(blog.id)}" style="color:inherit; text-decoration:none;">${escapeHtml(title)}</a>
+                  </h3>
+                  <a href="blog-details.html?id=${encodeURIComponent(blog.id)}" class="blog-card-read-more">Read More &rarr;</a>
+                </div>
+              </article>
+            `;
+          }).join('');
+        } catch (error) {
+          console.warn('Failed to load blogs:', error);
+          blogGrid.innerHTML = '<p>Articles could not be loaded right now.</p>';
         }
       }
 
@@ -5095,9 +5384,33 @@
 
         if (!section) {
           try {
-            const cached = sessionStorage.getItem('bilabadi_home_data');
+            const cached = sessionStorage.getItem('bilabadi_home_data') || localStorage.getItem('bilabadi_home_data');
             if (cached) {
-              section = JSON.parse(cached);
+              const parsed = JSON.parse(cached);
+              if (parsed && parsed.texts) {
+                section = {
+                  top_badge_text: parsed.texts.badge,
+                  title: parsed.texts.title,
+                  highlight_words: parsed.texts.highlight,
+                  description: parsed.texts.description,
+                  button_text: parsed.banner?.btn_text,
+                  button_link: parsed.banner?.btn_link,
+                  background_image: parsed.banner?.bg_image,
+                  overlay_opacity: parsed.banner?.overlay_opacity,
+                  trust_cards: parsed.trust_cards,
+                  why_eyebrow: parsed.why_choose?.eyebrow,
+                  why_title: parsed.why_choose?.title,
+                  why_description: parsed.why_choose?.description,
+                  stats_number: parsed.why_choose?.badge_num,
+                  stats_label: parsed.why_choose?.badge_label,
+                  why_image: parsed.why_choose?.image,
+                  why_features: parsed.why_choose?.features,
+                  popular_cities: parsed.cities,
+                  client_reviews: parsed.client_reviews
+                };
+              } else {
+                section = parsed;
+              }
             }
           } catch (e) {}
         }
@@ -5128,27 +5441,30 @@
             searchForm.action = section.button_link;
           }
 
-          if (hasHomepageValue(section.title) && heroTitle && highlightEl) {
-            const highlight = hasHomepageValue(section.highlight_words)
-              ? String(section.highlight_words).split(',')[0].trim()
-              : highlightEl.textContent.trim();
-            const highlightIndex = section.title.indexOf(highlight);
+          if (heroTitle && highlightEl) {
+            let titlePrefix = hasHomepageValue(section.title) ? String(section.title).trim() : 'Buy, Sell or Rent';
+            const highlightRaw = hasHomepageValue(section.highlight_words)
+              ? String(section.highlight_words).trim()
+              : (highlightEl.textContent.trim() || 'Land & Commercial Spaces');
 
-            if (highlight && highlightIndex >= 0) {
-              const prefix = section.title.slice(0, highlightIndex).trimEnd();
-              const suffix = section.title.slice(highlightIndex + highlight.length);
-              const lineBreak = document.createElement('br');
-              heroTitle.replaceChildren(
-                document.createTextNode(prefix),
-                lineBreak,
-                highlightEl,
-                document.createTextNode(suffix)
-              );
-              highlightEl.textContent = highlight;
-              setTypewriterPhrase(highlight);
-            } else {
-              heroTitle.textContent = section.title;
+            // Strip highlight words from titlePrefix if titlePrefix contains them (legacy data support)
+            if (highlightRaw && titlePrefix.endsWith(highlightRaw)) {
+              titlePrefix = titlePrefix.slice(0, -highlightRaw.length).trim();
+            } else if (highlightRaw && titlePrefix.includes(highlightRaw)) {
+              titlePrefix = titlePrefix.replace(highlightRaw, '').trim();
             }
+
+            if (!titlePrefix) titlePrefix = 'Buy, Sell or Rent';
+
+            const lineBreak = document.createElement('br');
+            heroTitle.replaceChildren(
+              document.createTextNode(titlePrefix),
+              lineBreak,
+              highlightEl
+            );
+
+            highlightEl.textContent = highlightRaw.split(/[,|\n]+/)[0].trim() || highlightRaw;
+            setTypewriterPhrase(highlightRaw);
           }
 
           // Top Banner Background Image (Always bright & vibrant)
@@ -5360,6 +5676,7 @@
       function renderLatestListings(properties) {
         const grid = document.getElementById('latestListingsGrid');
         if (!grid || !Array.isArray(properties) || properties.length === 0) return;
+        cachedCardLocalitiesMap = null;
 
         // Sort in recent to old form: first recent properties will show then old properties
         const sorted = [...properties].sort((a, b) => {
@@ -5388,7 +5705,11 @@
           const isBest = (prop.is_best_property === 1 || prop.is_best_property === true || prop.is_best_property === '1');
 
           return `
-            <article class="listing-card" data-id="${escapeHtml(String(prop.id))}">
+            <article class="listing-card"
+              data-id="${escapeHtml(String(prop.id))}"
+              data-location="${escapeHtml(location)}"
+              data-category="${escapeHtml(prop.category || '')}"
+              data-price="${escapeHtml(String(prop.price || ''))}">
               <div class="listing-media">
                 <span class="listing-badge-tag">${escapeHtml(badge)}</span>
                 ${isBest ? `
@@ -5448,6 +5769,7 @@
       function renderBestProperties(properties) {
         const grid = document.getElementById('bestPropertiesGrid') || document.querySelector('.categories-section .categories-grid');
         if (!grid || !Array.isArray(properties) || properties.length === 0) return;
+        cachedCardLocalitiesMap = null;
 
         // Strictly show properties whose is_best_property is 1 (is_best_property: 0 will NOT show)
         const bestProperties = properties.filter(prop => {
@@ -5480,7 +5802,11 @@
           const viewDetailsUrl = `view-details.html?id=${encodeURIComponent(prop.id)}&title=${encodeURIComponent(title)}&price=${encodeURIComponent(displayPrice)}&loc=${encodeURIComponent(location)}&bhk=${encodeURIComponent(prop.bedrooms || '')}&area=${encodeURIComponent(prop.total_plot_area || prop.area || '')}&status=${encodeURIComponent(prop.availability || 'Ready to Move')}&cat=${encodeURIComponent(prop.category || '')}&img=${encodeURIComponent(imageUrl)}`;
 
           return `
-            <article class="prop-card" data-id="${escapeHtml(String(prop.id))}">
+            <article class="prop-card"
+              data-id="${escapeHtml(String(prop.id))}"
+              data-location="${escapeHtml(location)}"
+              data-category="${escapeHtml(prop.category || '')}"
+              data-price="${escapeHtml(String(prop.price || ''))}">
               <div class="prop-img-wrap">
                 <span class="prop-badge">${escapeHtml(badge)}</span>
                 <span class="prop-star-badge" title="Best Property" aria-label="Best Property">
@@ -5543,6 +5869,7 @@
       }
 
       loadLatestListings();
+      loadBlogs();
       
 
       // Mobile Drawer Toggle
@@ -5576,18 +5903,29 @@
         let phraseIdx = 0;
         let charIndex = phrases[0].length;
         let isDeleting = true;
-        setTypewriterPhrase = phrase => {
-          phrases.splice(0, phrases.length, phrase);
+        let typeTimer = null;
+
+        setTypewriterPhrase = rawPhrase => {
+          if (!rawPhrase) return;
+          const parsed = String(rawPhrase)
+            .split(/[,|\n]+/)
+            .map(s => s.trim())
+            .filter(Boolean);
+          const newPhrases = parsed.length > 0 ? parsed : [String(rawPhrase).trim()];
+          phrases.splice(0, phrases.length, ...newPhrases);
           phraseIdx = 0;
-          charIndex = phrase.length;
-          isDeleting = false;
-          typewriterEl.textContent = phrase;
+          charIndex = phrases[0].length;
+          isDeleting = true;
+          typewriterEl.textContent = phrases[0];
+          if (typeTimer) clearTimeout(typeTimer);
+          typeTimer = setTimeout(typeLoop, 2000);
         };
 
         typewriterEl.textContent = phrases[0];
 
         function typeLoop() {
-          const currentPhrase = phrases[phraseIdx];
+          if (!phrases.length) return;
+          const currentPhrase = phrases[phraseIdx % phrases.length];
 
           if (!isDeleting) {
             // Write (typing characters)
@@ -5597,10 +5935,10 @@
             if (charIndex >= currentPhrase.length) {
               // Full text written: pause 2.2s so it can be read, then remove
               isDeleting = true;
-              setTimeout(typeLoop, 2200);
+              typeTimer = setTimeout(typeLoop, 2200);
               return;
             }
-            setTimeout(typeLoop, 85); // typing speed
+            typeTimer = setTimeout(typeLoop, 85); // typing speed
           } else {
             // Remove (erasing characters)
             charIndex--;
@@ -5610,15 +5948,15 @@
               // Completely removed: pause 0.5s, then write again
               isDeleting = false;
               phraseIdx = (phraseIdx + 1) % phrases.length;
-              setTimeout(typeLoop, 500);
+              typeTimer = setTimeout(typeLoop, 500);
               return;
             }
-            setTimeout(typeLoop, 40); // erasing speed
+            typeTimer = setTimeout(typeLoop, 40); // erasing speed
           }
         }
 
         // Keep the heading visible before the first erase-and-type cycle.
-        setTimeout(typeLoop, 1800);
+        typeTimer = setTimeout(typeLoop, 1800);
       }
 
       // Favorite Heart Buttons Toggle
@@ -5685,15 +6023,16 @@
       };
 
       // ==========================================================================
-      // Location Search with States & Districts API
+      // Location Search with states, city-level choices, and listing localities
       // ==========================================================================
-      const LOCATION_API_URL = 'https://raw.githubusercontent.com/CodingMation/indian-states-districts/main/data/india_states_districts.min.json?utm_source=chatgpt.com';
-      const LOCATION_API_FALLBACK = 'https://raw.githubusercontent.com/CodingMation/indian-states-districts/main/states-districts.json';
+      const LOCATION_API_URL = 'http://localhost:5000/api/homepage/locations';
+      const LOCATION_API_FALLBACK = 'https://raw.githubusercontent.com/CodingMation/indian-states-districts/main/data/india_states_districts.min.json?utm_source=chatgpt.com';
 
       // Comprehensive fallback dataset covering Indian States & UTs
       const FALLBACK_INDIA_DATA = [
-        { state: "Andhra Pradesh", districts: ["Alluri Sitharama Raju", "Anakapalli", "Ananthapuramu", "Annamayya", "Bapatla", "Chittoor", "East Godavari", "Eluru", "Guntur", "Kakinada", "Konaseema", "Krishna", "Kurnool", "Nandyal", "NTR", "Palnadu", "Parvathipuram Manyam", "Prakasam", "Srikakulam", "Sri Potti Sriramulu Nellore", "Tirupati", "Visakhapatnam", "Vizianagaram", "West Godavari", "YSR Kadapa"] },
-        { state: "Arunachal Pradesh", districts: ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Itanagar Capital Complex", "Kamle", "Kra Daadi", "Kurung Kumey", "Lepa Rada", "Lohit", "Longding", "Lower Dibang Valley", "Lower Siang", "Lower Subansiri", "Namsai", "Pakke Kessang", "Papum Pare", "Shi Yomi", "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang"] },
+        { state: "Andaman and Nicobar Islands", districts: ["Port Blair"] },
+        { state: "Andhra Pradesh", districts: ["Visakhapatnam", "Vijayawada", "Guntur", "Tirupati", "Kurnool", "Nellore", "Kakinada", "Rajahmundry", "Anantapur", "Kadapa", "Eluru", "Ongole", "Alluri Sitharama Raju", "Anakapalli", "Annamayya", "Bapatla", "Chittoor", "East Godavari", "Konaseema", "Nandyal", "NTR", "Palnadu", "Parvathipuram Manyam", "Prakasam", "Srikakulam", "Vizianagaram"] },
+        { state: "Arunachal Pradesh", districts: ["Itanagar", "Naharlagun", "Tawang", "Pasighat", "Ziro", "Changlang", "Lohit", "Namsai", "Roing", "Bomdila", "Tezu"] },
         { state: "Assam", districts: ["Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo", "Chirang", "Darrang", "Dhemaji", "Dhubri", "Dibrugarh", "Dima Hasao", "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup", "Kamrup Metropolitan", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon", "Nagaon", "Nalbari", "Sivasagar", "Sonitpur", "South Salmara-Mankachar", "Tinsukia", "Udalguri", "West Karbi Anglong"] },
         { state: "Bihar", districts: ["Araria", "Arwal", "Aurangabad", "Banka", "Begusarai", "Bhagalpur", "Bhojpur", "Buxar", "Darbhanga", "East Champaran", "Gaya", "Gopalganj", "Jamui", "Jehanabad", "Kaimur", "Katihar", "Khagaria", "Kishanganj", "Lakhisarai", "Madhepura", "Madhubani", "Munger", "Muzaffarpur", "Nalanda", "Nawada", "Patna", "Purnia", "Rohtas", "Saharsa", "Samastipur", "Saran", "Sheikhpura", "Sheohar", "Sitamarhi", "Siwan", "Supaul", "Vaishali", "West Champaran"] },
         { state: "Chandigarh", districts: ["Chandigarh"] },
@@ -5716,7 +6055,7 @@
         { state: "Meghalaya", districts: ["East Garo Hills", "East Jaintia Hills", "East Khasi Hills", "Eastern West Khasi Hills", "North Garo Hills", "Ri Bhoi", "South Garo Hills", "South West Garo Hills", "South West Khasi Hills", "West Garo Hills", "West Jaintia Hills", "West Khasi Hills"] },
         { state: "Mizoram", districts: ["Aizawl", "Champhai", "Hnahthial", "Khawzawl", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Saitual", "Serchhip"] },
         { state: "Nagaland", districts: ["Chümoukedima", "Dimapur", "Kiphire", "Kohima", "Longleng", "Mokokchung", "Mon", "Niuland", "Noklak", "Peren", "Phek", "Shamator", "Tseminyü", "Tuensang", "Wokha", "Zünheboto"] },
-        { state: "Odisha", districts: ["Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Boudh", "Cuttack", "Deogarh", "Dhenkanal", "Gajapati", "Ganjam", "Jagatsinghpur", "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal", "Kendrapara", "Kendujhar", "Khordha", "Koraput", "Malkangiri", "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Puri", "Rayagada", "Sambalpur", "Subarnapur", "Sundergarh"] },
+        { state: "Odisha", districts: ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Balasore", "Angul", "Puri", "Sambalpur", "Jharsuguda", "Kendrapara", "Bhadrak", "Balangir", "Bargarh", "Boudh", "Deogarh", "Dhenkanal", "Gajapati", "Ganjam", "Jagatsinghpur", "Jajpur", "Kalahandi", "Kandhamal", "Kendujhar", "Khordha", "Koraput", "Malkangiri", "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Rayagada", "Subarnapur", "Sundergarh"] },
         { state: "Puducherry", districts: ["Karaikal", "Mahe", "Puducherry", "Yanam"] },
         { state: "Punjab", districts: ["Amritsar", "Barnala", "Bathinda", "Faridkot", "Fatehgarh Sahib", "Fazilka", "Ferozepur", "Gurdaspur", "Hoshiarpur", "Jalandhar", "Kapurthala", "Ludhiana", "Malerkotla", "Mansa", "Moga", "Muktsar", "Pathankot", "Patiala", "Rupnagar", "Sahibzada Ajit Singh Nagar", "Sangrur", "Shahid Bhagat Singh Nagar", "Tarn Taran"] },
         { state: "Rajasthan", districts: ["Ajmer", "Alwar", "Anupgarh", "Balotra", "Banswara", "Baran", "Barmer", "Beawar", "Bharatpur", "Bhilwara", "Bikaner", "Bundi", "Chittorgarh", "Churu", "Dausa", "Deeg", "Dholpur", "Didwana-Kuchaman", "Dudu", "Dungarpur", "Gangapur City", "Hanumangarh", "Jaipur", "Jaipur Rural", "Jaisalmer", "Jalore", "Jhalawar", "Jhunjhunu", "Jodhpur", "Jodhpur Rural", "Karauli", "Kekri", "Khairthal-Tijara", "Kota", "Kotputli-Behror", "Nagaur", "Neem Ka Thana", "Pali", "Phalodi", "Pratapgarh", "Rajsamand", "Salumbar", "Sanchore", "Sawai Madhopur", "Shahpura", "Sikar", "Sirohi", "Sri Ganganagar", "Tonk", "Udaipur"] },
@@ -5744,19 +6083,76 @@
       const locPopoverMainBody = document.getElementById('locPopoverMainBody');
       const locStatesCountBadge = document.getElementById('locStatesCountBadge');
       const locationDataStatus = document.getElementById('locationDataStatus');
+      const locLocalitiesPanel = document.getElementById('locLocalitiesPanel');
+      const locLocalitiesGrid = document.getElementById('locLocalitiesGrid');
+      const locCurrentCityName = document.getElementById('locCurrentCityName');
+      const locLocalitiesCount = document.getElementById('locLocalitiesCount');
+      const btnSelectEntireCity = document.getElementById('btnSelectEntireCity');
+
+      // Comprehensive fallback localities mapping for popular cities
+      const FALLBACK_CITY_LOCALITIES = {
+        "port blair": ["Aberdeen Bazaar", "Garacharma", "Junglighat", "Dollygunj", "Shadipur", "Haddo", "Bathubasti", "Chouldari"],
+        "visakhapatnam": ["Madhurawada", "MVP Colony", "Gajuwaka", "Rushikonda", "Siripuram", "Seethammadhara", "Dwaraka Nagar", "Bheemunipatnam", "Pendurthi", "Yendada", "Kommadi", "Akkayyapalem"],
+        "vijayawada": ["Benz Circle", "Moghalrajpuram", "Gunadala", "Bhavanipuram", "Poranki", "Kanuru", "Gollapudi", "Patamata", "Autonagar", "Enikepadu"],
+        "guntur": ["Brodipet", "Arundelpet", "Lakshmipuram", "Pattabhipuram", "Koretipadu", "Vidya Nagar", "Amaravathi Road"],
+        "tirupati": ["AIR Bypass Road", "Alipiri", "Bhavani Nagar", "Korlagunta", "MR Palli", "Renigunta Road", "Chandragiri"],
+        "itanagar": ["Ganga", "E-Sector", "Niti Vihar", "Chimpu", "Naharlagun", "Chandranagar", "Zero Point"],
+        "naharlagun": ["Barapani", "Model Village", "Pachin Colony", "G-Extension", "Helipad Area"],
+        "tawang": ["Old Market", "New Market", "Monastery Road", "Cona", "Lhou"],
+        "pasighat": ["Bagi Colony", "Mirku", "Gumin Nagar", "Medical Colony"],
+        "ziro": ["Hapoli", "Old Ziro", "Hong Village", "Hari", "Biirii"],
+        "bhubaneswar": ["Patia", "Khandagiri", "Nayapalli", "Saheed Nagar", "Jaydev Vihar", "Chandrasekharpur", "Rasulgarh", "Kalinga Nagar", "Sundarpada", "Mancheswar", "Old Town", "Tamando", "Hanspal", "Infocity", "Dumduma", "Ghatikia", "Pahala", "Pokhariput", "Sailashree Vihar", "Niladri Vihar", "Baramunda", "Unit 1-9", "Bapuji Nagar"],
+        "cuttack": ["CDA Sector 1-11", "Badambadi", "Link Road", "Buxi Bazaar", "Chauliaganj", "Madhupatna", "Jobra", "Ranihat", "Mahanadi Vihar", "Jagatpur Industrial Area", "Mangalabag", "Cantonment Road", "Sikharpur", "College Square"],
+        "balasore": ["Remuna", "OT Road", "Sahadevkhunta", "Angargadia", "Kuruda", "ITI Chhak", "Gopalgaon", "Station Bazaar", "Baleswar Town", "Motiganj", "Cinema Chhak", "Fakir Mohan Nagar"],
+        "angul": ["Nalco Nagar", "Hakimpada", "Amalapada", "Similipada", "Mishrapada", "Banarpal", "Turang", "Gandhi Marg", "Hemasurpada", "Balaramprasad"],
+        "anugul": ["Nalco Nagar", "Hakimpada", "Amalapada", "Similipada", "Mishrapada", "Banarpal", "Turang", "Gandhi Marg", "Hemasurpada"],
+        "puri": ["VIP Road", "Sea Beach Road", "Grand Road (Bada Danda)", "Baliapanda", "Chakratirtha Road", "Atharanala", "Balighai", "Lokanath Road", "Gundicha Temple Area"],
+        "rourkela": ["Civil Township", "Koel Nagar", "Chhend Colony", "Panposh", "Udit Nagar", "Basanti Nagar", "Sector 1-22", "STI Chhak", "Daily Market"],
+        "sambalpur": ["Budharaja", "Dhanupali", "Ainthapali", "Khetrajpur", "Burla", "Bareipali", "Fatak", "Modipara", "VSS Nagar"],
+        "berhampur": ["Courtpeta", "Gandhinagar", "Hillpatna", "Engineering School Road", "Gosaninuagaon", "Baidyanathpur", "Lochapada", "Kamapalli"],
+        "jharsuguda": ["Beheramal", "Sarbahal", "Badmal", "Ekatali", "Purunabasti", "Brajrajnagar", "Industrial Estate"],
+        "kendrapara": ["Tinimuhani", "Marshaghai", "Derabish", "Pattamundai", "Garapur", "Duhuria", "Town Hall Area"],
+        "bhadrak": ["Charampa", "Kuansh", "Gelpur", "Aradi Road", "Bonth Chhak", "Puruna Bazaar", "Apartibindha"],
+        "mumbai": ["Andheri East", "Andheri West", "Bandra East", "Bandra West", "Juhu", "Borivali", "Dadar", "Powai", "Goregaon", "Malad", "Kandivali", "Worli", "Chembur", "Ghatkopar", "Kurla", "Vile Parle", "Santacruz", "BKC", "Colaba", "Lower Parel", "Mulund", "Bhandup"],
+        "kolkata": ["New Town", "Salt Lake", "Rajarhat", "Bardhman", "Park Street", "Ballygunge", "Alipore", "Garia", "Jadavpur", "Behala", "Dum Dum", "Howrah", "Tollygunge", "EM Bypass", "Barasat", "Madhyamgram", "Lake Town", "Kestopur", "Kasba"],
+        "pune": ["Hinjewadi", "Wakad", "Baner", "Balewadi", "Kothrud", "Viman Nagar", "Hadapsar", "Kharadi", "Shivaji Nagar", "Koregaon Park", "Aundh", "Magarpatta City", "Bavdhan", "Pimpri-Chinchwad", "Ravet", "Moshi", "Kalyani Nagar"],
+        "bengaluru": ["Whitefield", "Electronic City", "Indiranagar", "Koramangala", "HSR Layout", "Marathahalli", "Bellandur", "JP Nagar", "Jayanagar", "Hebbal", "Yelahanka", "Sarjapur Road", "Banashankari", "Bannerghatta Road", "Malleshwaram", "Rajajinagar"],
+        "hyderabad": ["Gachibowli", "HITEC City", "Madhapur", "Banjara Hills", "Jubilee Hills", "Kondapur", "Kukatpally", "Miyapur", "Manikonda", "Financial District", "Secunderabad", "Begumpet", "Uppal", "Kompally"],
+        "delhi": ["Connaught Place", "Hauz Khas", "Saket", "Greater Kailash", "Dwarka", "Vasant Kunj", "Janakpuri", "Rohini", "Pitampura", "Laxmi Nagar", "Karol Bagh", "Civil Lines"],
+        "new delhi": ["Connaught Place", "Chanakyapuri", "Barakhamba Road", "Jor Bagh", "Golf Links", "Sundar Nagar"],
+        "noida": ["Sector 62", "Sector 18", "Sector 137", "Sector 150", "Sector 75", "Sector 128", "Sector 76", "Greater Noida", "Noida Extension", "Pari Chowk"],
+        "gurugram": ["DLF Phase 1-5", "Cyber City", "Golf Course Road", "Sohna Road", "Sector 56", "Sector 57", "Sector 82", "Sector 102", "Dwarka Expressway", "MG Road"],
+        "ahmedabad": ["SG Highway", "Bopal", "Satellite", "Prahlad Nagar", "Vastrapur", "Chandkheda", "Bodakdev", "Maninagar", "Thaltej", "Navrangpura", "Shela", "Gota"],
+        "chennai": ["OMR", "ECR", "Anna Nagar", "T. Nagar", "Velachery", "Adyar", "Besant Nagar", "Guindy", "Porur", "Sholinganallur", "Medavakkam", "Thoraipakkam", "Tambaram"]
+      };
 
       let allLocationsData = [];
       let currentStateIdx = 0;
 
       function normalizeLocationData(raw) {
         if (!raw) return [];
+        if (raw.data && Array.isArray(raw.data)) {
+          return normalizeLocationData(raw.data);
+        }
         if (Array.isArray(raw)) {
           return raw.map(item => {
             const state = item.state || item.name || item.state_name || (typeof item === 'string' ? item : '');
-            const districts = Array.isArray(item.districts)
-              ? item.districts.map(d => (typeof d === 'string' ? d : d.name || d.district || d.district_name || '')).filter(Boolean)
-              : [];
-            return { state, districts };
+            let districts = [];
+            const citiesWithLocalities = {};
+
+            if (Array.isArray(item.cities)) {
+              districts = item.cities.map(c => {
+                const name = typeof c === 'string' ? c : (c.city || c.name || '');
+                if (c && typeof c === 'object' && Array.isArray(c.localities) && c.localities.length > 0) {
+                  citiesWithLocalities[name.toLowerCase()] = c.localities;
+                }
+                return name;
+              }).filter(Boolean);
+            } else if (Array.isArray(item.districts)) {
+              districts = item.districts.map(d => (typeof d === 'string' ? d : d.name || d.district || d.district_name || '')).filter(Boolean);
+            }
+
+            return { state, districts, citiesWithLocalities };
           }).filter(s => s.state && s.districts.length > 0);
         }
         if (Array.isArray(raw.states)) {
@@ -5765,45 +6161,223 @@
         if (typeof raw === 'object') {
           return Object.entries(raw).map(([state, districts]) => ({
             state,
-            districts: Array.isArray(districts) ? districts.map(d => (typeof d === 'string' ? d : d.name || d.district || '')).filter(Boolean) : []
+            districts: Array.isArray(districts) ? districts.map(d => (typeof d === 'string' ? d : d.name || d.district || '')).filter(Boolean) : [],
+            citiesWithLocalities: {}
           })).filter(s => s.state && s.districts.length > 0);
         }
         return [];
       }
 
+      let cachedCardLocalitiesMap = null;
+      function getCachedCardLocalities() {
+        if (cachedCardLocalitiesMap) return cachedCardLocalitiesMap;
+        const map = {};
+        document.querySelectorAll('.listing-card, .prop-card').forEach(card => {
+          const locText = (card.querySelector('.listing-location, .prop-location')?.textContent || '').trim();
+          if (!locText) return;
+          const parts = locText.split(',').map(p => p.trim()).filter(Boolean);
+          if (parts.length >= 2) {
+            const city = parts[parts.length - 1].toLowerCase();
+            const loc = parts[0];
+            if (!map[city]) map[city] = new Set();
+            map[city].add(loc);
+          }
+        });
+        cachedCardLocalitiesMap = map;
+        return map;
+      }
+
+      function getLocalitiesForCity(cityName, stateName, stateObj) {
+        if (!cityName) return [];
+        const cKey = cityName.toLowerCase().trim();
+
+        // 1. From API data in stateObj
+        if (stateObj && stateObj.citiesWithLocalities && stateObj.citiesWithLocalities[cKey] && stateObj.citiesWithLocalities[cKey].length > 0) {
+          return stateObj.citiesWithLocalities[cKey];
+        }
+
+        // 2. From FALLBACK_CITY_LOCALITIES
+        if (FALLBACK_CITY_LOCALITIES[cKey] && FALLBACK_CITY_LOCALITIES[cKey].length > 0) {
+          return FALLBACK_CITY_LOCALITIES[cKey];
+        }
+
+        // 3. From cached card localities (fast, zero repetitive DOM queries)
+        const cardLocMap = getCachedCardLocalities();
+        if (cardLocMap[cKey]) {
+          return Array.from(cardLocMap[cKey]);
+        }
+
+        return [];
+      }
+
+      function renderLocalities(cityName, stateName, stateObj) {
+        if (!locLocalitiesGrid) return;
+        const localities = getLocalitiesForCity(cityName, stateName, stateObj);
+
+        if (locCurrentCityName) {
+          locCurrentCityName.textContent = cityName;
+          locCurrentCityName.title = `${cityName}, ${stateName}`;
+        }
+        if (locLocalitiesCount) {
+          const numLoc = localities ? localities.length : 0;
+          locLocalitiesCount.textContent = numLoc > 0
+            ? `${numLoc} ${numLoc === 1 ? 'Locality' : 'Localities'}`
+            : `All areas in ${cityName}`;
+          locLocalitiesCount.title = numLoc > 0
+            ? `${numLoc} Localities in ${cityName}`
+            : `All areas in ${cityName}`;
+        }
+        if (btnSelectEntireCity) {
+          btnSelectEntireCity.style.display = 'inline-block';
+          btnSelectEntireCity.textContent = 'Select Locality';
+          btnSelectEntireCity.title = localities.length > 0
+            ? `Select ${localities[0]}, ${cityName}`
+            : `Select ${cityName}, ${stateName}`;
+          btnSelectEntireCity.onclick = (e) => {
+            e.stopPropagation();
+            if (localities && localities.length > 0) {
+              selectLocation(`${localities[0]}, ${cityName}, ${stateName}`);
+            } else {
+              selectLocation(`${cityName}, ${stateName}`);
+            }
+          };
+        }
+
+        locLocalitiesGrid.innerHTML = '';
+
+        if (!localities || localities.length === 0) {
+          locLocalitiesGrid.innerHTML = `
+            <div class="loc-no-localities-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:26px;height:26px;color:#9ca3af;">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <p>All areas across <strong>${cityName}</strong> are eligible.</p>
+              <button type="button" class="btn-select-all-city" style="display:inline-block; font-size:11px; padding:5px 12px; margin-top:6px;">
+                Select Entire ${cityName}
+              </button>
+            </div>
+          `;
+          const allCityBtn = locLocalitiesGrid.querySelector('.btn-select-all-city');
+          if (allCityBtn) {
+            allCityBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              selectLocation(`${cityName}, ${stateName}`);
+            });
+          }
+          return;
+        }
+
+        localities.forEach(loc => {
+          const pill = document.createElement('button');
+          pill.type = 'button';
+          pill.className = 'loc-locality-pill';
+          pill.title = `Search properties in ${loc}, ${cityName}`;
+          pill.innerHTML = `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>${loc}</span>
+          `;
+
+          pill.addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectLocation(`${loc}, ${cityName}, ${stateName}`);
+          });
+
+          locLocalitiesGrid.appendChild(pill);
+        });
+      }
+
       function renderDistricts(stateObj) {
         if (!stateObj || !locDistrictsGrid) return;
-        if (locCurrentStateName) locCurrentStateName.textContent = stateObj.state;
-        if (locDistrictsCount) locDistrictsCount.textContent = `${stateObj.districts.length} Districts in ${stateObj.state}`;
+        if (locCurrentStateName) {
+          locCurrentStateName.textContent = stateObj.state;
+          locCurrentStateName.title = stateObj.state;
+        }
+        if (locDistrictsCount) {
+          const numCities = stateObj.districts ? stateObj.districts.length : 0;
+          locDistrictsCount.textContent = `${numCities} ${numCities === 1 ? 'City' : 'Cities'}`;
+          locDistrictsCount.title = `${numCities} ${numCities === 1 ? 'City' : 'Cities'} in ${stateObj.state}`;
+        }
+        let activeDistrict = stateObj.districts && stateObj.districts.length > 0 ? stateObj.districts[0] : '';
         if (btnSelectEntireState) {
           btnSelectEntireState.style.display = 'inline-block';
-          btnSelectEntireState.textContent = `Select ${stateObj.state}`;
+          btnSelectEntireState.textContent = 'Select City';
+          btnSelectEntireState.title = activeDistrict ? `Select ${activeDistrict}, ${stateObj.state}` : `Select ${stateObj.state}`;
           btnSelectEntireState.onclick = (e) => {
             e.stopPropagation();
-            selectLocation(stateObj.state);
+            if (activeDistrict) {
+              selectLocation(`${activeDistrict}, ${stateObj.state}`);
+            } else {
+              selectLocation(stateObj.state);
+            }
           };
         }
 
         locDistrictsGrid.innerHTML = '';
-        stateObj.districts.forEach(dist => {
+        stateObj.districts.forEach((dist, idx) => {
+          const localities = getLocalitiesForCity(dist, stateObj.state, stateObj);
+          const countBadgeHtml = localities.length > 0
+            ? `<span class="loc-dist-loc-count" title="${localities.length} localities available">${localities.length}</span>`
+            : '';
+
           const btn = document.createElement('button');
           btn.type = 'button';
-          btn.className = 'loc-district-btn';
+          btn.className = 'loc-district-btn' + (idx === 0 ? ' active' : '');
           btn.setAttribute('data-district', dist);
           btn.setAttribute('data-state', stateObj.state);
+          btn.title = `Hover to see localities in ${dist}`;
           btn.innerHTML = `
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <span title="${dist}">${dist}</span>
+            <div class="loc-district-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span class="loc-district-name" title="${dist}">${dist}</span>
+            </div>
+            <div class="loc-district-meta">
+              ${countBadgeHtml}
+              <svg class="loc-district-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
           `;
+
+          // ON CLICK: select city directly
           btn.addEventListener('click', (e) => {
             e.stopPropagation();
             selectLocation(`${dist}, ${stateObj.state}`);
           });
+
+          // ON HOVER: show localities in Column 3
+          btn.addEventListener('mouseenter', () => {
+            locDistrictsGrid.querySelectorAll('.loc-district-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeDistrict = dist;
+            if (btnSelectEntireState) {
+              btnSelectEntireState.title = `Select ${dist}, ${stateObj.state}`;
+              btnSelectEntireState.onclick = (ev) => {
+                ev.stopPropagation();
+                selectLocation(`${dist}, ${stateObj.state}`);
+              };
+            }
+            renderLocalities(dist, stateObj.state, stateObj);
+          });
+
           locDistrictsGrid.appendChild(btn);
         });
+
+        // Initialize Column 3 with first city in this state
+        if (stateObj.districts.length > 0) {
+          renderLocalities(stateObj.districts[0], stateObj.state, stateObj);
+        } else {
+          if (locCurrentCityName) locCurrentCityName.textContent = 'No Cities';
+          if (locLocalitiesCount) locLocalitiesCount.textContent = '';
+          if (btnSelectEntireCity) btnSelectEntireCity.style.display = 'none';
+          if (locLocalitiesGrid) locLocalitiesGrid.innerHTML = '';
+        }
       }
 
       function renderStates(data) {
@@ -5814,6 +6388,7 @@
           stateEl.className = 'loc-state-item' + (index === currentStateIdx ? ' active' : '');
           stateEl.setAttribute('data-state', item.state);
           stateEl.setAttribute('role', 'option');
+          stateEl.title = item.state;
           stateEl.innerHTML = `
             <div class="loc-state-info">
               <svg class="loc-state-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -5830,7 +6405,7 @@
             </div>
           `;
 
-          // ON HOVER: immediately show this state's districts
+          // ON HOVER: immediately show this state's city-level choices
           stateEl.addEventListener('mouseenter', () => {
             currentStateIdx = index;
             locStatesList.querySelectorAll('.loc-state-item').forEach(el => el.classList.remove('active'));
@@ -5856,14 +6431,14 @@
       function selectLocation(val) {
         if (searchLocationInput) {
           searchLocationInput.value = val;
-          searchLocationInput.dispatchEvent(new Event('input', { bubbles: true }));
+          // Note: Avoid dispatching 'input' event here to prevent handleQuickSearch from triggering "no results" popup
           searchLocationInput.dispatchEvent(new Event('change', { bubbles: true }));
         }
         if (locClearBtn) {
           locClearBtn.style.display = val ? 'flex' : 'none';
         }
         closeLocationPopover();
-        filterListingsByLocation(val);
+        filterListingsByLocation();
       }
 
       function openLocationPopover() {
@@ -5887,24 +6462,38 @@
       }
 
       function handleQuickSearch(query) {
-        const q = (query || '').trim().toLowerCase();
-        if (!q) {
+        const rawQ = (query || '').trim().toLowerCase();
+        if (!rawQ) {
           if (locFilterResults) locFilterResults.style.display = 'none';
           if (locPopoverMainBody) locPopoverMainBody.style.display = 'flex';
           return;
         }
 
+        // Support comma-separated queries (e.g. "Kolkata, West Bengal" or "Patia, Bhubaneswar")
+        const queryTerms = rawQ.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+        const primaryTerm = queryTerms[0] || rawQ;
+
         const matchedStates = [];
         const matchedDistricts = [];
+        const matchedLocalities = [];
 
         allLocationsData.forEach(st => {
-          if (st.state.toLowerCase().includes(q)) {
+          const stLower = st.state.toLowerCase();
+          if (stLower.includes(primaryTerm) || queryTerms.some(term => stLower.includes(term))) {
             matchedStates.push(st);
           }
           st.districts.forEach(d => {
-            if (d.toLowerCase().includes(q)) {
+            const dLower = d.toLowerCase();
+            if (dLower.includes(primaryTerm) || queryTerms.some(term => dLower.includes(term))) {
               matchedDistricts.push({ district: d, state: st.state });
             }
+            const locs = getLocalitiesForCity(d, st.state, st);
+            locs.forEach(loc => {
+              const locLower = loc.toLowerCase();
+              if (locLower.includes(primaryTerm) || queryTerms.some(term => locLower.includes(term))) {
+                matchedLocalities.push({ locality: loc, city: d, state: st.state });
+              }
+            });
           });
         });
 
@@ -5913,43 +6502,43 @@
           locFilterResults.style.display = 'block';
           locFilterResults.innerHTML = '';
 
-          if (matchedStates.length === 0 && matchedDistricts.length === 0) {
+          if (matchedStates.length === 0 && matchedDistricts.length === 0 && matchedLocalities.length === 0) {
             locFilterResults.innerHTML = `
               <div style="padding: 24px 12px; text-align: center; color: var(--text-muted); font-size: 13px;">
-                No states or districts matching "<strong>${query}</strong>"
+                No states, cities, or localities matching "<strong>${query}</strong>"
               </div>
             `;
             return;
           }
 
-          if (matchedStates.length > 0) {
-            const stHeader = document.createElement('div');
-            stHeader.className = 'loc-filter-group-title';
-            stHeader.textContent = `States (${matchedStates.length})`;
-            locFilterResults.appendChild(stHeader);
+          if (matchedLocalities.length > 0) {
+            const locHeader = document.createElement('div');
+            locHeader.className = 'loc-filter-group-title';
+            locHeader.textContent = `Localities (${matchedLocalities.length})`;
+            locFilterResults.appendChild(locHeader);
 
-            matchedStates.forEach(st => {
-              const item = document.createElement('div');
-              item.className = 'loc-filter-item';
-              item.innerHTML = `
-                <span>${st.state}</span>
-                <span class="loc-filter-item-sub">${st.districts.length} Districts</span>
+            matchedLocalities.slice(0, 24).forEach(item => {
+              const el = document.createElement('div');
+              el.className = 'loc-filter-item';
+              el.innerHTML = `
+                <span><strong>${item.locality}</strong></span>
+                <span class="loc-filter-item-sub">${item.city}, ${item.state}</span>
               `;
-              item.addEventListener('click', (e) => {
+              el.addEventListener('click', (e) => {
                 e.stopPropagation();
-                selectLocation(st.state);
+                selectLocation(`${item.locality}, ${item.city}, ${item.state}`);
               });
-              locFilterResults.appendChild(item);
+              locFilterResults.appendChild(el);
             });
           }
 
           if (matchedDistricts.length > 0) {
             const dtHeader = document.createElement('div');
             dtHeader.className = 'loc-filter-group-title';
-            dtHeader.textContent = `Districts (${matchedDistricts.length})`;
+            dtHeader.textContent = `Cities (${matchedDistricts.length})`;
             locFilterResults.appendChild(dtHeader);
 
-            matchedDistricts.slice(0, 30).forEach(item => {
+            matchedDistricts.slice(0, 24).forEach(item => {
               const el = document.createElement('div');
               el.className = 'loc-filter-item';
               el.innerHTML = `
@@ -5963,22 +6552,38 @@
               locFilterResults.appendChild(el);
             });
           }
+
+          if (matchedStates.length > 0) {
+            const stHeader = document.createElement('div');
+            stHeader.className = 'loc-filter-group-title';
+            stHeader.textContent = `States (${matchedStates.length})`;
+            locFilterResults.appendChild(stHeader);
+
+            matchedStates.forEach(st => {
+              const item = document.createElement('div');
+              item.className = 'loc-filter-item';
+              item.innerHTML = `
+                <span>${st.state}</span>
+                <span class="loc-filter-item-sub">${st.districts.length} Cities</span>
+              `;
+              item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                selectLocation(st.state);
+              });
+              locFilterResults.appendChild(item);
+            });
+          }
         }
       }
 
       function filterListingsByLocation(query) {
-        const q = (query || '').trim().toLowerCase();
-        const listings = document.querySelectorAll('.listing-card, .prop-card');
-        if (!q || q === 'all locations') {
-          listings.forEach(card => card.style.display = '');
-          return;
-        }
-
-        const parts = q.split(',').map(p => p.trim());
-        listings.forEach(card => {
-          const locText = (card.querySelector('.listing-location, .prop-location')?.textContent || '').toLowerCase();
-          const matches = parts.some(part => part && locText.includes(part)) || locText.includes(q);
-          card.style.display = matches ? '' : 'none';
+        // "Explore Our Best Properties" (.prop-card) and "Latest Land & Plot Listings" (.listing-card)
+        // are curated showcase sections on the homepage and must ALWAYS display all 4 properties.
+        document.querySelectorAll('#bestPropertiesGrid .prop-card, .categories-section .prop-card').forEach(card => {
+          card.style.display = '';
+        });
+        document.querySelectorAll('#latestListingsGrid .listing-card, .listings-section .listing-card').forEach(card => {
+          card.style.display = '';
         });
       }
 
@@ -6128,6 +6733,45 @@
         }
       });
 
+      // Search Widget Form Handler -> Navigates to product-details.html with structured query parameters
+      const searchWidgetForm = document.getElementById('searchWidgetForm');
+      searchWidgetForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const loc = (document.getElementById('searchLocation')?.value || '').trim();
+        const type = (document.getElementById('searchType')?.value || '').trim();
+        const price = (document.getElementById('searchPrice')?.value || '').trim();
+
+        const params = new URLSearchParams();
+        if (loc) {
+          params.set('location', loc);
+          const parts = loc.split(',').map(s => s.trim()).filter(Boolean);
+          if (parts.length >= 3) {
+            params.set('locality', parts[0]);
+            params.set('city', parts[1]);
+            params.set('state', parts.slice(2).join(', '));
+          } else if (parts.length === 2) {
+            params.set('city', parts[0]);
+            params.set('state', parts[1]);
+          } else if (parts.length === 1) {
+            const isState = allLocationsData.some(s => s.state && s.state.toLowerCase() === parts[0].toLowerCase());
+            if (isState) {
+              params.set('state', parts[0]);
+            } else {
+              params.set('city', parts[0]);
+            }
+          }
+        }
+        if (type && type !== 'All Types' && type !== 'all') {
+          params.set('searchType', type);
+        }
+        if (price && price !== 'Any Price') {
+          params.set('searchPrice', price);
+        }
+
+        const queryStr = params.toString();
+        window.location.href = 'product-details.html' + (queryStr ? ('?' + queryStr) : '');
+      });
+
       // Scroll to Top Button
       const scrollToTopBtn = document.getElementById('scrollToTopBtn');
       scrollToTopBtn?.addEventListener('click', () => {
@@ -6135,6 +6779,19 @@
           top: 0,
           behavior: 'smooth'
         });
+      });
+
+      // Ensure all Best Properties and Latest Listings are visible when returning via browser Back button (BFCache restore)
+      window.addEventListener('pageshow', () => {
+        document.querySelectorAll('#bestPropertiesGrid .prop-card, .categories-section .prop-card').forEach(card => {
+          card.style.display = '';
+        });
+        document.querySelectorAll('#latestListingsGrid .listing-card, .listings-section .listing-card').forEach(card => {
+          card.style.display = '';
+        });
+        if (typeof loadLatestListings === 'function') {
+          loadLatestListings();
+        }
       });
     });
 
