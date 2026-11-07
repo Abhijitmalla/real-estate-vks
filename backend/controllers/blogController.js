@@ -13,7 +13,7 @@ const ensureBlogsTable = async () => {
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 title VARCHAR(255) NOT NULL,
                 category VARCHAR(100) NOT NULL,
-                cover_image VARCHAR(255) DEFAULT NULL,
+                cover_image TEXT DEFAULT NULL,
                 content LONGTEXT NOT NULL,
                 author VARCHAR(100) DEFAULT 'BilaBadi Editorial Team',
                 read_time VARCHAR(50) DEFAULT '5 min read',
@@ -22,6 +22,9 @@ const ensureBlogsTable = async () => {
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
         `);
+        try {
+            await db.query(`ALTER TABLE blogs MODIFY COLUMN cover_image TEXT DEFAULT NULL`);
+        } catch (_) {}
     } catch (e) {
         console.warn("Blogs table check warning:", e.message);
     }
@@ -139,7 +142,10 @@ export const createBlog = async (req, res) => {
             is_published
         } = req.body;
 
-        if (!title || !category || !content) {
+        const rawContent = content !== undefined && content !== null ? String(content).trim() : '';
+        const textContent = rawContent.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim();
+
+        if (!title || !category || (!rawContent || (rawContent.startsWith('<p>') && !textContent && !rawContent.includes('<img')))) {
             return res.status(400).json({
                 success: false,
                 message: "Title, category and content are required"
@@ -316,6 +322,29 @@ export const deleteBlog = async (req, res) => {
         res.status(500).json({
             success: false,
             message: error.message || "Failed to delete blog"
+        });
+    }
+};
+
+// UPLOAD BLOG INLINE IMAGE (For CKEditor or rich article body images)
+export const uploadBlogInlineImage = async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({
+                uploaded: false,
+                error: { message: "No image file provided" }
+            });
+        }
+        const imageUrl = `http://localhost:5000/uploads/blogs/${req.file.filename}`;
+        res.status(200).json({
+            url: imageUrl,
+            uploaded: true
+        });
+    } catch (error) {
+        console.error("Upload Blog Inline Image Error:", error);
+        res.status(500).json({
+            uploaded: false,
+            error: { message: error.message || "Image upload failed" }
         });
     }
 };

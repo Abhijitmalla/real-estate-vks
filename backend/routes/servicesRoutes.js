@@ -7,7 +7,8 @@ import {
   createService,
   updateServiceSettings,
   updateService,
-  deleteService
+  deleteService,
+  batchSyncServices
 } from "../controllers/servicesController.js";
 
 const router = express.Router();
@@ -15,12 +16,15 @@ const upload = createUpload("services");
 
 router.get("/", getAllServices);
 
-router.get("/:id", getServiceById);
-
-router.post("/", upload.any(), createService);
+router.post("/batch", upload.any(), batchSyncServices);
+router.put("/batch", upload.any(), batchSyncServices);
 
 router.put("/settings", upload.any(), updateServiceSettings);
 router.post("/settings", upload.any(), updateServiceSettings);
+
+router.get("/:id", getServiceById);
+
+router.post("/", upload.any(), createService);
 
 router.put("/:id", upload.any(), updateService);
 

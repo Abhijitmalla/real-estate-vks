@@ -132,7 +132,7 @@ export const getAllServices = async (req, res) => {
     );
 
     const [cards] = await db.execute(
-      "SELECT * FROM services WHERE record_type = 'card' ORDER BY sort_order ASC, id DESC"
+      "SELECT * FROM services WHERE record_type = 'card' ORDER BY sort_order ASC, id ASC"
     );
 
     const settingsData = settings.length ? formatSettingsRow(settings[0]) : null;
@@ -188,6 +188,7 @@ export const createService = async (req, res) => {
     const service_title = body.service_title || body.title;
     const service_description = body.service_description || body.description || body.desc;
     const service_icon = (req.file ? `/uploads/services/${req.file.filename}` : null) || body.service_icon || body.icon || null;
+    const target_url = body.target_url !== undefined ? body.target_url : (body.link !== undefined ? body.link : (body.url !== undefined ? body.url : "contact-us.html"));
     const is_active = body.is_active !== undefined ? body.is_active : (body.active !== undefined ? body.active : 1);
     const sort_order = body.sort_order !== undefined ? body.sort_order : (body.order !== undefined ? body.order : 0);
 
@@ -230,10 +231,11 @@ export const createService = async (req, res) => {
         hero_badge,
         service_title,
         service_icon,
+        target_url,
         service_description,
         is_active,
         sort_order
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         "card",
         page_title,
@@ -241,6 +243,7 @@ export const createService = async (req, res) => {
         hero_badge,
         String(service_title).trim(),
         service_icon,
+        target_url ? String(target_url).trim() : null,
         String(service_description).trim(),
         is_active ?? 1,
         sort_order ?? 0
@@ -258,6 +261,7 @@ export const createService = async (req, res) => {
         hero_badge,
         service_title: String(service_title).trim(),
         service_icon,
+        target_url: target_url ? String(target_url).trim() : null,
         service_description: String(service_description).trim(),
         is_active: is_active ?? 1,
         sort_order: sort_order ?? 0
@@ -495,6 +499,7 @@ export const updateService = async (req, res) => {
     const service_description = body.service_description !== undefined ? body.service_description : (body.desc !== undefined ? body.desc : (body.description !== undefined ? body.description : oldService.service_description));
     const uploadedIcon = req.file ? `/uploads/services/${req.file.filename}` : null;
     const service_icon = uploadedIcon || (body.service_icon !== undefined ? body.service_icon : (body.icon !== undefined ? body.icon : oldService.service_icon));
+    const target_url = body.target_url !== undefined ? body.target_url : (body.link !== undefined ? body.link : oldService.target_url);
     const is_active = body.is_active !== undefined ? body.is_active : (body.active !== undefined ? body.active : oldService.is_active);
     const sort_order = body.sort_order !== undefined ? body.sort_order : (body.order !== undefined ? body.order : oldService.sort_order);
 
@@ -505,6 +510,7 @@ export const updateService = async (req, res) => {
         hero_badge = ?,
         service_title = ?,
         service_icon = ?,
+        target_url = ?,
         service_description = ?,
         is_active = ?,
         sort_order = ?
@@ -515,6 +521,7 @@ export const updateService = async (req, res) => {
         hero_badge,
         service_title,
         service_icon,
+        target_url,
         service_description,
         is_active ?? 1,
         sort_order ?? 0,
@@ -556,6 +563,275 @@ export const deleteService = async (req, res) => {
       message: "Service deleted successfully"
     });
   } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+
+// POST / PUT: Batch synchronize services list, page settings & all section images/texts from Admin
+export const batchSyncServices = async (req, res) => {
+  try {
+    await ensureServicesTable();
+    const body = req.body || {};
+
+    // 1. Process uploaded image files (if any)
+    let uploadedHeroBg = null;
+    let uploadedWhyImage = null;
+
+    if (req.file) {
+      const f = req.file;
+      if (f.fieldname === "why_choose_image" || f.fieldname === "why_image") {
+        uploadedWhyImage = `/uploads/services/${f.filename}`;
+      } else if (f.fieldname === "hero_bg_image" || f.fieldname === "hero_image" || f.fieldname === "hero_bg") {
+        uploadedHeroBg = `/uploads/services/${f.filename}`;
+      }
+    } else if (req.files) {
+      const filesList = Array.isArray(req.files) ? req.files : Object.values(req.files).flat();
+      for (const f of filesList) {
+        if (f.fieldname === "why_choose_image" || f.fieldname === "why_image") {
+          uploadedWhyImage = `/uploads/services/${f.filename}`;
+        } else if (f.fieldname === "hero_bg_image" || f.fieldname === "hero_image" || f.fieldname === "hero_bg") {
+          uploadedHeroBg = `/uploads/services/${f.filename}`;
+        }
+      }
+    }
+
+    // 2. Fetch existing settings (if any)
+    const [existingSettings] = await db.execute(
+      "SELECT * FROM services WHERE record_type = 'settings' ORDER BY id ASC LIMIT 1"
+    );
+    const old = existingSettings.length ? existingSettings[0] : {};
+
+    const page_title = body.page_title !== undefined ? String(body.page_title).trim() : (old.page_title || "");
+    const page_subtitle = body.page_subtitle !== undefined ? String(body.page_subtitle).trim() : (old.page_subtitle || "");
+    const hero_badge = body.hero_badge !== undefined ? String(body.hero_badge).trim() : (old.hero_badge || "");
+    const hero_bg_image = uploadedHeroBg || (body.hero_bg_image !== undefined ? body.hero_bg_image : (old.hero_bg_image || "assets/service-page-header.png"));
+
+    const offer_eyebrow = body.offer_eyebrow !== undefined ? String(body.offer_eyebrow).trim() : (old.offer_eyebrow || "— Our Services —");
+    const offer_title = body.offer_title !== undefined ? String(body.offer_title).trim() : (old.offer_title || "What We Offer");
+    const offer_subtitle = body.offer_subtitle !== undefined ? String(body.offer_subtitle).trim() : (old.offer_subtitle || "");
+
+    const why_choose_image = uploadedWhyImage || (body.why_choose_image !== undefined ? body.why_choose_image : (old.why_choose_image || "assets/service-page2.png"));
+    const why_choose_eyebrow = body.why_choose_eyebrow !== undefined ? String(body.why_choose_eyebrow).trim() : (old.why_choose_eyebrow || "— Why Choose Our Services? —");
+    const why_choose_title = body.why_choose_title !== undefined ? String(body.why_choose_title).trim() : (old.why_choose_title || "Reliable, Transparent & Customer-Focused");
+
+    let why_choose_features = old.why_choose_features || null;
+    if (body.why_choose_features !== undefined) {
+      why_choose_features = typeof body.why_choose_features === "object"
+        ? JSON.stringify(body.why_choose_features)
+        : body.why_choose_features;
+    }
+
+    const how_it_works_eyebrow = body.how_it_works_eyebrow !== undefined ? String(body.how_it_works_eyebrow).trim() : (old.how_it_works_eyebrow || "— How It Works —");
+    const how_it_works_title = body.how_it_works_title !== undefined ? String(body.how_it_works_title).trim() : (old.how_it_works_title || "A Simple and Seamless Process");
+    const how_it_works_subtitle = body.how_it_works_subtitle !== undefined ? String(body.how_it_works_subtitle).trim() : (old.how_it_works_subtitle || "");
+
+    let how_it_works_steps = old.how_it_works_steps || null;
+    if (body.how_it_works_steps !== undefined) {
+      how_it_works_steps = typeof body.how_it_works_steps === "object"
+        ? JSON.stringify(body.how_it_works_steps)
+        : body.how_it_works_steps;
+    }
+
+    const cta_title = body.cta_title !== undefined ? String(body.cta_title).trim() : (old.cta_title || "Ready to Use Our Services?");
+    const cta_subtitle = body.cta_subtitle !== undefined ? String(body.cta_subtitle).trim() : (old.cta_subtitle || "");
+    const cta_btn_text = body.cta_btn_text !== undefined ? String(body.cta_btn_text).trim() : (old.cta_btn_text || "Browse Properties →");
+    const cta_btn_link = body.cta_btn_link !== undefined ? String(body.cta_btn_link).trim() : (old.cta_btn_link || "product-details.html");
+
+    const hasAnySettingsInput = body.page_title !== undefined || body.page_subtitle !== undefined || body.hero_badge !== undefined ||
+      uploadedHeroBg || body.hero_bg_image !== undefined || body.offer_eyebrow !== undefined || body.offer_title !== undefined ||
+      body.offer_subtitle !== undefined || uploadedWhyImage || body.why_choose_image !== undefined || body.why_choose_eyebrow !== undefined ||
+      body.why_choose_title !== undefined || body.why_choose_features !== undefined || body.how_it_works_eyebrow !== undefined ||
+      body.how_it_works_title !== undefined || body.how_it_works_subtitle !== undefined || body.how_it_works_steps !== undefined ||
+      body.cta_title !== undefined || body.cta_subtitle !== undefined || body.cta_btn_text !== undefined || body.cta_btn_link !== undefined;
+
+    if (existingSettings.length) {
+      await db.execute(
+        `UPDATE services SET
+          page_title = ?,
+          page_subtitle = ?,
+          hero_badge = ?,
+          hero_bg_image = ?,
+          offer_eyebrow = ?,
+          offer_title = ?,
+          offer_subtitle = ?,
+          why_choose_image = ?,
+          why_choose_eyebrow = ?,
+          why_choose_title = ?,
+          why_choose_features = ?,
+          how_it_works_eyebrow = ?,
+          how_it_works_title = ?,
+          how_it_works_subtitle = ?,
+          how_it_works_steps = ?,
+          cta_title = ?,
+          cta_subtitle = ?,
+          cta_btn_text = ?,
+          cta_btn_link = ?
+         WHERE id = ? AND record_type = 'settings'`,
+        [
+          page_title,
+          page_subtitle,
+          hero_badge,
+          hero_bg_image,
+          offer_eyebrow,
+          offer_title,
+          offer_subtitle,
+          why_choose_image,
+          why_choose_eyebrow,
+          why_choose_title,
+          why_choose_features,
+          how_it_works_eyebrow,
+          how_it_works_title,
+          how_it_works_subtitle,
+          how_it_works_steps,
+          cta_title,
+          cta_subtitle,
+          cta_btn_text,
+          cta_btn_link,
+          old.id
+        ]
+      );
+    } else if (hasAnySettingsInput) {
+      await db.execute(
+        `INSERT INTO services (
+          record_type, page_title, page_subtitle, hero_badge, hero_bg_image,
+          offer_eyebrow, offer_title, offer_subtitle, why_choose_image, why_choose_eyebrow,
+          why_choose_title, why_choose_features, how_it_works_eyebrow, how_it_works_title,
+          how_it_works_subtitle, how_it_works_steps, cta_title, cta_subtitle, cta_btn_text, cta_btn_link
+        ) VALUES ('settings', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          page_title,
+          page_subtitle,
+          hero_badge,
+          hero_bg_image,
+          offer_eyebrow,
+          offer_title,
+          offer_subtitle,
+          why_choose_image,
+          why_choose_eyebrow,
+          why_choose_title,
+          why_choose_features,
+          how_it_works_eyebrow,
+          how_it_works_title,
+          how_it_works_subtitle,
+          how_it_works_steps,
+          cta_title,
+          cta_subtitle,
+          cta_btn_text,
+          cta_btn_link
+        ]
+      );
+    }
+
+    let servicesList = body.services;
+    if (typeof servicesList === "string") {
+      try {
+        servicesList = JSON.parse(servicesList);
+      } catch (e) {
+        servicesList = [];
+      }
+    }
+
+    if (Array.isArray(servicesList)) {
+      const keptIds = [];
+
+      for (let i = 0; i < servicesList.length; i++) {
+        const item = servicesList[i];
+        if (!item) continue;
+
+        const title = (item.service_title || item.title || "").trim();
+        const desc = (item.service_description || item.desc || item.description || "").trim();
+        const icon = item.service_icon || item.icon || "🏠";
+        const link = item.target_url || item.link || "contact-us.html";
+        const sortOrder = item.sort_order !== undefined ? Number(item.sort_order) : i;
+        const isActive = item.is_active !== undefined ? (item.is_active ? 1 : 0) : 1;
+
+        if (!title && !desc) continue;
+
+        const isExistingNumericId = item.id && !isNaN(Number(item.id)) && Number(item.id) > 0;
+
+        if (isExistingNumericId) {
+          const cardId = Number(item.id);
+          const [checkExisting] = await db.execute(
+            "SELECT id FROM services WHERE id = ? AND record_type = 'card'",
+            [cardId]
+          );
+
+          if (checkExisting.length) {
+            await db.execute(
+              `UPDATE services SET
+                service_title = ?,
+                service_icon = ?,
+                target_url = ?,
+                service_description = ?,
+                is_active = ?,
+                sort_order = ?
+               WHERE id = ? AND record_type = 'card'`,
+              [title, icon, link, desc, isActive, sortOrder, cardId]
+            );
+            keptIds.push(cardId);
+            continue;
+          }
+        }
+
+        // Insert new card
+        const [insertRes] = await db.execute(
+          `INSERT INTO services (
+            record_type,
+            page_title,
+            page_subtitle,
+            hero_badge,
+            service_title,
+            service_icon,
+            target_url,
+            service_description,
+            is_active,
+            sort_order
+          ) VALUES ('card', ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            page_title,
+            page_subtitle,
+            hero_badge,
+            title,
+            icon,
+            link,
+            desc,
+            isActive,
+            sortOrder
+          ]
+        );
+        keptIds.push(insertRes.insertId);
+      }
+
+      if (keptIds.length > 0) {
+        const placeholders = keptIds.map(() => "?").join(",");
+        await db.query(
+          `DELETE FROM services WHERE record_type = 'card' AND id NOT IN (${placeholders})`,
+          keptIds
+        );
+      } else {
+        await db.execute("DELETE FROM services WHERE record_type = 'card'");
+      }
+    }
+
+    const [finalSettings] = await db.execute(
+      "SELECT * FROM services WHERE record_type = 'settings' ORDER BY id ASC LIMIT 1"
+    );
+    const [finalCards] = await db.execute(
+      "SELECT * FROM services WHERE record_type = 'card' ORDER BY sort_order ASC, id ASC"
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Services and sections saved successfully",
+      settings: finalSettings.length ? formatSettingsRow(finalSettings[0]) : null,
+      services: finalCards
+    });
+  } catch (error) {
+    console.error("Batch sync services error:", error);
     res.status(500).json({
       success: false,
       message: error.message

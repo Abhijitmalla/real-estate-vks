@@ -193,18 +193,16 @@ const buildPropertyFilterQuery = (query = {}, defaultOnlyActive = false) => {
     const category = (query.category || query.type || query.searchType || "").trim();
     if (category && category.toLowerCase() !== "all" && category.toLowerCase() !== "all types") {
         const catLower = category.toLowerCase();
-        if (catLower.includes("plot") || catLower.includes("residential")) {
-            sql += ` AND (category LIKE '%Residential%' OR category LIKE '%Plot%')`;
-        } else if (catLower.includes("agri") || catLower.includes("farm")) {
+        if (catLower.includes("agri") || catLower.includes("farm")) {
             sql += ` AND (category LIKE '%Agricultural%' OR category LIKE '%Farm%')`;
         } else if (catLower.includes("commercial")) {
             sql += ` AND category LIKE '%Commercial%'`;
+        } else if (catLower.includes("residential") || catLower.includes("apartment") || catLower.includes("flat") || catLower.includes("villa")) {
+            sql += ` AND (category LIKE '%Residential%' OR category LIKE '%Apartment%' OR category LIKE '%Flat%' OR category LIKE '%Villa%')`;
+        } else if (catLower.includes("plot") || catLower.includes("land")) {
+            sql += ` AND (category LIKE '%Plot%' OR category LIKE '%Land%')`;
         } else if (catLower.includes("industrial")) {
             sql += ` AND category LIKE '%Industrial%'`;
-        } else if (catLower.includes("villa")) {
-            sql += ` AND category LIKE '%Villa%'`;
-        } else if (catLower.includes("apartment") || catLower.includes("flat")) {
-            sql += ` AND (category LIKE '%Apartment%' OR category LIKE '%Flat%')`;
         } else {
             sql += ` AND category LIKE ?`;
             params.push(`%${category}%`);

@@ -12,6 +12,9 @@ uploads/
 # Logs
 *.log
 
+# ZIP files
+*.zip
+
 # IDE
 .vscode/
 .idea/

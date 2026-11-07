@@ -747,7 +747,7 @@
     /* Purpose Switcher (Buy / Rent) */
     .purpose-toggle-wrap {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
       background: var(--bg-soft);
       border-radius: var(--radius-pill);
       padding: 3px;
@@ -2714,6 +2714,7 @@
         <button type="button" class="cat-tab-btn active" data-category="all">All</button>
         <button type="button" class="cat-tab-btn" data-category="residential">Residential</button>
         <button type="button" class="cat-tab-btn" data-category="commercial">Commercial</button>
+        <button type="button" class="cat-tab-btn" data-category="agricultural">Agricultural Land</button>
         <button type="button" class="cat-tab-btn" data-category="plot">Plot / Land</button>
       </div>
 
@@ -2809,10 +2810,9 @@
           </div>
         </div>
 
-        <!-- Buy / Rent Toggle -->
+        <!-- Buy / Purpose Toggle -->
         <div class="purpose-toggle-wrap">
           <button type="button" class="purpose-btn active" data-purpose="buy">Buy</button>
-          <button type="button" class="purpose-btn" data-purpose="rent">Rent</button>
         </div>
 
         <!-- Premium / Verified Properties -->
@@ -2934,6 +2934,7 @@
             data-title="hhhhh"
             data-location="Bhubaneswar, Odisha"
             data-category="residential"
+            data-raw-category="Residential Plot"
             data-type="plot"
             data-purpose="buy"
             data-posted="all"
@@ -3353,10 +3354,73 @@
       function getCategorySlug(cat) {
         if (!cat) return 'residential';
         const c = String(cat).toLowerCase();
+        if (c.includes('agri') || c.includes('farm')) return 'agricultural';
+        if (c.includes('commercial') || c.includes('retail') || c.includes('office') || c.includes('shop') || c.includes('warehouse')) return 'commercial';
+        if (c.includes('residential')) return 'residential';
+        if (c.includes('apartment') || c.includes('flat') || c.includes('villa') || c.includes('house') || c.includes('duplex')) return 'residential';
         if (c.includes('plot') || c.includes('land') || c.includes('layout')) return 'plot';
-        if (c.includes('commercial') || c.includes('retail') || c.includes('office') || c.includes('shop')) return 'commercial';
-        if (c.includes('agri') || c.includes('farm')) return 'plot';
         return 'residential';
+      }
+
+      function cardMatchesCategory(card, targetCategory) {
+        if (!targetCategory || targetCategory === 'all') return true;
+
+        const rawCat = (card.dataset.rawCategory || card.dataset.category || card.querySelector('.prop-type-tag')?.textContent || '').toLowerCase();
+        const cardType = (card.dataset.type || '').toLowerCase();
+        const title = (card.dataset.title || card.querySelector('.prop-title-link')?.textContent || '').toLowerCase();
+        const text = `${rawCat} ${cardType} ${title}`;
+
+        if (targetCategory === 'residential') {
+          if (text.includes('commercial') || text.includes('agri') || text.includes('farm')) return false;
+          if (text.includes('residential') || text.includes('apartment') || text.includes('flat') || text.includes('villa') || text.includes('house') || text.includes('duplex') || text.includes('bungalow') || text.includes('floor') || text.includes('bhk')) return true;
+          if (cardType === 'apartment' || cardType === 'villa') return true;
+          if (cardType === 'plot' && !text.includes('commercial') && !text.includes('agri') && !text.includes('industrial')) return true;
+          return false;
+        }
+
+        if (targetCategory === 'commercial') {
+          return text.includes('commercial') || text.includes('retail') || text.includes('office') || text.includes('shop') || text.includes('showroom') || text.includes('warehouse') || text.includes('industrial') || cardType === 'commercial';
+        }
+
+        if (targetCategory === 'agricultural') {
+          return text.includes('agri') || text.includes('farm') || text.includes('plantation') || text.includes('cultivat') || cardType === 'agricultural' || cardType === 'farmhouse';
+        }
+
+        if (targetCategory === 'plot') {
+          return text.includes('plot') || text.includes('land') || text.includes('layout') || text.includes('site') || cardType === 'plot' || cardType === 'agricultural';
+        }
+
+        return (card.dataset.category || '').toLowerCase() === targetCategory.toLowerCase();
+      }
+
+      function cardMatchesType(card, typeFilter) {
+        if (!typeFilter || typeFilter === 'all') return true;
+
+        const rawCat = (card.dataset.rawCategory || card.dataset.category || card.querySelector('.prop-type-tag')?.textContent || '').toLowerCase();
+        const cardType = (card.dataset.type || '').toLowerCase();
+        const title = (card.dataset.title || card.querySelector('.prop-title-link')?.textContent || '').toLowerCase();
+        const text = `${rawCat} ${cardType} ${title}`;
+
+        if (typeFilter === 'apartment') {
+          return text.includes('apartment') || text.includes('flat') || text.includes('bhk') || text.includes('floor') || cardType === 'apartment';
+        }
+        if (typeFilter === 'plot') {
+          return (text.includes('plot') || text.includes('land') || cardType === 'plot') && !text.includes('commercial') && !text.includes('agri');
+        }
+        if (typeFilter === 'agricultural') {
+          return text.includes('agri') || text.includes('farm land') || cardType === 'agricultural';
+        }
+        if (typeFilter === 'commercial') {
+          return text.includes('commercial') || text.includes('shop') || text.includes('office') || text.includes('retail') || text.includes('showroom') || cardType === 'commercial';
+        }
+        if (typeFilter === 'villa') {
+          return text.includes('villa') || text.includes('house') || text.includes('duplex') || text.includes('bungalow') || cardType === 'villa';
+        }
+        if (typeFilter === 'farmhouse') {
+          return text.includes('farm house') || text.includes('farmhouse') || cardType === 'farmhouse';
+        }
+
+        return cardType === typeFilter;
       }
 
       function getTypeSlug(prop) {
@@ -3430,6 +3494,7 @@
             data-title="${escapeHtml(prop.title || 'Untitled Property')}"
             data-location="${escapeHtml(prop.location || '')}"
             data-category="${catSlug}"
+            data-raw-category="${escapeHtml(prop.category || '')}"
             data-type="${typeSlug}"
             data-purpose="${purposeSlug}"
             data-posted="all"
@@ -3593,26 +3658,26 @@
 
       function applyFilters() {
         let visibleCards = allCards.filter(card => {
-          const cat = card.dataset.category;
           const pur = card.dataset.purpose;
           const posted = card.dataset.posted;
           const isPrem = card.dataset.premium === 'true';
-          const type = card.dataset.type;
           const bhk = card.dataset.bhk;
           const furnish = card.dataset.furnish;
           const status = card.dataset.status;
           const price = parseFloat(card.dataset.price) || 0;
 
-          // Category match
-          if (filters.category !== 'all' && cat !== filters.category) return false;
+          // Category match (Top tabs: All, Residential, Commercial, Agricultural Land, Plot / Land)
+          if (!cardMatchesCategory(card, filters.category)) return false;
           // Purpose match
           if (filters.purpose && pur !== filters.purpose) return false;
           // Posted by match
           if (filters.posted !== 'all' && posted !== filters.posted) return false;
           // Premium checkbox
           if (filters.premiumOnly && !isPrem) return false;
-          // Property type
-          if (filters.propertyType !== 'all' && type !== filters.propertyType) return false;
+          // Property type (Sidebar sub-type)
+          if (filters.propertyType !== 'all') {
+            if (!cardMatchesType(card, filters.propertyType)) return false;
+          }
           // BHK
           if (filters.bhk !== 'all') {
             if (filters.bhk === '5+' && parseInt(bhk) < 5) return false;
@@ -3650,6 +3715,36 @@
           propertyCardsList.appendChild(c);
         });
 
+        // Empty state message when no properties match
+        let emptyStateEl = document.getElementById('propEmptyState');
+        if (visibleCards.length === 0) {
+          if (!emptyStateEl) {
+            emptyStateEl = document.createElement('div');
+            emptyStateEl.id = 'propEmptyState';
+            emptyStateEl.style.cssText = 'text-align:center; padding:48px 24px; background:#ffffff; border:1.5px dashed #cbd5e1; border-radius:16px; margin:20px 0; width:100%;';
+            propertyCardsList.appendChild(emptyStateEl);
+          }
+          let catLabel = '';
+          if (filters.category === 'residential') catLabel = 'Residential ';
+          else if (filters.category === 'commercial') catLabel = 'Commercial ';
+          else if (filters.category === 'agricultural') catLabel = 'Agricultural Land ';
+          else if (filters.category === 'plot') catLabel = 'Plot / Land ';
+
+          emptyStateEl.innerHTML = `
+            <div style="font-size:38px; margin-bottom:12px;">🏡</div>
+            <h3 style="font-size:18px; font-weight:800; color:#0f172a; margin-bottom:6px;">No ${escapeHtml(catLabel)}Properties Found</h3>
+            <p style="font-size:13.5px; color:#64748b; margin-bottom:16px; max-width:440px; margin-left:auto; margin-right:auto; line-height:1.5;">
+              There are currently no listings matching this category or filter selection. Try selecting another tab or reset your filters.
+            </p>
+            <button type="button" onclick="document.getElementById('btnClearAllFilters')?.click()" style="padding:8px 20px; border-radius:999px; background:var(--primary-green); color:#fff; font-size:13px; font-weight:700; border:none; cursor:pointer;">
+              ↻ Reset All Filters
+            </button>
+          `;
+          emptyStateEl.style.display = 'block';
+        } else if (emptyStateEl) {
+          emptyStateEl.style.display = 'none';
+        }
+
         if (resultsCountEl) {
           resultsCountEl.textContent = `${visibleCards.length} ${visibleCards.length === 1 ? 'Property' : 'Properties'}`;
         }
@@ -3659,7 +3754,7 @@
         }
       }
 
-      // Category tab switcher
+      // Category tab switcher (All, Residential, Commercial, Agricultural Land, Plot / Land)
       const catTabButtons = document.querySelectorAll('.cat-tab-btn');
       catTabButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -3667,6 +3762,23 @@
           catTabButtons.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           filters.category = btn.dataset.category || 'all';
+
+          // Reset sidebar sub-type so stale sub-type filters don't block the newly selected category
+          filters.propertyType = 'all';
+          document.querySelectorAll('.filters-sidebar .filter-pill[data-type]').forEach(p => {
+            p.classList.toggle('active', p.dataset.type === 'all');
+          });
+
+          // Dynamically update sidebar filter title
+          const sidebarTitleEl = document.querySelector('.sidebar-title span');
+          if (sidebarTitleEl) {
+            if (filters.category === 'residential') sidebarTitleEl.textContent = 'Residential Filters';
+            else if (filters.category === 'commercial') sidebarTitleEl.textContent = 'Commercial Filters';
+            else if (filters.category === 'agricultural') sidebarTitleEl.textContent = 'Agricultural Land Filters';
+            else if (filters.category === 'plot') sidebarTitleEl.textContent = 'Plot / Land Filters';
+            else sidebarTitleEl.textContent = 'Property Filters';
+          }
+
           applyFilters();
         });
       });
@@ -3702,7 +3814,7 @@
         applyFilters();
       });
 
-      // Property type pills
+      // Property type pills (Sidebar)
       const typePills = document.querySelectorAll('.filters-sidebar .filter-pill[data-type]');
       typePills.forEach(pill => {
         pill.addEventListener('click', (e) => {
@@ -3710,6 +3822,24 @@
           typePills.forEach(p => p.classList.remove('active'));
           pill.classList.add('active');
           filters.propertyType = pill.dataset.type;
+
+          // Auto-sync top category tab when a specific type is clicked
+          if (pill.dataset.type === 'commercial') {
+            filters.category = 'commercial';
+            catTabButtons.forEach(b => b.classList.toggle('active', b.dataset.category === 'commercial'));
+          } else if (pill.dataset.type === 'agricultural' || pill.dataset.type === 'farmhouse') {
+            filters.category = 'agricultural';
+            catTabButtons.forEach(b => b.classList.toggle('active', b.dataset.category === 'agricultural'));
+          } else if (pill.dataset.type === 'apartment' || pill.dataset.type === 'villa') {
+            filters.category = 'residential';
+            catTabButtons.forEach(b => b.classList.toggle('active', b.dataset.category === 'residential'));
+          } else if (pill.dataset.type === 'plot') {
+            if (filters.category !== 'residential' && filters.category !== 'plot') {
+              filters.category = 'plot';
+              catTabButtons.forEach(b => b.classList.toggle('active', b.dataset.category === 'plot'));
+            }
+          }
+
           applyFilters();
         });
       });
@@ -3867,6 +3997,8 @@
         if (breadcrumbEl) breadcrumbEl.textContent = 'All Properties';
         const locTextEl = document.getElementById('resultsLocationText');
         if (locTextEl) locTextEl.textContent = '';
+        const sidebarTitleEl = document.querySelector('.sidebar-title span');
+        if (sidebarTitleEl) sidebarTitleEl.textContent = 'Property Filters';
 
         applyFilters();
       });
@@ -4040,20 +4172,25 @@
             });
           }
 
-          if (tLower.includes('plot') || tLower.includes('land')) {
-            filters.category = 'plot';
+          if (tLower.includes('agri') || tLower.includes('farm')) {
+            filters.category = 'agricultural';
             document.querySelectorAll('.cat-tab-btn').forEach(btn => {
-              btn.classList.toggle('active', btn.dataset.category === 'plot');
+              btn.classList.toggle('active', btn.dataset.category === 'agricultural');
             });
           } else if (tLower.includes('commercial')) {
             filters.category = 'commercial';
             document.querySelectorAll('.cat-tab-btn').forEach(btn => {
               btn.classList.toggle('active', btn.dataset.category === 'commercial');
             });
-          } else if (tLower.includes('apartment') || tLower.includes('flat') || tLower.includes('residential') || tLower.includes('villa')) {
+          } else if (tLower.includes('residential') || tLower.includes('apartment') || tLower.includes('flat') || tLower.includes('villa')) {
             filters.category = 'residential';
             document.querySelectorAll('.cat-tab-btn').forEach(btn => {
               btn.classList.toggle('active', btn.dataset.category === 'residential');
+            });
+          } else if (tLower.includes('plot') || tLower.includes('land')) {
+            filters.category = 'plot';
+            document.querySelectorAll('.cat-tab-btn').forEach(btn => {
+              btn.classList.toggle('active', btn.dataset.category === 'plot');
             });
           }
         }
