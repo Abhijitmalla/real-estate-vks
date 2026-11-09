@@ -3037,8 +3037,15 @@
                   placeholder="Speak directly with our property experts.">
               </div>
               <div class="form-group">
-                <label class="field-label">Contact Info Text (Phone / Email / Address)</label>
-                <input type="text" id="newCardInfoText" class="subprop-input" placeholder="+91 99108 77219">
+                <label class="field-label" style="display:flex; justify-content:space-between; align-items:center;">
+                  <span>Contact Info Text (10-Digit Phone Number) <span class="req-star">*</span></span>
+                  <span id="newCardInfoTextCount" style="font-size:11px; color:#64748b; font-weight:700;">0/10 digits</span>
+                </label>
+                <input type="tel" id="newCardInfoText" class="subprop-input" placeholder="e.g. 9910877219 (10 digits)"
+                  maxlength="10" inputmode="numeric" pattern="[0-9]{10}"
+                  oninput="handleContactInfoTextInput(this, 'newCardInfoTextCount', 'newCardInfoLink', 'newCardBtnLink')"
+                  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
+                <div id="newCardInfoTextHint" style="font-size:11px; color:#64748b; margin-top:4px;">Enter exactly 10-digit mobile number (not more or less).</div>
               </div>
             </div>
 
@@ -3724,8 +3731,13 @@
           <input type="text" id="editCardSubtitle" class="subprop-input" placeholder="Short description">
         </div>
         <div class="form-group">
-          <label class="field-label">Contact Info Text</label>
-          <input type="text" id="editCardInfoText" class="subprop-input" placeholder="+91 99108 77219">
+          <label class="field-label" style="display:flex; justify-content:space-between; align-items:center;">
+            <span>Contact Info Text</span>
+            <span id="editCardInfoTextCount" style="font-size:11px; color:#64748b; font-weight:700;"></span>
+          </label>
+          <input type="text" id="editCardInfoText" class="subprop-input" placeholder="e.g. 9910877219"
+            oninput="handleEditContactInfoTextInput(this)">
+          <div id="editCardInfoTextHint" style="font-size:11px; color:#64748b; margin-top:4px;"></div>
         </div>
       </div>
 
@@ -7512,6 +7524,106 @@
     /* --------------------------------------------------------------------------
        HELP / ACTION CARDS (ADD, RENDER, EDIT, DELETE)
        -------------------------------------------------------------------------- */
+    function formatToTenDigitPhone(raw) {
+      if (!raw) return '';
+      let digits = String(raw).replace(/\D/g, '');
+      // If user entered with India country code +91 or 91 at start and total 12 digits, strip 91
+      if (digits.length === 12 && digits.startsWith('91')) {
+        digits = digits.slice(2);
+      }
+      // If user entered with leading 0 (11 digits), strip leading 0
+      else if (digits.length === 11 && digits.startsWith('0')) {
+        digits = digits.slice(1);
+      }
+      return digits.slice(0, 10);
+    }
+
+    function handleContactInfoTextInput(inputEl, countElId, infoLinkElId, btnLinkElId) {
+      const cleaned = formatToTenDigitPhone(inputEl.value);
+      inputEl.value = cleaned;
+
+      const countEl = document.getElementById(countElId);
+      const hintEl = document.getElementById('newCardInfoTextHint');
+
+      if (cleaned.length === 0) {
+        if (countEl) {
+          countEl.textContent = '0/10 digits';
+          countEl.style.color = '#64748b';
+        }
+        inputEl.style.borderColor = '#cbd5e1';
+        if (hintEl) {
+          hintEl.textContent = 'Enter exactly 10-digit mobile number (not more or less).';
+          hintEl.style.color = '#64748b';
+        }
+      } else if (cleaned.length < 10) {
+        if (countEl) {
+          countEl.textContent = `${cleaned.length}/10 digits (need 10)`;
+          countEl.style.color = '#d97706';
+        }
+        inputEl.style.borderColor = '#f59e0b';
+        if (hintEl) {
+          hintEl.textContent = `Must be exactly 10 digits — ${10 - cleaned.length} more digit${10 - cleaned.length > 1 ? 's' : ''} needed.`;
+          hintEl.style.color = '#d97706';
+        }
+      } else {
+        // Exactly 10 digits!
+        if (countEl) {
+          countEl.textContent = '✓ 10 digits (Valid)';
+          countEl.style.color = '#059669';
+        }
+        inputEl.style.borderColor = '#10b981';
+        if (hintEl) {
+          hintEl.textContent = '✓ Valid 10-digit phone number.';
+          hintEl.style.color = '#059669';
+        }
+
+        // Auto-fill or sync destination URLs if empty or tel: link
+        if (infoLinkElId) {
+          const linkEl = document.getElementById(infoLinkElId);
+          if (linkEl && (!linkEl.value || linkEl.value.startsWith('tel:'))) {
+            linkEl.value = `tel:+91${cleaned}`;
+          }
+        }
+        if (btnLinkElId) {
+          const btnLinkEl = document.getElementById(btnLinkElId);
+          if (btnLinkEl && (!btnLinkEl.value || btnLinkEl.value.startsWith('tel:'))) {
+            btnLinkEl.value = `tel:+91${cleaned}`;
+          }
+        }
+      }
+    }
+
+    function handleEditContactInfoTextInput(inputEl) {
+      const cardId = document.getElementById('editCardId')?.value;
+      const card = contactCardsData.find(c => String(c.id) === String(cardId)) || contactCardsData[cardId];
+      const isPhoneCard = !card || (card.card_icon && card.card_icon.includes('phone')) || 
+                          (card.card_title && /call|phone/i.test(card.card_title)) || 
+                          (card.card_info_link && card.card_info_link.startsWith('tel:')) || 
+                          /^\d+$/.test(inputEl.value.replace(/\D/g, ''));
+
+      if (isPhoneCard && inputEl.maxLength === 10) {
+        const cleaned = formatToTenDigitPhone(inputEl.value);
+        inputEl.value = cleaned;
+        const countEl = document.getElementById('editCardInfoTextCount');
+        const hintEl = document.getElementById('editCardInfoTextHint');
+        if (cleaned.length === 0) {
+          if (countEl) { countEl.textContent = '0/10 digits'; countEl.style.color = '#64748b'; }
+          if (hintEl) { hintEl.textContent = 'Phone number must be exactly 10 digits (no more, no less).'; hintEl.style.color = '#64748b'; }
+          inputEl.style.borderColor = '#cbd5e1';
+        } else if (cleaned.length < 10) {
+          if (countEl) { countEl.textContent = `${cleaned.length}/10 digits`; countEl.style.color = '#d97706'; }
+          if (hintEl) { hintEl.textContent = `Need ${10 - cleaned.length} more digit${10 - cleaned.length > 1 ? 's' : ''}.`; hintEl.style.color = '#d97706'; }
+          inputEl.style.borderColor = '#f59e0b';
+        } else {
+          if (countEl) { countEl.textContent = '✓ 10 digits'; countEl.style.color = '#059669'; }
+          if (hintEl) { hintEl.textContent = '✓ Valid 10-digit phone number.'; hintEl.style.color = '#059669'; }
+          inputEl.style.borderColor = '#10b981';
+          const l = document.getElementById('editCardInfoLink');
+          if (l && (!l.value || l.value.startsWith('tel:'))) l.value = `tel:+91${cleaned}`;
+        }
+      }
+    }
+
     function focusAddContactCard() {
       const el = document.getElementById('addContactCardWrap');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -7525,15 +7637,29 @@
         document.getElementById('newCardTitle')?.focus();
         return;
       }
+
+      const infoTextInp = document.getElementById('newCardInfoText');
+      const infoTextRaw = (infoTextInp?.value || '').trim();
+      const phoneDigits = formatToTenDigitPhone(infoTextRaw);
+
+      if (!phoneDigits || phoneDigits.length !== 10) {
+        showToast('⚠️ Contact Info Text must be a 10-digit phone number (not more or less than that)!', true);
+        if (infoTextInp) {
+          infoTextInp.focus();
+          infoTextInp.style.borderColor = '#ef4444';
+        }
+        return;
+      }
+
       const newCard = {
         card_title: cardTitle,
         card_icon: document.getElementById('newCardIcon')?.value.trim() || 'fa-solid fa-phone',
         card_badge: document.getElementById('newCardBadge')?.value.trim() || '',
         card_subtitle: document.getElementById('newCardSubtitle')?.value.trim() || '',
-        card_info_text: document.getElementById('newCardInfoText')?.value.trim() || '',
-        card_info_link: document.getElementById('newCardInfoLink')?.value.trim() || '',
+        card_info_text: phoneDigits,
+        card_info_link: document.getElementById('newCardInfoLink')?.value.trim() || `tel:+91${phoneDigits}`,
         card_btn_text: document.getElementById('newCardBtnText')?.value.trim() || 'Call Now',
-        card_btn_link: document.getElementById('newCardBtnLink')?.value.trim() || '',
+        card_btn_link: document.getElementById('newCardBtnLink')?.value.trim() || `tel:+91${phoneDigits}`,
         sort_order: contactCardsData.length + 1
       };
 
@@ -7552,8 +7678,15 @@
       contactCardsData.push(newCard);
       ['newCardTitle', 'newCardSubtitle', 'newCardBadge', 'newCardInfoText', 'newCardInfoLink', 'newCardBtnLink'].forEach(id => {
         const inp = document.getElementById(id);
-        if (inp) inp.value = '';
+        if (inp) {
+          inp.value = '';
+          inp.style.borderColor = '#cbd5e1';
+        }
       });
+      const countEl = document.getElementById('newCardInfoTextCount');
+      if (countEl) { countEl.textContent = '0/10 digits'; countEl.style.color = '#64748b'; }
+      const hintEl = document.getElementById('newCardInfoTextHint');
+      if (hintEl) { hintEl.textContent = 'Enter exactly 10-digit mobile number (not more or less).'; hintEl.style.color = '#64748b'; }
       const iconInp = document.getElementById('newCardIcon');
       if (iconInp) iconInp.value = 'fa-solid fa-phone';
       const btnInp = document.getElementById('newCardBtnText');
@@ -7612,7 +7745,45 @@
       document.getElementById('editCardIcon').value = card.card_icon || 'fa-solid fa-headset';
       document.getElementById('editCardBadge').value = card.card_badge || '';
       document.getElementById('editCardSubtitle').value = card.card_subtitle || '';
-      document.getElementById('editCardInfoText').value = card.card_info_text || '';
+
+      const isPhoneCard = (card.card_icon && card.card_icon.includes('phone')) || 
+                          (card.card_title && /call|phone/i.test(card.card_title)) || 
+                          (card.card_info_link && card.card_info_link.startsWith('tel:')) || 
+                          /^\+?[\d\s-]{7,}$/.test(card.card_info_text || '');
+
+      const infoInp = document.getElementById('editCardInfoText');
+      const countEl = document.getElementById('editCardInfoTextCount');
+      const hintEl = document.getElementById('editCardInfoTextHint');
+
+      if (isPhoneCard) {
+        const cleaned = formatToTenDigitPhone(card.card_info_text);
+        if (infoInp) {
+          infoInp.value = cleaned || card.card_info_text || '';
+          infoInp.maxLength = 10;
+          infoInp.inputMode = 'numeric';
+          infoInp.placeholder = 'e.g. 9910877219 (10 digits)';
+          infoInp.style.borderColor = cleaned.length === 10 ? '#10b981' : '#cbd5e1';
+        }
+        if (countEl) {
+          countEl.textContent = cleaned.length === 10 ? '✓ 10 digits' : (cleaned.length > 0 ? `${cleaned.length}/10 digits` : '0/10 digits');
+          countEl.style.color = cleaned.length === 10 ? '#059669' : '#d97706';
+        }
+        if (hintEl) {
+          hintEl.textContent = 'Phone number must be exactly 10 digits (no more, no less).';
+          hintEl.style.color = '#64748b';
+        }
+      } else {
+        if (infoInp) {
+          infoInp.value = card.card_info_text || '';
+          infoInp.removeAttribute('maxLength');
+          infoInp.removeAttribute('inputMode');
+          infoInp.placeholder = 'e.g. support@bilabadi.com';
+          infoInp.style.borderColor = '#cbd5e1';
+        }
+        if (countEl) countEl.textContent = '';
+        if (hintEl) hintEl.textContent = '';
+      }
+
       document.getElementById('editCardInfoLink').value = card.card_info_link || '';
       document.getElementById('editCardBtnText').value = card.card_btn_text || 'Contact Now';
       document.getElementById('editCardBtnLink').value = card.card_btn_link || '';
@@ -7634,11 +7805,33 @@
         return;
       }
 
+      const isPhoneCard = (card.card_icon && card.card_icon.includes('phone')) || 
+                          (card.card_title && /call|phone/i.test(card.card_title)) || 
+                          (card.card_info_link && card.card_info_link.startsWith('tel:')) ||
+                          document.getElementById('editCardInfoText')?.maxLength === 10;
+
+      const infoTextVal = (document.getElementById('editCardInfoText')?.value || '').trim();
+
+      if (isPhoneCard) {
+        const digits = formatToTenDigitPhone(infoTextVal);
+        if (digits.length !== 10) {
+          showToast('⚠️ Contact Info Text must be a 10-digit phone number (not more or less than that)!', true);
+          const inp = document.getElementById('editCardInfoText');
+          if (inp) {
+            inp.focus();
+            inp.style.borderColor = '#ef4444';
+          }
+          return;
+        }
+        card.card_info_text = digits;
+      } else {
+        card.card_info_text = infoTextVal;
+      }
+
       card.card_title = title;
       card.card_icon = document.getElementById('editCardIcon')?.value.trim() || 'fa-solid fa-headset';
       card.card_badge = document.getElementById('editCardBadge')?.value.trim() || '';
       card.card_subtitle = document.getElementById('editCardSubtitle')?.value.trim() || '';
-      card.card_info_text = document.getElementById('editCardInfoText')?.value.trim() || '';
       card.card_info_link = document.getElementById('editCardInfoLink')?.value.trim() || '';
       card.card_btn_text = document.getElementById('editCardBtnText')?.value.trim() || 'Contact Now';
       card.card_btn_link = document.getElementById('editCardBtnLink')?.value.trim() || '';
