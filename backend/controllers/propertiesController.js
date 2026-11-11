@@ -130,11 +130,11 @@ const buildPropertyFilterQuery = (query = {}, defaultOnlyActive = false) => {
     if (search) {
         const parts = search.split(",").map(p => p.trim()).filter(Boolean);
         if (parts.length >= 3) {
-            // [locality, city, state] -> match locality or city (Never match whole state)
+            // [locality, city, state] -> MUST match locality AND city
             const locality = parts[0];
             const city = parts[1];
-            sql += ` AND (locality LIKE ? OR location LIKE ? OR city LIKE ? OR title LIKE ?)`;
-            params.push(`%${locality}%`, `%${locality}%`, `%${city}%`, `%${locality}%`);
+            sql += ` AND (locality LIKE ? OR location LIKE ? OR title LIKE ?) AND (city LIKE ? OR location LIKE ?)`;
+            params.push(`%${locality}%`, `%${locality}%`, `%${locality}%`, `%${city}%`, `%${city}%`);
         } else if (parts.length === 2) {
             // [city, state] -> match city (Never match whole state)
             const city = parts[0];
@@ -152,10 +152,10 @@ const buildPropertyFilterQuery = (query = {}, defaultOnlyActive = false) => {
     if (location && location !== search) {
         const parts = location.split(",").map(p => p.trim()).filter(Boolean);
         if (parts.length >= 3) {
-            // [locality, city, state] -> match locality or city
+            // [locality, city, state] -> MUST match locality AND city
             const locality = parts[0];
             const city = parts[1];
-            sql += ` AND (locality LIKE ? OR location LIKE ? OR city LIKE ? OR location LIKE ?)`;
+            sql += ` AND (locality LIKE ? OR location LIKE ?) AND (city LIKE ? OR location LIKE ?)`;
             params.push(`%${locality}%`, `%${locality}%`, `%${city}%`, `%${city}%`);
         } else if (parts.length === 2) {
             // [city, state] -> match city

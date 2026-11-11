@@ -2089,9 +2089,9 @@
     }
 
     async function loadAboutPageContent() {
-      // 1. First check localStorage for instant client-side updates
+      // 1. First check sessionStorage for instant client-side updates
       try {
-        const local = localStorage.getItem('bilabadi_about_data');
+        const local = sessionStorage.getItem('bilabadi_about_data');
         if (local) {
           const parsed = JSON.parse(local);
           applyAboutData(parsed.settings, parsed.cards);

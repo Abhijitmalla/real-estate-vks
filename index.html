@@ -5170,7 +5170,7 @@
           <h4 class="footer-col-title">Support</h4>
           <ul class="footer-col-links">
             <li><a href="#help">Help Center</a></li>
-            <li><a href="#terms">Terms &amp; Conditions</a></li>
+            <li><a href="./term-condition.html">Terms &amp; Conditions</a></li>
             <li><a href="#privacy">Privacy Policy</a></li>
             <li><a href="#faqs">FAQs</a></li>
             <li><a href="contact-us.html">Contact Us</a></li>
@@ -5196,7 +5196,7 @@
           <div class="footer-legal-links">
             <a href="#privacy">Privacy Policy</a>
             <span class="sep">|</span>
-            <a href="#terms">Terms &amp; Conditions</a>
+            <a href="./term-condition.html">Terms &amp; Conditions</a>
             <span class="sep">|</span>
             <a href="#sitemap">Sitemap</a>
           </div>
@@ -5384,7 +5384,7 @@
 
         if (!section) {
           try {
-            const cached = sessionStorage.getItem('bilabadi_home_data') || localStorage.getItem('bilabadi_home_data');
+            const cached = sessionStorage.getItem('bilabadi_home_data') || sessionStorage.getItem('bilabadi_home_data');
             if (cached) {
               const parsed = JSON.parse(cached);
               if (parsed && parsed.texts) {
@@ -5856,7 +5856,7 @@
         }
 
         try {
-          const saved = sessionStorage.getItem('bilabadi_properties_data') || sessionStorage.getItem('bilabadi_admin_properties_data') || localStorage.getItem('bilabadi_properties_data');
+          const saved = sessionStorage.getItem('bilabadi_properties_data') || sessionStorage.getItem('bilabadi_admin_properties_data') || sessionStorage.getItem('bilabadi_properties_data');
           if (saved) {
             const parsed = JSON.parse(saved);
             if (Array.isArray(parsed) && parsed.length > 0) {

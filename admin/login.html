@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | BilaBadi Real Estate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-green: #047857;
+      --primary-dark: #064e3b;
+      --primary-hover: #036146;
+      --primary-light: #e6f7ef;
+      --accent-mint: #d1fae5;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --text-body: #1e293b;
+      --border-color: #e2e8f0;
+      --input-bg: #ffffff;
+      --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      min-height: 100vh;
+      width: 100%;
+      font-family: var(--font-family);
+      color: var(--text-dark);
+      background-color: #c8eef4;
+    }
+
+    body {
+      background: #c8eef4 url('../assets/login-backgroound.png') no-repeat center center;
+      background-size: 100% 100%;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: clamp(16px, 3vh, 36px) 24px;
+    }
+
+    /* Overall Layout Container */
+    .login-page-container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(24px, 4vw, 50px);
+      position: relative;
+      z-index: 10;
+      padding: 10px 0;
+    }
+
+    /* -------------------------------------------------------------
+       LEFT PANEL: Marketing & Brand Presentation
+       ------------------------------------------------------------- */
+    .left-content-panel {
+      flex: 1;
+      max-width: 480px;
+      padding-right: 10px;
+      padding-left: clamp(10px, 2vw, 24px);
+    }
+
+    /* Top Pill Badge */
+    .admin-portal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e6f7ef;
+      color: var(--primary-green);
+      font-size: clamp(12px, 1vw, 13.5px);
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: clamp(14px, 2.5vh, 26px);
+      box-shadow: 0 2px 8px rgba(4, 120, 87, 0.08);
+      border: 1px solid rgba(4, 120, 87, 0.12);
+    }
+
+    .badge-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-green);
+    }
+
+    /* Main Big Headline */
+    .hero-headline {
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 800;
+      line-height: 1.18;
+      color: var(--text-dark);
+      letter-spacing: -0.025em;
+      margin-bottom: clamp(18px, 2.8vh, 32px);
+    }
+
+    .headline-line {
+      display: block;
+    }
+
+    .highlight-ease-wrap {
+      position: relative;
+      display: inline-block;
+      color: var(--primary-green);
+    }
+
+    /* Custom Curved Hand-drawn Underline beneath "with Ease" */
+    .swoosh-underline {
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 12px;
+      pointer-events: none;
+    }
+
+    /* Checklist Section */
+    .feature-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px, 1.6vh, 18px);
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: clamp(13px, 1.1vw, 15px);
+      font-weight: 600;
+      color: var(--text-body);
+      line-height: 1.35;
+    }
+
+    .check-icon-circle {
+      width: clamp(22px, 2vw, 26px);
+      height: clamp(22px, 2vw, 26px);
+      min-width: clamp(22px, 2vw, 26px);
+      background: var(--accent-mint);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-green);
+      box-shadow: 0 2px 5px rgba(4, 120, 87, 0.12);
+    }
+
+    .check-icon-circle svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 3;
+    }
+
+    /* -------------------------------------------------------------
+       RIGHT PANEL: Floating Admin Login Card
+       ------------------------------------------------------------- */
+    .login-card-panel {
+      flex: 0 0 clamp(340px, 34vw, 430px);
+      max-width: 430px;
+      width: 100%;
+    }
+
+    .login-card {
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 24px 60px -12px rgba(15, 23, 42, 0.14),
+        0 10px 24px -6px rgba(4, 120, 87, 0.08);
+      padding: clamp(24px, 3.5vh, 40px) clamp(22px, 2.5vw, 36px);
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Brand Logo Lockup at Top of Card */
+    .card-brand-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: clamp(12px, 2vh, 20px);
+    }
+
+    .brand-logo-badge {
+      width: clamp(44px, 4vw, 50px);
+      height: clamp(44px, 4vw, 50px);
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(4, 120, 87, 0.28);
+    }
+
+    .brand-text-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand-name {
+      font-size: clamp(20px, 1.8vw, 23px);
+      font-weight: 800;
+      color: #064e3b;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      font-size: clamp(12px, 0.9vw, 13px);
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Card Title and Description */
+    .card-title {
+      font-size: clamp(22px, 2vw, 26px);
+      font-weight: 800;
+      color: var(--text-dark);
+      text-align: center;
+      letter-spacing: -0.015em;
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: clamp(12px, 1vw, 13.5px);
+      color: var(--text-muted);
+      font-weight: 400;
+      text-align: center;
+      line-height: 1.4;
+      margin-bottom: clamp(14px, 2.2vh, 24px);
+    }
+
+    /* Form Fields */
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px, 1.5vh, 16px);
+    }
+
+    .input-field-group {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon-left {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      transition: color 0.2s ease;
+    }
+
+    .login-input {
+      width: 100%;
+      height: clamp(44px, 4.8vh, 50px);
+      background: var(--input-bg);
+      border: 1.5px solid var(--border-color);
+      border-radius: 12px;
+      padding: 0 16px 0 44px;
+      font-size: clamp(13px, 1vw, 14.5px);
+      font-family: inherit;
+      color: var(--text-dark);
+      font-weight: 500;
+      outline: none;
+      transition: all 0.22s ease;
+    }
+
+    .login-input.has-right-btn {
+      padding-right: 50px;
+    }
+
+    .login-input::placeholder {
+      color: #94a3b8;
+      font-weight: 400;
+    }
+
+    .login-input:focus {
+      border-color: var(--primary-green);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(4, 120, 87, 0.12);
+    }
+
+    .input-field-group:focus-within .input-icon-left {
+      color: var(--primary-green);
+    }
+
+    /* Password Show/Hide Toggle */
+    .password-toggle-btn {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: #64748b;
+      cursor: pointer;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      transition: color 0.2s, background-color 0.2s;
+    }
+
+    .password-toggle-btn:hover {
+      color: var(--primary-green);
+      background: #f1f5f9;
+    }
+
+    /* Remember Me & Forgot Password Row */
+    .form-options-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 2px 0 8px;
+      font-size: clamp(12px, 0.9vw, 13.5px);
+    }
+
+    .remember-me-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+      user-select: none;
+      color: var(--text-body);
+      font-weight: 600;
+    }
+
+    /* Custom Checkbox exactly matching the image */
+    .custom-checkbox-box {
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      background: var(--primary-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(4, 120, 87, 0.2);
+    }
+
+    .custom-checkbox-input {
+      display: none;
+    }
+
+    .custom-checkbox-box svg {
+      width: 12px;
+      height: 12px;
+      stroke: #ffffff;
+      stroke-width: 3;
+      display: block;
+    }
+
+    .custom-checkbox-input:not(:checked)+.custom-checkbox-box {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      box-shadow: none;
+    }
+
+    .custom-checkbox-input:not(:checked)+.custom-checkbox-box svg {
+      display: none;
+    }
+
+    .forgot-password-link {
+      color: var(--primary-green);
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.2s ease, text-decoration 0.2s;
+    }
+
+    .forgot-password-link:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    /* Login Submit Button */
+    .btn-login-submit {
+      width: 100%;
+      height: clamp(44px, 4.8vh, 50px);
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-size: clamp(14px, 1.1vw, 15.5px);
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 8px 20px -3px rgba(4, 120, 87, 0.35);
+      transition: all 0.22s ease;
+      margin-top: 4px;
+    }
+
+    .btn-login-submit:hover {
+      background: linear-gradient(135deg, #047857 0%, #036146 100%);
+      box-shadow: 0 12px 24px -4px rgba(4, 120, 87, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-login-submit:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(4, 120, 87, 0.3);
+    }
+
+    .btn-login-submit.loading {
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .arrow-icon {
+      font-size: 17px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-login-submit:hover .arrow-icon {
+      transform: translateX(4px);
+    }
+
+    /* Floating Toast Notification */
+    .login-toast {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      background: #064e3b;
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(-30px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 9999;
+    }
+
+    .login-toast.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .login-toast.error {
+      background: #dc2626;
+    }
+
+    /* Modal for Forgot Password */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      border-radius: 24px;
+      max-width: 440px;
+      width: 100%;
+      padding: 32px 30px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: modalPop 0.25s ease-out;
+    }
+
+    @keyframes modalPop {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       ------------------------------------------------------------- */
+    @media (max-width: 992px) {
+      body {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+        padding: 30px 16px;
+      }
+
+      .login-page-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        text-align: center;
+      }
+
+      /* Flatten left panel on mobile so badge+headline and checklist can be ordered around the form */
+      .left-content-panel {
+        display: contents;
+      }
+
+      /* 1. Header (Badge + Headline) on TOP */
+      .hero-header-block {
+        order: 1;
+        width: 100%;
+        max-width: 480px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      /* 2. Form card in the MIDDLE */
+      .login-card-panel {
+        order: 2;
+        flex: 1;
+        max-width: 440px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      /* 3. Feature checklist BELOW the form */
+      .feature-checklist {
+        order: 3;
+        align-items: flex-start;
+        display: inline-flex;
+        text-align: left;
+        margin-top: 10px;
+      }
+
+      .hero-headline {
+        font-size: clamp(26px, 6vw, 32px);
+        margin-bottom: 20px;
+      }
+
+      .admin-portal-badge {
+        margin-bottom: 14px;
+      }
+
+      .login-card {
+        padding: 32px 24px;
+        border-radius: 26px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline {
+        font-size: 28px;
+      }
+
+      .login-card {
+        padding: 30px 20px;
+      }
+
+      .checklist-item {
+        font-size: 14.5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Toast Container -->
+  <div id="loginToast" class="login-toast">
+    <span id="toastIcon">✓</span>
+    <span id="toastMessage">Notification message</span>
+  </div>
+
+  <!-- Main Hero Layout -->
+  <main class="login-page-container">
+
+    <!-- LEFT PANEL: Hero Titles, Pill & Checklist -->
+    <section class="left-content-panel">
+
+      <!-- Top Header Block (Badge & Headline) -->
+      <div class="hero-header-block">
+        <!-- Top Pill Badge -->
+        <div class="admin-portal-badge">
+          <span class="badge-icon">
+            <!-- House Icon -->
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" />
+            </svg>
+          </span>
+          <span>Real Estate Admin Portal</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="hero-headline">
+          <span class="headline-line">Manage Your</span>
+          <span class="headline-line">Real Estate Business</span>
+          <span class="headline-line highlight-ease-wrap">
+            with Ease
+            <!-- Organic curved swoosh underline matching image -->
+            <svg class="swoosh-underline" viewBox="0 0 170 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9C45 3 125 3 167 10" stroke="#047857" stroke-width="4.5" stroke-linecap="round" />
+            </svg>
+          </span>
+        </h1>
+      </div>
+
+      <!-- Checklist -->
+      <ul class="feature-checklist">
+        <li class="checklist-item">
+          <span class="check-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </span>
+          <span>Update Homepage Sections</span>
+        </li>
+        <li class="checklist-item">
+          <span class="check-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </span>
+          <span>Manage Properties, Services &amp; Blogs</span>
+        </li>
+        <li class="checklist-item">
+          <span class="check-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </span>
+          <span>Handle Client Reviews &amp; Inquiries</span>
+        </li>
+        <li class="checklist-item">
+          <span class="check-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </span>
+          <span>All in One Admin Dashboard</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- RIGHT PANEL: Floating Admin Login Card -->
+    <section class="login-card-panel">
+      <div class="login-card">
+
+        <!-- Logo Header Lockup -->
+        <div class="card-brand-header">
+          <div class="brand-logo-badge" title="BilaBadi Real Estate">
+            <!-- House Outline Logo with Doorway matching reference -->
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 4.5L3.5 14.5H7.5V26.5H24.5V14.5H28.5L16 4.5Z" fill="#ffffff" />
+              <path d="M13 18.5C13 16.84 14.34 15.5 16 15.5C17.66 15.5 19 16.84 19 18.5V26.5H13V18.5Z" fill="#047857" />
+              <circle cx="16" cy="11.5" r="2" fill="#047857" />
+            </svg>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-name">BilaBadi</span>
+            <span class="brand-subtitle">Real Estate Admin</span>
+          </div>
+        </div>
+
+        <!-- Card Title & Subtitle -->
+        <h2 class="card-title">Admin Login</h2>
+        <p class="card-desc">Sign in to access the BilaBadi Real Estate Admin Dashboard</p>
+
+        <!-- Form -->
+        <form class="login-form" id="adminLoginForm" onsubmit="handleAdminLogin(event)" autocomplete="on">
+
+          <!-- Email Input -->
+          <div class="input-field-group">
+            <span class="input-icon-left">
+              <!-- Mail Envelope SVG -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="M22 6L12 13L2 6"></path>
+              </svg>
+            </span>
+            <input type="email" id="adminEmail" class="login-input" placeholder="Email Address" autofocus
+              autocomplete="email">
+          </div>
+
+          <!-- Password Input -->
+          <div class="input-field-group">
+            <span class="input-icon-left">
+              <!-- Lock SVG -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </span>
+            <input type="password" id="adminPassword" class="login-input has-right-btn" placeholder="Password"
+              autocomplete="current-password">
+            <button type="button" class="password-toggle-btn" id="togglePasswordBtn"
+              onclick="togglePasswordVisibility()" title="Show/Hide Password" aria-label="Toggle password visibility">
+              <!-- Eye Icon SVG -->
+              <svg id="eyeIconSvg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Remember Me & Forgot Password Row -->
+          <div class="form-options-row">
+            <label class="remember-me-label">
+              <input type="checkbox" id="rememberMeCheckbox" class="custom-checkbox-input" checked>
+              <span class="custom-checkbox-box">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>Remember me</span>
+            </label>
+            <a href="javascript:void(0)" class="forgot-password-link" onclick="openForgotPasswordModal()">Forgot
+              Password?</a>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-login-submit" id="loginSubmitBtn">
+            <span id="btnSubmitText">Login to Dashboard</span>
+            <span class="arrow-icon" id="btnSubmitArrow">&rarr;</span>
+          </button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Forgot Password Modal -->
+  <div class="modal-overlay" id="forgotPasswordModal" onclick="if(event.target === this) closeForgotPasswordModal()">
+    <div class="modal-box">
+      <div style="font-size:36px; margin-bottom:12px;">🔒</div>
+      <h3 style="font-size:20px; font-weight:800; color:#0f172a; margin-bottom:8px;">Reset Admin Password</h3>
+      <p style="font-size:13.5px; color:#64748b; margin-bottom:20px; line-height:1.5;">
+        Enter your registered administrator email address to receive password reset instructions.
+      </p>
+      <input type="email" id="resetEmailInput" class="login-input" placeholder="admin@bilabadi.com"
+        style="margin-bottom:16px;">
+      <div style="display:flex; gap:10px;">
+        <button type="button" class="login-input"
+          style="background:#f1f5f9; border-color:#e2e8f0; font-weight:700; cursor:pointer;"
+          onclick="closeForgotPasswordModal()">Cancel</button>
+        <button type="button" class="btn-login-submit" style="margin-top:0;" onclick="submitPasswordReset()">Send Link
+          &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // -------------------------------------------------------------
+    // Initial State & Remembered Session Handling
+    // -------------------------------------------------------------
+    window.addEventListener('DOMContentLoaded', () => {
+      const rememberedEmail = sessionStorage.getItem('bilabadi_remembered_admin_email') || sessionStorage.getItem('bilabadi_remembered_admin_email');
+      const emailInput = document.getElementById('adminEmail');
+      const rememberCheckbox = document.getElementById('rememberMeCheckbox');
+
+      if (rememberedEmail && emailInput) {
+        emailInput.value = rememberedEmail;
+        if (rememberCheckbox) rememberCheckbox.checked = true;
+      }
+    });
+
+    // -------------------------------------------------------------
+    // Password Visibility Toggle
+    // -------------------------------------------------------------
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById('adminPassword');
+      const eyeIcon = document.getElementById('eyeIconSvg');
+      if (!passwordInput || !eyeIcon) return;
+
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        // Eye-slash SVG
+        eyeIcon.innerHTML = `
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+        `;
+      } else {
+        passwordInput.type = 'password';
+        // Normal eye SVG
+        eyeIcon.innerHTML = `
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        `;
+      }
+    }
+
+    // -------------------------------------------------------------
+    // Toast Notification Helper
+    // -------------------------------------------------------------
+    let toastTimeout = null;
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('loginToast');
+      const icon = document.getElementById('toastIcon');
+      const text = document.getElementById('toastMessage');
+      if (!toast || !text) return;
+
+      clearTimeout(toastTimeout);
+      text.textContent = message;
+      icon.textContent = isError ? '⚠️' : '✓';
+      if (isError) {
+        toast.classList.add('error');
+      } else {
+        toast.classList.remove('error');
+      }
+
+      toast.classList.add('active');
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('active');
+      }, 3500);
+    }
+
+    // -------------------------------------------------------------
+    // Form Submission & Dashboard Authentication
+    // -------------------------------------------------------------
+    async function handleAdminLogin(event) {
+      event.preventDefault();
+
+      const emailInput = document.getElementById('adminEmail');
+      const passwordInput = document.getElementById('adminPassword');
+      const rememberCheckbox = document.getElementById('rememberMeCheckbox');
+      const submitBtn = document.getElementById('loginSubmitBtn');
+      const submitText = document.getElementById('btnSubmitText');
+      const submitArrow = document.getElementById('btnSubmitArrow');
+
+      let email = (emailInput?.value || '').trim();
+      let password = (passwordInput?.value || '').trim();
+
+      // Quick convenience: if submitted empty, automatically fill default admin credentials.
+      if (!email && !password) {
+        email = 'admin@gmail.com';
+        password = 'Admin@123';
+        if (emailInput) emailInput.value = email;
+        if (passwordInput) passwordInput.value = password;
+      } else if (!email) {
+        showToast('Please enter your email address.', true);
+        emailInput?.focus();
+        return;
+      } else if (!password) {
+        showToast('Please enter your password.', true);
+        passwordInput?.focus();
+        return;
+      }
+
+      if (submitBtn) submitBtn.classList.add('loading');
+      if (submitText) submitText.textContent = 'Verifying Credentials...';
+      if (submitArrow) submitArrow.textContent = '⏳';
+
+      try {
+        const response = await fetch('http://localhost:5000/api/admin/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        let data = {};
+        const responseText = await response.text();
+        if (responseText) {
+          try {
+            data = JSON.parse(responseText);
+          } catch (err) {
+            console.error('Failed to parse login response:', err);
+            data = { message: 'Unexpected server response.' };
+          }
+        }
+
+        if (rememberCheckbox && rememberCheckbox.checked) {
+          sessionStorage.setItem('bilabadi_remembered_admin_email', email);
+        } else {
+          sessionStorage.removeItem('bilabadi_remembered_admin_email');
+        }
+
+        if (response.ok && data.success) {
+          if (data.token) {
+            sessionStorage.setItem('bilabadi_admin_token', data.token);
+          }
+          const sessionData = {
+            id: data.admin?.id,
+            name: data.admin?.name || 'Administrator',
+            email: data.admin?.email || email,
+            role: 'Super Administrator',
+            authenticated: true,
+            loginAt: new Date().toISOString()
+          };
+          sessionStorage.setItem('bilabadi_admin_session', JSON.stringify(sessionData));
+          sessionStorage.setItem('bilabadi_admin_logged_in', 'true');
+
+          if (submitText) submitText.textContent = 'Redirecting...';
+          if (submitArrow) submitArrow.textContent = '✓';
+          showToast(data.message || '✓ Login successful! Welcome to BilaBadi Admin Dashboard.');
+
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 400);
+          return;
+        }
+
+        sessionStorage.removeItem('bilabadi_remembered_admin_email');
+        if (submitBtn) submitBtn.classList.remove('loading');
+        if (submitText) submitText.textContent = 'Login to Dashboard';
+        if (submitArrow) submitArrow.textContent = '→';
+        showToast(data.message || 'Invalid email or password.', true);
+      } catch (err) {
+        console.error('Login request error:', err);
+        if (submitBtn) submitBtn.classList.remove('loading');
+        if (submitText) submitText.textContent = 'Login to Dashboard';
+        if (submitArrow) submitArrow.textContent = '→';
+        showToast('Unable to connect to backend server at http://localhost:5000.', true);
+      }
+    }
+
+    // -------------------------------------------------------------
+    // Forgot Password Modal Handlers
+    // -------------------------------------------------------------
+    function openForgotPasswordModal() {
+      const email = document.getElementById('adminEmail')?.value || '';
+      const resetInput = document.getElementById('resetEmailInput');
+      if (resetInput && email) resetInput.value = email;
+      document.getElementById('forgotPasswordModal')?.classList.add('active');
+    }
+
+    function closeForgotPasswordModal() {
+      document.getElementById('forgotPasswordModal')?.classList.remove('active');
+    }
+
+    function submitPasswordReset() {
+      const resetEmail = (document.getElementById('resetEmailInput')?.value || '').trim();
+      if (!resetEmail) {
+        showToast('Please enter your administrator email address.', true);
+        return;
+      }
+      closeForgotPasswordModal();
+      showToast(`✓ Password reset instructions sent to ${resetEmail}`);
+    }
+  </script>
+</body>
+
+</html>

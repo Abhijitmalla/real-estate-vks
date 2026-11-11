@@ -5,6 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard | BilaBadi Real Estate</title>
+
+  <!-- Authentication Guard: Redirect to login.html if not logged in -->
+  <script>
+    (function () {
+      try {
+        var isLoggedIn = sessionStorage.getItem('bilabadi_admin_logged_in') === 'true';
+        if (!isLoggedIn) {
+          window.location.replace('login.html');
+        }
+      } catch (e) {
+        window.location.replace('login.html');
+      }
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
@@ -1232,6 +1247,7 @@
       width: 100% !important;
       box-sizing: border-box !important;
     }
+
     .ck-editor__editable_inline {
       min-height: 150px !important;
       max-height: 380px !important;
@@ -1244,13 +1260,16 @@
       border-bottom-right-radius: 8px !important;
       padding: 12px 14px !important;
     }
+
     .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
       border-color: #cbd5e1 !important;
     }
+
     .ck.ck-editor__main>.ck-editor__editable.ck-focused {
       border-color: #10b981 !important;
       box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
     }
+
     .ck.ck-toolbar {
       background: #f8fafc !important;
       border-color: #cbd5e1 !important;
@@ -1601,15 +1620,29 @@
             </p>
           </div>
         </div>
-        <a href="../index.html" target="_blank" class="btn-view-site" title="Open live homepage in a new tab">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
-          </svg>
-          <span>View Live Website</span>
-        </a>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button type="button" class="btn-view-site" id="btnChangePassword" onclick="openChangePasswordModal()"
+            title="Change Admin Password" style="cursor: pointer; font-family: inherit;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>Change Password</span>
+          </button>
+          <a href="login.html"
+            onclick="sessionStorage.clear(); localStorage.removeItem('bilabadi_admin_logged_in'); localStorage.removeItem('bilabadi_admin_session'); localStorage.removeItem('bilabadi_admin_token');"
+            class="btn-view-site" style="background:#fef2f2; border-color:#fecaca; color:#b91c1c;"
+            title="Sign out to Login Page">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Logout</span>
+          </a>
+        </div>
       </div>
 
       <!-- ==============================================================
@@ -2189,21 +2222,26 @@
                   <select id="draftPropState" class="subprop-select" onchange="handleDraftStateChange(this.value)">
                     <!-- Populated dynamically with States -->
                   </select>
-                  <input type="text" id="draftPropCustomState" class="subprop-input" placeholder="Enter custom state" style="display:none; margin-top:6px;" oninput="handleDraftCustomLocationChange()">
+                  <input type="text" id="draftPropCustomState" class="subprop-input" placeholder="Enter custom state"
+                    style="display:none; margin-top:6px;" oninput="handleDraftCustomLocationChange()">
                 </div>
                 <div class="form-group">
                   <label class="field-label">City <span class="req-star">*</span></label>
                   <select id="draftPropCity" class="subprop-select" onchange="handleDraftCityChange(this.value)">
                     <!-- Populated dynamically based on State -->
                   </select>
-                  <input type="text" id="draftPropCustomCity" class="subprop-input" placeholder="Enter custom city" style="display:none; margin-top:6px;" oninput="handleDraftCustomLocationChange()">
+                  <input type="text" id="draftPropCustomCity" class="subprop-input" placeholder="Enter custom city"
+                    style="display:none; margin-top:6px;" oninput="handleDraftCustomLocationChange()">
                 </div>
                 <div class="form-group">
                   <label class="field-label">Locality / Area <span class="req-star">*</span></label>
-                  <select id="draftPropLocalitySelect" class="subprop-select" onchange="handleDraftLocalitySelectChange(this.value)">
+                  <select id="draftPropLocalitySelect" class="subprop-select"
+                    onchange="handleDraftLocalitySelectChange(this.value)">
                     <!-- Populated dynamically based on City -->
                   </select>
-                  <input type="text" id="draftPropCustomLocality" class="subprop-input" placeholder="Enter custom locality" style="display:none; margin-top:6px;" oninput="handleDraftCustomLocationChange()">
+                  <input type="text" id="draftPropCustomLocality" class="subprop-input"
+                    placeholder="Enter custom locality" style="display:none; margin-top:6px;"
+                    oninput="handleDraftCustomLocationChange()">
                 </div>
               </div>
 
@@ -2215,7 +2253,8 @@
                     <span style="font-size:11px; color:#059669; font-weight:700;">📍 Synced</span>
                   </label>
                   <input type="text" id="draftPropLocation" class="subprop-input"
-                    placeholder="e.g. Patia, Bhubaneswar, Odisha" readonly style="background:#f8fafc; font-weight:600; color:#1e293b;">
+                    placeholder="e.g. Patia, Bhubaneswar, Odisha" readonly
+                    style="background:#f8fafc; font-weight:600; color:#1e293b;">
                 </div>
                 <div class="form-group">
                   <label class="field-label">Starting Price <span class="req-star">*</span></label>
@@ -2474,13 +2513,13 @@
                 <img id="newBlogCoverPreview" src="../assets/blog_hero_tiruppur.jpg"
                   style="width:100px; height:65px; border-radius:8px; object-fit:cover; border:1px solid #cbd5e1; background:#f8fafc;">
                 <div style="flex:1;">
-                  <input type="text" id="newBlogCoverPath" class="subprop-input"
-                    value="" placeholder="Cover image path / URL (or browse file)">
+                  <input type="text" id="newBlogCoverPath" class="subprop-input" value=""
+                    placeholder="Cover image path / URL (or browse file)">
                 </div>
                 <label class="btn-browse-file">
                   Browse Cover
-                  <input type="file" id="newBlogCoverFileInput" accept="image/jpeg,image/png,image/webp" style="display:none;"
-                    onchange="handleNewBlogCover(event)">
+                  <input type="file" id="newBlogCoverFileInput" accept="image/jpeg,image/png,image/webp"
+                    style="display:none;" onchange="handleNewBlogCover(event)">
                 </label>
               </div>
             </div>
@@ -2488,8 +2527,11 @@
             <!-- Content Area (CKEditor) -->
             <div class="form-group" style="margin-bottom:14px;">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                <label class="field-label" style="margin:0;">Article Content / Summary <span class="req-star">*</span></label>
-                <span style="font-size:11px; font-weight:700; color:#059669; background:#ecfdf5; border:1px solid #a7f3d0; padding:2px 8px; border-radius:999px;">CKEditor WYSIWYG</span>
+                <label class="field-label" style="margin:0;">Article Content / Summary <span
+                    class="req-star">*</span></label>
+                <span
+                  style="font-size:11px; font-weight:700; color:#059669; background:#ecfdf5; border:1px solid #a7f3d0; padding:2px 8px; border-radius:999px;">CKEditor
+                  WYSIWYG</span>
               </div>
               <div id="newBlogEditorWrap">
                 <textarea id="newBlogContent" class="subprop-input" style="height:140px; padding:10px;"
@@ -2515,15 +2557,23 @@
           </div>
 
           <!-- Existing Blog Posts List -->
-          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+          <div
+            style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
             <div style="display:flex; align-items:center; gap:10px;">
               <h4 style="font-size:16px; font-weight:800; color:#0f172a; margin:0;">
                 Existing Blog Articles (<span id="existingBlogCount">0</span>)
               </h4>
-              <span style="font-size:12px; color:#64748b; font-weight:600; background:#f1f5f9; padding:2px 10px; border-radius:999px;">MySQL Synced</span>
+              <span
+                style="font-size:12px; color:#64748b; font-weight:600; background:#f1f5f9; padding:2px 10px; border-radius:999px;">MySQL
+                Synced</span>
             </div>
-            <button type="button" class="btn-reset" onclick="loadBlogArticlesFromApi(true)" style="padding:6px 14px; font-size:12.5px; display:inline-flex; align-items:center; gap:6px;">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            <button type="button" class="btn-reset" onclick="loadBlogArticlesFromApi(true)"
+              style="padding:6px 14px; font-size:12.5px; display:inline-flex; align-items:center; gap:6px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
               Refresh from Database
             </button>
           </div>
@@ -2558,7 +2608,8 @@
               </div>
               <div>
                 <h3 class="block-header-title">1. Hero Banner &amp; Top Texts</h3>
-                <p class="block-header-desc">Manage the top hero background image, main title, subtitle, and badge pill</p>
+                <p class="block-header-desc">Manage the top hero background image, main title, subtitle, and badge pill
+                </p>
               </div>
             </div>
           </div>
@@ -2582,8 +2633,8 @@
                   </svg>
                   <div class="dropzone-title" style="font-size:13px;">Upload Hero Background Image</div>
                   <div class="dropzone-sub" style="font-size:11px;">Select PNG, WebP or JPG file</div>
-                  <input type="file" id="servHeroBgFile" accept="image/jpeg,image/png,image/webp"
-                    style="display:none;" onchange="handleServHeroBgUpload(event)">
+                  <input type="file" id="servHeroBgFile" accept="image/jpeg,image/png,image/webp" style="display:none;"
+                    onchange="handleServHeroBgUpload(event)">
                 </div>
                 <div style="display:flex; gap:8px;">
                   <input type="text" id="servHeroBgUrl" class="subprop-input"
@@ -2619,12 +2670,15 @@
               <div class="block-icon-circle">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
                   <circle cx="12" cy="12" r="3"></circle>
-                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                  </path>
                 </svg>
               </div>
               <div>
                 <h3 class="block-header-title">2. What We Offer &amp; Service Cards</h3>
-                <p class="block-header-desc">Manage the section header and add, edit, or delete individual service cards</p>
+                <p class="block-header-desc">Manage the section header and add, edit, or delete individual service cards
+                </p>
               </div>
             </div>
             <button type="button" class="btn-add-primary" onclick="focusAddService()">+ Add Service Card</button>
@@ -2651,19 +2705,23 @@
           <div
             style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:14px; padding:18px; margin-bottom:22px;"
             id="addServiceFormWrap">
-            <div style="font-size:14px; font-weight:800; color:#064e3b; margin-bottom:10px;">+ Add New Service Card</div>
+            <div style="font-size:14px; font-weight:800; color:#064e3b; margin-bottom:10px;">+ Add New Service Card
+            </div>
             <div class="form-grid-3col" style="margin-bottom:12px;">
               <div class="form-group">
                 <label class="field-label">Service Title <span class="req-star">*</span></label>
-                <input type="text" id="newServTitle" class="subprop-input" placeholder="e.g. Legal & Title Verification">
+                <input type="text" id="newServTitle" class="subprop-input"
+                  placeholder="e.g. Legal & Title Verification">
               </div>
               <div class="form-group">
                 <label class="field-label">Service Icon (Emoji or FontAwesome)</label>
-                <input type="text" id="newServIcon" class="subprop-input" value="🔑" placeholder="🔑 or fa-solid fa-house">
+                <input type="text" id="newServIcon" class="subprop-input" value="🔑"
+                  placeholder="🔑 or fa-solid fa-house">
               </div>
               <div class="form-group">
                 <label class="field-label">Target Link URL</label>
-                <input type="text" id="newServLink" class="subprop-input" value="contact-us.html" placeholder="e.g. product-details.html">
+                <input type="text" id="newServLink" class="subprop-input" value="contact-us.html"
+                  placeholder="e.g. product-details.html">
               </div>
             </div>
 
@@ -2674,13 +2732,15 @@
             </div>
 
             <div style="display:flex; justify-content:flex-end;">
-              <button type="button" class="btn-add-primary" onclick="addNewServiceCard()">✓ Save &amp; Add Service</button>
+              <button type="button" class="btn-add-primary" onclick="addNewServiceCard()">✓ Save &amp; Add
+                Service</button>
             </div>
           </div>
 
           <!-- Services Grid -->
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Active Services (<span id="existingServCount">0</span>)</h4>
+            <h4 style="font-size:15px; font-weight:800; color:#0f172a;">Active Services (<span
+                id="existingServCount">0</span>)</h4>
           </div>
 
           <div class="form-grid-2col" id="servicesListContainer" style="margin-bottom:12px;">
@@ -2723,8 +2783,8 @@
                   </svg>
                   <div class="dropzone-title" style="font-size:13px;">Upload Showcase Image</div>
                   <div class="dropzone-sub" style="font-size:11px;">Select PNG, WebP or JPG file</div>
-                  <input type="file" id="servWhyImgFile" accept="image/jpeg,image/png,image/webp"
-                    style="display:none;" onchange="handleServWhyImgUpload(event)">
+                  <input type="file" id="servWhyImgFile" accept="image/jpeg,image/png,image/webp" style="display:none;"
+                    onchange="handleServWhyImgUpload(event)">
                 </div>
                 <div style="display:flex; gap:8px;">
                   <input type="text" id="servWhyImgUrl" class="subprop-input"
@@ -2744,28 +2804,33 @@
             </div>
             <div class="form-group">
               <label class="field-label">Headline / Title <span class="req-star">*</span></label>
-              <input type="text" id="servWhyTitle" class="subprop-input" value="Reliable, Transparent & Customer-Focused">
+              <input type="text" id="servWhyTitle" class="subprop-input"
+                value="Reliable, Transparent & Customer-Focused">
             </div>
           </div>
 
           <!-- Feature Badges Manager -->
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin-bottom:14px;">
+          <div
+            style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin-bottom:14px;">
             <div style="font-size:13px; font-weight:800; color:#0f172a; margin-bottom:10px;">+ Add Feature Badge</div>
             <div style="display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap;">
               <div class="form-group" style="flex:1; min-width:180px;">
                 <label class="field-label">Badge Icon (FontAwesome or Emoji)</label>
-                <input type="text" id="newWhyFeatIcon" class="subprop-input" placeholder="e.g. fa-solid fa-shield-halved or 🛡️">
+                <input type="text" id="newWhyFeatIcon" class="subprop-input"
+                  placeholder="e.g. fa-solid fa-shield-halved or 🛡️">
               </div>
               <div class="form-group" style="flex:2; min-width:200px;">
                 <label class="field-label">Badge Label <span class="req-star">*</span></label>
                 <input type="text" id="newWhyFeatLabel" class="subprop-input" placeholder="e.g. Trusted Platform">
               </div>
-              <button type="button" class="btn-add-primary" onclick="addNewWhyFeature()" style="margin-bottom:0;">+ Add Badge</button>
+              <button type="button" class="btn-add-primary" onclick="addNewWhyFeature()" style="margin-bottom:0;">+ Add
+                Badge</button>
             </div>
           </div>
 
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-            <h4 style="font-size:14px; font-weight:800; color:#0f172a;">Active Feature Badges (<span id="existingWhyFeaturesCount">0</span>)</h4>
+            <h4 style="font-size:14px; font-weight:800; color:#0f172a;">Active Feature Badges (<span
+                id="existingWhyFeaturesCount">0</span>)</h4>
           </div>
           <div class="form-grid-4col" id="whyFeaturesListContainer">
             <!-- Rendered dynamically -->
@@ -2800,12 +2865,14 @@
             </div>
             <div class="form-group">
               <label class="field-label">Section Subtitle</label>
-              <input type="text" id="servHowSubtitle" class="subprop-input" value="Get your desired property or list your own in just a few easy steps.">
+              <input type="text" id="servHowSubtitle" class="subprop-input"
+                value="Get your desired property or list your own in just a few easy steps.">
             </div>
           </div>
 
           <!-- Add Process Step Box -->
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin-bottom:14px;">
+          <div
+            style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px; margin-bottom:14px;">
             <div style="font-size:13px; font-weight:800; color:#0f172a; margin-bottom:10px;">+ Add Process Step</div>
             <div class="form-grid-4col" style="margin-bottom:8px;">
               <div class="form-group">
@@ -2814,7 +2881,8 @@
               </div>
               <div class="form-group">
                 <label class="field-label">Step Icon</label>
-                <input type="text" id="newHowStepIcon" class="subprop-input" placeholder="e.g. fa-solid fa-user-plus or 👤">
+                <input type="text" id="newHowStepIcon" class="subprop-input"
+                  placeholder="e.g. fa-solid fa-user-plus or 👤">
               </div>
               <div class="form-group" style="grid-column:span 2;">
                 <label class="field-label">Step Title <span class="req-star">*</span></label>
@@ -2823,7 +2891,8 @@
             </div>
             <div class="form-group" style="margin-bottom:10px;">
               <label class="field-label">Step Description <span class="req-star">*</span></label>
-              <input type="text" id="newHowStepDesc" class="subprop-input" placeholder="e.g. Sign up and set up your profile in minutes.">
+              <input type="text" id="newHowStepDesc" class="subprop-input"
+                placeholder="e.g. Sign up and set up your profile in minutes.">
             </div>
             <div style="display:flex; justify-content:flex-end;">
               <button type="button" class="btn-add-primary" onclick="addNewHowStep()">+ Add Step</button>
@@ -2831,7 +2900,8 @@
           </div>
 
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-            <h4 style="font-size:14px; font-weight:800; color:#0f172a;">Active Process Steps (<span id="existingHowStepsCount">0</span>)</h4>
+            <h4 style="font-size:14px; font-weight:800; color:#0f172a;">Active Process Steps (<span
+                id="existingHowStepsCount">0</span>)</h4>
           </div>
           <div class="form-grid-4col" id="howStepsListContainer">
             <!-- Rendered dynamically -->
@@ -2850,7 +2920,8 @@
               </div>
               <div>
                 <h3 class="block-header-title">5. Call-To-Action (CTA) Banner</h3>
-                <p class="block-header-desc">Manage the green bottom CTA banner heading, description, and action button</p>
+                <p class="block-header-desc">Manage the green bottom CTA banner heading, description, and action button
+                </p>
               </div>
             </div>
           </div>
@@ -3039,13 +3110,15 @@
               <div class="form-group">
                 <label class="field-label" style="display:flex; justify-content:space-between; align-items:center;">
                   <span>Contact Info Text (10-Digit Phone Number) <span class="req-star">*</span></span>
-                  <span id="newCardInfoTextCount" style="font-size:11px; color:#64748b; font-weight:700;">0/10 digits</span>
+                  <span id="newCardInfoTextCount" style="font-size:11px; color:#64748b; font-weight:700;">0/10
+                    digits</span>
                 </label>
                 <input type="tel" id="newCardInfoText" class="subprop-input" placeholder="e.g. 9910877219 (10 digits)"
                   maxlength="10" inputmode="numeric" pattern="[0-9]{10}"
                   oninput="handleContactInfoTextInput(this, 'newCardInfoTextCount', 'newCardInfoLink', 'newCardBtnLink')"
                   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
-                <div id="newCardInfoTextHint" style="font-size:11px; color:#64748b; margin-top:4px;">Enter exactly 10-digit mobile number (not more or less).</div>
+                <div id="newCardInfoTextHint" style="font-size:11px; color:#64748b; margin-top:4px;">Enter exactly
+                  10-digit mobile number (not more or less).</div>
               </div>
             </div>
 
@@ -3834,6 +3907,70 @@
     </div>
   </div>
 
+  <!-- Modal 3: Change Admin Password -->
+  <div class="admin-modal-overlay" id="changePasswordModal"
+    onclick="if(event.target === this) closeChangePasswordModal()">
+    <div class="admin-modal-card" style="max-width: 460px;">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>Change Admin Password</span>
+        </h3>
+        <button type="button" class="admin-modal-close" onclick="closeChangePasswordModal()" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div id="cpAlert" style="display: none; padding: 11px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 600; margin-bottom: 16px; line-height: 1.4;"></div>
+
+      <form id="changePasswordForm" onsubmit="handleChangePasswordSubmit(event)" autocomplete="off">
+        <!-- Old Password -->
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label class="field-label" for="cpOldPassword">Old Password <span class="req-star">*</span></label>
+          <div style="position: relative; display: flex; align-items: center;">
+            <input type="password" id="cpOldPassword" class="subprop-input" placeholder="Enter your current password" required style="padding-right: 42px;">
+            <button type="button" onclick="togglePasswordVisibility('cpOldPassword', this)" title="Show/Hide Password" style="position: absolute; right: 10px; background: none; border: none; cursor: pointer; color: #64748b; padding: 4px; display: flex; align-items: center;">
+              <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- New Password -->
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label class="field-label" for="cpNewPassword">New Password <span class="req-star">*</span></label>
+          <div style="position: relative; display: flex; align-items: center;">
+            <input type="password" id="cpNewPassword" class="subprop-input" placeholder="Enter new password (min. 6 characters)" required minlength="6" style="padding-right: 42px;">
+            <button type="button" onclick="togglePasswordVisibility('cpNewPassword', this)" title="Show/Hide Password" style="position: absolute; right: 10px; background: none; border: none; cursor: pointer; color: #64748b; padding: 4px; display: flex; align-items: center;">
+              <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label class="field-label" for="cpConfirmPassword">Confirm Password <span class="req-star">*</span></label>
+          <div style="position: relative; display: flex; align-items: center;">
+            <input type="password" id="cpConfirmPassword" class="subprop-input" placeholder="Re-enter new password" required minlength="6" style="padding-right: 42px;">
+            <button type="button" onclick="togglePasswordVisibility('cpConfirmPassword', this)" title="Show/Hide Password" style="position: absolute; right: 10px; background: none; border: none; cursor: pointer; color: #64748b; padding: 4px; display: flex; align-items: center;">
+              <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-modal-footer" style="margin-top: 10px;">
+          <button type="button" class="btn-reset" onclick="closeChangePasswordModal()">Cancel</button>
+          <button type="submit" id="btnSubmitChangePassword" class="btn-add-primary" style="display: inline-flex; align-items: center; gap: 6px;">
+            <span>✓ Update Password</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer"></div>
 
@@ -3960,7 +4097,7 @@
     let homeSectionApiLoaded = false;
     let homeSectionApiLoading = false;
     try {
-      const savedHome = localStorage.getItem('bilabadi_home_data');
+      const savedHome = sessionStorage.getItem('bilabadi_home_data');
       if (savedHome) homeData = normalizeHomeData(JSON.parse(savedHome));
     } catch (e) { }
 
@@ -3969,7 +4106,7 @@
     let propertiesApiLoaded = false;
 
     try {
-      const savedProps = localStorage.getItem('bilabadi_properties_data');
+      const savedProps = sessionStorage.getItem('bilabadi_properties_data');
       if (savedProps) {
         const parsed = JSON.parse(savedProps);
         if (Array.isArray(parsed)) {
@@ -4049,18 +4186,18 @@
     const blogCardEditorInstances = {};
 
     try {
-      localStorage.removeItem('bilabadi_blog_data');
+      sessionStorage.removeItem('bilabadi_blog_data');
     } catch (e) { }
 
     // 4. SERVICES DATA
     let servicesData = [];
 
     try {
-      const savedServ = localStorage.getItem('bilabadi_services_data');
+      const savedServ = sessionStorage.getItem('bilabadi_services_data');
       if (savedServ) {
         const parsed = JSON.parse(savedServ);
         if (Array.isArray(parsed) && parsed.length > 0 && typeof parsed[0].id === 'string' && parsed[0].id.startsWith('s')) {
-          localStorage.removeItem('bilabadi_services_data');
+          sessionStorage.removeItem('bilabadi_services_data');
           servicesData = [];
         } else if (Array.isArray(parsed)) {
           servicesData = parsed;
@@ -4080,7 +4217,7 @@
     };
 
     try {
-      const savedContact = localStorage.getItem('bilabadi_contact_data');
+      const savedContact = sessionStorage.getItem('bilabadi_contact_data');
       if (savedContact) contactData = JSON.parse(savedContact);
     } catch (e) { }
 
@@ -4586,7 +4723,7 @@
 
             renderHomeSection();
             try {
-              localStorage.setItem('bilabadi_home_data', JSON.stringify(homeData));
+              sessionStorage.setItem('bilabadi_home_data', JSON.stringify(homeData));
             } catch (storageError) {
               console.warn('Unable to cache homepage section locally:', storageError);
             }
@@ -4621,7 +4758,7 @@
       homeData.why_choose.badge_label = document.getElementById('whyBadgeLabelInput').value.trim();
 
       try {
-        localStorage.setItem('bilabadi_home_data', JSON.stringify(homeData));
+        sessionStorage.setItem('bilabadi_home_data', JSON.stringify(homeData));
       } catch (e) { }
 
       const saveBtn = document.querySelector('#homeSectionForm .btn-save');
@@ -4688,7 +4825,7 @@
             document.getElementById('whyImgPreview').src = wUrl;
             whyFileToUpload = null;
           }
-          localStorage.setItem('bilabadi_home_data', JSON.stringify(homeData));
+          sessionStorage.setItem('bilabadi_home_data', JSON.stringify(homeData));
           showToast('✓ Home Section (Banner, Texts, 4 Badges, Why Choose, Cities, Reviews) Saved Successfully to Database!');
         } else {
           showToast('Warning: ' + (resData.message || 'Error saving to backend'), true);
@@ -5652,7 +5789,7 @@
       prop.is_expanded = true;
 
       try {
-        localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+        sessionStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
       } catch (e) { }
 
       renderPropertiesManager();
@@ -5783,7 +5920,7 @@
               prop.sub_images = resData.sub_images.map(img =>
                 typeof img === 'string' && img.startsWith('/') ? 'http://localhost:5000' + img : img
               );
-              localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+              sessionStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
               renderPropertiesManager();
               showToast(`✓ Uploaded ${files.length} sub-images to Database for "${prop.title}".`);
               return;
@@ -5806,7 +5943,7 @@
       const loaded = await Promise.all(readPromises);
       const valid = loaded.filter(Boolean);
       prop.sub_images.push(...valid);
-      localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+      sessionStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
       renderPropertiesManager();
       showToast(`Uploaded ${valid.length} sub-images to "${prop.title}". Total: ${prop.sub_images.length}`);
     }
@@ -5818,7 +5955,7 @@
         prop.sub_images = (prop.sub_properties && prop.sub_properties[0] && prop.sub_properties[0].images) || [];
       }
       prop.sub_images.splice(imgIdx, 1);
-      localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+      sessionStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
       renderPropertiesManager();
       showToast('Sub-image removed');
 
@@ -6090,7 +6227,7 @@
 
       propertiesData.unshift(newProp);
       try {
-        localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+        sessionStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
       } catch (e) { }
 
       resetDraftPropertyForm();
@@ -6149,7 +6286,7 @@
             const resData = await res.json();
             if (resData.success && resData.image) {
               prop.image = resData.image.startsWith('/') ? 'http://localhost:5000' + resData.image : resData.image;
-              localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+              sessionStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
               renderPropertiesManager();
               showToast('Property cover updated in database');
               return;
@@ -6163,7 +6300,7 @@
       const reader = new FileReader();
       reader.onload = e => {
         prop.image = e.target.result;
-        localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+        sessionStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
         renderPropertiesManager();
         showToast('Property cover updated');
       };
@@ -6230,7 +6367,7 @@
       } catch (e) { }
 
       try {
-        localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+        sessionStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
       } catch (e) { }
 
       if (saveBtn) {
@@ -6340,7 +6477,7 @@
           });
           propertiesApiLoaded = true;
           try {
-            localStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
+            sessionStorage.setItem('bilabadi_properties_data', JSON.stringify(propertiesData));
           } catch (storageError) {
             console.warn('Unable to cache properties locally:', storageError);
           }
@@ -7231,7 +7368,7 @@
               sort_order: s.sort_order !== undefined ? s.sort_order : 0
             }));
             try {
-              localStorage.setItem('bilabadi_services_data', JSON.stringify(servicesData));
+              sessionStorage.setItem('bilabadi_services_data', JSON.stringify(servicesData));
             } catch (e) { }
           }
           servicesApiLoaded = true;
@@ -7424,7 +7561,7 @@
               sort_order: s.sort_order !== undefined ? s.sort_order : 0
             }));
             try {
-              localStorage.setItem('bilabadi_services_data', JSON.stringify(servicesData));
+              sessionStorage.setItem('bilabadi_services_data', JSON.stringify(servicesData));
             } catch (e) { }
             renderServicesList();
           }
@@ -7596,10 +7733,10 @@
     function handleEditContactInfoTextInput(inputEl) {
       const cardId = document.getElementById('editCardId')?.value;
       const card = contactCardsData.find(c => String(c.id) === String(cardId)) || contactCardsData[cardId];
-      const isPhoneCard = !card || (card.card_icon && card.card_icon.includes('phone')) || 
-                          (card.card_title && /call|phone/i.test(card.card_title)) || 
-                          (card.card_info_link && card.card_info_link.startsWith('tel:')) || 
-                          /^\d+$/.test(inputEl.value.replace(/\D/g, ''));
+      const isPhoneCard = !card || (card.card_icon && card.card_icon.includes('phone')) ||
+        (card.card_title && /call|phone/i.test(card.card_title)) ||
+        (card.card_info_link && card.card_info_link.startsWith('tel:')) ||
+        /^\d+$/.test(inputEl.value.replace(/\D/g, ''));
 
       if (isPhoneCard && inputEl.maxLength === 10) {
         const cleaned = formatToTenDigitPhone(inputEl.value);
@@ -7746,10 +7883,10 @@
       document.getElementById('editCardBadge').value = card.card_badge || '';
       document.getElementById('editCardSubtitle').value = card.card_subtitle || '';
 
-      const isPhoneCard = (card.card_icon && card.card_icon.includes('phone')) || 
-                          (card.card_title && /call|phone/i.test(card.card_title)) || 
-                          (card.card_info_link && card.card_info_link.startsWith('tel:')) || 
-                          /^\+?[\d\s-]{7,}$/.test(card.card_info_text || '');
+      const isPhoneCard = (card.card_icon && card.card_icon.includes('phone')) ||
+        (card.card_title && /call|phone/i.test(card.card_title)) ||
+        (card.card_info_link && card.card_info_link.startsWith('tel:')) ||
+        /^\+?[\d\s-]{7,}$/.test(card.card_info_text || '');
 
       const infoInp = document.getElementById('editCardInfoText');
       const countEl = document.getElementById('editCardInfoTextCount');
@@ -7805,10 +7942,10 @@
         return;
       }
 
-      const isPhoneCard = (card.card_icon && card.card_icon.includes('phone')) || 
-                          (card.card_title && /call|phone/i.test(card.card_title)) || 
-                          (card.card_info_link && card.card_info_link.startsWith('tel:')) ||
-                          document.getElementById('editCardInfoText')?.maxLength === 10;
+      const isPhoneCard = (card.card_icon && card.card_icon.includes('phone')) ||
+        (card.card_title && /call|phone/i.test(card.card_title)) ||
+        (card.card_info_link && card.card_info_link.startsWith('tel:')) ||
+        document.getElementById('editCardInfoText')?.maxLength === 10;
 
       const infoTextVal = (document.getElementById('editCardInfoText')?.value || '').trim();
 
@@ -8395,7 +8532,7 @@
       } catch (err) {
         console.warn('About API fetch offline, checking local cache:', err.message);
         try {
-          const local = localStorage.getItem('bilabadi_about_data');
+          const local = sessionStorage.getItem('bilabadi_about_data');
           if (local) {
             const parsed = JSON.parse(local);
             if (parsed.settings) aboutSettingsData = parsed.settings;
@@ -8478,7 +8615,7 @@
           }
         }
       } catch (e) {
-        console.warn('API save offline, saving to localStorage:', e);
+        console.warn('API save offline, saving to sessionStorage:', e);
       }
 
       // Sync feature cards
@@ -8497,7 +8634,7 @@
       }
 
       try {
-        localStorage.setItem('bilabadi_about_data', JSON.stringify({
+        sessionStorage.setItem('bilabadi_about_data', JSON.stringify({
           settings: aboutSettingsData,
           cards: aboutCardsData
         }));
@@ -8514,7 +8651,7 @@
       populateAboutSettingsInputs();
       renderAboutCardsList();
       try {
-        localStorage.removeItem('bilabadi_about_data');
+        sessionStorage.removeItem('bilabadi_about_data');
       } catch (e) { }
       showToast('About Us inputs cleared');
     }
@@ -8616,6 +8753,184 @@
 
       adminTypeLoop();
     }
+
+    /* ==============================================================
+       CHANGE ADMIN PASSWORD MODAL & API INTEGRATION
+       ============================================================== */
+    function openChangePasswordModal() {
+      const modal = document.getElementById('changePasswordModal');
+      const alertBox = document.getElementById('cpAlert');
+      const form = document.getElementById('changePasswordForm');
+      if (form) form.reset();
+      if (alertBox) {
+        alertBox.style.display = 'none';
+        alertBox.textContent = '';
+        alertBox.className = '';
+      }
+      // Reset all inputs back to type="password"
+      ['cpOldPassword', 'cpNewPassword', 'cpConfirmPassword'].forEach(id => {
+        const inp = document.getElementById(id);
+        if (inp) {
+          inp.type = 'password';
+          const btn = inp.parentElement?.querySelector('button');
+          if (btn) {
+            const eyeOpen = btn.querySelector('.eye-open');
+            const eyeClosed = btn.querySelector('.eye-closed');
+            if (eyeOpen) eyeOpen.style.display = '';
+            if (eyeClosed) eyeClosed.style.display = 'none';
+          }
+        }
+      });
+      if (modal) {
+        modal.classList.add('active');
+        setTimeout(() => {
+          document.getElementById('cpOldPassword')?.focus();
+        }, 100);
+      }
+    }
+
+    function closeChangePasswordModal() {
+      const modal = document.getElementById('changePasswordModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+      const eyeOpen = btn.querySelector('.eye-open');
+      const eyeClosed = btn.querySelector('.eye-closed');
+      if (eyeOpen) eyeOpen.style.display = isPassword ? 'none' : '';
+      if (eyeClosed) eyeClosed.style.display = isPassword ? '' : 'none';
+    }
+
+    async function handleChangePasswordSubmit(event) {
+      event.preventDefault();
+      const alertBox = document.getElementById('cpAlert');
+      const submitBtn = document.getElementById('btnSubmitChangePassword');
+      const oldPassword = document.getElementById('cpOldPassword')?.value || '';
+      const newPassword = document.getElementById('cpNewPassword')?.value || '';
+      const confirmPassword = document.getElementById('cpConfirmPassword')?.value || '';
+
+      const showAlert = (msg, isError = true) => {
+        if (!alertBox) return;
+        alertBox.style.display = 'block';
+        alertBox.textContent = msg;
+        if (isError) {
+          alertBox.style.background = '#fef2f2';
+          alertBox.style.color = '#b91c1c';
+          alertBox.style.border = '1.5px solid #fecaca';
+        } else {
+          alertBox.style.background = '#ecfdf5';
+          alertBox.style.color = '#065f46';
+          alertBox.style.border = '1.5px solid #a7f3d0';
+        }
+      };
+
+      if (!oldPassword.trim()) {
+        showAlert('Please enter your current old password.');
+        document.getElementById('cpOldPassword')?.focus();
+        return;
+      }
+
+      if (!newPassword) {
+        showAlert('Please enter a new password.');
+        document.getElementById('cpNewPassword')?.focus();
+        return;
+      }
+
+      if (newPassword.length < 6) {
+        showAlert('New password must be at least 6 characters long.');
+        document.getElementById('cpNewPassword')?.focus();
+        return;
+      }
+
+      if (newPassword !== confirmPassword) {
+        showAlert('New password and Confirm password do not match.');
+        document.getElementById('cpConfirmPassword')?.focus();
+        return;
+      }
+
+      if (oldPassword === newPassword) {
+        showAlert('New password cannot be the same as your old password.');
+        document.getElementById('cpNewPassword')?.focus();
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>⏳ Updating Password...</span>';
+      }
+      if (alertBox) alertBox.style.display = 'none';
+
+      try {
+        const token = sessionStorage.getItem('bilabadi_admin_token') || localStorage.getItem('bilabadi_admin_token') || '';
+        let sessionData = {};
+        try {
+          sessionData = JSON.parse(sessionStorage.getItem('bilabadi_admin_session') || localStorage.getItem('bilabadi_admin_session') || '{}');
+        } catch (e) {}
+
+        const headers = { 'Content-Type': 'application/json' };
+        if (token) {
+          headers['Authorization'] = 'Bearer ' + token;
+        }
+
+        const payload = {
+          oldPassword: oldPassword,
+          newPassword: newPassword,
+          email: sessionData.email || 'admin@gmail.com',
+          adminId: sessionData.id || 1
+        };
+
+        const res = await fetch('http://localhost:5000/api/admin/change-password', {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          showAlert('✓ ' + (data.message || 'Password changed successfully!') + ' Logging out...', false);
+          if (typeof showToast === 'function') {
+            showToast('✓ Password changed successfully! Logging out...');
+          }
+          document.getElementById('changePasswordForm')?.reset();
+
+          // Clear admin authentication session to log out
+          sessionStorage.clear();
+          localStorage.removeItem('bilabadi_admin_logged_in');
+          localStorage.removeItem('bilabadi_admin_session');
+          localStorage.removeItem('bilabadi_admin_token');
+
+          // Keep remembered email if user had an active email
+          if (sessionData && sessionData.email) {
+            sessionStorage.setItem('bilabadi_remembered_admin_email', sessionData.email);
+          }
+          sessionStorage.setItem('bilabadi_password_updated', 'true');
+
+          setTimeout(() => {
+            window.location.replace('login.html?pwd_updated=true');
+          }, 1200);
+        } else {
+          showAlert('❌ ' + (data.message || 'Failed to change password. Please check your old password.'));
+        }
+      } catch (err) {
+        console.error('Change Password Error:', err);
+        showAlert('❌ Network error: Could not connect to backend server. Make sure it is running on port 5000.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>✓ Update Password</span>';
+        }
+      }
+    }
+
+    // Escape key closes change password modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeChangePasswordModal();
+    });
 
     /* ==============================================================
        APP INITIALIZATION

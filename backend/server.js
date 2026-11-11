@@ -11,6 +11,7 @@ import blogRoutes from "./routes/blogRoutes.js";
 import servicesRoutes from "./routes/servicesRoutes.js";
 import contactUsRoutes from "./routes/contactUsRoutes.js";
 import aboutUsRoutes from "./routes/aboutUsRoutes.js";
+import adminRoutes from "./routes/adminLoginRoutes.js";
 // Import database
 import db from "./config/db.js";
 
@@ -47,7 +48,7 @@ app.use("/api/contact", contactUsRoutes);
 app.use("/api/contact-us", contactUsRoutes);
 app.use("/api/about", aboutUsRoutes);
 app.use("/api/about-us", aboutUsRoutes);
-
+app.use("/api/admin", adminRoutes);
 
 // Welcome route
 app.get("/", (req, res) => {
